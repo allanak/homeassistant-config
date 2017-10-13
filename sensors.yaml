@@ -13,8 +13,8 @@
    - download
 # Uber from home to airport times
 - platform: uber
-  start_latitude: 36.096569
-  start_longitude: -115.305837
+  start_latitude: !secret latitude
+  start_longitude: !secret longitude
   end_latitude: 36.085301
   end_longitude: -115.150393
   server_token: !secret uber_server_token
