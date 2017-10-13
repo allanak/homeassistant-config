@@ -2,6 +2,7 @@
 !*.yaml
 !scenes
 !.gitignore
+!.travis.yml
 secrets.yaml
 known_devices.yaml
 *.pickle
