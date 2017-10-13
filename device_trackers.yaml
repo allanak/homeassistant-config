@@ -1,0 +1,14 @@
+- platform: icloud
+  username: !secret icloud_username
+  password: !secret icloud_password
+  track_new_devices: yes
+  interval_seconds: 1800
+  consider_home: 180
+
+#- platform: owntracks
+
+- platform: unifi
+  host: !secret unifi_ap
+  username: !secret unifi_username
+  password: !secret unifi_password
+  verify_ssl: false

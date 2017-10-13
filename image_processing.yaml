@@ -1,0 +1,5 @@
+- platform: openalpr_cloud
+  api_key: !secret openalpr_api_key
+  region: us
+  source:
+   - entity_id: camera.driveway

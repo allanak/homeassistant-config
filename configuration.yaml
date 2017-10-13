@@ -1,0 +1,126 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+# Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 814
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Los_Angeles
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret api_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  base_url: !secret ha_url
+#  ssl_certificate: /ssl/fullchain.pem
+#  ssl_key: /ssl/privkey.pem
+  server_port: 8123
+
+mqtt:
+  broker: !secret mqtt_broker
+  port: !secret mqtt_port
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  client_id: home-assistant-1
+  discovery: true
+  discovery_prefix: smartthings
+  keepalive: 60
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Enable iOS
+ios:
+
+# Weather prediction
+#sensor:
+#  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+# Includes
+# Devices
+light: !include light.yaml
+media_player: !include media_players.yaml
+switch: !include switches.yaml
+sensor: !include sensors.yaml
+binary_sensor: !include binary_sensors.yaml
+lock: !include locks.yaml
+#envisalink: !include envisalink.yaml
+cover: !include cover.yaml
+
+#input_boolean: !include input_boolean.yaml
+#input_select: !include input_selectors.yaml
+
+# Private includes for things that contain sensitive data like api keys
+ring: !include ring.yaml
+device_tracker: !include device_trackers.yaml
+#bloomsky: !include bloomsky.yaml
+camera: !include cameras.yaml
+ecobee: !include ecobee.yaml
+ifttt: !include ifttt.yaml
+#logentries: !include logentries.yaml
+notify: !include notify.yaml
+
+# Other configs
+logger: !include logger.yaml
+#shell_command: !include shell_commands.yaml
+#alexa: !include alexa.yaml
+#scene: !include scenes.yaml
+google: !include google.yaml
+remote: !include remote.yaml
+#image_processing: !include image_processing.yaml
+#tesla: !include tesla.yaml
+
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: http://hassio:3218
+  mdiindex:
+    title: MD Icon Index
+    icon: mdi:vector-square
+    url: https://cdn.rawgit.com/james-fry/home-assistant-mdi/efd95d7a/home-assistant-mdi.html
+

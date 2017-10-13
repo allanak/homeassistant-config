@@ -1,0 +1,119 @@
+device_tracker.allankleinsiphone:
+  friendly_name: Allan
+  icon: mdi:cellphone-iphone
+light.kitchen_lights:
+  friendly_name: Kitchen
+  icon: mdi:spotlight-beam
+light.breakfast_bar_lights:
+  friendly_name: Breakfast Bar
+  icon: mdi:food-apple
+light.dining_room_lights:
+  friendly_name: Dining Room
+  icon: mdi:food
+light.bar_lights:
+  friendly_name: Bar
+  icon: mdi:martini
+light.theatre_lights:
+  friendly_name: Theatre
+  icon: mdi:spotlight-beam
+light.backyard_lights:
+  icon: mdi:lightbulb
+light.backyard_floodlights:
+  icon: mdi:spotlight-beam
+light.garden_lights:
+  friendly_name: Garden
+light.driveway_lights:
+  icon: mdi:car
+  friendly_name: Driveway
+light.closet_lights:
+  icon: mdi:hanger
+light.balcony_lights:
+  icon: mdi:lightbulb
+  friendly_name: Balcony
+light.office_lights:
+  icon: mdi:spotlight-beam
+light.guest_bedroom_lights:
+  icon: mdi:spotlight-beam
+light.rear_bedroom_lights:
+  icon: mdi:spotlight-beam
+switch.guest_bedroom_fan:
+  icon: mdi:fan
+switch.rear_bedroom_fan:
+  icon: mdi:fan
+sensor.garage_door:
+  icon: mdi:car
+light.porch_lights:
+  icon: mdi:lightbulb
+  friendly_name: Porch
+light.stairwell:
+  icon: mdi:stairs
+light.bed:
+  icon: mdi:hotel
+sensor.garage_motion:
+  friendly_name: Garage
+sensor.back_door:
+  icon: mdi:glassdoor
+sensor.garage_entry:
+  icon: mdi:glassdoor
+sensor.balcony_door:
+  icon: mdi:glassdoor
+sensor.front_door_contact:
+  icon: mdi:glassdoor
+  friendly_name: Front Door
+sensor.stairwell_motion:
+  friendly_name: Stairwell
+switch.stream_music:
+  icon: mdi:radio
+switch.shield:
+  icon: mdi:shield
+switch.cable:
+  icon: mdi:television-guide
+switch.receiver:
+  icon: mdi:surround-sound
+input_select.receiver_source:
+  icon: mdi:radio
+switch.towel_rack:
+  icon: mdi:radiator
+sensor.master_bedroom_motion:
+  friendly_name: Master Bedroom
+sensor.master_closet_motion:
+  icon: mdi:hanger
+  friendly_name: Master Closet
+sensor.kitchen_motion:
+  icon: mdi:food
+  friendly_name: Kitchen
+sensor.garage_temp:
+  friendly_name: Garage
+sensor.master_bath_temp:
+  friendly_name: Master Bath
+sensor.master_bedroom_temp:
+  friendly_name: Master Bedroom
+sensor.kitchen_temp:
+  friendly_name: Kitchen
+sensor.battery_allansiphone:
+  friendly_name: Allan's Battery
+  icon: mdi:battery
+switch.alarm_toggle:
+  icon: mdi:security-network
+sensor.extra_bedroom_window:
+  icon: mdi:window-closed
+sensor.guest_bedroom_window:
+  icon: mdi:window-closed
+sensor.master_bedroom_left_window:
+  icon: mdi:window-closed
+sensor.master_bedroom_right_window:
+  icon: mdi:window-closed
+sensor.master_bath_window:
+  icon: mdi:window-closed
+media_player.txnr636_0009b0ab42c3:
+  friendly_name: Onkyo Receiver
+media_player.living_room:
+  friendly_name: Apple TV
+  icon: mdi:apple
+sensor.deliveries_today:
+  icon: mdi:package-variant
+sensor.packages_in_transit:
+  icon: mdi:truck-delivery
+cover.garage:
+  icon: mdi:garage
+  homebridge_cover_type: garage_door

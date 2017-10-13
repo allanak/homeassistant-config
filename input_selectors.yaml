@@ -1,0 +1,11 @@
+receiver_source:
+  name: Receiver Input
+  options:
+  - Cable
+  - Shield
+  - FireTV
+  - Music
+  - PC 
+  - NVR
+  icon: mdi:television
+  initial: Shield

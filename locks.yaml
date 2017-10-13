@@ -1,0 +1,26 @@
+- platform: mqtt
+  name: "Front Door Lock"
+  state_topic: "smartthings/Front Door/lock"
+  command_topic: "smartthings/Front Door/lock"
+  payload_lock: "locked"
+  payload_unlock: "unlocked"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Back Door Lock"
+  state_topic: "smartthings/Back Door/lock"
+  command_topic: "smartthings/Back Door/lock"
+  payload_lock: "locked"
+  payload_unlock: "unlocked"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Back Gate Lock"
+  state_topic: "smartthings/Back Gate/lock"
+  command_topic: "smartthings/Back Gate/lock"
+  payload_lock: "locked"
+  payload_unlock: "unlocked"
+  optimistic: false
+  retain: true

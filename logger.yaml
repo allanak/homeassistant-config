@@ -1,0 +1,5 @@
+default: info
+logs:
+  requests.packages.urllib3.connectionpool: warn
+  homeassistant.components.sensor: warn
+  homeassistant.components.calendar: debug

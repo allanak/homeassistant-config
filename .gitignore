@@ -1,0 +1,17 @@
+*
+!*.yaml
+!scenes
+!.gitignore
+secrets.yaml
+known_devices.yaml
+*.pickle
+html5_push_registrations.conf
+plex.conf
+ecobee.conf
+*.db
+*.log
+.google.token
+.ios.conf
+.ring_cache.pickle
+.uuid
+allanallankcom

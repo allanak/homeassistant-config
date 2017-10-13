@@ -1,0 +1,47 @@
+- platform: plex
+  entity_namespace: 'plex'
+
+#- platform: cast
+#  host: cca-bedroom
+
+#- platform: cast
+#  host: cca-kitchen
+
+#- platform: cast
+#  host: cca-masterbedreceiver
+
+#- platform: cast
+#  host: cca-receiver
+
+#- platform: cast
+#  host: cc-guestbedroom
+
+#- platform: cast
+#  host: ghome-office
+
+#- platform: cast
+#  host: ghome-theater
+
+#- platform: cast
+#  host: shield
+
+- platform: onkyo
+  host: onkyo
+  name: onkyo_theater
+  sources:
+    bd-dvd: 'Shield'
+    phono: 'Chromecast'
+    internet-radio: 'SiriusXM'
+    video4: 'Apple TV'
+    video5: 'Raspberry Pi'
+    video7: 'Security Cameras'
+
+#- platform: kodi
+#  host: shield
+#  port: 8080
+#  name: Kodi
+
+#- platform: firetv
+#  host: localhost:5556
+#  device: master-firetv
+#  name: Master FireTV

@@ -1,0 +1,245 @@
+default_view:
+ name: Downstairs
+ icon: mdi:home
+ view: yes
+ entities:
+  - group.downstairs_lights
+  - group.outdoor_lights
+  - group.entertainment
+
+upstairs:
+ view: yes
+ icon: mdi:hotel
+ entities:
+  - group.master_bedroom
+  - group.master_bathroom
+
+cameras:
+ name: Cameras
+ view: yes
+ icon: mdi:camcorder
+ entities:
+  - camera.front_door
+  - camera.downstairs
+  - camera.backyard
+  - camera.west_gate
+  - camera.driveway
+  - camera.extra
+
+Weather:
+ name: Weather
+ view: yes
+ icon: mdi:weather-sunny
+ entities:
+  - group.climate
+  - group.forecast
+
+security:
+ view: yes
+ icon: mdi:security-home
+ entities:
+  - lock.front_door_lock
+  - lock.back_door_lock
+  - lock.back_gate_lock
+  - group.door_sensors
+  - group.motion_sensors
+  - group.window_sensors
+
+events:
+ view: yes
+ name: Events
+ icon: mdi:calendar
+ entities:
+  - calendar.allan_klein_tripit
+  - calendar.allanallankcom
+  - calendar.holidays_in_united_states
+  - sensor.uberx_price
+  - sensor.uberx_time
+  - sensor.fedex
+
+deliveries:
+ name: Deliveries
+ icon: mdi:package-variant
+ entities:
+  - sensor.usps_packages
+  - sensor.fedex
+  - sensor.packages_in_transit
+  - sensor.deliveries_today
+
+master_bedroom:
+ name: Master Bedroom
+ entities:
+  - light.stairwell_lights
+  - light.office_lights
+  - light.balcony_lights
+  - light.bed
+  - light.master_bedroom_front_lights
+  - light.master_bedroom_rear_lights
+
+master_bathroom:
+ name: Master Bathroom
+ entities:
+  - light.closet_lights
+  - light.master_bath_left_light
+  - light.master_bath_right_light
+  - switch.towel_rack
+
+downstairs_lights:
+ name: Downstairs Lights
+ control: hidden
+ entities:
+  - light.kitchen_lights
+  - light.breakfast_bar_lights
+  - light.theatre_lights
+  - light.dining_room_lights
+  - light.bar_lights
+  - light.neon_lights
+  - light.hall_light
+  - switch.theatre_switch
+  - light.garage_lights
+
+guest_bedroom:
+ name: Guest Bedroom
+ view: no
+ entities:
+  - media_player.guest_bedroom
+  - media_player.guest_bedroom2
+  - light.guest_bedroom_lights
+  - switch.guest_bedroom_fan
+
+rear_bedroom:
+ name: Rear Bedroom
+ view: no
+ entities:
+  - light.rear_bedroom_lights
+  - switch.rear_bedroom_fan
+
+guest_bedrooms:
+ name: Guest Bedrooms
+ view: yes
+ icon: mdi:account-multiple
+ entities:
+  - group.guest_bedroom
+  - group.rear_bedroom
+  - group.trackers
+
+outdoor_lights:
+ name: Outdoor Lights
+ entities:
+  - light.porch_lights
+  - light.balcony_lights
+  - light.backyard_floodlights
+  - light.backyard_lights
+  - light.garden_lights
+  - light.driveway_lights
+
+climate:
+ name: Climate
+ entities:
+  - climate.upstairs
+  - climate.downstairs
+  - sensor.master_bedroom_temp
+  - sensor.bedroom_temperature
+  - sensor.livingroom_temperature
+  - sensor.master_bath_temp
+  - sensor.kitchen_temp
+
+forecast:
+ name: Forecast
+ entities:
+  - sensor.pws_weather
+  - sensor.pws_feelslike_f
+  - sensor.pws_weather_1d
+  - sensor.pws_weather_1n
+  - sensor.pws_weather_2d
+  - sensor.pws_weather_2n
+  - sensor.pws_weather_3d
+  - sensor.pws_weather_3n
+
+motion_sensors:
+ name: Motion
+ entities:
+  - sensor.bedroom_occupancy
+  - sensor.upstairs_occupancy
+  - sensor.downstairs_occupancy
+  - sensor.livingroom_occupancy
+  - sensor.master_bedroom_motion
+  - sensor.master_closet_motion
+  - sensor.master_bath_motion
+  - sensor.kitchen_motion
+  - sensor.stairwell_motion
+
+trackers:
+ name: Trackers
+ entities:
+  - device_tracker.allankleinsiphone
+  - device_tracker.applewatch
+  - device_tracker.evaniphone
+
+entries:
+ entities:
+   - lock.front_door_lock
+   - lock.back_door_lock
+   - lock.back_gate_lock
+
+door_sensors:
+ name: Doors
+ entities:
+  - cover.garage_door
+  - sensor.front_door_contact
+  - sensor.back_door_contact
+  - sensor.garage_entry
+  - sensor.balcony_door
+  - sensor.back_door
+
+window_sensors:
+ name: Windows
+ entities:
+  - sensor.master_bath_window
+  - sensor.master_bedroom_left_window
+  - sensor.master_bedroom_right_window
+  - sensor.guest_bedroom_window
+  - sensor.extra_bedroom_window
+
+entertainment:
+ name: Entertainment
+ view: yes
+ icon: mdi:television-guide
+ entities:
+  - group.plex_media
+  - group.media_players
+
+media_players:
+ name: Media Players
+ view: no
+ entities:
+  - media_player.home_group
+  - media_player.upstairs
+#  - media_player.receiver
+#  - media_player.master_bedroom_receiver
+#  - media_player.master_bedroom
+#  - media_player.living_room_home
+#  - media_player.kitchen
+#  - media_player.bathroom_home
+#  - media_player.kitchen
+
+
+plex_media:
+ name:  Plex DVR
+ entities:
+  - sensor.sonarr_upcoming
+  - sensor.sonarr_wanted
+  - sensor.sonarr_series
+  - sensor.radarr_upcoming
+  - sensor.nzbget_speed
+
+alarm:
+ name: Alarm
+ entities:
+  - alarm_control_panel.home
+  - sensor.home_keypad
+
+Testing:
+ view: yes
+ entities:
+  - configurator.ecobee

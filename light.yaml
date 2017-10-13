@@ -1,0 +1,267 @@
+- platform: mqtt
+  name: "Kitchen Lights"
+  state_topic: "smartthings/Kitchen Lights/switch/state"
+  command_topic: "smartthings/Kitchen Lights/switch/cmd"
+  brightness_state_topic: "smartthings/Kitchen Lights/level/state"
+  brightness_command_topic: "smartthings/Kitchen Lights/level/cmd"
+  brightness_scale: 100
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Garden Lights"
+  state_topic: "smartthings/Garden Lights/switch/state"
+  command_topic: "smartthings/Garden Lights/switch/cmd"
+  brightness_state_topic: "smartthings/Garden Lights/level/state"
+  brightness_command_topic: "smartthings/Garden Lights/level/cmd"
+  rgb_state_topic: "smartthings/Garden Lights/color"
+  rgb_command_topic: "smartthings/Garden Lights/color"
+  brightness_scale: 100
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Theater Lights"
+  state_topic: "smartthings/Theater Lights/switch/state"
+  command_topic: "smartthings/Theater Lights/switch/cmd"
+  brightness_state_topic: "smartthings/Theater Lights/level/state"
+  brightness_command_topic: "smartthings/Theater Lights/level/cmd"
+  brightness_scale: 100
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Office Lights"
+  state_topic: "smartthings/Office Lights/switch/state"
+  command_topic: "smartthings/Office Lights/switch/cmd"
+  brightness_state_topic: "smartthings/Office Lights/level/state"
+  brightness_command_topic: "smartthings/Office Lights/level/cmd"
+  brightness_scale: 100
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Bar Lights"
+  state_topic: "smartthings/Bar Lights/switch/state"
+  command_topic: "smartthings/Bar Lights/switch/cmd"
+  brightness_state_topic: "smartthings/Bar Lights/level/state"
+  brightness_command_topic: "smartthings/Bar Lights/level/cmd"
+  brightness_scale: 100
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Neon Lights"
+  state_topic: "smartthings/Neon Lights/switch/state"
+  command_topic: "smartthings/Neon Lights/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Dining Room Lights"
+  state_topic: "smartthings/Dining Room Lights/switch/state"
+  command_topic: "smartthings/Dining Room Lights/switch/cmd"
+  brightness_state_topic: "smartthings/Dining Room Lights/level/state"
+  brightness_command_topic: "smartthings/Dining Room Lights/level/cmd"
+  brightness_scale: 100
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Breakfast Bar Lights"
+  state_topic: "smartthings/Breakfast Bar/switch/state"
+  command_topic: "smartthings/Breakfast Bar/switch/cmd"
+  brightness_state_topic: "smartthings/Breakfast Bar/level/state"
+  brightness_command_topic: "smartthings/Breakfast Bar/level/cmd"
+  brightness_scale: 100
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Stairwell Lights"
+  state_topic: "smartthings/Stairwell/switch/state"
+  command_topic: "smartthings/Stairwell/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Garage Lights"
+  state_topic: "smartthings/Garage Lights/switch/state"
+  command_topic: "smartthings/Garage Lights/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Porch Lights"
+  state_topic: "smartthings/Porch Lights/switch/state"
+  command_topic: "smartthings/Porch Lights/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Hall Light"
+  state_topic: "smartthings/Downstairs Hall/switch/state"
+  command_topic: "smartthings/Downstairs Hall/switch/cmd"
+  brightness_state_topic: "smartthings/Downstairs Hall/level/state"
+  brightness_command_topic: "smartthings/Downstairs Hall/level/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Master Bedroom Front Lights"
+  state_topic: "smartthings/Master Bedroom Front Lights/switch/state"
+  command_topic: "smartthings/Master Bedroom Front Lights/switch/cmd"
+  brightness_state_topic: "smartthings/Master Bedroom Front Lights/level/state"
+  brightness_command_topic: "smartthings/Master Bedroom Front Lights/level/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Master Bedroom Rear Lights"
+  state_topic: "smartthings/Master Bedroom Rear Lights/switch/state"
+  command_topic: "smartthings/Master Bedroom Rear Lights/switch/cmd"
+  brightness_state_topic: "smartthings/Master Rear Front Lights/level/state"
+  brightness_command_topic: "smartthings/Master Rear Front Lights/level/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Master Bath Left Light"
+  state_topic: "smartthings/Master Bath Left Light/switch/state"
+  command_topic: "smartthings/Master Bath Left Light/switch/cmd"
+  brightness_state_topic: "smartthings/Master Bath Left Light/level/state"
+  brightness_command_topic: "smartthings/Master Bath Left Light/level/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Master Bath Right Light"
+  state_topic: "smartthings/Master Bath Right Light/switch/state"
+  command_topic: "smartthings/Master Bath Right Light/switch/cmd"
+  brightness_state_topic: "smartthings/Master Bath Right Light/level/state"
+  brightness_command_topic: "smartthings/Master Bath Right Light/level/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+
+#- platform: mqtt
+#  name: "Receiver"
+#  state_topic: "smartthings/Receiver/switch"
+#  command_topic: "smartthings/Receiver/switch"
+#  payload_on: "on"
+#  payload_off: "off"
+#  optimistic: false
+#  retain: true
+
+- platform: mqtt
+  name: "Downstairs Lamp"
+  state_topic: "smartthings/Downstairs Lamp/switch/state"
+  command_topic: "smartthings/Downstairs Lamp/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Backyard Lights"
+  state_topic: "smartthings/Backyard Lights/switch/state"
+  command_topic: "smartthings/Backyard Lights/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Backyard Floodlights"
+  state_topic: "smartthings/Backyard Floodlights/switch/state"
+  command_topic: "smartthings/Backyard Floodlights/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Balcony Lights"
+  state_topic: "smartthings/Balcony Lights/switch/state"
+  command_topic: "smartthings/Balcony Lights/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Driveway Lights"
+  state_topic: "smartthings/Driveway Lights/switch/state"
+  command_topic: "smartthings/Driveway Lights/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Bed"
+  state_topic: "smartthings/Bed/switch/state"
+  command_topic: "smartthings/Bed/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Closet Lights"
+  state_topic: "smartthings/Master Closet Lights/switch/state"
+  command_topic: "smartthings/Master Closet Lights/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Guest Bedroom Lights"
+  state_topic: "smartthings/Guest Bedroom Lights/switch/state"
+  command_topic: "smartthings/Guest Bedroom Lights/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
+  name: "Rear Bedroom Lights"
+  state_topic: "smartthings/Rear Bedroom Lights/switch/state"
+  command_topic: "smartthings/Rear Bedroom Lights/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true

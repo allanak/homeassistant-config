@@ -1,0 +1,30 @@
+
+- cal_id: 3hk3jrurlh7n465cqo2opp27acmjhpnq@import.calendar.google.com
+  entities:
+  - device_id: tripit
+    name: TripIt
+    track: true
+
+- cal_id: allan@allank.com
+  entities:
+  - device_id: allan
+    name: Allan's Calendar
+    track: true
+
+- cal_id: '#contacts@group.v.calendar.google.com'
+  entities:
+  - device_id: contacts
+    name: Contacts
+    track: true
+
+- cal_id: en.usa#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: holidays_in_united_states
+    name: Holidays in United States
+    track: true
+
+- cal_id: p#weather@group.v.calendar.google.com
+  entities:
+  - device_id: weather_29651
+    name: 'Weather: 29651'
+    track: false

@@ -1,0 +1,212 @@
+- platform: plex
+  host: !secret plex_host
+  name: !secret plex_name
+  username: !secret plex_username
+  password: !secret plex_password
+
+- platform: cert_expiry
+  host: !secret ha_url
+- platform: speedtest
+  hour:
+   - 12
+  monitored_conditions:
+   - download
+# Uber from home to airport times
+- platform: uber
+  start_latitude: 36.096569
+  start_longitude: -115.305837
+  end_latitude: 36.085301
+  end_longitude: -115.150393
+  server_token: !secret uber_server_token
+  #product_ids:
+    #- '98e1b29f-0cbd-47e6-adb8-6c32c28a0986'
+    #- 'd6b63d6e-24b6-44d2-b910-ed8978340eec'
+    #- '78ea50a9-f7f0-430f-9468-248c7206c225'
+
+#- platform: usps
+#  username: !secret myusps_username
+#  password: !secret myusps_password
+
+- platform: ups
+  username: !secret upsmychoice_username
+  password: !secret upsmychoice_password
+
+- platform: fedex
+  username: !secret fedex_username
+  password: !secret fedex_password
+
+- platform: sonarr
+  api_key: !secret sonarr_api_key
+  host: !secret sonarr_host
+  port: 443
+  ssl: true
+  monitored_conditions:
+    - series
+    - upcoming
+    - wanted
+    - queue
+  days: 2
+
+- platform: radarr
+  api_key: !secret radarr_api_key
+  host: !secret radarr_host
+  port: 443
+  ssl: true
+  monitored_conditions:
+    - movies
+    - status
+    - upcoming
+  days: 2
+
+- platform: nzbget
+  host: !secret nzbget_host
+  username: !secret nzbget_username
+  password: !secret nzbget_password
+  ssl: true
+  port: 443
+  monitored_variables:
+    - download_rate
+    - download_paused
+
+#- platform: template
+#  sensors:
+#    packages_in_transit:
+#      friendly_name: "Packages in Transit"
+#      value_template: >
+#        {% macro in_transit(sensor) %}
+#          {{sensor.state|int - delivered(sensor)|int}}
+#        {% endmacro %}
+#        {% macro delivered(sensor) %}
+#          {% if 'delivered' in sensor.attributes %}
+#            {{sensor.attributes.delivered}}
+#          {% else %}
+#             0
+#          {% endif %}
+#        {% endmacro %}
+#        {{in_transit(states.sensor.usps_packages)|int + in_transit(states.sensor.ups)|int + in_transit(states.sensor.fedex)|int}}
+#    deliveries_today:
+#      friendly_name: "Today's Deliveries"
+#      value_template: >
+#        {% macro delivered(sensor) %}
+#          {% if 'delivered' in sensor.attributes %}
+#            {{sensor.attributes.delivered}}
+#          {% else %}
+#             0
+#          {% endif %}
+#        {% endmacro %}
+#        {{delivered(states.sensor.usps_packages)|int + delivered(states.sensor.ups)|int + delivered(states.sensor.fedex)|int}}
+
+
+- platform: wunderground
+  api_key: !secret wunderground_api_key
+  monitored_conditions:
+   - alerts
+   - feelslike_f
+   - heat_index_f
+   - relative_humidity
+   - station_id
+   - temperature_string
+   - temp_f
+   - UV
+   - weather
+   - wind_gust_mph
+   - wind_mph
+   - wind_string
+   - weather_1d
+   - weather_1n
+   - weather_2d
+   - weather_2n
+   - weather_3d
+   - weather_3n
+
+#- platform: mqtt
+#  state_topic: "smartthings/Garage Motion/temperature/state"
+#  name: "Garage Temp"
+#  unit_of_measurement: "°F"
+
+- platform: mqtt
+  state_topic: "smartthings/Master Closet Motion/temperature/state"
+  name: "Master Bedroom Temp"
+  unit_of_measurement: "°F"
+
+- platform: mqtt
+  state_topic: "smartthings/Master Bath Motion/temperature/state"
+  name: "Master Bath Temp"
+  unit_of_measurement: "°F"
+
+- platform: mqtt
+  state_topic: "smartthings/Kitchen Motion/temperature/state"
+  name: "Kitchen Temp"
+  unit_of_measurement: "°F"
+
+#- platform: mqtt
+#  state_topic: "smartthings/Garage Motion/motion/state"
+#  name: "Garage Motion"
+
+- platform: mqtt
+  state_topic: "smartthings/Downstairs Motion/motion/state"
+  name: "Downstairs Motion"
+
+- platform: mqtt
+  state_topic: "smartthings/Master Bedroom Motion/motion/state"
+  name: "Master Bedroom Motion"
+
+- platform: mqtt
+  state_topic: "smartthings/Master Bath Motion/motion/state"
+  name: "Master Bath Motion"
+
+- platform: mqtt
+  state_topic: "smartthings/Kitchen Motion/motion/state"
+  name: "Kitchen Motion"
+
+- platform: mqtt
+  state_topic: "smartthings/Master Bath Window/contact/state"
+  name: "Master Bath Window"
+
+- platform: mqtt
+  state_topic: "smartthings/Front Door ST/contact/state"
+  name: "Front Door Contact"
+
+- platform: mqtt
+  state_topic: "smartthings/Garage Entry/contact/state"
+  name: "Garage Entry"
+
+- platform: mqtt
+  state_topic: "smartthings/Back Door Contact/contact/state"
+  name: "Back Door"
+
+- platform: mqtt
+  state_topic: "smartthings/Balcony Door/contact/state"
+  name: "Balcony Door"
+
+- platform: mqtt
+  state_topic: "smartthings/Master Left Window/contact/state"
+  name: "Master Bedroom Left Window"
+
+- platform: mqtt
+  state_topic: "smartthings/Master Right Window/contact/state"
+  name: "Master Bedroom Right Window"
+
+- platform: mqtt
+  state_topic: "smartthings/Guest Bedroom Window/contact/state"
+  name: "Guest Bedroom Window"
+
+- platform: mqtt
+  state_topic: "smartthings/Extra Bedroom Window/contact/state"
+  name: "Extra Bedroom Window"
+
+- platform: mqtt
+  state_topic: "smartthings/Master Closet Motion/motion/state"
+  name: "Master Closet Motion"
+
+- platform: mqtt
+  state_topic: "smartthings/Stairwell Motion/motion/state"
+  name: "Stairwell Motion"
+
+- platform: ring
+  monitored_conditions:
+    - battery
+    - last_activity
+    - last_ding
+    - last_motion
+    - volume

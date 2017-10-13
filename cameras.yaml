@@ -1,0 +1,38 @@
+#- platform: bloomsky
+
+#- platform: mjpeg
+#  mjpeg_url: http://192.168.254.2/streaming/channels/102/httppreview
+#  username: !secret hikvision_user
+#  password: !secret hikvision_password
+#  name: Front Door
+
+- platform: mjpeg
+  mjpeg_url: http://192.168.254.3/streaming/channels/102/httppreview
+  username: !secret hikvision_user
+  password: !secret hikvision_password
+  name: Downstairs
+
+- platform: mjpeg
+  mjpeg_url: http://192.168.254.11/streaming/channels/102/httppreview
+  username: !secret hikvision_user
+  password: !secret hikvision_password
+  name: Backyard
+
+#- platform: mjpeg
+#  mjpeg_url: http://192.168.254.5/streaming/channels/102/httppreview
+#  username: !secret hikvision_user
+#  password: !secret hikvision_password
+#  name: Extra
+
+- platform: mjpeg
+  mjpeg_url: http://192.168.254.13/streaming/channels/102/httppreview
+  username: !secret hikvision_user
+  password: !secret hikvision_password
+  name: West Gate
+
+- platform: mjpeg
+  mjpeg_url: http://192.168.254.12/streaming/channels/102/httppreview
+  username: !secret hikvision_user
+  password: !secret hikvision_password
+  name: Driveway
+

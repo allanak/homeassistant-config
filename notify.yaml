@@ -1,0 +1,19 @@
+- platform: message_bird
+  api_key: !secret message_bird_api_key
+  name: messagebird
+
+- platform: pushbullet
+  api_key: !secret pushbullet_api_key
+  name: pushbullet
+
+#- platform: googlevoice
+#  username: allan@allank.com
+#  password: !secret googlevoice_password
+#  name: gv
+
+- platform: ecobee
+  name: ecobee
+
+- platform: html5
+  gcm_api_key: !secret gcm_api_key
+  gcm_sender_id: !secret gcm_sender_id
