@@ -80,44 +80,43 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
-# Includes
-# Devices
+# Physical Devices
 light: !include light.yaml
-media_player: !include media_players.yaml
 switch: !include switches.yaml
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensors.yaml
 lock: !include locks.yaml
 #envisalink: !include envisalink.yaml
 cover: !include cover.yaml
-
-#input_boolean: !include input_boolean.yaml
-#input_select: !include input_selectors.yaml
-
-# Private includes for things that contain sensitive data like api keys
-usps: !include usps.yaml
-ring: !include ring.yaml
-device_tracker: !include device_trackers.yaml
-#bloomsky: !include bloomsky.yaml
 camera: !include cameras.yaml
 ecobee: !include ecobee.yaml
+ring: !include ring.yaml
+device_tracker: !include device_trackers.yaml
+media_player: !include media_players.yaml
+
+# Virtual Devices
+usps: !include usps.yaml
 ifttt: !include ifttt.yaml
-#logentries: !include logentries.yaml
 notify: !include notify.yaml
 logger: !include logger.yaml
+google: !include google.yaml
+remote: !include remote.yaml
 #shell_command: !include shell_commands.yaml
 #alexa: !include alexa.yaml
 #scene: !include scenes.yaml
-google: !include google.yaml
-remote: !include remote.yaml
 #image_processing: !include image_processing.yaml
+#logentries: !include logentries.yaml
+#bloomsky: !include bloomsky.yaml
 #tesla: !include tesla.yaml
+
+#input_boolean: !include input_boolean.yaml
+#input_select: !include input_selectors.yaml
 
 panel_iframe:
   configurator:
     title: Configurator
     icon: mdi:wrench
-    url: https://home.allank.com:3218
+    url: !secret configurator_url
   mdiindex:
     title: MD Icon Index
     icon: mdi:vector-square
