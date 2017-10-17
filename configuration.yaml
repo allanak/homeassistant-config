@@ -95,6 +95,7 @@ cover: !include cover.yaml
 #input_select: !include input_selectors.yaml
 
 # Private includes for things that contain sensitive data like api keys
+usps: !include usps.yaml
 ring: !include ring.yaml
 device_tracker: !include device_trackers.yaml
 #bloomsky: !include bloomsky.yaml
@@ -103,8 +104,6 @@ ecobee: !include ecobee.yaml
 ifttt: !include ifttt.yaml
 #logentries: !include logentries.yaml
 notify: !include notify.yaml
-
-# Other configs
 logger: !include logger.yaml
 #shell_command: !include shell_commands.yaml
 #alexa: !include alexa.yaml

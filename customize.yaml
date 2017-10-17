@@ -114,6 +114,6 @@ sensor.deliveries_today:
   icon: mdi:package-variant
 sensor.packages_in_transit:
   icon: mdi:truck-delivery
-cover.garage:
+cover.garage_door:
   icon: mdi:garage
   homebridge_cover_type: garage_door
