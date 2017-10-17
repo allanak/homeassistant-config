@@ -117,7 +117,7 @@ panel_iframe:
   configurator:
     title: Configurator
     icon: mdi:wrench
-    url: http://hassio:3218
+    url: https://home.allank.com:3218
   mdiindex:
     title: MD Icon Index
     icon: mdi:vector-square

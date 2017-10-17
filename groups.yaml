@@ -56,7 +56,9 @@ events:
   - sensor.uberx_price
   - sensor.uberx_time
   - sensor.fedex
-
+  - sensor.usps_mail
+  - sensor.usps_packages
+  - camera.usps_mail
 deliveries:
  name: Deliveries
  icon: mdi:package-variant

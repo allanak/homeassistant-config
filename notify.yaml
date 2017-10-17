@@ -17,3 +17,10 @@
 - platform: html5
   gcm_api_key: !secret gcm_api_key
   gcm_sender_id: !secret gcm_sender_id
+
+- platform: slack
+  name: slack
+  api_key: !secret slack_api_key
+  default_channel: !secret slack_channel
+  username: homeassistant
+  icon: ':house:'

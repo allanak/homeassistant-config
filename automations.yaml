@@ -1,21 +1,24 @@
-- alias: Update notifications
+- action:
+  - data:
+      message: Home Assistant {{ states.updater.updater.state }} is now available
+    service: notify.ios_allan_kleins_iphone
+  alias: Update Notification
+  condition: []
+  id: '1508223476962'
   trigger:
-   - platform: state
-     entity_id: updater.updater
-  action:
-   service: notify.ios_allan_kleins_iphone
-   data:
-    message: "Home Assistant {{ states.updater.updater.state }} is now available"
-
-- alias: SSL Expiry Notification
-  trigger:
-    platform: time
-    at: '09:00:00'
+  - entity_id: updater.updater
+    platform: state
+- action:
+  - data:
+      message: SSL certificate expires in {{ states.sensor.ssl_certificate_expiry.state
+        }} days
+    service: notify.ios_allan_kleins_iphone
+  alias: SSL Certificate Expiry
   condition:
+  - below: '10'
     condition: numeric_state
     entity_id: sensor.ssl_certificate_expiry
-    below: 10
-  action:
-    service: notify.ios_allan_kleins_iphone
-    data_template:
-      message: 'SSL cert due to expire in {{ states.sensor.ssl_certificate_expiry.state }} days'
+  id: '1508223580828'
+  trigger:
+  - at: 09:00
+    platform: time

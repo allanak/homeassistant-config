@@ -1,7 +1,7 @@
 - platform: mqtt
   name: "Front Door Lock"
-  state_topic: "smartthings/Front Door/lock"
-  command_topic: "smartthings/Front Door/lock"
+  state_topic: "smartthings/Front Door/lock/state"
+  command_topic: "smartthings/Front Door/lock/cmd"
   payload_lock: "locked"
   payload_unlock: "unlocked"
   optimistic: false
@@ -9,8 +9,8 @@
 
 - platform: mqtt
   name: "Back Door Lock"
-  state_topic: "smartthings/Back Door/lock"
-  command_topic: "smartthings/Back Door/lock"
+  state_topic: "smartthings/Back Door/lock/state"
+  command_topic: "smartthings/Back Door/lock/cmd"
   payload_lock: "locked"
   payload_unlock: "unlocked"
   optimistic: false
@@ -18,8 +18,8 @@
 
 - platform: mqtt
   name: "Back Gate Lock"
-  state_topic: "smartthings/Back Gate/lock"
-  command_topic: "smartthings/Back Gate/lock"
+  state_topic: "smartthings/Back Gate/lock/state"
+  command_topic: "smartthings/Back Gate/lock/cmd"
   payload_lock: "locked"
   payload_unlock: "unlocked"
   optimistic: false
