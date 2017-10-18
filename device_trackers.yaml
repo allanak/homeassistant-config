@@ -1,3 +1,10 @@
+# Connect to Ubiquiti access point for wifi device state
+- platform: unifi
+  host: !secret unifi_ap
+  username: !secret unifi_username
+  password: !secret unifi_password
+  verify_ssl: false
+
 #- platform: icloud
 #  username: !secret icloud_username
 #  password: !secret icloud_password
@@ -7,8 +14,3 @@
 
 #- platform: owntracks
 
-- platform: unifi
-  host: !secret unifi_ap
-  username: !secret unifi_username
-  password: !secret unifi_password
-  verify_ssl: false

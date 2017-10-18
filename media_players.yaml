@@ -45,3 +45,7 @@
 #  host: localhost:5556
 #  device: master-firetv
 #  name: Master FireTV
+
+- platform: spotify
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret

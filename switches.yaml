@@ -1,4 +1,13 @@
 - platform: mqtt
+  name: "Fireplace"
+  state_topic: "smartthings/Fireplace/switch/state"
+  command_topic: "smartthings/Fireplace/switch/cmd"
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true
+
+- platform: mqtt
   name: "Theater Switch"
   state_topic: "smartthings/Theater Switch/switch/state"
   command_topic: "smartthings/Theater Switch/switch/cmd"

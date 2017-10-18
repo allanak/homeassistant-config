@@ -1,0 +1,5 @@
+- name: Airport
+  latitude: !secret airport_latitude
+  longitude: !secret airport_longitude
+  icon: mdi:highway
+  radius: 500

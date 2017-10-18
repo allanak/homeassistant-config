@@ -21,7 +21,7 @@ zones:
     name: 'Guest Bedroom Window'
     type: 'opening'
   5:
-    name: 'Extra Bedroom Window'
+    name: 'Rear Bedroom Window'
     type: 'opening'
   6:
     name: 'Balcony Door Contact'

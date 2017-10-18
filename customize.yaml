@@ -38,6 +38,8 @@ light.rear_bedroom_lights:
   icon: mdi:spotlight-beam
 switch.guest_bedroom_fan:
   icon: mdi:fan
+switch.fireplace:
+  icon: mdi:fire
 switch.rear_bedroom_fan:
   icon: mdi:fan
 sensor.garage_door:

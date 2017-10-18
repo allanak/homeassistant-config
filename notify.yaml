@@ -1,10 +1,10 @@
-- platform: message_bird
-  api_key: !secret message_bird_api_key
-  name: messagebird
+#- platform: message_bird
+#  api_key: !secret message_bird_api_key
+#  name: messagebird
 
-- platform: pushbullet
-  api_key: !secret pushbullet_api_key
-  name: pushbullet
+#- platform: pushbullet
+#  api_key: !secret pushbullet_api_key
+#  name: pushbullet
 
 #- platform: googlevoice
 #  username: allan@allank.com

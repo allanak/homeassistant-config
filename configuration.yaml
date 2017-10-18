@@ -12,12 +12,53 @@ homeassistant:
   time_zone: America/Los_Angeles
   # Customization file
   customize: !include customize.yaml
-
-# Show links to resources in log and frontend
-#introduction:
+  customize_domain: {}
+  customize_glob: {}
 
 # Enables the frontend
 frontend:
+  themes:
+    darkblue:
+      primary-color: "#396FB6"
+      light-primary-color: "#77a0d4"
+      dark-primary-color: "#3539ce"
+      text-primary-color: "#ffffff"
+      primary-background-color: "#37464f"
+      sidebar-text_-_background: "#3c4348"
+      paper-card-background-color: "#263137"
+      paper-card-header-color: "var(--text-primary-color)"
+      secondary-background-color: "var(--primary-background-color)"
+      primary-text-color: "var(--text-primary-color)"
+      secondary-text-color: "var(--primary-color)"
+      paper-listbox-background-color: "var(--sidebar-text_-_background)"
+      paper-toggle-button-checked-ink-color: "var(--dark-primary-color)"
+      paper-toggle-button-checked-button-color: "var(--dark-primary-color)"
+      paper-toggle-button-checked-bar-color: "var(--dark-primary-color)"
+      paper-slider-knob-color: "var(--primary-color)"
+      paper-slider-knob-start-color: "var(--primary-color)"
+      paper-slider-pin-color: "var(--primary-color)"
+      paper-slider-active-color: "var(--primary-color)"
+      paper-slider-secondary-color: "var(--light-primary-color)"
+      paper-slider-container-color: "var(--sidebar-text_-_background)"
+      paper-progress-secondary-color: "var(--sidebar-text_-_background)"
+      paper-item-selected_-_background-color: "var(--primary-color)"
+      paper-item-icon_-_color: "var(--text-primary-color)"
+      paper-item-icon-color: "var(--text-primary-color)"
+      paper-item-icon-active-color: "var(--primary-color)"
+      paper-grey-50: "var(--sidebar-text_-_background)"
+      paper-grey-200: "var(--primary-background-color)"
+      label-badge-background-color: "var(--sidebar-text_-_background)"
+      label-badge-text-color: "var(--text-primary-color)"
+      label-badge-red: "var(--primary-color)"
+      label-badge-blue: "var(--light-primary-color)"
+      label-badge-green: "var(--dark-primary-color)"
+      label-badge-yellow: "var(--text-primary-color)"
+      label-badge-grey: "var(--paper-grey-500)"
+      table-row-background-color: "var(--paper-card-background-color)"
+      table-row-alternative-background-color: "var(--sidebar-text_-_background)"
+
+# Show links to resources in log and frontend
+#introduction:
 
 # Enables configuration UI
 config:
@@ -78,12 +119,13 @@ tts:
 
 group: !include groups.yaml
 automation: !include automations.yaml
+automation old: !include_dir_merge_list automation
 script: !include scripts.yaml
 
 # Physical Devices
 light: !include light.yaml
 switch: !include switches.yaml
-sensor: !include sensors.yaml
+sensor: !include_dir_merge_list sensors
 binary_sensor: !include binary_sensors.yaml
 lock: !include locks.yaml
 #envisalink: !include envisalink.yaml
@@ -110,15 +152,21 @@ remote: !include remote.yaml
 #tesla: !include tesla.yaml
 
 #input_boolean: !include input_boolean.yaml
-#input_select: !include input_selectors.yaml
+input_select: !include input_select.yaml
+input_number: !include input_number.yaml
 
 panel_iframe:
   configurator:
     title: Configurator
     icon: mdi:wrench
     url: !secret configurator_url
+  terminal:
+    title: Terminal
+    icon: mdi:console-line
+    url: !secret terminal_url
   mdiindex:
     title: MD Icon Index
     icon: mdi:vector-square
     url: https://cdn.rawgit.com/james-fry/home-assistant-mdi/efd95d7a/home-assistant-mdi.html
 
+zone: !include zone.yaml

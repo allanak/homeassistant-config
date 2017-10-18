@@ -5,4 +5,5 @@
 !.travis.yml
 !gitupdate.sh
 secrets.yaml
+google_calendars.yaml
 known_devices.yaml

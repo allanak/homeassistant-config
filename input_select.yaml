@@ -1,0 +1,50 @@
+radio_station:
+  name: Radio Station
+  options:
+    - Triple J
+    - Double J
+    - Nova 100
+    - SmoothFM
+    - SBS Chill
+    - "None"
+  initial: "None"
+  icon: mdi:radio
+
+streaming_audio:
+  name: Casting Group
+  options:
+    - Whole House
+    - Upstairs
+    - Downstairs
+    - Living Room Home
+    - Kitchen
+    - Fireplace
+    - Shield
+    - Receiver
+    - Office
+    - Master Bedroom Receiver
+    - Master Bedroom Xbox
+    - "None"
+  initial: "None"
+  icon: mdi:cast
+
+harmony_theater:
+  name: Activity Selection
+  options:
+    - Select Input
+    - Shield
+    - Raspberry Pi
+    - Security Cameras
+    - Chromecast
+    - Chromecast Upstairs
+    - Apple TV
+    - Power Off
+  icon: mdi:remote
+
+harmony_bedroom:
+  name: Activity Selection
+  options:
+    - Select Input
+    - Watch TV
+    - Power Off
+  icon: mdi:remote
