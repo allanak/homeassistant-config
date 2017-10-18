@@ -1,0 +1,3 @@
+platform: ups
+username: !secret upsmychoice_username
+password: !secret upsmychoice_password

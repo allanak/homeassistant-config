@@ -1,0 +1,11 @@
+# Uber from home to airport times
+platform: uber
+start_latitude: !secret latitude
+start_longitude: !secret longitude
+end_latitude: !secret airport_latitude
+end_longitude: !secret airport_longitude
+server_token: !secret uber_server_token
+#product_ids:
+  #- '98e1b29f-0cbd-47e6-adb8-6c32c28a0986'
+  #- 'd6b63d6e-24b6-44d2-b910-ed8978340eec'
+  #- '78ea50a9-f7f0-430f-9468-248c7206c225'

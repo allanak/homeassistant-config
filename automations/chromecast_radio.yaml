@@ -1,0 +1,138 @@
+############################################################
+#
+# Chromecast Radio Control
+#
+############################################################
+  
+############################################################
+#
+# Stop Streaming Radio on Chromecast
+#
+############################################################
+
+- alias: STOP Streaming Radio on CHROMECAST
+  trigger:
+  - platform: state
+    entity_id: input_select.radio_station
+    to: "None"
+  action:
+  - service: media_player.turn_off
+    data_template:
+      entity_id: >
+          {% if is_state("input_select.streaming_audio", "Living Room Home") %}
+            media_player.living_room_home
+          {%-elif is_state("input_select.streaming_audio", "Whole House") %}
+            media_player.home_group
+          {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
+            media_player.upstairs
+          {%-elif is_state("input_select.streaming_audio", "Office") %}
+            media_player.office
+          {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
+            media_player.kitchen
+          {%-elif is_state("input_select.streaming_audio", "Fireplace") %}
+            media_player.master_bedroom
+          {%-elif is_state("input_select.streaming_audio", "Shield") %}
+            media_player.shield
+          {%-elif is_state("input_select.streaming_audio", "Receiver") %}
+            media_player.receiver
+          {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
+            media_player.master_bedroom_receiver
+          {%-elif is_state("input_select.streaming_audio", "Master Bedroom Xbox") %}
+            media_player.master_bedroom_xbox
+          {% else %}
+            "None"
+          {% endif %}
+############################################################
+#
+# Start Streaming Radio on Chromecast
+#
+############################################################
+
+- alias: START Streaming Radio on CHROMECAST
+  trigger:
+  - platform: state
+    entity_id: input_select.radio_station
+  action:
+  - service: media_player.play_media
+    data_template:
+      entity_id: >
+          {% if is_state("input_select.streaming_audio", "Living Room Home") %}
+            media_player.living_room_home
+          {%-elif is_state("input_select.streaming_audio", "Whole House") %}
+            media_player.home_group
+          {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
+            media_player.upstairs
+          {%-elif is_state("input_select.streaming_audio", "Office") %}
+            media_player.office
+          {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
+            media_player.kitchen
+          {%-elif is_state("input_select.streaming_audio", "Fireplace") %}
+            media_player.master_bedroom
+          {%-elif is_state("input_select.streaming_audio", "Shield") %}
+            media_player.shield
+          {%-elif is_state("input_select.streaming_audio", "Receiver") %}
+            media_player.receiver
+          {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
+            media_player.master_bedroom_receiver
+          {%-elif is_state("input_select.streaming_audio", "Master Bedroom Xbox") %}
+            media_player.master_bedroom_xbox
+          {% else %}
+            "None"
+          {% endif %}
+      media_content_id: >
+        {% if is_state("input_select.radio_station", "Triple J") %}
+          http://live-radio01.mediahubaustralia.com/2TJW/aac/Triple J NSW.aac
+        {%-elif is_state("input_select.radio_station", "Double J") %}
+          http://live-radio01.mediahubaustralia.com/DJDW/aac/Double J NSW.aac
+        {%-elif is_state("input_select.radio_station", "Nova 100") %}
+          http://streaming.novaentertainment.com.au/nova100
+        {%-elif is_state("input_select.radio_station", "SmoothFM") %}
+          http://streaming.novaentertainment.com.au/smooth915 
+        {%-elif is_state("input_select.radio_station", "SBS Chill") %}
+          http://shoutcast.sbs.com.au/SBSChill
+        {% else %}
+          "None"
+        {% endif %}
+      media_content_type: 'audio/mp4'
+      
+############################################################
+#
+# Adjust Volume on Chromecast
+#
+############################################################
+
+- alias: change volume google
+  trigger:
+  - platform: state
+    entity_id: input_number.google_volume
+  condition:
+  - condition: template
+    value_template: "{{ states.input_select.streaming_audio.state != 'OFF' }}"
+  action:
+  - service: media_player.volume_set
+    data_template:
+      entity_id: >
+          {% if is_state("input_select.streaming_audio", "Living Room Home") %}
+            media_player.living_room_home
+          {%-elif is_state("input_select.streaming_audio", "Whole House") %}
+            media_player.home_group
+          {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
+            media_player.upstairs
+          {%-elif is_state("input_select.streaming_audio", "Office") %}
+            media_player.office
+          {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
+            media_player.kitchen
+          {%-elif is_state("input_select.streaming_audio", "Fireplace") %}
+            media_player.master_bedroom
+          {%-elif is_state("input_select.streaming_audio", "Shield") %}
+            media_player.shield
+          {%-elif is_state("input_select.streaming_audio", "Receiver") %}
+            media_player.receiver
+          {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
+            media_player.master_bedroom_receiver
+          {%-elif is_state("input_select.streaming_audio", "Master Bedroom Xbox") %}
+            media_player.master_bedroom_xbox
+          {% else %}
+            "None"
+          {% endif %}
+      volume_level: "{{ states.input_number.google_volume.state | float / 10 }}"

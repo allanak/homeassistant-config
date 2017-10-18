@@ -1,4 +1,6 @@
 *
+!automations
+!sensors
 !*.yaml
 !scenes
 !.gitignore
