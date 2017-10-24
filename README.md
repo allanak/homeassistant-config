@@ -1,10 +1,13 @@
 # homeassistant-config
-These are my personal Home Assistant (https://home-assistant.io/) configuration files. Feel free to learn from my mistakes :)
+These are [my](https://twitter.com/allanak) personal Home Assistant (https://home-assistant.io/) configuration files. Feel free to learn from my mistakes :)
 
 ## Build Status (Travis-CI)
 [![Build Status](https://travis-ci.org/allanak/homeassistant-config.svg?branch=master)](https://travis-ci.org/allanak/homeassistant-config)
 
-##### A lot of this is a work in progress.
+## Current Configuration
+* Raspberry Pi using [Hass.io](https://home-assistant.io/hassio/)
+
+##### Fair warning: I've been in the process of migrating from Samsung SmartThings to Home Assistant, so some of this may not fully work yet and a lot of this is a work in progress.
 
 #### Automations
 * Turn on kitchen lights when motion detected
@@ -44,10 +47,10 @@ These are my personal Home Assistant (https://home-assistant.io/) configuration 
 * FirstAlert Z-Wave Smoke Detectors
 * Xiaomi Aqara Water Leak Sensors (Zigbee, still need to integrate)]
 * Speedtest
+* Plex for Plex server activity
 * NZBGet for usenet download activity
 * Sonarr for TV show activity
 * Radarr for movie activity
-* Plex for plex server activity
 * USPS Mail Sensor
 * UPS Package Sensor
 * FedEx Package Sensor
