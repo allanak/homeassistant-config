@@ -25,3 +25,11 @@ speech_notifications:
   name: Speech Notifications
   icon: mdi:speaker-wireless
   initial: on
+
+washer_status:
+  name: Washer
+  icon: mdi:washing-machine
+
+dryer_status:
+  name: Dryer
+  icon: mdi:washing-machine

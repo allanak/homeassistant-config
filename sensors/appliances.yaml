@@ -1,0 +1,22 @@
+#
+#   Laundry Templates
+#
+#    True when washer power level is below 3.4 watts, high threshold of resting state
+#    Default state is true
+- platform: template
+  sensors:
+     washer_running:
+       value_template: "{{ states('sensor.washer_power_2') | int > 3.4 }}"
+
+#    True when Dryer power level is above 8.4 watts, showing dryer is in operation (as opposed to just having the door open)
+#    Default state is false
+- platform: template
+  sensors:
+     dryer_running:
+       value_template: "{{ states('sensor.dryer_power_2') | int > 8.4 }}"
+
+# True when water heater power level is above 2 watts
+- platform: template
+  sensors:
+    water_heater_running:
+      value_template: "{{ states('sensor.water_heater_2') | int > 2 }}"

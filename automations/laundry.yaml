@@ -1,0 +1,56 @@
+# Washer Notification Sequence
+
+- alias: 'Washer Start'
+  trigger:
+    platform: state
+    entity_id: sensor.washer_running
+    to: 'True'
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.washer_status
+
+- alias: 'Washer Done'
+  trigger:
+    platform: state
+    entity_id: sensor.washer_running
+    to: 'False'
+    for:
+      minutes: 3
+  condition:
+      condition: state
+      entity_id: input_boolean.washer_status
+      state: 'on'
+  action:
+    - service: notify.ios_allaniphone
+      data:
+        message: 'The washer is done'
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.washer_status
+
+# Dryer Notification Sequence
+
+- alias: 'Dryer Start'
+  trigger:
+    platform: state
+    entity_id: sensor.dryer_running
+    to: 'True'
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.dryer_status
+
+- alias: 'Dryer Done'
+  trigger:
+    platform: state
+    entity_id: sensor.dryer_running
+    to: 'False'
+  condition:
+    condition: state
+    entity_id: input_boolean.dryer_status
+    state: 'on'
+  action:
+    - service: notify.ios_allaniphone
+      data:
+        message: 'The dryer is done'
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.dryer_status
+
