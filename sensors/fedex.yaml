@@ -1,3 +1,4 @@
-platform: fedex
-username: !secret fedex_username
-password: !secret fedex_password
+- platform: fedex
+  name: 'FedEx'
+  username: !secret fedex_username
+  password: !secret fedex_password

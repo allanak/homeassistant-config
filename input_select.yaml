@@ -1,8 +1,8 @@
 radio_station:
   name: Radio Station
   options:
-    - Triple J
-    - Double J
+    - KROQ
+    - Jack FM
     - Nova 100
     - SmoothFM
     - SBS Chill

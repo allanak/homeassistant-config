@@ -1,0 +1,48 @@
+- alias: Turn on kitchen lights when motion detected
+  trigger:
+    - entity_id: binary_sensor.kitchen_motion_sensor
+      platform: state
+      to: 'on'
+  condition:
+    - condition: sun
+      before: sunset
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_lights_level
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchenrgb
+        brightness: '254'
+        color_name: white
+
+- alias: Turn on kitchen lights on when motion detected at night
+  trigger:
+  - entity_id: binary_sensor.kitchen_motion_sensor
+    platform: state
+    to: 'on'
+  condition:
+  - after: sunset
+    condition: sun
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchenrgb
+        brightness: '254'
+        color_name: red
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_lights_level
+        brightness: '15'
+
+- alias: Turn off kitchen lights when motion stops
+  trigger:
+    - entity_id: binary_sensor.kitchen_motion_sensor
+      platform: state
+      to: 'off'
+      for:
+        minutes: 5
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: group.kitchen

@@ -244,7 +244,6 @@
     entity_id: group.media_spotify
     data:
       visible: True
-
 ############################################################
 #
 # Media Player Guest Bedroom Home
@@ -259,10 +258,10 @@
   - platform: homeassistant
     event: start
   - platform: state
-    entity_id: media_player.guest_bedroom2
+    entity_id: media_player.guest_bedroom
     to: 'idle'
   - platform: state
-    entity_id: media_player.guest_bedroom2
+    entity_id: media_player.guest_bedroom
     to: 'off'
   action:
   - service: group.set_visibility
@@ -287,3 +286,47 @@
     data:
       visible: True
 ############################################################
+
+############################################################
+#
+# Media Player Guest Bedroom Home
+#
+############################################################
+
+# Hide Media Player
+
+- alias: 'Hide media_player.guest_bedroom2 while not playing'
+  hide_entity: true
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: media_player.guest_bedroom2
+    to: 'idle'
+  - platform: state
+    entity_id: media_player.guest_bedroom2
+    to: 'off'
+  action:
+  - service: group.set_visibility
+    entity_id: group.media_guest_bedroom
+    data:
+      visible: False
+
+# Show Media Player
+
+- alias: 'Show media_player.guest_bedroom2 while playing'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: media_player.guest_bedroom2
+    to: 'playing'
+  - platform: state
+    entity_id: media_player.guest_bedroom2
+    to: 'paused'
+  action:
+  - service: group.set_visibility
+    entity_id: group.media_guest_bedroom2
+    data:
+      visible: True
+############################################################
+

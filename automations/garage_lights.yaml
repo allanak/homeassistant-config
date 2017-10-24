@@ -1,0 +1,29 @@
+- alias: Turn on garage lights when opened
+  trigger:
+    - entity_id: binary_sensor.garage_entry
+      platform: state
+      to: 'on'
+    - entity_id: cover.garage_door
+      platform: state
+      to: 'opening'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.garage_light_switch
+
+- alias: Turn off garage lights after 10 minutes
+  trigger:
+    - entity_id: binary_sensor.master_closet_motion_sensor
+      platform: state
+      to: 'off'
+      for:
+        minutes: 5
+    - entity_id: cover.garage_door
+      platform: state
+      to: 'closed'
+      for:
+        minutes: 5
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.garage_light_switch

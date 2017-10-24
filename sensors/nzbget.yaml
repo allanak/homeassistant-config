@@ -1,9 +1,9 @@
-platform: nzbget
-host: !secret nzbget_host
-username: !secret nzbget_username
-password: !secret nzbget_password
-ssl: true
-port: 443
-monitored_variables:
-  - download_rate
-  - download_paused
+- platform: nzbget
+  host: !secret nzbget_host
+  username: !secret nzbget_username
+  password: !secret nzbget_password
+  ssl: true
+  port: 443
+  monitored_variables:
+    - download_rate
+    - download_paused

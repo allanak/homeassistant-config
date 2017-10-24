@@ -1,0 +1,37 @@
+- alias: Back door activity
+  id: back_door_action
+  trigger:
+    - entity_id: binary_sensor.backyard_camera_motion
+      platform: state
+      to: 'on'
+  action:
+    - service: notify.ios_allaniphone
+      data:
+        message: Back Yard Motion Detected
+        data:
+          push:
+            category: back_door_event
+            sound: US-EN-Alexa-Motion-At-Back-Door.wav
+          entity_id: camera.backyard
+          attachment:
+            url: "{{ state.sensor.camera_backyard_url.state }}"
+            content-type: jpg
+
+- alias: West gate activity
+  id: west_gate_action
+  trigger:
+  - entity_id: binary_sensor.west_gate_camera_motion
+    platform: state
+    to: 'on'
+  action:
+    - service: notify.ios_allaniphone
+      data:
+        message: West Gate Motion Detected
+        data:
+          push:
+            category: west_gate_event
+            sound: US-EN-Alexa-Motion-In-Back-Yard.wav
+          entity_id: camera.west_gate
+          attachment:
+            url: "{{ state.sensor.camera_west_gate_url.state }}"
+            content-type: jpg

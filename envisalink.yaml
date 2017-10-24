@@ -1,5 +1,5 @@
-host: 172.17.0.1
-port: 8111
+host: !secret envisalink_host
+port: 4025
 evl_version: 4
 panel_type: DSC
 user_name: !secret envisalink_password
@@ -9,13 +9,13 @@ keepalive_interval: 60
 zonedump_interval: 30
 zones:
   1:
-    name: 'Front Door Contact'
+    name: 'Front Door'
     type: 'opening'
   2:
     name: 'Garage Entry'
     type: 'opening'
   3:
-    name: 'Back Door Contact'
+    name: 'Back Door'
     type: 'opening'
   4:
     name: 'Guest Bedroom Window'
@@ -24,7 +24,7 @@ zones:
     name: 'Rear Bedroom Window'
     type: 'opening'
   6:
-    name: 'Balcony Door Contact'
+    name: 'Balcony Door'
     type: 'opening'
   7:
     name: 'Master Bedroom Motion'

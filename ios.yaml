@@ -1,0 +1,92 @@
+push:
+  categories:
+    - name: Alarm
+      identifier: 'concerning_event'
+      actions:
+        - identifier: 'SOUND_ALARM'
+          title: 'Sound Alarm'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+        - identifier: 'DISARM_ALARM'
+          title: 'Disarm Alarm'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+    - name: Departure
+      identifier: 'departure_event'
+      actions:
+        - identifier: 'DISARM_ALARM'
+          title: 'Disarm Alarm'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+        - identifier: 'ARM_ALARM'
+          title: 'Arm Alarm'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
+          behavior: 'default'
+    - name: Front Door
+      identifier: 'front_door_event'
+      actions:
+        - identifier: 'UNLOCK_FRONT_DOOR'
+          title: 'Unlock Front Door'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+        - identifier: 'LOCK_FRONT_DOOR'
+          title: 'Lock Front Door'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: yes
+          behavior: 'default'
+    - name: Back Door
+      identifier: 'back_door_event'
+      actions:
+        - identifier: 'UNLOCK_BACK_DOOR'
+          title: 'Unlock Back Door'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+        - identifier: 'LOCK_BACK_DOOR'
+          title: 'Lock Back Door'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: yes
+          behavior: 'default'
+    - name: Back Gate
+      identifier: 'back_gate_event'
+      actions:
+        - identifier: 'UNLOCK_BACK_GATE'
+          title: 'Unlock Back Gate'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+        - identifier: 'LOCK_BACK_GATE'
+          title: 'Lock Back Gate'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: yes
+          behavior: 'default'
+    - name: Garage
+      identifier: 'garage_event'
+      actions:
+        - identifier: 'OPEN_GARAGE'
+          title: 'Open Garage'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+        - identifier: 'CLOSE_GARAGE'
+          title: 'Close Garage'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
+          behavior: 'default'

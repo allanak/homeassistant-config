@@ -1,0 +1,115 @@
+- alias: Sound the alarm
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: SOUND_ALARM
+  action:
+  - service: alarm_control_panel.alarm_trigger
+
+- alias: Disarm the alarm
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: DISARM_ALARM
+  action:
+  - service: alarm_control_panel.alarm_disarm
+
+- alias: Arm the alarm
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: ARM_ALARM
+  action:
+  - service: alarm_control_panel.alarm_arm_home
+
+- alias: Unlock front door
+  id: unlock_front_door
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: UNLOCK_FRONT_DOOR
+  action:
+  - service: lock.unlock
+    entity_id: lock.front_door_lock
+
+- alias: Lock front door
+  id: lock_front_door
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: LOCK_FRONT_DOOR
+  action:
+  - service: lock.lock
+    entity_id: lock.front_door_lock
+
+- alias: Unlock back door
+  id: unlock_back_door
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: UNLOCK_BACK_DOOR
+  action:
+  - service: lock.unlock
+    entity_id: lock.back_door_lock
+
+- alias: Lock back door
+  id: lock_back_door
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: LOCK_BACK_DOOR
+  action:
+  - service: lock.lock
+    entity_id: lock.back_door_lock
+
+- alias: Unlock back gate
+  id: unlock_back_gate
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: UNLOCK_BACK_GATE
+  action:
+  - service: lock.unlock
+    entity_id: lock.back_gate_lock
+
+- alias: Lock back gate
+  id: lock_back_gate
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: LOCK_BACK_GATE
+  action:
+  - service: lock.lock
+    entity_id: lock.back_gate_lock
+
+- alias: Open Garage
+  id: open_garage_door
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: OPEN_GARAGE
+  action:
+  - service: cover.open_cover
+    entity_id: cover.garage_door
+
+- alias: Close Garage
+  id: close_garage_door
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: CLOSE_GARAGE
+  action:
+  - service: cover.close_cover
+    entity_id: cover.garage_door
+

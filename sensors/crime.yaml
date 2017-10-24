@@ -1,3 +1,3 @@
-platform: crimereports
-name: Crime
-radius: 1000
+- platform: crimereports
+  name: crimereports
+  radius: 1610

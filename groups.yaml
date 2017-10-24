@@ -5,28 +5,23 @@ default_view:
  entities:
   - group.downstairs_lights
   - group.outdoor_lights
-  - group.entertainment
+  - group.kitchen
+  - group.harmony_theater
+  - group.media_home_group
 
 upstairs:
  name: Upstairs
  view: yes
  icon: mdi:hotel
  entities:
-  - group.harmony_bedroom
   - group.master_bedroom
   - group.master_bathroom
-
-cameras:
- name: Cameras
- view: yes
- icon: mdi:camcorder
- entities:
-  - camera.front_door
-  - camera.downstairs
-  - camera.backyard
-  - camera.west_gate
-  - camera.driveway
-  - camera.extra
+  - group.media_home_group
+  - group.media_upstairs
+  - group.media_bathroom
+  - group.media_fireplace
+  - group.media_upstairs
+  - group.harmony_bedroom
 
 Weather:
  name: Weather
@@ -36,16 +31,34 @@ Weather:
   - group.climate
   - group.forecast
 
+cameras:
+ name: Cameras
+ view: yes
+ icon: mdi:camcorder
+ entities:
+  - camera.frontdoor
+  - camera.downstairs
+  - camera.backyard
+  - camera.westgate
+  - camera.driveway
+  - camera.extra
+
 security:
  view: yes
  icon: mdi:security-home
  entities:
-  - lock.front_door_lock
-  - lock.back_door_lock
-  - lock.back_gate_lock
+  - alarm_control_panel.home
+  - sensor.home_keypad
+  - lock.front_door_locked
+  - lock.back_door_locked
+  - lock.back_gate_locked
+  - group.all_locks
   - group.door_sensors
   - group.motion_sensors
   - group.window_sensors
+  - sensor.master_bedroom_smoke_status
+  - sensor.guest_bedroom_smoke_status
+  - sensor.rear_bedroom_smoke_status
 
 events:
  view: yes
@@ -73,51 +86,60 @@ deliveries:
 master_bedroom:
  name: Master Bedroom
  entities:
-  - light.stairwell_lights
-  - light.office_lights
+  - switch.stairwell_lights
+  - light.office_lights_level
   - light.bed
-  - light.balcony_lights
-  - light.master_bedroom_front_lights
-  - light.master_bedroom_rear_lights
+  - light.balcony_light_switch
+  - light.master_bedroom_front_lights_level
+  - light.master_bedroom_rear_lights_level
   - switch.fireplace
+  - light.stairwellbulbs
 
 master_bathroom:
  name: Master Bathroom
  entities:
-  - light.closet_lights
-  - light.master_bath_left_light
-  - light.master_bath_right_light
+  - switch.master_closet_lights_switch
   - switch.towel_rack
+  - light.masterbathleft
+  - light.masterbathright
 
 downstairs_lights:
  name: Downstairs Lights
  control: hidden
  entities:
-  - light.kitchen_lights
-  - light.breakfast_bar_lights
-  - light.theatre_lights
-  - light.dining_room_lights
-  - light.bar_lights
+  - switch.stairwell_switch
+  - light.theater_lights_level
+  - light.dining_room_level
+  - light.bar_lights_level
   - light.neon_lights
-  - light.hall_light
-  - switch.theatre_switch
-  - light.garage_lights
+  - light.hall_light_level
+  - switch.theater_switch_switch
+  - switch.garage_light_switch
+  - light.stairwellbulbs
+
+kitchen:
+ name: Kitchen
+ view: no
+ entities:
+  - light.kitchen_lights_level
+  - light.breakfast_bar_level
+  - light.kitchenrgb
 
 guest_bedroom:
  name: Guest Bedroom
  view: no
  entities:
-  - media_player.guest_bedroom
-  - group.media_guest_bedroom
-  - light.guest_bedroom_lights
+  - light.guest_bedroom_lights_level
   - switch.guest_bedroom_fan
+  - sensor.guest_bedroom_smoke
 
 rear_bedroom:
  name: Rear Bedroom
  view: no
  entities:
-  - light.rear_bedroom_lights
-  - switch.rear_bedroom_fan
+  - light.rear_bedroom_lights_level
+  - switch.rear_bedroom_fan_switch
+  - sensor.rear_bedroom_smoke
 
 guest_bedrooms:
  name: Guest Bedrooms
@@ -125,18 +147,29 @@ guest_bedrooms:
  icon: mdi:account-multiple
  entities:
   - group.guest_bedroom
+  - group.media_home_group
+  - group.media_guest_bedroom
+  - group.media_guest_bedroom2
   - group.rear_bedroom
   - group.trackers
+
+evening_lights:
+ name: Evening Lights
+ view: no
+ entities:
+  - light.bed
+  - light.neon_lights
+  - light.hall_light_level
 
 outdoor_lights:
  name: Outdoor Lights
  entities:
-  - light.porch_lights
-  - light.balcony_lights
-  - light.backyard_floodlights
-  - light.backyard_lights
-  - light.garden_lights
-  - light.driveway_lights
+  - switch.porch_light_switch
+  - switch.balcony_light_switch
+  - switch.backyard_floodlights_switch
+  - switch.backyard_light_switch
+  - light.backyardgarden
+  - switch.driveway_light_switch
 
 climate:
  name: Climate
@@ -146,8 +179,8 @@ climate:
   - sensor.master_bedroom_temp
   - sensor.bedroom_temperature
   - sensor.livingroom_temperature
-  - sensor.master_bath_temp
-  - sensor.kitchen_temp
+  - sensor.master_bath_motion_temperature
+  - sensor.kitchen_motion_temperature
 
 forecast:
  name: Forecast
@@ -164,78 +197,77 @@ forecast:
 motion_sensors:
  name: Motion
  entities:
+  - binary_sensor.ring_front_door_motion
   - sensor.bedroom_occupancy
+  - binary_sensor.master_bedroom_motion
+  - binary_sensor.master_bath_motion_sensor
+  - binary_sensor.master_closet_motion_sensor
   - sensor.upstairs_occupancy
   - sensor.downstairs_occupancy
   - sensor.livingroom_occupancy
   - sensor.master_bedroom_motion
-  - sensor.master_closet_motion
-  - sensor.master_bath_motion
-  - sensor.kitchen_motion
-  - sensor.stairwell_motion
+  - binary_sensor.kitchen_motion_sensor
+  - binary_sensor.stairwell_motion
+  - binary_sensor.downstairs_line_crossing
+  - binary_sensor.driveway_line_crossing
+  - binary_sensor.backyard_line_crossing
+  - binary_sensor.westgate_line_crossing
 
 trackers:
- name: Trackers
+ name: "Who's home?"
  entities:
-  - device_tracker.allankleinsiphone
+  - device_tracker.allaniphone
   - device_tracker.applewatch
   - device_tracker.evaniphone
-
-entries:
- entities:
-   - lock.front_door_lock
-   - lock.back_door_lock
-   - lock.back_gate_lock
 
 door_sensors:
  name: Doors
  entities:
   - cover.garage_door
-  - sensor.front_door_contact
-  - sensor.back_door_contact
-  - sensor.garage_entry
-  - sensor.balcony_door
-  - sensor.back_door
+  - sensor.front_door
+  - binary_sensor.back_door
+  - binary_sensor.garage_entry
+  - binary_sensor.balcony_door
+  - binary_sensor.back_door
 
 window_sensors:
  name: Windows
  entities:
-  - sensor.master_bath_window
-  - sensor.master_bedroom_left_window
-  - sensor.master_bedroom_right_window
-  - sensor.guest_bedroom_window
-  - sensor.extra_bedroom_window
+  - binary_sensor.master_bath_window
+  - binary_sensor.master_left_window
+  - binary_sensor.master_right_window
+  - binary_sensor.guest_bedroom_window
+  - binary_sensor.rear_bedroom_window
 
 entertainment:
  name: Entertainment
  view: yes
  icon: mdi:television-guide
  entities:
-  - group.harmony_theater
   - group.media_home_group
   - group.media_upstairs
   - group.media_living_room
   - group.media_kitchen
   - group.media_office
-  - group.media_spotify
+#  - group.media_spotify
   - group.radio
   - group.plex_media
 
 harmony_theater:
- name: Harmony
+ name: Downstairs Media
  entities:
   - input_select.harmony_theater
   - sensor.harmony_theater_activity
 
 harmony_bedroom:
- name: Harmony
+ name: Upstairs Media
  icon: mdi:tv
  entities:
   - input_select.harmony_bedroom
   - sensor.harmony_bedroom_activity
 
 radio:
- name: Radio
+ name: Audio Streaming
  icon: mdi:cast
  entities:
   - input_select.streaming_audio
@@ -252,7 +284,7 @@ media_players:
   - group.media_living_room
   - group.media_kitchen
   - group.media_office
-  - group.media_spotify
+#  - group.media_spotify
 
 #  - media_player.receiver
 #  - media_player.master_bedroom_receiver
@@ -293,7 +325,13 @@ media_office:
   - media_player.office
 
 media_guest_bedroom:
- name: Office Google Home
+ name: Chromecast Video Guest Bedroom
+ icon: mdi:cast
+ entities:
+  - media_player.guest_bedroom
+
+media_guest_bedroom2:
+ name: Chromecast Audio Guest Bedroom
  icon: mdi:cast
  entities:
   - media_player.guest_bedroom2
@@ -322,4 +360,16 @@ alarm:
 Testing:
  view: yes
  entities:
-  - configurator.ecobee
+   - group.all_automations
+
+Work:
+ view: yes
+ icon: mdi:domain
+ entities:
+  - group.work_sensors
+
+work_sensors:
+ view: no
+ entities:
+  - sensor.occasion
+

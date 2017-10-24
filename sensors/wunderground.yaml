@@ -1,21 +1,21 @@
-platform: wunderground
-api_key: !secret wunderground_api_key
-monitored_conditions:
- - alerts
- - feelslike_f
- - heat_index_f
- - relative_humidity
- - station_id
- - temperature_string
- - temp_f
- - UV
- - weather
- - wind_gust_mph
- - wind_mph
- - wind_string
- - weather_1d
- - weather_1n
- - weather_2d
- - weather_2n
- - weather_3d
- - weather_3n
+- platform: wunderground
+  api_key: !secret wunderground_api_key
+  monitored_conditions:
+   - alerts
+   - feelslike_f
+   - heat_index_f
+   - relative_humidity
+   - station_id
+   - temperature_string
+   - temp_f
+   - UV
+   - weather
+   - wind_gust_mph
+   - wind_mph
+   - wind_string
+   - weather_1d
+   - weather_1n
+   - weather_2d
+   - weather_2n
+   - weather_3d
+   - weather_3n

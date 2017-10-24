@@ -1,5 +1,23 @@
+############################################################
+#
+# Logger  You can filter anything betwen the []'s in the logger.
+#
+############################################################
+
+# Log Severities: notset, debug, info, warn, warning, error, fatal, critical
+
 default: info
 logs:
-  requests.packages.urllib3.connectionpool: warn
-  homeassistant.components.sensor: warn
-  homeassistant.components.calendar: debug
+  homeassistant.core: error
+  homeassistant.components.automation: warn
+  homeassistant.components.climate.nest: warn
+  homeassistant.components.device_tracker: warn
+  homeassistant.components.discovery: warn
+  homeassistant.components.http: warn
+  homeassistant.components.media_player: warn
+  homeassistant.components.zwave: warn
+  homeassistant.helpers.script: info
+  homeassistant.exceptions: info
+  homeassistant.components.notify.ios: debug
+  py.warnings: error
+  root: warn

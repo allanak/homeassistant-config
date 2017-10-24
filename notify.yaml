@@ -24,3 +24,7 @@
   default_channel: !secret slack_channel
   username: homeassistant
   icon: ':house:'
+
+- platform: nfandroidtv
+  name: Shield
+  host: shield.home.local

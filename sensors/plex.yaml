@@ -1,5 +1,5 @@
-platform: plex
-host: !secret plex_host
-name: !secret plex_name
-username: !secret plex_username
-password: !secret plex_password
+- platform: plex
+  host: !secret plex_host
+  name: !secret plex_name
+  username: !secret plex_username
+  password: !secret plex_password

@@ -1,0 +1,32 @@
+- alias: Bathroom Music On in mornings
+  id: bathroom_music_on
+  trigger:
+    - entity_id: binary_sensor.master_bath_motion_sensor
+      platform: state
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '06:00:00'
+        before: '11:00:00'
+      
+  action:
+    - service: media_player.play_media
+      data:
+        media_content_id: http://15363.live.streamtheworld.com:80/KROQFMDIALUP_SC
+        media_content_type: 'audio/mp4'
+      entity_id: media_player.upstairs
+
+- alias: Bathroom Music Off
+  id: bathroom_music_off
+  trigger:
+    - entity_id: binary_sensor.master_bath_motion_sensor
+      platform: state
+      to: 'off'
+      for:
+        minutes: 10
+  action:
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.master_bathroom

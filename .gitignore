@@ -1,11 +1,11 @@
 *
 !automations
 !sensors
+!custom_components
 !*.yaml
 !scenes
 !.gitignore
 !.travis.yml
-!gitupdate.sh
 secrets.yaml
 google_calendars.yaml
 known_devices.yaml

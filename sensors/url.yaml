@@ -1,0 +1,24 @@
+- platform: template
+  sensors:
+    ha_url:
+      value_template: !secret ha_url
+
+- platform: template
+  sensors:
+    camera_driveway_url:
+      value_template: '{{ states.sensor.ha_url.state }}{{ states.camera.driveway.attributes.entity_picture }}'
+
+- platform: template
+  sensors:
+    camera_backyard_url:
+      value_template: '{{ states.sensor.ha_url.state }}{{ states.camera.backyard.attributes.entity_picture }}'
+
+- platform: template
+  sensors:
+    camera_downstairs_url:
+      value_template: '{{ states.sensor.ha_url.state }}{{ states.camera.downstairs.attributes.entity_picture }}'
+
+- platform: template
+  sensors:
+    camera_west_gate_url:
+      value_template: '{{ states.sensor.ha_url.state }}{{ states.camera.west_gate.attributes.entity_picture }}'

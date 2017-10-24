@@ -1,0 +1,21 @@
+- alias: Turn on closet lights when motion detected
+  trigger:
+    - entity_id: binary_sensor.master_closet_motion_sensor
+      platform: state
+      to: 'on'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.master_closet_lights_switch
+
+- alias: Turn off kitchen lights when motion stops
+  trigger:
+    - entity_id: binary_sensor.master_closet_motion_sensor
+      platform: state
+      to: 'off'
+      for:
+        minutes: 5
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.master_closet_lights_switch

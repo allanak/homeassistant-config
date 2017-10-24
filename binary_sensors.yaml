@@ -2,3 +2,35 @@
   monitored_conditions:
     - ding
     - motion
+
+- platform: hikvision
+  host: !secret camera_driveway_host
+  name: Driveway
+  port: 80
+  ssl: false
+  username: !secret hikvision_user
+  password: !secret hikvision_password
+
+- platform: hikvision
+  host: !secret camera_downstairs_host
+  name: Downstairs
+  port: 80
+  ssl: false
+  username: !secret hikvision_user
+  password: !secret hikvision_password
+
+- platform: hikvision
+  host: !secret camera_west_gate_host
+  name: WestGate
+  port: 80
+  ssl: false
+  username: !secret hikvision_user
+  password: !secret hikvision_password
+
+- platform: hikvision
+  host: !secret camera_backyard_host
+  name: Backyard
+  port: 80
+  ssl: false
+  username: !secret hikvision_user
+  password: !secret hikvision_password

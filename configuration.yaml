@@ -71,6 +71,12 @@ http:
 #  ssl_certificate: /ssl/fullchain.pem
 #  ssl_key: /ssl/privkey.pem
   server_port: 8123
+  use_x_forwarded_for: true
+#  trusted_networks:
+#    - 192.168.1.0/24
+#    - 192.168.2.0/24
+  ip_ban_enabled: True
+  login_attempts_threshold: 3
 
 mqtt:
   broker: !secret mqtt_broker
@@ -82,13 +88,7 @@ mqtt:
   discovery_prefix: smartthings
   keepalive: 60
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
   include_used_components: true
 
 # Discover some devices automatically
@@ -99,6 +99,16 @@ conversation:
 
 # Enables support for tracking state changes over time
 history:
+  include:
+    domains:
+      - sensor
+      - binary_sensor
+      - device_tracker
+      - switch
+      - media_player
+      - light
+#  exclude:
+#      - light
 
 # View all events in a logbook
 logbook:
@@ -107,11 +117,7 @@ logbook:
 sun:
 
 # Enable iOS
-ios:
-
-# Weather prediction
-#sensor:
-#  - platform: yr
+ios: !include ios.yaml
 
 # Text to speech
 tts:
@@ -119,7 +125,7 @@ tts:
 
 group: !include groups.yaml
 automation: !include automations.yaml
-automation old: !include_dir_merge_list automation
+automation old: !include_dir_merge_list automations
 script: !include scripts.yaml
 
 # Physical Devices
@@ -127,9 +133,7 @@ light: !include light.yaml
 switch: !include switches.yaml
 sensor: !include_dir_merge_list sensors
 binary_sensor: !include binary_sensors.yaml
-lock: !include locks.yaml
-#envisalink: !include envisalink.yaml
-cover: !include cover.yaml
+envisalink: !include envisalink.yaml
 camera: !include cameras.yaml
 ecobee: !include ecobee.yaml
 ring: !include ring.yaml
@@ -137,6 +141,7 @@ device_tracker: !include device_trackers.yaml
 media_player: !include media_players.yaml
 
 # Virtual Devices
+google_assistant: !include google_assistant.yaml
 usps: !include usps.yaml
 ifttt: !include ifttt.yaml
 notify: !include notify.yaml
@@ -150,11 +155,19 @@ remote: !include remote.yaml
 #logentries: !include logentries.yaml
 #bloomsky: !include bloomsky.yaml
 #tesla: !include tesla.yaml
+zone: !include zone.yaml
 
-#input_boolean: !include input_boolean.yaml
+# Inputs
+input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 input_number: !include input_number.yaml
 
+# Enable Z-Wave stick
+zwave:
+  usb_path: /dev/ttyACM0
+  network_key: !secret zwave_network_key
+
+# Menu Customization
 panel_iframe:
   configurator:
     title: Configurator
@@ -169,4 +182,3 @@ panel_iframe:
     icon: mdi:vector-square
     url: https://cdn.rawgit.com/james-fry/home-assistant-mdi/efd95d7a/home-assistant-mdi.html
 
-zone: !include zone.yaml

@@ -1,10 +1,12 @@
+#- platform: ring
+
 #- platform: bloomsky
 
 #- platform: mjpeg
 #  mjpeg_url: http://192.168.254.2/streaming/channels/102/httppreview
 #  username: !secret hikvision_user
 #  password: !secret hikvision_password
-#  name: Front Door
+#  name: FrontDoor
 
 - platform: mjpeg
   mjpeg_url: http://192.168.254.3/streaming/channels/102/httppreview
@@ -28,7 +30,7 @@
   mjpeg_url: http://192.168.254.13/streaming/channels/102/httppreview
   username: !secret hikvision_user
   password: !secret hikvision_password
-  name: West Gate
+  name: WestGate
 
 - platform: mjpeg
   mjpeg_url: http://192.168.254.12/streaming/channels/102/httppreview

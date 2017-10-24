@@ -1,0 +1,72 @@
+- alias: Arm alarm at midnight when home
+  trigger:
+  - at: 00:00
+    platform: time
+  condition:
+  - condition: state
+    entity_id: device_tracker.allaniphone
+    state: home
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      data: {}
+
+
+- alias: Arm alarm when house vacated
+  trigger:
+  - entity_id: device_tracker.allaniphone
+    platform: state
+    to: 'not_home'
+    for:
+      minutes: 5
+  condition:
+  - condition: state
+    entity_id: device_tracker.evaniphone
+    for:
+      minutes: 5
+    state: not_home
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      data: {}
+    - service: notify.ios_allaniphone
+      data:
+        message: House is vacant. Security system now armed
+        title: Goodbye
+        data:
+          push:
+            category: departure_event
+
+- alias: Disarm alarm upon return
+  trigger:
+  - entity_id: device_tracker.allaniphone
+    from: not_home
+    platform: state
+    to: home
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data: {}
+    - service: notify.ios_allaniphone
+      data:
+        message: Alarm is disarmed
+        title: Welcome Home
+        data:
+          push:
+            sound: US-EN-Morgan-Freeman-Welcome-Home.wav
+
+- alias: Push alarm trigger notification
+  trigger:
+  - entity_id: alarm_control_panel.home
+    platform: state
+    to: triggered
+  action:
+    - service: notify.ios_allaniphone
+      data:
+        message: Security Alert
+        title: Alarm Triggered!
+        data:
+          push:
+            category: concerning_event
+            sound: US-EN-Morgan-Freeman-Motion-Detected.wav
+          entity_id: camera.downstairs
+          attachment:
+            url: "{{ state.sensor.camera_downstairs_url.state }}"
+            content-type: jpg

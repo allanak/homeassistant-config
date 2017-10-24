@@ -1,0 +1,46 @@
+- alias: Turn on perimeter lights at night
+  trigger:
+  - event: sunset
+    offset: 00:30:00
+    platform: sun
+  action:
+    - service: homeassistant.turn_on
+      data:
+        entity_id: group.outdoor_lights
+
+- alias: Turn off perimeter lighting after sunrise
+  trigger:
+  - event: sunrise
+    offset: 00:15:00
+    platform: sun
+  action:
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.outdoor_lights
+
+- alias: Turn on evening lights after sunset
+  trigger:
+  - event: sunrise
+    offset: 00:45:00
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: device_tracker.allaniphone
+    state: home
+  action:
+    - service: homeassistant.turn_on
+      data:
+        entity_id: group.evening_lights
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.hall_light_level
+        brightness: '20'
+
+- alias: Turn off evening lighting at midnight
+  trigger:
+  - at: 00:00
+    platform: time
+  action:
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.evening_lights

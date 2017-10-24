@@ -80,10 +80,10 @@
             "None"
           {% endif %}
       media_content_id: >
-        {% if is_state("input_select.radio_station", "Triple J") %}
-          http://live-radio01.mediahubaustralia.com/2TJW/aac/Triple J NSW.aac
-        {%-elif is_state("input_select.radio_station", "Double J") %}
-          http://live-radio01.mediahubaustralia.com/DJDW/aac/Double J NSW.aac
+        {% if is_state("input_select.radio_station", "KROQ") %}
+          http://15363.live.streamtheworld.com:80/KROQFMDIALUP_SC
+        {%-elif is_state("input_select.radio_station", "Jack FM") %}
+          http://17793.live.streamtheworld.com:80/KCBSFMDIALUP_SC
         {%-elif is_state("input_select.radio_station", "Nova 100") %}
           http://streaming.novaentertainment.com.au/nova100
         {%-elif is_state("input_select.radio_station", "SmoothFM") %}

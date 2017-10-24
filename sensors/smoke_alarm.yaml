@@ -1,0 +1,79 @@
+- platform: template
+  sensors:
+    master_bedroom_smoke_status:
+      value_template: '{%- if is_state("sensor.master_bedroom_smoke_alarm_type", "0") %}
+                        Idle
+                        {%else%}
+                          {%- if is_state("sensor.master_bedroom_smoke_alarm_type", "1") %}
+                          Fire
+                          {%- elif is_state("sensor.master_bedroom_smoke_alarm_type", "2") %}
+                          C02
+                          {%- elif is_state("sensor.master_bedroom_smoke_alarm_type", "12") %}
+                          Testing
+                          {%- elif is_state("sensor.master_bedroom_smoke_alarm_type", "13") %}
+                          Idle
+                          {% else %}
+                          Unknown
+                          {%- endif %}
+                        {%endif%}'
+      friendly_name: 'Upstairs Smoke'
+
+- platform: template
+  sensors:
+    guest_bedroom_smoke_status:
+      value_template: '{%- if is_state("sensor.guest_bedroom_smoke_alarm_type", "0") %}
+                        Idle
+                        {%else%}
+                          {%- if is_state("sensor.guest_bedroom_smoke_alarm_type", "1") %}
+                          Fire
+                          {%- elif is_state("sensor.guest_bedroom_smoke_alarm_type", "2") %}
+                          C02
+                          {%- elif is_state("sensor.guest_bedroom_smoke_alarm_type", "12") %}
+                          Testing
+                          {%- elif is_state("sensor.guest_bedroom_smoke_alarm_type", "13") %}
+                          Idle
+                          {% else %}
+                          Unknown
+                          {%- endif %}
+                        {%endif%}'
+      friendly_name: 'Guest Bedroom Smoke'
+
+- platform: template
+  sensors:
+    rear_bedroom_smoke_status:
+      value_template: '{%- if is_state("sensor.rear_bedroom_smoke_alarm_type", "0") %}
+                        Idle
+                        {%else%}
+                          {%- if is_state("sensor.rear_bedroom_smoke_alarm_type", "1") %}
+                          Fire
+                          {%- elif is_state("sensor.rear_bedroom_smoke_alarm_type", "2") %}
+                          C02
+                          {%- elif is_state("sensor.rear_bedroom_smoke_alarm_type", "12") %}
+                          Testing
+                          {%- elif is_state("sensor.rear_bedroom_smoke_alarm_type", "13") %}
+                          Idle
+                          {% else %}
+                          Unknown
+                          {%- endif %}
+                        {%endif%}'
+      friendly_name: 'Rear Bedroom Smoke'
+
+- platform: template
+  sensors:
+    hallway_smoke_status:
+      value_template: '{%- if is_state("sensor.hallway_smoke_alarm_type", "0") %}
+                        Idle
+                        {%else%}
+                          {%- if is_state("sensor.hallway_smoke_alarm_type", "1") %}
+                          Fire
+                          {%- elif is_state("sensor.hallway_smoke_alarm_type", "2") %}
+                          C02
+                          {%- elif is_state("sensor.hallyway_smoke_alarm_type", "12") %}
+                          Testing
+                          {%- elif is_state("sensor.hallway_smoke_alarm_type", "13") %}
+                          Idle
+                          {% else %}
+                          Unknown
+                          {%- endif %}
+                        {%endif%}'
+      friendly_name: 'Rear Bedroom Smoke'
