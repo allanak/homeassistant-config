@@ -13,7 +13,7 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
   customize_domain: {}
-  customize_glob: {}
+  customize_glob: !include custom-ui.yaml
 
 # Enables the frontend
 frontend:

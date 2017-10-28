@@ -343,7 +343,7 @@ media_spotify:
   - media_player.spotify
 
 plex_media:
- name:  Plex DVR
+ name: Media Server
  entities:
   - sensor.sonarr_upcoming
   - sensor.sonarr_wanted

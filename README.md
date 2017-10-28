@@ -10,22 +10,28 @@ These are [my](https://twitter.com/allanak) personal Home Assistant (https://hom
 ##### Fair warning: I've been in the process of migrating from Samsung SmartThings to Home Assistant, so some of this may not fully work yet and a lot of this is a work in progress.
 
 #### Automations
+### Lights
 * Turn on kitchen lights when motion detected
 * Turn on garage lights when door is opened
+### Convenience/Security
 * Start casting a music stream when I walk into the bathroom in the morning
 * Arm alarm at midnight when home
 * Arm alarm when house is vacated for a while
-* Hide media players when their state is idle/off
+* Turn on/off perimeter lighting after sunset/sunrise
+* Turn on/off evening lighting at night, off at midnight
+### UI Enhancements
+* Hide media players when their state is idle/off - Thanks [stanvx](https://github.com/stanvx/Home-Assistant-Configuration)
 * Set theme based on sunrise/sunset
 * Various iOS context notifications for conditions such as camera activity
+### Housekeeping
 * Send a notification when my SSL certificate is going to expire in <10 days
 * Send a notification upon failed logins
 * Send a notification when an update is available for Home Assistant
 
 #### Devices
 * GE Z-Wave Switches and Dimmers
-* Ring Pro Doorbell
-* Logitech Harmony Hubs
+* [Ring Pro Doorbell](https://ring.com/video-doorbell-pro)
+* [Logitech Harmony Hubs](https://www.logitech.com/en-us/product/harmony-hub)
 * [Broadlink RM Pro](https://www.amazon.com/Broadlink-Automation-Universal-Compatible-Smartphones/dp/B01GIXZDKO)
 * Hikvision IP Cameras and NVR
 * Google Chromecast Audio, Video and Google Homes

@@ -1,0 +1,66 @@
+#
+# Prolific use of custom-ui component
+# https://github.com/andrey-git/home-assistant-custom-ui
+#
+
+    "*.*":
+      custom_ui_state_card: custom-ui
+    group.alarmbadge:
+      state_card_mode: badges
+      badges_list:
+        - alarm_control_panel.home
+        - group.device_trackers
+        - input_boolean.guest_mode
+        - input_boolean.vacation_mode
+    group.pibadges:
+      state_card_mode: badges
+      badges_list:
+        - sensor.ram_use
+        - sensor.cpu_use
+        - sensor.disk_use_
+        - sensor.disk_free_
+    group.doors:
+      state_card_mode: badges
+    group.traveltimesbadges:
+      state_card_mode: badges
+    group.plex_media:
+      state_card_mode: badges
+      badges_list:
+        - sensor.nzbget_speed
+        - sensor.sonarr_queue
+        - sensor.sonarr_upcoming
+    group.environmentbadges:
+      state_card_mode: badges
+    group.motion_sensors:
+      state_card_mode: badges
+    group.todaybadges:
+      state_card_mode: badges
+      badges_list:
+        - sun.sun
+        - sensor.solar_angle
+        - sensor.moon
+        - sensor.sunset_time
+        - sensor.sunrise_time
+    group.weatherbadges:
+      state_card_mode: badges
+      badges_list:
+        - sensor.yr_symbol
+        - sensor.dark_sky_temperature
+        - sensor.dark_sky_daily_high_temperature
+        - sensor.dark_sky_daily_low_temperature
+    light.*:
+      custom_ui_state_card: custom-ui
+      state_card_mode: single-line
+      hide_control: true
+      stretch_slider: true
+      slider_theme:
+        min: 0
+        max: 255
+        off_when_min: true
+    plant.*:
+      custom_ui_state_card: custom-ui
+      show_last_changed: true
+      extra_badge:
+        attribute: moisture
+        unit: "%"
+        blacklist_states: null

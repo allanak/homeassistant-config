@@ -1,2 +1,2 @@
-- platform: travisci
-  api_key: !secret travis_ci_github_api_key
+#- platform: travisci
+#  api_key: !secret travis_ci_github_api_key
