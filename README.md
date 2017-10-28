@@ -41,11 +41,11 @@ These are [my](https://twitter.com/allanak) personal Home Assistant (https://hom
 * Android TV ([NVidia Shield](https://www.nvidia.com/en-us/shield/))
 * [Schlage Connect Z-Wave Locks](https://www.amazon.com/Schlage-Connect-Touchscreen-Deadbolt-Technology/dp/B01AGX7K12)
 * [Ecobee3 Smart Thermostats](https://www.amazon.com/ecobee3-Thermostat-Sensor-Generation-Amazon/dp/B00ZIRV39M)
-* [Linear GD00Z-4 Garage Door Controller (Not working with OpenZWave 1.4)](https://www.amazon.com/GoControl-Linear-GD00Z-4-Z-Wave-Controller/dp/B00M75TEIU)
+* [Linear GD00Z-4 Garage Door Controller](https://www.amazon.com/GoControl-Linear-GD00Z-4-Z-Wave-Controller/dp/B00M75TEIU) (Not working with OpenZWave 1.4)
 * Osram Lightify Zigbee Gateway
+* [Osram Lightify Gardenspot RGB](https://www.amazon.com/SYLVANIA-Smart-Landscape-Lighting-Gardenspots/dp/B00R1PB2ZY)
 * [Osram Lightify Flex RGBW](https://www.amazon.com/SYLVANIA-Smart-Connected-Tunable-Daylight/dp/B00R1PB80I)
 * Osram Lightify RGBW A19 Bulbs
-* [Osram Lightify Gardenspot RGB](https://www.amazon.com/SYLVANIA-Smart-Landscape-Lighting-Gardenspots/dp/B00R1PB2ZY)
 * [Ubiquiti UAP-AC-LR Wireless Access Point](https://www.amazon.com/Ubiquiti-UAP-AC-LR-Networks-Enterprise-System/dp/B015PRCBBI)
 * [Aeon Z Stick Gen 5](https://www.amazon.com/Aeotec-Z-Stick-Z-Wave-create-gateway/dp/B00X0AWA6E)
 * Raspberry Pi 3 running hass.io
