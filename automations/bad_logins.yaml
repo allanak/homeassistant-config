@@ -11,10 +11,6 @@
   action:
   - alias: Push login failure notification
     data:
-      data:
-        push:
-          category: concerning_event
-          sound: US-EN-Morgan-Freeman-Motion-Detected.wav
       message: Security Alert
       title: Login failure attempt
     service: notify.ios_allaniphone

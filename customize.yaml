@@ -126,16 +126,19 @@ switch.towel_rack:
   icon: mdi:radiator
 switch.washer_switch:
   icon: mdi:washing-machine
+  google_assistant: false
   confirm_controls_show_lock: true
   templates:
   extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
 switch.dryer_switch:
   icon: mdi:washing-machine
+  google_assistant: false
   confirm_controls_show_lock: true
   templates:
   extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
 switch.water_heater_switch:
   icon: mdi:water-pump
+  google_assistant: false
   confirm_controls_show_lock: true
   templates:
   extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
@@ -182,14 +185,19 @@ binary_sensor.stairwell_motion:
   icon: mdi:stairs
 binary_sensor.rear_bedroom_window:
   icon: mdi:window-closed
+  google_assistant: false
 binary_sensor.guest_bedroom_window:
   icon: mdi:window-closed
+  google_assistant: false
 binary_sensor.master_left_window:
   icon: mdi:window-closed
+  google_assistant: false
 binary_sensor.master_right_window:
   icon: mdi:window-closed
+  google_assistant: false
 binary_sensor.master_bath_window:
   icon: mdi:window-closed
+  google_assistant: false
 
 # ZWave PIR Motion sensors
 binary_sensor.kitchen_motion_sensor:

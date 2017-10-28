@@ -13,7 +13,7 @@
 
 - alias: Turn off garage lights after 10 minutes
   trigger:
-    - entity_id: binary_sensor.master_closet_motion_sensor
+    - entity_id: binary_sensor.garage_entry
       platform: state
       to: 'off'
       for:

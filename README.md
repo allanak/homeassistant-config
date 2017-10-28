@@ -1,33 +1,34 @@
 # homeassistant-config
-These are [my](https://twitter.com/allanak) personal Home Assistant (https://home-assistant.io/) configuration files. Feel free to learn from my mistakes :)
+These are [my](https://twitter.com/allanak) personal [Home Assistant](https://home-assistant.io/) configuration files. Feel free to learn from my mistakes :)
 
 ## Build Status (Travis-CI)
 [![Build Status](https://travis-ci.org/allanak/homeassistant-config.svg?branch=master)](https://travis-ci.org/allanak/homeassistant-config)
 
 ## Current Configuration
-* Raspberry Pi using [Hass.io](https://home-assistant.io/hassio/)
+* Raspberry Pi 3 Model B using [Hass.io](https://home-assistant.io/hassio/)
 
 ##### Fair warning: I've been in the process of migrating from Samsung SmartThings to Home Assistant. While much of this works, it is constantly under construction :)
 
 #### Automations
 ### Lights
-* Turn on kitchen lights when motion detected
-* Turn on garage lights when door is opened
+* Turn on kitchen lights when motion detected and off when motion stops
+* Turn on garage lights when door is opened and off shortly after it closes
 ### Convenience/Security
 * Start casting a music stream when I walk into the bathroom in the morning
-* Send washer/dryer finished notifications based on energy meters
+* Remind me to take out the trash after I leave the bathroom if tomorrow is garbage collection day
+* Send washer/dryer finished notifications based on energy meters and announce completion via Google Home
 * Arm alarm at midnight when home
 * Arm alarm when house is vacated for a while
 * Turn on/off perimeter lighting after sunset/sunrise
 * Turn on/off evening lighting at night, off at midnight
-### UI Enhancements
+### UI Enhancements/Customizations
 * Hide media players when their state is idle/off
 * Set theme based on sunrise/sunset
-* Various iOS context notifications for conditions such as camera activity
+* Use [Custom UI elements](https://github.com/andrey-git/home-assistant-custom-ui) for tweaking UI objects
 ### Housekeeping
-* Send a notification when my SSL certificate is going to expire in <10 days
-* Send a notification upon failed logins
+* Send a notification if my SSL certificate is going to expire in <10 days
 * Send a notification when an update is available for Home Assistant
+* Send a notification upon failed login attempts
 
 #### Devices
 * GE Z-Wave Switches and Dimmers

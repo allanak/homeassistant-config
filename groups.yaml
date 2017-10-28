@@ -58,6 +58,7 @@ security:
 
 alarmbadges:
   name: Alarm
+  control: hidden
   entities:
   - alarm_control_panel.home
   - sensor.home_keypad
@@ -121,7 +122,6 @@ master_bathroom:
 
 downstairs_lights:
  name: Downstairs Lights
- control: hidden
  entities:
   - switch.stairwell_switch
   - light.theater_lights_level
@@ -130,7 +130,6 @@ downstairs_lights:
   - switch.neon_lights_switch
   - light.hall_light_level
   - switch.theater_switch_switch
-  - switch.garage_light_switch
   - light.stairwellbulbs
 
 kitchen:
@@ -138,8 +137,8 @@ kitchen:
  view: no
  entities:
   - light.kitchen_lights_level
-  - light.breakfast_bar_level
   - light.kitchenrgb
+  - light.breakfast_bar_level
 
 guest_bedroom:
  name: Guest Bedroom
@@ -185,6 +184,7 @@ outdoor_lights:
   - switch.backyard_floodlights_switch
   - switch.backyard_light_switch
   - light.backyardgarden
+  - switch.garage_light_switch
   - switch.driveway_light_switch
 
 climate:

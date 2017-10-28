@@ -26,6 +26,10 @@
         message: 'The Washer is done'
     - service: input_boolean.turn_off
       entity_id: input_boolean.washer_status
+    - service: tts.google_say
+      entity_id: media_player.home_group
+      data:
+        message: 'Washer is done'
 
 # Dryer Notification Sequence
 
@@ -53,4 +57,8 @@
         message: 'The Dryer is done'
     - service: input_boolean.turn_off
       entity_id: input_boolean.dryer_status
+    - service: tts.google_say
+      entity_id: media_player.home_group
+      data:
+        message: 'Washer is done'
 

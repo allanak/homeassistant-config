@@ -10,12 +10,17 @@
   action:
     - service: notify.ios_allaniphone
       data:
-        message: Front Door Motion Detected
+        message: "Front door motion\n{{ states.sensor.date__time.state }}"
         data:
           push:
             category: front_door_event
             sound: US-EN-Alexa-Motion-At-Front-Door.wav
-          entity_id: camera.driveway
           attachment:
             url: "{{ state.sensor.camera_driveway_url.state }}"
-            content-type: jpg
+            content-type: jpeg
+            hide-thumbnail: false
+    - delay: '00:00:05'
+#    - service: tts.amazon_polly_say
+#      entity_id: media_player.home_group
+#      data_template:
+#        message: '<speak>Your presence has been detected and recorded, thank you</speak>'

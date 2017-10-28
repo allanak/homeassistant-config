@@ -6,6 +6,12 @@
   - condition: state
     entity_id: device_tracker.allaniphone
     state: home
+  - condition: state
+    entity_id: input_boolean.guest_mode
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.alarm_override
+    state: 'off'
   action:
     - service: alarm_control_panel.alarm_arm_home
       data: {}
@@ -20,10 +26,11 @@
       minutes: 5
   condition:
   - condition: state
-    entity_id: device_tracker.evaniphone
-    for:
-      minutes: 5
-    state: not_home
+    entity_id: input_boolean.guest_mode
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.alarm_override
+    state: 'off'
   action:
     - service: alarm_control_panel.alarm_arm_home
       data: {}
@@ -41,12 +48,19 @@
     from: not_home
     platform: state
     to: home
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.home
+    state: 'armed_home'
+  - condition: state
+    entity_id: alarm_control_panel.home
+    state: 'armed_away'
   action:
     - service: alarm_control_panel.alarm_disarm
       data: {}
     - service: notify.ios_allaniphone
       data:
-        message: Alarm is disarmed
+        message: Alarm has been disarmed
         title: Welcome Home
         data:
           push:

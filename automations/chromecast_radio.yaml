@@ -25,6 +25,8 @@
             media_player.home_group
           {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
             media_player.upstairs
+          {%-elif is_state("input_select.streaming_audio", "Downstairs") %}
+            media_player.downstairs
           {%-elif is_state("input_select.streaming_audio", "Office") %}
             media_player.office
           {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
@@ -33,6 +35,8 @@
             media_player.master_bedroom
           {%-elif is_state("input_select.streaming_audio", "Shield") %}
             media_player.shield
+          {%-elif is_state("input_select.streaming_audio", "Guest Bedroom") %}
+            media_player.guest_bedroom_2
           {%-elif is_state("input_select.streaming_audio", "Receiver") %}
             media_player.receiver
           {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
@@ -62,6 +66,8 @@
             media_player.home_group
           {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
             media_player.upstairs
+          {%-elif is_state("input_select.streaming_audio", "Downstairs") %}
+            media_player.downstairs
           {%-elif is_state("input_select.streaming_audio", "Office") %}
             media_player.office
           {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
@@ -70,6 +76,8 @@
             media_player.master_bedroom
           {%-elif is_state("input_select.streaming_audio", "Shield") %}
             media_player.shield
+          {%-elif is_state("input_select.streaming_audio", "Guest Bedroom") %}
+            media_player.guest_bedroom_2
           {%-elif is_state("input_select.streaming_audio", "Receiver") %}
             media_player.receiver
           {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
@@ -118,6 +126,8 @@
             media_player.home_group
           {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
             media_player.upstairs
+          {%-elif is_state("input_select.streaming_audio", "Downstairs") %}
+            media_player.downstairs
           {%-elif is_state("input_select.streaming_audio", "Office") %}
             media_player.office
           {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
@@ -126,6 +136,8 @@
             media_player.master_bedroom
           {%-elif is_state("input_select.streaming_audio", "Shield") %}
             media_player.shield
+          {%-elif is_state("input_select.streaming_audio", "Guest Bedroom") %}
+            media_player.guest_bedroom2
           {%-elif is_state("input_select.streaming_audio", "Receiver") %}
             media_player.receiver
           {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
