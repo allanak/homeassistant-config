@@ -1,3 +1,4 @@
+# Turn on upstairs music between 6-11am when motion in bathroom
 - alias: Bathroom Music On in mornings
   id: bathroom_music_on
   trigger:
@@ -18,6 +19,7 @@
         media_content_type: 'audio/mp4'
       entity_id: media_player.upstairs
 
+# Turn off upstairs music when motion stops for 10 minutes
 - alias: Bathroom Music Off
   id: bathroom_music_off
   trigger:
@@ -35,6 +37,7 @@
       data:
         entity_id: media_player.upstairs
 
+# After music shuts turned off, remind me if its garbage pickup tomorrow
 - alias: Garbage day reminder
   trigger:
     - platform: state

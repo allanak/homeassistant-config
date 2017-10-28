@@ -1,7 +1,33 @@
+- alias: Front door activity
+  id: doorbell_ring
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_ding
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_motion
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.driveway_line_crossing
+      to: 'on'
+  action:
+    - service: notify.ios_allaniphone
+      data:
+        message: "Front door activity"
+        data:
+          push:
+            category: front_door_event
+            sound: US-EN-Alexa-Motion-At-Front-Door.wav
+          attachment:
+            url: "{{ states.sensor.camera_driveway_url.state }}"
+            content-type: jpg
+    - delay: '00:00:05'
+
+
 - alias: Back door activity
   id: back_door_action
   trigger:
-    - entity_id: binary_sensor.backyard_camera_motion
+    - entity_id: binary_sensor.backyard_line_crossing
       platform: state
       to: 'on'
   action:
@@ -14,13 +40,13 @@
             sound: US-EN-Alexa-Motion-At-Back-Door.wav
           entity_id: camera.backyard
           attachment:
-            url: "{{ state.sensor.camera_backyard_url.state }}"
+            url: "{{ states.sensor.camera_backyard_url.state }}"
             content-type: jpg
 
 - alias: West gate activity
   id: west_gate_action
   trigger:
-  - entity_id: binary_sensor.west_gate_camera_motion
+  - entity_id: binary_sensor.westgate_line_crossing
     platform: state
     to: 'on'
   action:
@@ -31,7 +57,7 @@
           push:
             category: west_gate_event
             sound: US-EN-Alexa-Motion-In-Back-Yard.wav
-          entity_id: camera.west_gate
+          entity_id: camera.westgate
           attachment:
-            url: "{{ state.sensor.camera_west_gate_url.state }}"
+            url: "{{ states.sensor.camera_westgate_url.state }}"
             content-type: jpg

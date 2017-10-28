@@ -20,5 +20,5 @@
 
 - platform: template
   sensors:
-    camera_west_gate_url:
-      value_template: '{{ states.sensor.ha_url.state }}{{ states.camera.west_gate.attributes.entity_picture }}'
+    camera_westgate_url:
+      value_template: '{{ states.sensor.ha_url.state }}{{ states.camera.westgate.attributes.entity_picture }}'
