@@ -16,6 +16,7 @@ upstairs:
  entities:
   - group.master_bedroom
   - group.master_bathroom
+  - group.alarmclock
   - group.media_home_group
   - group.media_upstairs
   - group.media_bathroom
@@ -47,18 +48,33 @@ security:
  view: yes
  icon: mdi:security-home
  entities:
+  - group.alarmbadges
   - alarm_control_panel.home
-  - sensor.home_keypad
   - lock.front_door_locked
   - lock.back_door_locked
   - lock.back_gate_locked
   - group.all_locks
-  - group.door_sensors
-  - group.motion_sensors
-  - group.window_sensors
-  - sensor.master_bedroom_smoke_status
-  - sensor.guest_bedroom_smoke_status
-  - sensor.rear_bedroom_smoke_status
+  - group.trackers
+
+alarmbadges:
+  name: Alarm
+  entities:
+  - alarm_control_panel.home
+  - sensor.home_keypad
+  - sensor.opening_summary
+  - sensor.motion_summary
+  - input_boolean.alarm_override
+  - input_boolean.guest_mode
+  - input_boolean.vacation_mode
+
+alarmclock:
+  name: Alarm Clock
+  entities:
+    - automation.alarm_clock
+    - sensor.alarm_time
+    - input_number.alarmhour
+    - input_number.alarmminutes
+    - input_boolean.alarmweekday
 
 events:
  view: yes
@@ -86,20 +102,20 @@ deliveries:
 master_bedroom:
  name: Master Bedroom
  entities:
-  - switch.stairwell_lights
+  - switch.stairwell_switch
   - light.office_lights_level
-  - light.bed
+  - switch.bed_switch
   - light.balcony_light_switch
   - light.master_bedroom_front_lights_level
   - light.master_bedroom_rear_lights_level
-  - switch.fireplace
+  - switch.fireplace_switch
   - light.stairwellbulbs
 
 master_bathroom:
  name: Master Bathroom
  entities:
   - switch.master_closet_lights_switch
-  - switch.towel_rack
+  - switch.towel_warmer_switch
   - light.masterbathleft
   - light.masterbathright
 
@@ -111,7 +127,7 @@ downstairs_lights:
   - light.theater_lights_level
   - light.dining_room_level
   - light.bar_lights_level
-  - light.neon_lights
+  - switch.neon_lights_switch
   - light.hall_light_level
   - switch.theater_switch_switch
   - switch.garage_light_switch
@@ -130,7 +146,7 @@ guest_bedroom:
  view: no
  entities:
   - light.guest_bedroom_lights_level
-  - switch.guest_bedroom_fan
+  - switch.guest_bedroom_fan_switch
   - sensor.guest_bedroom_smoke
 
 rear_bedroom:
@@ -157,8 +173,8 @@ evening_lights:
  name: Evening Lights
  view: no
  entities:
-  - light.bed
-  - light.neon_lights
+  - switch.bed_switch
+  - switch.neon_lights_switch
   - light.hall_light_level
 
 outdoor_lights:
@@ -257,6 +273,7 @@ harmony_theater:
  name: Downstairs Media
  entities:
   - input_select.harmony_theater
+  - script.onkyovolume
   - sensor.harmony_theater_activity
 
 harmony_bedroom:
@@ -351,11 +368,15 @@ plex_media:
   - sensor.radarr_upcoming
   - sensor.nzbget_speed
 
-alarm:
- name: Alarm
+Laundry:
+ name: Laundry
+ view: yes
+ icon: mdi:washing-machine
  entities:
-  - alarm_control_panel.home
-  - sensor.home_keypad
+   - sensor.washer_power_2
+   - sensor.dryer_power_2
+   - automation.dryer_done
+   - automation.washer_done
 
 Testing:
  view: yes

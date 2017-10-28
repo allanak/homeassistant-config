@@ -26,7 +26,11 @@
       to: 'off'
       for:
         minutes: 10
+  condition:
+  - condition: state
+    entity_id: media_player.master_bathroom
+    state: playing
   action:
     - service: media_player.turn_off
       data:
-        entity_id: media_player.master_bathroom
+        entity_id: media_player.upstairs

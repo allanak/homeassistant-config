@@ -6,16 +6,6 @@ responsibilities:
   name: responsibilities
   initial: off
 
-guest_mode:
-  name: Guest Mode
-  icon: mdi:account-alert
-  initial: off
-
-school_mode:
-  name: School Mode
-  icon: mdi:school
-  initial: on
-
 alert_mode:
   name: Alert Mode
   icon: mdi:alert-octagram
@@ -33,3 +23,42 @@ washer_status:
 dryer_status:
   name: Dryer
   icon: mdi:washing-machine
+
+alarm_override:
+  name: Alarm Override
+  initial: off
+  icon: mdi:cancel
+
+# PRESENCE
+vacation_mode:
+  name: Vacation Mode
+  initial: off
+  icon: mdi:airplane
+guest_mode:
+  name: Guest Mode
+  initial: off
+  icon: mdi:account-multiple
+alarmweekday:
+  name: Weekdays Only
+  initial: on
+  icon: mdi:calendar-check
+
+#
+# Automation Conditions
+#
+nightlight_override:
+  name: Nightlight Override
+  initial: off
+  icon: mdi:flashlight
+nightlight_kitchen:
+  name: Kitchen Nightlight
+  initial: off
+  icon: mdi:flashlight
+nightlight_livingroom:
+  name: Kitchen Nightlight
+  initial: off
+  icon: mdi:flashlight
+nightlight_bedroom:
+  name: Bedroom Nightlight
+  initial: off
+  icon: mdi:flashlight

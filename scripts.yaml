@@ -159,3 +159,19 @@ speech_engine:
       entity_id:
         - input_boolean.home_stats
         - input_boolean.responsibilities
+
+onkyovolumeup:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.harmony_hub
+      data:
+        device: "35067548"
+        command: "VolumeUp"
+
+onkyovolumedn:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.harmony_hub
+      data:
+        device: "35067548"
+        command: "VolumeDn"

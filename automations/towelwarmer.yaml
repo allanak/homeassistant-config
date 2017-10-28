@@ -1,0 +1,12 @@
+- alias: Turn on towel warmer when home
+  trigger:
+  - at: 06:00
+    platform: time
+  condition:
+  - condition: state
+    entity_id: device_tracker.allaniphone
+    state: home
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.towel_warmer_switch

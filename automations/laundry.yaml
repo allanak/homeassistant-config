@@ -23,7 +23,7 @@
   action:
     - service: notify.ios_allaniphone
       data:
-        message: 'The washer is done'
+        message: 'The Washer is done'
     - service: input_boolean.turn_off
       entity_id: input_boolean.washer_status
 
@@ -50,7 +50,7 @@
   action:
     - service: notify.ios_allaniphone
       data:
-        message: 'The dryer is done'
+        message: 'The Dryer is done'
     - service: input_boolean.turn_off
       entity_id: input_boolean.dryer_status
 

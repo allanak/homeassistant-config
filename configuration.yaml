@@ -15,6 +15,10 @@ homeassistant:
   customize_domain: {}
   customize_glob: !include custom-ui.yaml
 
+# Custom UI from https://github.com/andrey-git/home-assistant-custom-ui
+customizer:
+  custom_ui: local
+
 # Enables the frontend
 frontend:
   themes:
@@ -122,6 +126,9 @@ ios: !include ios.yaml
 # Text to speech
 tts:
   - platform: google
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key_id
+    aws_secret_access_key: !secret aws_access_key_id
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -142,7 +149,7 @@ media_player: !include media_players.yaml
 
 # Virtual Devices
 google_assistant: !include google_assistant.yaml
-usps: !include usps.yaml
+#usps: !include usps.yaml
 ifttt: !include ifttt.yaml
 notify: !include notify.yaml
 logger: !include logger.yaml
@@ -156,6 +163,7 @@ remote: !include remote.yaml
 #bloomsky: !include bloomsky.yaml
 #tesla: !include tesla.yaml
 zone: !include zone.yaml
+variable: !include variable.yaml
 
 # Inputs
 input_boolean: !include input_boolean.yaml

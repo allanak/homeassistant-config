@@ -4,12 +4,16 @@
 #
 
     "*.*":
-      custom_ui_state_card: custom-ui
-    group.alarmbadge:
+      custom_ui_state_card: state-card-custom-ui
+#    alarm_control_panel.home:
+#      state_card_custom_ui_secondary: state-card-custom-alarm
+    group.alarmbadges:
       state_card_mode: badges
       badges_list:
         - alarm_control_panel.home
-        - group.device_trackers
+        - sensor.home_keypad
+        - sensor.motion_summary
+        - sensor.opening_summary
         - input_boolean.guest_mode
         - input_boolean.vacation_mode
     group.pibadges:
@@ -19,39 +23,21 @@
         - sensor.cpu_use
         - sensor.disk_use_
         - sensor.disk_free_
-    group.doors:
+    group.motion_sensors:
       state_card_mode: badges
-    group.traveltimesbadges:
+      show_last_changed: true
+    group.door_sensors:
+      state_card_mode: badges
+    group.window_sensors:
       state_card_mode: badges
     group.plex_media:
       state_card_mode: badges
-      badges_list:
-        - sensor.nzbget_speed
-        - sensor.sonarr_queue
-        - sensor.sonarr_upcoming
-    group.environmentbadges:
+    group.weather:
       state_card_mode: badges
-    group.motion_sensors:
-      state_card_mode: badges
-    group.todaybadges:
-      state_card_mode: badges
-      badges_list:
-        - sun.sun
-        - sensor.solar_angle
-        - sensor.moon
-        - sensor.sunset_time
-        - sensor.sunrise_time
-    group.weatherbadges:
-      state_card_mode: badges
-      badges_list:
-        - sensor.yr_symbol
-        - sensor.dark_sky_temperature
-        - sensor.dark_sky_daily_high_temperature
-        - sensor.dark_sky_daily_low_temperature
     light.*:
-      custom_ui_state_card: custom-ui
+      custom_ui_state_card: state-card-custom-ui
       state_card_mode: single-line
-      hide_control: true
+      hide_control: false
       stretch_slider: true
       slider_theme:
         min: 0
@@ -64,3 +50,49 @@
         attribute: moisture
         unit: "%"
         blacklist_states: null
+
+# Context-aware attribute adjustments
+    light.master_bedroom_front_lights_level:
+      group:
+        group.master_bedroom:
+          friendly_name: Front Lights
+
+    light.master_bedroom_rear_lights_level:
+      group:
+        group.master_bedroom:
+          friendly_name: Rear Lights
+
+    light.kitchen_track_lights_level:
+      group:
+        group.kitchen:
+          friendly_name: Track Lights
+
+    light.guest_bedroom_lights_level:
+      group:
+        group.guest_bedroom:
+          friendly_name: Lights
+
+    switch.guest_bedroom_fan_switch:
+      group:
+        group.guest_bedroom:
+          friendly_name: Fan
+
+    light.rear_bedroom_lights_level:
+      group:
+        group.rear_bedroom:
+          friendly_name: Lights
+
+    switch.rear_bedroom_fan_switch:
+      group:
+        group.rear_bedroom:
+          friendly_name: Fan
+
+    light.masterbathleft:
+      group:
+        group.master_bathroom:
+          friendly_name: Left Vanity
+
+    light.masterbathright:
+      group:
+        group.master_bathroom:
+          friendly_name: Right Vanity

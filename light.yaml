@@ -1,31 +1,4 @@
-# Zigbee bulbs / switches that are still using the Osram Lightify gateway or SmartThings
+# Zigbee bulbs that are still using the Osram Lightify gateway or SmartThings
 - platform: osramlightify
   host: !secret lightify_host
-
-- platform: mqtt
-  name: "Neon Lights"
-  state_topic: "smartthings/Neon Lights/switch/state"
-  command_topic: "smartthings/Neon Lights/switch/cmd"
-  payload_on: "on"
-  payload_off: "off"
-  optimistic: false
-  retain: true
-
-- platform: mqtt
-  name: "Downstairs Lamp"
-  state_topic: "smartthings/Downstairs Lamp/switch/state"
-  command_topic: "smartthings/Downstairs Lamp/switch/cmd"
-  payload_on: "on"
-  payload_off: "off"
-  optimistic: false
-  retain: true
-
-- platform: mqtt
-  name: "Bed"
-  state_topic: "smartthings/Bed/switch/state"
-  command_topic: "smartthings/Bed/switch/cmd"
-  payload_on: "on"
-  payload_off: "off"
-  optimistic: false
-  retain: true
 
