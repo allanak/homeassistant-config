@@ -1,3 +1,0 @@
-- platform: command_line
-  name: Occasion
-  command: "python3 scripts/occasion.py"

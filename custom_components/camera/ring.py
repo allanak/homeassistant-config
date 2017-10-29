@@ -42,10 +42,10 @@ def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
     cams = []
     for camera in ring.doorbells:
         cams.append(RingCam(hass, camera, config))
-
+    """ Commenting this out since I have no stickup cams
     for camera in ring.stickup_cams:
         cams.append(RingCam(hass, camera, config))
-
+    """
     async_add_devices(cams, True)
     return True
 

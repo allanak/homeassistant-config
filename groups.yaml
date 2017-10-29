@@ -37,12 +37,11 @@ cameras:
  view: yes
  icon: mdi:camcorder
  entities:
-  - camera.frontdoor
+  - camera.front_door
   - camera.downstairs
   - camera.backyard
   - camera.westgate
   - camera.driveway
-  - camera.extra
 
 security:
  view: yes
@@ -382,15 +381,4 @@ Testing:
  view: yes
  entities:
    - group.all_automations
-
-Work:
- view: yes
- icon: mdi:domain
- entities:
-  - group.work_sensors
-
-work_sensors:
- view: no
- entities:
-  - sensor.occasion
 

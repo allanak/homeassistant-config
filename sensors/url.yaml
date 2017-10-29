@@ -22,3 +22,8 @@
   sensors:
     camera_westgate_url:
       value_template: '{{ states.sensor.ha_url.state }}{{ states.camera.westgate.attributes.entity_picture }}'
+
+- platform: template
+  sensors:
+    camera_frontdoor_url:
+      value_template: '{{ states.sensor.ha_url.state }}{{ states.camera.front_door.attributes.entity_picture }}'

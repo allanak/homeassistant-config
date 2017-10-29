@@ -2,6 +2,7 @@
 !README.md
 !automations
 !sensors
+!scripts
 !custom_components
 !*.yaml
 !scenes

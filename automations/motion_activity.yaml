@@ -7,9 +7,6 @@
     - platform: state
       entity_id: binary_sensor.ring_front_door_motion
       to: 'on'
-    - platform: state
-      entity_id: binary_sensor.driveway_line_crossing
-      to: 'on'
   action:
     - service: notify.ios_allaniphone
       data:
@@ -19,10 +16,26 @@
             category: front_door_event
             sound: US-EN-Alexa-Motion-At-Front-Door.wav
           attachment:
-            url: "{{ states.sensor.camera_driveway_url.state }}"
+            url: "{{ states.camera.front_door.attributes.entity_picture }}"
             content-type: jpg
-    - delay: '00:00:05'
 
+- alias: Driveway activity
+  id: driveway_activity
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.driveway_line_crossing
+      to: 'on'
+  action:
+    - service: notify.ios_allaniphone
+      data:
+        message: "Driveway activity"
+        data:
+          push:
+            category: driveway_event
+            sound: US-EN-Alexa-Motion-In-Front-Yard.wav
+          attachment:
+            url: "{{ states.camera.driveway.attributes.entity_picture }}"
+            content-type: jpg
 
 - alias: Back door activity
   id: back_door_action
@@ -40,7 +53,7 @@
             sound: US-EN-Alexa-Motion-At-Back-Door.wav
           entity_id: camera.backyard
           attachment:
-            url: "{{ states.sensor.camera_backyard_url.state }}"
+            url: "{{ states.camera.backyard.attributes.entity_picture }}"
             content-type: jpg
 
 - alias: West gate activity
@@ -59,5 +72,5 @@
             sound: US-EN-Alexa-Motion-In-Back-Yard.wav
           entity_id: camera.westgate
           attachment:
-            url: "{{ states.sensor.camera_westgate_url.state }}"
+            url: "{{ states.camera.westgate.attributes.entity_picture }}"
             content-type: jpg

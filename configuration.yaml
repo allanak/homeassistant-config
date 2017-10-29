@@ -126,9 +126,9 @@ ios: !include ios.yaml
 # Text to speech
 tts:
   - platform: google
-  - platform: amazon_polly
-    aws_access_key_id: !secret aws_access_key_id
-    aws_secret_access_key: !secret aws_access_key_id
+#  - platform: amazon_polly
+#    aws_access_key_id: !secret aws_access_key_id
+#    aws_secret_access_key: !secret aws_access_key_id
 
 group: !include groups.yaml
 automation: !include automations.yaml

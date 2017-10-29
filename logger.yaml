@@ -6,9 +6,28 @@
 
 # Log Severities: notset, debug, info, warn, warning, error, fatal, critical
 
-default: info
+default: error
 logs:
-  homeassistant.core: error
+  root: warn
+  py.warnings: error
+  homeassistant.components.image_processing: critical
+  homeassistant.components.python_script: warning
+  homeassistant.components.camera.generic: critical
+  homeassistant.components.sensor.wunderground: critical
+  homeassistant.components.sensor.nzbget: critical
+  homeassistant.components.sensor.sonarr: critical
+  homeassistant.components.sensor.radarr: critical
+  homeassistant.components.media_player.plex: critical
+  homeassistant.components.sensor.darksky: critical
+  pychromecast.socket_client: critical
+  aiohttp.access: critical
+  aiohttp.server: critical
+  haffmpeg.core: critical
+  pywemo.ouimeaux_device: critical
+  pywemo.ssdp: critical
+  homeassistant.helpers.entity: critical
+  custom_components.sensor.life360: critical
+  homeassistant.components.http.ban: warning
   homeassistant.components.automation: warn
   homeassistant.components.climate.nest: warn
   homeassistant.components.device_tracker: warn
@@ -18,6 +37,4 @@ logs:
   homeassistant.components.zwave: warn
   homeassistant.helpers.script: info
   homeassistant.exceptions: info
-  homeassistant.components.notify.ios: debug
-  py.warnings: error
-  root: warn
+  homeassistant.components.ring: debug
