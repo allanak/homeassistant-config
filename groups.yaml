@@ -104,7 +104,7 @@ master_bedroom:
  entities:
   - switch.stairwell_switch
   - light.office_lights_level
-  - switch.bed_switch
+#  - switch.bed_switch
   - light.balcony_light_switch
   - light.master_bedroom_front_lights_level
   - light.master_bedroom_rear_lights_level
@@ -126,10 +126,10 @@ downstairs_lights:
   - light.theater_lights_level
   - light.dining_room_level
   - light.bar_lights_level
-  - switch.neon_lights_switch
   - light.hall_light_level
   - switch.theater_switch_switch
   - light.stairwellbulbs
+  - switch.garage_light_switch
 
 kitchen:
  name: Kitchen
@@ -171,8 +171,8 @@ evening_lights:
  name: Evening Lights
  view: no
  entities:
-  - switch.bed_switch
-  - switch.neon_lights_switch
+#  - switch.bed_switch
+#  - switch.neon_lights_switch
   - light.hall_light_level
 
 outdoor_lights:
@@ -183,7 +183,6 @@ outdoor_lights:
   - switch.backyard_floodlights_switch
   - switch.backyard_light_switch
   - light.backyardgarden
-  - switch.garage_light_switch
   - switch.driveway_light_switch
 
 climate:

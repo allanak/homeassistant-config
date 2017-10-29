@@ -6,7 +6,7 @@
 
 # Log Severities: notset, debug, info, warn, warning, error, fatal, critical
 
-default: error
+default: warn
 logs:
   root: warn
   py.warnings: error
@@ -17,6 +17,7 @@ logs:
   homeassistant.components.sensor.nzbget: critical
   homeassistant.components.sensor.sonarr: critical
   homeassistant.components.sensor.radarr: critical
+  homeassistant.components.media_player: critical
   homeassistant.components.media_player.plex: critical
   homeassistant.components.sensor.darksky: critical
   pychromecast.socket_client: critical
@@ -33,7 +34,6 @@ logs:
   homeassistant.components.device_tracker: warn
   homeassistant.components.discovery: warn
   homeassistant.components.http: warn
-  homeassistant.components.media_player: warn
   homeassistant.components.zwave: warn
   homeassistant.helpers.script: info
   homeassistant.exceptions: info

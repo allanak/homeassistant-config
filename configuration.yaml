@@ -143,9 +143,11 @@ binary_sensor: !include binary_sensors.yaml
 envisalink: !include envisalink.yaml
 camera: !include cameras.yaml
 ecobee: !include ecobee.yaml
-ring: !include ring.yaml
 device_tracker: !include device_trackers.yaml
 media_player: !include media_players.yaml
+# Ring needs ffmpeg component
+ring: !include ring.yaml
+ffmpeg:
 
 # Virtual Devices
 google_assistant: !include google_assistant.yaml
