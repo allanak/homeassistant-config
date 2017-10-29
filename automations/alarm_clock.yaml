@@ -1,3 +1,4 @@
+# Transition bedroom lights on for 5 minutes if alarm clock is set. If it's a travel day per my TripIt calendar, have Google Home remind me where I'm going
 - alias: 'Wake Me Up'
   trigger:
     platform: template
@@ -21,7 +22,17 @@
         entity_id: input_boolean.alarmweekday
         state: 'off'
   action:
-    service: notify.notify
-    data_template:
-      message: 'Good morning. Time to Wake Up!'
-      title: ''
+    - service: light.turn_on
+      entity_id: light.master_bedroom_rear_lights
+      data:
+        transition: 300
+    - delay: 3:00
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: calendar.tripit
+          state: 'on'
+    - service: tts.google_say
+      entity_id: media_player.master_bedroom
+      data:
+        message: 'Good morning Allan. Enjoy your trip to {{ states.calendar.tripit.attributes.location }}'

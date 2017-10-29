@@ -10,4 +10,6 @@
   ssl: false
   username: !secret hikvision_user
   password: !secret hikvision_password
-
+  customize:
+    motion_3:
+      ignored: True

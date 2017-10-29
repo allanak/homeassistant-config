@@ -52,6 +52,41 @@
         blacklist_states: null
 
 # Context-aware attribute adjustments
+
+# Change my device name on my iPhone
+    device_tracker.allaniphone:
+      device:
+        allaniphone:
+          friendly_name: My iPhone
+
+# Hide opposite bedroom switches and thermostat based on tablet name/location
+
+    group.master_bedroom:
+      device:
+        guestbedroomfire:
+          hidden: true
+        rearbedroomfire:
+          hidden: true
+
+    climate.upstairs:
+      device:
+        guestbedroomfire:
+          hidden: true
+        rearbedroomfire:
+          hidden: true
+
+    group.guest_bedroom:
+      device:
+        rearbedroomfire:
+          hidden: true
+
+    group.rear_bedroom:
+      device:
+        guestbedroomfire:
+          hidden: true
+
+# Adjust relative names inside their groups
+
     light.master_bedroom_front_lights_level:
       group:
         group.master_bedroom:

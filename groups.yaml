@@ -53,7 +53,7 @@ security:
   - lock.back_door_locked
   - lock.back_gate_locked
   - group.all_locks
-  - group.trackers
+  - group.tracked_users
 
 alarmbadges:
   name: Alarm
@@ -69,8 +69,9 @@ alarmbadges:
 
 alarmclock:
   name: Alarm Clock
+  control: hidden
   entities:
-    - automation.alarm_clock
+    - automation.wake_me_up
     - sensor.alarm_time
     - input_number.alarmhour
     - input_number.alarmminutes
@@ -227,12 +228,11 @@ motion_sensors:
   - binary_sensor.backyard_line_crossing
   - binary_sensor.westgate_line_crossing
 
-trackers:
+tracked_users:
  name: "Who's home?"
  entities:
   - device_tracker.allaniphone
   - device_tracker.applewatch
-  - device_tracker.evaniphone
 
 door_sensors:
  name: Doors

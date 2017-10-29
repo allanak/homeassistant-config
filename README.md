@@ -17,8 +17,10 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * Start casting a music stream when I walk into the bathroom in the morning
 * Remind me to take out the trash after I leave the bathroom if tomorrow is garbage collection day
 * Send washer/dryer finished notifications based on energy meters and announce completion via Google Home
+* Wake me up at the specified time using transitioned lighting
+* If it's a travel day per my TripIt calendar, remind me where I'm going as part of my alarm routine over Google Home
 * Arm alarm at midnight when home
-* Arm alarm when house is vacated for a while
+* Arm alarm when house is empty for a while
 * Turn on/off perimeter lighting after sunset/sunrise
 * Turn on/off evening lighting at night, off at midnight
 ### UI Enhancements/Customizations

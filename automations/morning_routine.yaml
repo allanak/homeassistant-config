@@ -11,13 +11,21 @@
       - condition: time
         after: '06:00:00'
         before: '11:00:00'
-      
+      - condition: state
+        entity_id: group.tracked_users
+        state: 'home'
   action:
     - service: media_player.play_media
       data:
         media_content_id: http://15363.live.streamtheworld.com:80/KROQFMDIALUP_SC
         media_content_type: 'audio/mp4'
       entity_id: media_player.upstairs
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Home Morning"
+    - service: light.turn_off
+      entity_id: light.master_bedroom_rear_lights
 
 # Turn off upstairs music when motion stops for 10 minutes
 - alias: Bathroom Music Off
@@ -44,9 +52,12 @@
       entity_id: media_player.upstairs
       from: 'playing'
   condition:
-  - condition: time
-    weekday:
-      - mon
+    - condition: state
+      entity_id: group.tracked_users
+      state: 'home'
+    - condition: time
+      weekday:
+        - mon
   action:
     - service: tts.google_say
       entity_id: media_player.home_group
