@@ -1,0 +1,26 @@
+housekeeper_code_on:
+  sequence:
+    - service: lock.set_usercode
+      data:
+        node_id: 42
+        code_slot: 7
+      data_template:
+        usercode: "{{states.sensor.pin_code.state}}"
+    - service: notify.twilio
+      data:
+        message: "Good Morning! You can use the code {{ states.sensor.pin_code.state }} to get into the house today"
+        target:
+          - !secret allan_mobile
+    - service: notify.slack
+      data:
+        message: "Housekeeper code has been enabled! Code is: {{ states.sensor.pin_code.state }}"
+
+housekeeper_code_off:
+  sequence:
+    - service: lock.clear_usercode
+      data:
+        node_id: 42
+        code_slot: 7
+    - service: notify.slack
+      data:
+        message: "Housekeeper code has been disabled!" 

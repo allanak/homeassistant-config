@@ -38,7 +38,7 @@
     entity_id: input_select.harmony_theater
     data_template:
       option: "Select Input"
-  
+
 ############################################################
 #
 # Stop Activity
@@ -74,11 +74,11 @@
     from: 'Select Input'
   action:
   - service: remote.turn_on
-    entity_id: remote.bedroom
+    entity_id: remote.master_bedroom
     data_template:
       activity: >
         {% if is_state("input_select.harmony_theater", "Watch TV") %}
-          19494865
+          27323264
         {% elif is_state("input_select.harmony_theater", "Apple TV") %}
           23252979
         {% else %}
@@ -102,7 +102,7 @@
     to: 'Power Off'
   action:
   - service: remote.turn_off
-    entity_id: remote.bedroom
+    entity_id: remote.master_bedroom
   - service: input_select.select_option
     entity_id: input_select.harmony_bedroom
     data_template:

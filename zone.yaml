@@ -1,7 +1,7 @@
 - name: Airport
   latitude: !secret airport_latitude
   longitude: !secret airport_longitude
-  icon: mdi:highway
+  icon: mdi:airplane
   radius: 800
 
 - name: Mom's House

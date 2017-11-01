@@ -1,4 +1,5 @@
-# Transition bedroom lights on for 5 minutes if alarm clock is set. If it's a travel day per my TripIt calendar, have Google Home remind me where I'm going
+# Transition bedroom lights on for 5 minutes if alarm clock is set
+# This sends Z-Wave parameters to change the light to dim at 2.55 seconds per level at 100 increments, taking 4.2 minutes to go to full brightness
 - alias: 'Wake Me Up'
   trigger:
     platform: template
@@ -6,33 +7,35 @@
   condition:
     condition: or
     conditions:
-      - condition: and
-        conditions:
-          - condition: state
-            entity_id: input_boolean.alarmweekday
-            state: 'on'
-          - condition: time
-            weekday:
-              - mon
-              - tue
-              - wed
-              - thu
-              - fri
+      - condition: state
+        entity_id: input_boolean.alarmweekday
+        state: 'on'
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
       - condition: state
         entity_id: input_boolean.alarmweekday
         state: 'off'
   action:
-    - service: light.turn_on
-      entity_id: light.master_bedroom_rear_lights
-      data:
-        transition: 300
-    - delay: 3:00
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: calendar.tripit
-          state: 'on'
-    - service: tts.google_say
-      entity_id: media_player.master_bedroom
-      data:
-        message: 'Good morning Allan. Enjoy your trip to {{ states.calendar.tripit.attributes.location }}'
+  - service: variable.set_variable
+    data:
+      variable: house_state
+      value: 'Wakeup'
+  - service: zwave.set_config_parameter
+    data:
+      node_id: 6
+      parameter: 7
+      value: 1
+  - service: zwave.set_config_parameter
+    data:
+      node_id: 6
+      parameter: 8
+      value: 255
+  - service: light.turn_on
+    entity_id: light.master_bedroom_rear_lights_level
+  - service: homeassistant.turn_on
+    entity_id: automation.alarm_clock_morning_announcements

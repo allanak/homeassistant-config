@@ -26,6 +26,10 @@
         message: 'The Washer is done'
     - service: input_boolean.turn_off
       entity_id: input_boolean.washer_status
+    - wait_template: "{{ states.media_player.upstairs.state == 'off' }}"
+      timeout: 00:30
+    - wait_template: "{{ states.media_player.home_group.state == 'off' }}"
+      timeout: 00:30
     - service: tts.google_say
       entity_id: media_player.home_group
       data:
@@ -57,8 +61,12 @@
         message: 'The Dryer is done'
     - service: input_boolean.turn_off
       entity_id: input_boolean.dryer_status
+    - wait_template: "{{ states.media_player.upstairs.state == 'off' }}"
+      timeout: 00:30
+    - wait_template: "{{ states.media_player.home_group.state == 'off' }}"
+      timeout: 00:30
     - service: tts.google_say
       entity_id: media_player.home_group
       data:
-        message: 'Washer is done'
+        message: 'Dryer is done'
 

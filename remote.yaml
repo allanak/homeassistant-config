@@ -1,3 +1,8 @@
-- platform: harmony
-  name: Theater
-  host: harmonyhub
+# These get autodiscovered
+#- platform: harmony
+#  name: Theater
+#  host: harmonyhub
+
+#- platform: harmony
+#  name: Master Bedroom
+#  host: harmonyhub-masterbed

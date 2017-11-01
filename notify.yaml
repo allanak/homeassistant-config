@@ -7,12 +7,16 @@
 #  name: pushbullet
 
 #- platform: googlevoice
-#  username: allan@allank.com
+#  username: !secret my_email
 #  password: !secret googlevoice_password
 #  name: gv
 
-- platform: ecobee
-  name: ecobee
+#- platform: ecobee
+#  name: ecobee
+
+- platform: twilio_sms
+  name: twilio
+  from_number: !secret twilio_number
 
 - platform: html5
   gcm_api_key: !secret gcm_api_key
@@ -27,4 +31,4 @@
 
 - platform: nfandroidtv
   name: Shield
-  host: shield.home.local
+  host: shield

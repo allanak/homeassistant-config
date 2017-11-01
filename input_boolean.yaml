@@ -1,16 +1,3 @@
-home_stats:
-  name: Home Stats
-  initial: off
-
-responsibilities:
-  name: responsibilities
-  initial: off
-
-alert_mode:
-  name: Alert Mode
-  icon: mdi:alert-octagram
-  initial: off
-
 speech_notifications:
   name: Speech Notifications
   icon: mdi:speaker-wireless
@@ -42,23 +29,7 @@ alarmweekday:
   name: Weekdays Only
   initial: on
   icon: mdi:calendar-check
-
-#
-# Automation Conditions
-#
-nightlight_override:
-  name: Nightlight Override
+housekeeper_mode:
+  name: Housekeeper Mode
   initial: off
-  icon: mdi:flashlight
-nightlight_kitchen:
-  name: Kitchen Nightlight
-  initial: off
-  icon: mdi:flashlight
-nightlight_livingroom:
-  name: Kitchen Nightlight
-  initial: off
-  icon: mdi:flashlight
-nightlight_bedroom:
-  name: Bedroom Nightlight
-  initial: off
-  icon: mdi:flashlight
+  icon: mdi:account

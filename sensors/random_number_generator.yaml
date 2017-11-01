@@ -1,0 +1,5 @@
+# Use this to generate random code for locks
+- platform: random
+  name: PIN Code
+  minimum: 1111
+  maximum: 9999

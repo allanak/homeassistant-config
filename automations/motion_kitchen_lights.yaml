@@ -16,7 +16,7 @@
         brightness: '254'
         color_name: white
 
-- alias: Turn on kitchen lights on when motion detected at night
+- alias: Turn on kitchen lights when motion detected at night
   trigger:
   - entity_id: binary_sensor.kitchen_motion_sensor
     platform: state

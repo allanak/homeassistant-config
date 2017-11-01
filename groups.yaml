@@ -56,9 +56,10 @@ security:
   - group.tracked_users
 
 alarmbadges:
-  name: Alarm
+  name: House State
   control: hidden
   entities:
+  - variable.house_state
   - alarm_control_panel.home
   - sensor.home_keypad
   - sensor.opening_summary
@@ -66,6 +67,7 @@ alarmbadges:
   - input_boolean.alarm_override
   - input_boolean.guest_mode
   - input_boolean.vacation_mode
+  - input_boolean.housekeeper_mode
 
 alarmclock:
   name: Alarm Clock
@@ -166,7 +168,7 @@ guest_bedrooms:
   - group.media_guest_bedroom
   - group.media_guest_bedroom2
   - group.rear_bedroom
-  - group.trackers
+  - group.tracked_users
 
 evening_lights:
  name: Evening Lights
@@ -270,6 +272,7 @@ entertainment:
 harmony_theater:
  name: Downstairs Media
  entities:
+  - sensor.plex_current_media
   - input_select.harmony_theater
   - script.onkyovolume
   - sensor.harmony_theater_activity
@@ -360,6 +363,8 @@ media_spotify:
 plex_media:
  name: Media Server
  entities:
+  - sensor.plex_current_media
+  - sensor.netcat
   - sensor.sonarr_upcoming
   - sensor.sonarr_wanted
   - sensor.sonarr_series

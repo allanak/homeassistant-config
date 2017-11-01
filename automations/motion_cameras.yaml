@@ -20,12 +20,12 @@
   action:
     - service: notify.ios_allaniphone
       data:
-        message: Front Door Activity Detected
-        data:
+        message: "Front Door Activity Detected"
+        data_template:
           push:
             category: front_door_event
             sound: US-EN-Alexa-Motion-At-Front-Door.wav
-          entity_id: camera.driveway
+          entity_id: "camera.driveway"
           attachment:
             url: "{{ states.camera.driveway.attributes.entity_picture }}"
             content-type: jpg
@@ -49,12 +49,12 @@
   action:
     - service: notify.ios_allaniphone
       data:
-        message: Driveway Motion Detected
-        data:
+        message: "Driveway Motion Detected"
+        data_template:
           push:
             category: garage_event
             sound: US-EN-Alexa-Motion-At-Front-Yard.wav
-          entity_id: camera.driveway
+          entity_id: "camera.driveway"
           attachment:
             url: "{{ states.camera.driveway.attributes.entity_picture }}"
             content-type: jpg
@@ -67,6 +67,9 @@
       to: 'on'
   condition:
   - condition: state
+    entity_id: group.tracked_users
+    state: 'not_home'
+  - condition: state
     entity_id: input_boolean.guest_mode
     state: 'off'
   - condition: state
@@ -75,12 +78,11 @@
   action:
     - service: notify.ios_allaniphone
       data:
-        message: Back Yard Motion Detected
-        data:
+        message: "Back Yard Motion Detected"
+        data_template:
           push:
-            category: back_door_event
             sound: US-EN-Alexa-Motion-At-Back-Door.wav
-          entity_id: camera.backyard
+          entity_id: "camera.backyard"
           attachment:
             url: "{{ states.camera.backyard.attributes.entity_picture }}"
             content-type: jpg
@@ -105,11 +107,10 @@
     - service: notify.ios_allaniphone
       data:
         message: West Gate Motion Detected
-        data:
+        data_template:
           push:
-            category: west_gate_event
             sound: US-EN-Alexa-Motion-At-Back-Door.wav
-          entity_id: camera.westgate
+          entity_id: "camera.westgate"
           attachment:
             url: "{{ states.camera.westgate.attributes.entity_picture }}"
             content-type: jpg
@@ -122,6 +123,9 @@
     to: 'on'
   condition:
   - condition: state
+    entity_id: group.tracked_users
+    state: 'not_home'
+  - condition: state
     entity_id: input_boolean.guest_mode
     state: 'off'
   - condition: state
@@ -130,12 +134,10 @@
   action:
     - service: notify.ios_allaniphone
       data:
-        message: Downstairs Motion Detected
-        data:
+        message: "Downstairs Motion"
+        data_template:
           push:
-            category: west_gate_event
-            sound: US-EN-Alexa-Motion-Detected-Generic.wav
-          entity_id: camera.downstairs
+          entity_id: "camera.downstairs"
           attachment:
             url: "{{ states.camera.downstairs.attributes.entity_picture }}"
             content-type: jpg

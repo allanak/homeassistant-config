@@ -3,3 +3,19 @@
   name: !secret plex_name
   username: !secret plex_username
   password: !secret plex_password
+
+- platform: template
+  sensors:
+    plex_current_media:
+      value_template: >-
+        {%- if states.sensor.netcat.attributes.allanak -%}
+          '{{states.sensor.netcat.attributes.allanak}}'
+        {%- else -%}
+          N/A
+        {%- endif -%}
+      icon_template: >-
+        {% if is_state(states.sensor.netcat.attributes.allanak, 'N/A') %}
+          mdi:stop
+        {% else %}
+          mdi:plex
+        {% endif %}

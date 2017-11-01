@@ -1,23 +1,18 @@
-- alias: Home Assistant Update Notification
-  id: hass_update_available
+- alias: 'Housekeeper Mode Enabled'
   trigger:
-    - entity_id: updater.updater
-      platform: state
+    platform: state
+    entity_id: input_boolean.housekeeper_mode
+    to: 'on'
   action:
-    - service: notify.ios_allan_kleins_iphone
-      data:
-        message: Home Assistant {{ states.updater.updater.state }} is now available
+    service: script.turn_on
+    entity_id: script.housekeeper_code_on
 
-- alias: SSL Certificate Expiry
-  id: ssl_certificate_expiry
+- alias: 'Housekeeper Mode Disabled'
   trigger:
-  - at: 09:00
-    platform: time
+    platform: state
+    entity_id: input_boolean.housekeeper_mode
+    to: 'off'
   action:
-    - service: notify.ios_allan_kleins_iphone
-      data:
-        message: SSL certificate expires in {{ states.sensor.ssl_certificate_expiry.state }} days
-  condition:
-    - below: '10'
-      condition: numeric_state
-      entity_id: sensor.ssl_certificate_expiry
+    service: script.turn_on
+    entity_id: script.housekeeper_code_off
+

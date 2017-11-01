@@ -1,18 +1,11 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Home
-  # Location required to calculate the time the sun rises and sets
   latitude: !secret latitude
   longitude: !secret longitude
-# Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: !secret elevation
-  # metric for Metric, imperial for Imperial
   unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
-  # Customization file
   customize: !include customize.yaml
-  customize_domain: {}
   customize_glob: !include custom-ui.yaml
 
 # Custom UI from https://github.com/andrey-git/home-assistant-custom-ui
@@ -61,17 +54,12 @@ frontend:
       table-row-background-color: "var(--paper-card-background-color)"
       table-row-alternative-background-color: "var(--sidebar-text_-_background)"
 
-# Show links to resources in log and frontend
-#introduction:
-
 # Enables configuration UI
 config:
 
 http:
-  # Uncomment this to add a password (recommended!)
   api_password: !secret api_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  base_url: !secret ha_url
+  base_url: !secret base_url
 #  ssl_certificate: /ssl/fullchain.pem
 #  ssl_key: /ssl/privkey.pem
   server_port: 8123
@@ -110,9 +98,9 @@ history:
       - device_tracker
       - switch
       - media_player
+  exclude:
+    domains:
       - light
-#  exclude:
-#      - light
 
 # View all events in a logbook
 logbook:
@@ -133,7 +121,7 @@ tts:
 group: !include groups.yaml
 automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
-script: !include scripts.yaml
+script: !include_dir_merge_named scripts
 
 # Physical Devices
 light: !include light.yaml
@@ -151,14 +139,15 @@ ffmpeg:
 
 # Virtual Devices
 google_assistant: !include google_assistant.yaml
-#usps: !include usps.yaml
 ifttt: !include ifttt.yaml
 notify: !include notify.yaml
+twilio: !include twilio.yaml
 logger: !include logger.yaml
 google: !include google.yaml
 remote: !include remote.yaml
-#shell_command: !include shell_commands.yaml
+#usps: !include usps.yaml
 #alexa: !include alexa.yaml
+#shell_command: !include shell_commands.yaml
 #scene: !include scenes.yaml
 #image_processing: !include image_processing.yaml
 #logentries: !include logentries.yaml
@@ -176,6 +165,11 @@ input_number: !include input_number.yaml
 zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
+
+# Enable Zigbee stick
+#zha:
+#  usb_path: /dev/ttyACM1
+#  database_path: /config/zigbee.db
 
 # Menu Customization
 panel_iframe:

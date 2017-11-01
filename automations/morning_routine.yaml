@@ -1,4 +1,4 @@
-# Turn on upstairs music between 6-11am when motion in bathroom
+# Turn on upstairs music between 6-11am when motion in bathroom if house is in Wakeup state (based on alarm clock)
 - alias: Bathroom Music On in mornings
   id: bathroom_music_on
   trigger:
@@ -8,26 +8,29 @@
   condition:
     condition: and
     conditions:
-      - condition: time
-        after: '06:00:00'
-        before: '11:00:00'
       - condition: state
-        entity_id: group.tracked_users
-        state: 'home'
+        entity_id: variable.house_state
+        state: 'Wakeup'
+      - condition: state
+        entity_id: media_player.upstairs
+        state: 'off'
   action:
+    - service: alarm_control_panel.alarm_disarm
     - service: media_player.play_media
+      entity_id: media_player.upstairs
       data:
         media_content_id: http://15363.live.streamtheworld.com:80/KROQFMDIALUP_SC
         media_content_type: 'audio/mp4'
-      entity_id: media_player.upstairs
     - service: variable.set_variable
       data:
         variable: house_state
-        value: "Home Morning"
+        value: 'Shower'
     - service: light.turn_off
       entity_id: light.master_bedroom_rear_lights
+      
 
-# Turn off upstairs music when motion stops for 10 minutes
+
+# Turn off shower music when bathroom motion stops for 5 minutes
 - alias: Bathroom Music Off
   id: bathroom_music_off
   trigger:
@@ -35,31 +38,41 @@
       platform: state
       to: 'off'
       for:
-        minutes: 10
+        minutes: 5
   condition:
-  - condition: state
-    entity_id: media_player.master_bathroom
-    state: 'playing'
+    - condition: state
+      entity_id: variable.house_state
+      state: 'Shower'
   action:
     - service: media_player.turn_off
       data:
         entity_id: media_player.upstairs
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: 'Morning'
 
-# After music shuts turned off, remind me if its garbage pickup tomorrow
+
+# After morning music shuts turned off, remind everyone if garbage pickup is tomorrow
 - alias: Garbage day reminder
   trigger:
     - platform: state
-      entity_id: media_player.upstairs
-      from: 'playing'
+      entity_id: variable.house_state
+      to: 'Morning'
   condition:
-    - condition: state
-      entity_id: group.tracked_users
-      state: 'home'
-    - condition: time
-      weekday:
-        - mon
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: automation.alarm_clock_morning_announcements
+        state: 'on'
+      - condition: time
+        weekday:
+          - mon
   action:
+    - delay: 00:00:30
     - service: tts.google_say
       entity_id: media_player.home_group
       data:
-        message: 'This is a reminder that tomorrow is garbage day'
+        message: 'Good morning! This is a reminder that tomorrow is trash pickup day'
+    - service: homeassistant.turn_off
+      entity_id: automation.alarm_clock_morning_announcements

@@ -75,16 +75,6 @@
         rearbedroomfire:
           hidden: true
 
-    group.guest_bedroom:
-      device:
-        rearbedroomfire:
-          hidden: true
-
-    group.rear_bedroom:
-      device:
-        guestbedroomfire:
-          hidden: true
-
 # Adjust relative names inside their groups
 
     light.master_bedroom_front_lights_level:
@@ -97,10 +87,15 @@
         group.master_bedroom:
           friendly_name: Rear Lights
 
-    light.kitchen_track_lights_level:
+    light.kitchen_lights_level:
       group:
         group.kitchen:
           friendly_name: Track Lights
+
+    light.kitchenrgb:
+      group:
+        group.kitchen:
+          friendly_name: RGB Accents
 
     light.guest_bedroom_lights_level:
       group:

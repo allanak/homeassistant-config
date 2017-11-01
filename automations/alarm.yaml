@@ -15,7 +15,10 @@
   action:
     - service: alarm_control_panel.alarm_arm_home
       data: {}
-
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Sleeping"
 
 - alias: Arm alarm when house vacated
   trigger:
@@ -32,22 +35,32 @@
     entity_id: input_boolean.alarm_override
     state: 'off'
   action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Away"
     - service: alarm_control_panel.alarm_arm_home
       data: {}
     - service: notify.ios_allaniphone
       data:
-        message: House is vacant. Security system now armed
+        message: House is vacant. Arming security system
         title: Goodbye
         data:
           push:
             category: departure_event
 
-- alias: Disarm alarm upon return
+- alias: Disarm alarm upon presence or code unlock
   trigger:
   - entity_id: group.tracked_users
     from: not_home
     platform: state
     to: home
+  - entity_id: sensor.front_door_alarm_type
+    platform: state
+    to: '19'
+  - entity_id: sensor.back_door_alarm_type
+    platform: state
+    to: '19'
   condition:
   - condition: state
     entity_id: alarm_control_panel.home
@@ -56,6 +69,10 @@
     entity_id: alarm_control_panel.home
     state: 'armed_away'
   action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Home"
     - service: alarm_control_panel.alarm_disarm
       data: {}
     - service: notify.ios_allaniphone
@@ -76,7 +93,7 @@
       data:
         message: Security Alert
         title: Alarm Triggered!
-        data:
+        data_template:
           push:
             category: concerning_event
             sound: US-EN-Morgan-Freeman-Motion-Detected.wav
@@ -84,3 +101,7 @@
           attachment:
             url: "{{ state.sensor.camera_downstairs_url.state }}"
             content-type: jpg
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Alarming"
