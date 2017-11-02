@@ -1,0 +1,14 @@
+upstairs:
+ name: Upstairs
+ view: yes
+ icon: mdi:hotel
+ entities:
+  - group.master_bedroom
+  - group.master_bathroom
+  - group.alarmclock
+  - group.media_home_group
+  - group.media_upstairs
+  - group.media_bathroom
+  - group.media_fireplace
+  - group.media_upstairs
+  - group.harmony_bedroom

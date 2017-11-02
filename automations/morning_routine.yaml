@@ -26,7 +26,7 @@
         variable: house_state
         value: 'Shower'
     - service: light.turn_off
-      entity_id: light.master_bedroom_rear_lights
+      entity_id: light.master_bedroom_rear_lights_level
       
 
 
@@ -53,7 +53,7 @@
         value: 'Morning'
 
 
-# After morning music shuts turned off, remind everyone if garbage pickup is tomorrow
+# Remind everyone that garbage pickup is tomorrow
 - alias: Garbage day reminder
   trigger:
     - platform: state

@@ -1,0 +1,20 @@
+climate:
+ name: Climate
+ entities:
+  - climate.upstairs
+  - climate.downstairs
+  - sensor.master_bedroom_temp
+  - sensor.bedroom_temperature
+  - sensor.livingroom_temperature
+  - sensor.master_bath_motion_temperature
+forecast:
+ name: Forecast
+ entities:
+  - sensor.pws_weather
+  - sensor.pws_feelslike_f
+  - sensor.pws_weather_1d
+  - sensor.pws_weather_1n
+  - sensor.pws_weather_2d
+  - sensor.pws_weather_2n
+  - sensor.pws_weather_3d
+  - sensor.pws_weather_3n

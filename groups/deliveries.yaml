@@ -1,0 +1,8 @@
+deliveries:
+ name: Deliveries
+ icon: mdi:package-variant
+ entities:
+  - sensor.usps_packages
+  - sensor.fedex
+  - sensor.packages_in_transit
+  - sensor.deliveries_today

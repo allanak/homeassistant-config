@@ -1,0 +1,9 @@
+outdoor_lights:
+ name: Outdoor Lights
+ entities:
+#  - switch.porch_light_switch
+  - switch.balcony_light_switch
+  - switch.backyard_floodlights_switch
+  - switch.backyard_light_switch
+  - light.backyardgarden
+  - switch.driveway_light_switch

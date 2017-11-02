@@ -3,6 +3,7 @@
 !automations
 !sensors
 !scripts
+!groups
 !custom_components
 !*.yaml
 !scenes

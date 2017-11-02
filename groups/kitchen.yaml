@@ -1,0 +1,7 @@
+kitchen:
+ name: Kitchen
+ view: no
+ entities:
+  - light.kitchen_lights_level
+  - light.kitchenrgb
+  - light.breakfast_bar_level

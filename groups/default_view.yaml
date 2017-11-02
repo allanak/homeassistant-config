@@ -1,0 +1,10 @@
+default_view:
+ name: Downstairs
+ icon: mdi:home
+ view: yes
+ entities:
+  - group.downstairs_lights
+  - group.outdoor_lights
+  - group.kitchen
+  - group.harmony_theater
+  - group.media_home_group

@@ -1,0 +1,10 @@
+cameras:
+ name: Cameras
+ view: yes
+ icon: mdi:camcorder
+ entities:
+  - camera.front_door
+  - camera.downstairs
+  - camera.backyard
+  - camera.westgate
+  - camera.driveway

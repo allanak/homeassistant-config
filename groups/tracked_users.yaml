@@ -1,0 +1,5 @@
+tracked_users:
+ name: "Who's home?"
+ entities:
+  - device_tracker.allaniphone
+  - device_tracker.applewatch

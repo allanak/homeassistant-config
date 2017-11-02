@@ -1,0 +1,13 @@
+entertainment:
+ name: Entertainment
+ view: yes
+ icon: mdi:television-guide
+ entities:
+  - group.media_home_group
+  - group.media_upstairs
+  - group.media_living_room
+  - group.media_kitchen
+  - group.media_office
+#  - group.media_spotify
+  - group.radio
+  - group.plex_media

@@ -118,7 +118,7 @@ tts:
 #    aws_access_key_id: !secret aws_access_key_id
 #    aws_secret_access_key: !secret aws_access_key_id
 
-group: !include groups.yaml
+group: !include_dir_merge_named groups
 automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
 script: !include_dir_merge_named scripts

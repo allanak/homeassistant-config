@@ -1,0 +1,7 @@
+Laundry:
+ name: Laundry
+ view: yes
+ icon: mdi:washing-machine
+ entities:
+   - sensor.washer_power_2
+   - sensor.dryer_power_2

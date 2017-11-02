@@ -1,0 +1,7 @@
+evening_lights:
+ name: Evening Lights
+ view: no
+ entities:
+#  - switch.bed_switch
+#  - switch.neon_lights_switch
+  - light.hall_light_level
