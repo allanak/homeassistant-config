@@ -13,6 +13,7 @@ calendars:
   entities:
   - sensor.next_event
   - sensor.next_trip
+  - sensor.next_holiday
 
 transportation:
   view: no
@@ -29,4 +30,4 @@ deliveries:
   - sensor.usps_packages
   - sensor.usps_mail
   - sensor.fedex
-  - sensor.packages_in_transit
+#  - sensor.packages_in_transit

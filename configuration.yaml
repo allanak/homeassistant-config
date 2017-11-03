@@ -145,7 +145,7 @@ twilio: !include twilio.yaml
 logger: !include logger.yaml
 google: !include google.yaml
 remote: !include remote.yaml
-#usps: !include usps.yaml
+usps: !include usps.yaml
 #alexa: !include alexa.yaml
 #shell_command: !include shell_commands.yaml
 #scene: !include scenes.yaml
