@@ -15,7 +15,7 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * Turn on garage lights when door is opened and off shortly after it closes (garage_lights.yaml)
 ### Convenience
 * Start casting a music stream when I walk into the bathroom in the morning (morning_routine.yaml)
-* Remind me to take out the trash after I leave the bathroom if tomorrow is garbage collection day (morning_routine.yaml)
+* Remind me to take out the trash if tomorrow is garbage collection day when entering the kitchen (morning_routine.yaml)
 * Set my AV receiver to the proper input if its in my Google Cast group if I'm not already watching TV (chromecast.yaml)
 * Send washer/dryer finished notifications based on energy meters and announce completion via Google Home (laundry_notifications.yaml)
 * Wake me up at the specified time using transitioned lighting (alarm_clock.yaml)

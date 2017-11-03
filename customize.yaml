@@ -1,5 +1,5 @@
 # Device Tracker
-device_tracker.allaniphone:
+device_tracker.allansiphone:
   entity_picture: /local/allan.jpg
   friendly_name: Allan
 #   icon: mdi:cellphone-iphone

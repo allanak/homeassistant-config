@@ -4,7 +4,7 @@
     platform: time
   condition:
   - condition: state
-    entity_id: device_tracker.allaniphone
+    entity_id: device_tracker.allansiphone
     state: home
   action:
     - service: switch.turn_on

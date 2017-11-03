@@ -52,7 +52,7 @@
         variable: house_state
         value: 'Morning'
 
-# Remind everyone that garbage pickup is tomorrow
+# Remind everyone that garbage pickup is tomorrow when walking into the kitchen
 - alias: Garbage day reminder
   id: garbage_day_reminder
   trigger:
@@ -66,7 +66,7 @@
         weekday:
           - mon
   action:
-    - delay: 00:00:30
+    - wait_template: "{{ states.binary_sensor.kitchen_motion_sensor == 'on' }}"
     - service: tts.google_say
       entity_id: media_player.home_group
       data:

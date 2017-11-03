@@ -2,7 +2,7 @@
   sensors:
     sprout:
       value_template: >-
-        {% if is_state('device_tracker.allaniphone', 'home') %}
+        {% if is_state('device_tracker.allansiphone', 'home') %}
           home
         {% else -%}
           away
