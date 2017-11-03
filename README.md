@@ -13,15 +13,16 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 ### Lights
 * Turn on kitchen lights when motion detected and off when motion stops (motion_kitchen_lights.yaml)
 * Turn on garage lights when door is opened and off shortly after it closes (garage_lights.yaml)
-### Convenience/Security
+### Convenience
 * Start casting a music stream when I walk into the bathroom in the morning (morning_routine.yaml)
 * Remind me to take out the trash after I leave the bathroom if tomorrow is garbage collection day (morning_routine.yaml)
 * Set my AV receiver to the proper input if its in my Google Cast group if I'm not already watching TV (chromecast.yaml)
-* Send washer/dryer finished notifications based on energy meters and announce completion via Google Home (laundry.yaml)
+* Send washer/dryer finished notifications based on energy meters and announce completion via Google Home (laundry_notifications.yaml)
 * Wake me up at the specified time using transitioned lighting (alarm_clock.yaml)
-* If it's a travel day per my TripIt calendar, remind me where I'm going as part of my alarm routine over Google Home
-* Arm alarm at midnight when home (alarm.yaml)
-* Arm alarm when house is empty for a whilea (alarm.yaml)
+* If it's a travel day per my TripIt calendar, remind me where I'm going after I leave the bathroom in the morning
+### Security
+* Arm alarm when Night mode kicks in (alarm.yaml)
+* Arm alarm when house is empty for a while (alarm.yaml)
 * Turn on/off perimeter lighting after sunset/sunrise (night_lighting.yaml)
 * Turn on/off evening lighting at night, off at midnight (night_lighting.yaml)
 ### UI Enhancements/Customizations

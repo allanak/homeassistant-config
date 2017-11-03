@@ -161,6 +161,13 @@ input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 input_number: !include input_number.yaml
 
+# Enable emulated Hue for Alexa
+emulated_hue:
+  expose_by_default:
+    - switch
+    - light
+    - media_player
+
 # Enable Z-Wave stick
 zwave:
   usb_path: /dev/ttyACM0
