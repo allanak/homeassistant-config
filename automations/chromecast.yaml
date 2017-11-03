@@ -148,3 +148,50 @@
             "None"
           {% endif %}
       volume_level: "{{ states.input_number.google_volume.state | float / 10 }}"
+
+############################################################
+#
+# Turn on/off Harmony activity when Chromecast devices start/stop playing
+#
+############################################################
+
+- alias: Turn on receiver when casting
+  trigger:
+    - platform: state
+      entity_id: media_player.home_group
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.upstairs
+      to: 'playing'
+  condition:
+    - condition: state
+      entity_id: remote.theater
+      state: 'off'
+  action:
+    - service: remote.turn_on
+      entity_id: remote.theater
+      data_template:
+        activity: >
+          {% if is_state("media_player.home_group", "playing") %}
+            23063086
+          {%-elif is_state("media_player.upstairs", "playing") %}
+            23072014
+          {% else %}
+          {% endif %}
+
+- alias: Shut off receiver when casting stops
+  trigger:
+    - platform: state
+      entity_id: media_player.home_group
+      from: 'playing'
+    - platform: state
+      entity_id: media_player.upstairs
+      from: 'playing'
+  condition:
+    - condition: template
+      value_template: '{{ states.remote.theater.attributes.current_activity == "Chromecast" }}'
+    - condition: template
+      value_template: '{{ states.remote.theater.attributes.current_activity == "Chromecast Upstairs" }}'
+  action:
+    - service: remote.turn_off
+      entity_id: remote.theater

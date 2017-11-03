@@ -2,20 +2,22 @@
 # HOUSE STATE
 #
 # Possible States:
-#   * SLEEPING
-#   * HOME MORNING
-#   * HOME DAY
-#   * HOME EVENING
-#   * HOME LATE
-#   * WATCHING MOVIE
-#   * AWAY
-#   * AWAY VACATION
-#   * GUEST MODE
-#   * ALARM ACTIVE!
+#   * Early Morning
+#   * Morning
+#   * Sunset
+#   * Evening
+#   * Night
 #
 # TRIGGERED BY:
+# Most states set by time of day with state_control.yaml
+#   * automation.sunrise_mode - Sunrise
+#   * automation.shower_mode - Shower (morning_routine.yaml)
+#   * automation.shower_mode_off - Morning (morning_routine.yaml)
+#   * automation.sunset_mode - Sunset
+#   * automation.evening_mode - Evening
+#   * automation.night_mode - Night
+#   Not using the below ones...yet
 #   * automation.movie_started_* - WATCHING MOVIE
-#   * script.alarm_clock - HOME MORNING <12p
 #   * automation.wake_up_non_alarm_day - HOME MORNING <12p
 #   * automation.fitbit_detects_new_sleep - HOME MORNING < 12p
 #   * automation.noon_wake_up_ya_bum - HOME DAY @12p

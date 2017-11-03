@@ -1,11 +1,9 @@
 - alias: Arm alarm at midnight when home
   trigger:
-  - at: 00:00
-    platform: time
+  - platform: state
+    entity_id: variable.house_state
+    to: 'Night'
   condition:
-  - condition: state
-    entity_id: group.tracked_users
-    state: home
   - condition: state
     entity_id: input_boolean.guest_mode
     state: 'off'
@@ -14,19 +12,14 @@
     state: 'off'
   action:
     - service: alarm_control_panel.alarm_arm_home
-      data: {}
-    - service: variable.set_variable
       data:
-        variable: house_state
-        value: "Sleeping"
+        entity_id: alarm_control_panel.home
 
 - alias: Arm alarm when house vacated
   trigger:
   - entity_id: group.tracked_users
     platform: state
-    to: 'not_home'
-    for:
-      minutes: 5
+    to: away
   condition:
   - condition: state
     entity_id: input_boolean.guest_mode
@@ -35,12 +28,9 @@
     entity_id: input_boolean.alarm_override
     state: 'off'
   action:
-    - service: variable.set_variable
-      data:
-        variable: house_state
-        value: "Away"
     - service: alarm_control_panel.alarm_arm_home
-      data: {}
+      data:
+        entity_id: alarm_control_panel.home
     - service: notify.ios_allaniphone
       data:
         message: House is vacant. Arming security system
@@ -62,19 +52,18 @@
     platform: state
     to: '19'
   condition:
-  - condition: state
-    entity_id: alarm_control_panel.home
-    state: 'armed_home'
-  - condition: state
-    entity_id: alarm_control_panel.home
-    state: 'armed_away'
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.home
+        state: 'armed_home'
+      - condition: state
+        entity_id: alarm_control_panel.home
+        state: 'armed_away'
   action:
-    - service: variable.set_variable
-      data:
-        variable: house_state
-        value: "Home"
     - service: alarm_control_panel.alarm_disarm
-      data: {}
+      data:
+        entity_id: alarm_control_panel.home
     - service: notify.ios_allaniphone
       data:
         message: Alarm has been disarmed
@@ -101,7 +90,3 @@
           attachment:
             url: "{{ state.sensor.camera_downstairs_url.state }}"
             content-type: jpg
-    - service: variable.set_variable
-      data:
-        variable: house_state
-        value: "Alarming"

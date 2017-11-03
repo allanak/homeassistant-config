@@ -1,5 +1,7 @@
 tracked_users:
+ view: no
  name: "Who's home?"
  entities:
   - device_tracker.allaniphone
   - device_tracker.applewatch
+  - sensor.sprout

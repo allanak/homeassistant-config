@@ -11,7 +11,7 @@
 - alias: SSL Certificate Expiry
   id: ssl_certificate_expiry
   trigger:
-  - at: 09:00
+  - at: '09:00'
     platform: time
   action:
     - service: notify.ios_allan_kleins_iphone

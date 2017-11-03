@@ -2,10 +2,25 @@ security:
  view: yes
  icon: mdi:security-home
  entities:
-  - group.alarmbadges
+  - device_tracker.allaniphone
+  - sensor.sprout
+  - group.house_settings
   - alarm_control_panel.home
   - lock.front_door_locked
   - lock.back_door_locked
   - lock.back_gate_locked
   - group.all_locks
-  - group.tracked_users
+
+house_settings:
+  name: House Settings
+  control: hidden
+  entities:
+  - variable.house_state
+  - alarm_control_panel.home
+  - sensor.home_keypad
+  - sensor.opening_summary
+  - sensor.motion_summary
+  - input_boolean.alarm_override
+  - input_boolean.guest_mode
+  - input_boolean.vacation_mode
+  - input_boolean.housekeeper_mode

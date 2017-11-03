@@ -1,7 +1,0 @@
-Weather:
- name: Weather
- view: yes
- icon: mdi:weather-sunny
- entities:
-  - group.climate
-  - group.forecast

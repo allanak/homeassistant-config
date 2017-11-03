@@ -3,12 +3,13 @@ guest_bedrooms:
  view: yes
  icon: mdi:account-multiple
  entities:
+  - device_tracker.allaniphone
+  - sensor.sprout
   - group.guest_bedroom
-  - group.media_home_group
   - group.media_guest_bedroom
   - group.media_guest_bedroom2
   - group.rear_bedroom
-  - group.tracked_users
+
 guest_bedroom:
  name: Guest Bedroom
  view: no
@@ -16,6 +17,7 @@ guest_bedroom:
   - light.guest_bedroom_lights_level
   - switch.guest_bedroom_fan_switch
   - sensor.guest_bedroom_smoke
+
 rear_bedroom:
  name: Rear Bedroom
  view: no

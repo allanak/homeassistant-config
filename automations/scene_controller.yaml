@@ -1,0 +1,105 @@
+- alias: Scene Button 1
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: minimote
+        scene_id: 1
+  action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Scene 1"
+
+
+- alias: Scene Button 1 Long Press
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: minimote
+        scene_id: 2
+  action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Scene 2"
+
+
+- alias: Scene Button 2
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: minimote
+        scene_id: 3
+  action:
+    - service: variable.set_variable
+      data:
+       variable: house_state
+       value: "Scene 3"
+
+- alias: Scene Button 2 Long Press
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: minimote
+        scene_id: 4
+  action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Scene 4"
+
+- alias: Scene Button 3
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: minimote
+        scene_id: 5
+  action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Scene 5"
+
+- alias: Scene Button 3 Long Press
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: minimote
+        scene_id: 6
+  action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Scene 6"
+
+- alias: Scene Button 4
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: minimote
+        scene_id: 7
+  action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Scene 7"
+
+- alias: Scene Button 4 Long Press
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: minimote
+        scene_id: 8
+  action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Scene 8"

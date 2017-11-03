@@ -6,7 +6,6 @@ upstairs:
   - group.master_bedroom
   - group.master_bathroom
   - group.alarmclock
-  - group.media_home_group
   - group.media_upstairs
   - group.media_bathroom
   - group.media_fireplace

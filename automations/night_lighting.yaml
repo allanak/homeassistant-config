@@ -1,8 +1,8 @@
 - alias: Turn on perimeter lights at night
   trigger:
-  - event: sunset
-    offset: 00:30:00
-    platform: sun
+  - platform: state
+    entity_id: variable.house_state
+    to: 'Evening'
   action:
     - service: homeassistant.turn_on
       data:
@@ -10,9 +10,9 @@
 
 - alias: Turn off perimeter lighting after sunrise
   trigger:
-  - event: sunrise
-    offset: 00:15:00
-    platform: sun
+  - platform: state
+    entity_id: variable.house_state
+    to: 'Early Morning'
   action:
     - service: homeassistant.turn_off
       data:
@@ -20,9 +20,9 @@
 
 - alias: Turn on evening lights after sunset
   trigger:
-  - event: sunrise
-    offset: 00:45:00
-    platform: sun
+  - platform: state
+    entity_id: variable.house_state
+    to: 'Sunset'
   condition:
   - condition: state
     entity_id: group.tracked_users
@@ -35,15 +35,12 @@
       data:
         entity_id: light.hall_light_level
         brightness: '20'
-    - service: variable.set_variable
-      data:
-        variable: house_state
-        value: "Home Evening"
 
 - alias: Turn off evening lighting at midnight
   trigger:
-  - at: 00:00
-    platform: time
+  - platform: state
+    entity_id: variable.house_state
+    to: 'Night'
   action:
     - service: homeassistant.turn_off
       data:

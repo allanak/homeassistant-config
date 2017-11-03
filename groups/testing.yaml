@@ -1,4 +1,4 @@
 Testing:
- view: yes
+ view: no
  entities:
    - group.all_automations

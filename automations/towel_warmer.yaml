@@ -1,6 +1,6 @@
 - alias: Turn on my towel warmer when I'm home in the morning
   trigger:
-  - at: 06:00
+  - at: '06:00'
     platform: time
   condition:
   - condition: state

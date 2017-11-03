@@ -11,26 +11,27 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 
 #### Automations
 ### Lights
-* Turn on kitchen lights when motion detected and off when motion stops
-* Turn on garage lights when door is opened and off shortly after it closes
+* Turn on kitchen lights when motion detected and off when motion stops (motion_kitchen_lights.yaml)
+* Turn on garage lights when door is opened and off shortly after it closes (garage_lights.yaml)
 ### Convenience/Security
-* Start casting a music stream when I walk into the bathroom in the morning
-* Remind me to take out the trash after I leave the bathroom if tomorrow is garbage collection day
-* Send washer/dryer finished notifications based on energy meters and announce completion via Google Home
-* Wake me up at the specified time using transitioned lighting
+* Start casting a music stream when I walk into the bathroom in the morning (morning_routine.yaml)
+* Remind me to take out the trash after I leave the bathroom if tomorrow is garbage collection day (morning_routine.yaml)
+* Set my AV receiver to the proper input if its in my Google Cast group if I'm not already watching TV (chromecast.yaml)
+* Send washer/dryer finished notifications based on energy meters and announce completion via Google Home (laundry.yaml)
+* Wake me up at the specified time using transitioned lighting (alarm_clock.yaml)
 * If it's a travel day per my TripIt calendar, remind me where I'm going as part of my alarm routine over Google Home
-* Arm alarm at midnight when home
-* Arm alarm when house is empty for a while
-* Turn on/off perimeter lighting after sunset/sunrise
-* Turn on/off evening lighting at night, off at midnight
+* Arm alarm at midnight when home (alarm.yaml)
+* Arm alarm when house is empty for a whilea (alarm.yaml)
+* Turn on/off perimeter lighting after sunset/sunrise (night_lighting.yaml)
+* Turn on/off evening lighting at night, off at midnight (night_lighting.yaml)
 ### UI Enhancements/Customizations
-* Hide media players when their state is idle/off
-* Set theme based on sunrise/sunset
+* Hide media players when their state is idle/off (hide_mediaplayers.yaml)
+* Set theme based on sunrise/sunset (hass_theme.yaml)
 * Use [Custom UI elements](https://github.com/andrey-git/home-assistant-custom-ui) for tweaking UI objects
 ### Housekeeping
-* Send a notification if my SSL certificate is going to expire in <10 days
-* Send a notification when an update is available for Home Assistant
-* Send a notification upon failed login attempts
+* Send a notification if my SSL certificate is going to expire in <10 days (hass_tasks.yaml)
+* Send a notification when an update is available for Home Assistant (hass_tasks.yaml)
+* Send a notification upon failed login attempts (hass_tasks.yaml)
 
 #### Devices
 * GE Z-Wave Switches and Dimmers

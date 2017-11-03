@@ -1,6 +1,6 @@
 # Turn on upstairs music between 6-11am when motion in bathroom if house is in Wakeup state (based on alarm clock)
-- alias: Bathroom Music On in mornings
-  id: bathroom_music_on
+- alias: Morning shower music
+  id: shower_mode
   trigger:
     - entity_id: binary_sensor.master_bath_motion_sensor
       platform: state
@@ -15,7 +15,6 @@
         entity_id: media_player.upstairs
         state: 'off'
   action:
-    - service: alarm_control_panel.alarm_disarm
     - service: media_player.play_media
       entity_id: media_player.upstairs
       data:
@@ -27,12 +26,10 @@
         value: 'Shower'
     - service: light.turn_off
       entity_id: light.master_bedroom_rear_lights_level
-      
 
-
-# Turn off shower music when bathroom motion stops for 5 minutes
+# Turn off shower music after shower, disarm alarm
 - alias: Bathroom Music Off
-  id: bathroom_music_off
+  id: shower_mode_off
   trigger:
     - entity_id: binary_sensor.master_bath_motion_sensor
       platform: state
@@ -44,6 +41,9 @@
       entity_id: variable.house_state
       state: 'Shower'
   action:
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.home
     - service: media_player.turn_off
       data:
         entity_id: media_player.upstairs
@@ -52,9 +52,9 @@
         variable: house_state
         value: 'Morning'
 
-
 # Remind everyone that garbage pickup is tomorrow
 - alias: Garbage day reminder
+  id: garbage_day_reminder
   trigger:
     - platform: state
       entity_id: variable.house_state
@@ -62,9 +62,6 @@
   condition:
     condition: and
     conditions:
-      - condition: state
-        entity_id: automation.alarm_clock_morning_announcements
-        state: 'on'
       - condition: time
         weekday:
           - mon
@@ -74,5 +71,3 @@
       entity_id: media_player.home_group
       data:
         message: 'Good morning! This is a reminder that tomorrow is trash pickup day'
-    - service: homeassistant.turn_off
-      entity_id: automation.alarm_clock_morning_announcements

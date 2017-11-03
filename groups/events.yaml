@@ -3,20 +3,30 @@ events:
  name: Events
  icon: mdi:calendar
  entities:
-  - calendar.tripit
-  - calendar.allan
-  - calendar.holidays_in_united_states
+  - group.calendars
+  - group.transportation
+  - group.deliveries
+
+calendars:
+  name: Calendar
+  view: no
+  entities:
+  - sensor.next_event
+  - sensor.next_trip
+
+transportation:
+  view: no
+  entities:
   - sensor.uberx_price
   - sensor.uberx_time
-  - sensor.fedex
-  - sensor.usps_mail
-  - sensor.usps_packages
 
 deliveries:
+ view: no
  name: Deliveries
  icon: mdi:package-variant
  entities:
+  - sensor.deliveries_today
   - sensor.usps_packages
+  - sensor.usps_mail
   - sensor.fedex
   - sensor.packages_in_transit
-  - sensor.deliveries_today

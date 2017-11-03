@@ -1,0 +1,9 @@
+- platform: template
+  sensors:
+    sprout:
+      value_template: >-
+        {% if is_state('device_tracker.allaniphone', 'home') %}
+          home
+        {% else -%}
+          away
+        {% endif -%}

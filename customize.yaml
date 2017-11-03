@@ -1,7 +1,11 @@
 # Device Tracker
 device_tracker.allaniphone:
-  icon: mdi:cellphone-iphone
+  entity_picture: /local/allan.jpg
   friendly_name: Allan
+#   icon: mdi:cellphone-iphone
+sensor.sprout:
+  entity_picture: /local/sprout.jpg
+  friendly_name: Sprout
 
 # Lights
 light.kitchen_lights_level:
@@ -38,16 +42,21 @@ light.bed:
 # Lightify Lights
 light.masterbathleft:
   google_assistant: false
+  friendly_name: Right Vanity
 light.masterbathright:
   google_assistant: false
+  friendly_name: Left Vanity
 light.kitchenrgb:
   friendly_name: Kitchen RGB
+  icon: mdi:white-balance-iridescent
   homebridge_visible: true
 light.kitchenrgbleft:
   friendly_name: Kitchen Left RGB
+  icon: mdi:white-balance-iridescent
   google_assistant: false
 light.kitchenrgbright:
   friendly_name: Kitchen Right RGB
+  icon: mdi:white-balance-iridescent
   google_assistant: false
 light.backyardgarden:
   friendly_name: Gardenspot RGB
@@ -328,7 +337,7 @@ media_player.kitchen:
   homebridge_name: Kitchen Chromecast
   homebridge_visible: true
 
-# Customized sensors
+# Customized template sensors
 sensor.deliveries_today:
   icon: mdi:package-variant
 sensor.packages_in_transit:
@@ -338,8 +347,31 @@ sensor.motion_summary:
 sensor.opening_summary:
   friendly_name: Door/Window Summary
 sensor.plex_current_media:
-  friendly_name: Now Playing
+  friendly_name: Plex Content
+sensor.next_event_location:
+  icon: mdi:map-marker-radius
+sensor.next_trip_time:
+  icon: mdi:timer
 
+# Darksky sensors
+sensor.dark_sky_daily_summary:
+  friendly_name: Week
+sensor.dark_sky_hourly_summary:
+  friendly_name: 24 Hour
+sensor.dark_sky_ozone:
+  friendly_name: Ozone
+sensor.dark_sky_precip:
+  friendly_name: Precipitation
+  icon: mdi:weather-rainy
+sensor.dark_sky_precip_probability:
+  friendly_name: Probability of Rain
+  icon: mdi:weather-rainy
+sensor.dark_sky_pressure:
+  friendly_name: Air Pressure
+  icon: mdi:chart-line
+sensor.dark_sky_temperature:
+  friendly_name: Temperature
+  
 # Scripts
 script.onkyovolume:
   custom_ui_state_card: state-card-custom-onkyo
