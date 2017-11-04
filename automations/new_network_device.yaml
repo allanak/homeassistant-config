@@ -10,7 +10,7 @@
   action:
     - wait_template: >-
         {{ not is_state('media_player.home_group', 'playing') }}
-    - timeout: 02:00:00
+      timeout: 02:00:00
     - service: tts.google_say
       entity_id: media_player.home_group
       data:

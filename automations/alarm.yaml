@@ -19,7 +19,7 @@
   trigger:
   - entity_id: group.tracked_users
     platform: state
-    to: away
+    to: not_home
   condition:
   - condition: state
     entity_id: input_boolean.guest_mode
