@@ -42,11 +42,9 @@ light.bed:
 # Lightify Lights
 light.masterbathleft:
   google_assistant: false
-  emulated_hue_hidden: true
   friendly_name: Right Vanity
 light.masterbathright:
   google_assistant: false
-  emulated_hue_hidden: true
   friendly_name: Left Vanity
 light.kitchenrgb:
   friendly_name: Kitchen RGB
@@ -56,12 +54,10 @@ light.kitchenrgbleft:
   friendly_name: Kitchen Left RGB
   icon: mdi:white-balance-iridescent
   google_assistant: false
-  emulated_hue_hidden: true
 light.kitchenrgbright:
   friendly_name: Kitchen Right RGB
   icon: mdi:white-balance-iridescent
   google_assistant: false
-  emulated_hue_hidden: true
 light.backyardgarden:
   friendly_name: Gardenspot RGB
   homebridge_visible: true
@@ -70,34 +66,34 @@ light.hall_light_level:
   homebridge_visible: true
 light.hallwaybulb:
   friendly_name: Hallway Bulb
+  haaska_hidden: true
   google_assistant: false
-  emulated_hue_hidden: true
 light.backyardbulb:
   friendly_name: Backyard Bulb
   google_assistant: false
-  emulated_hue_hidden: true
+  haaska_hidden: true
 light.guestbathcenter:
   friendly_name: Guest Bath Center Bulb
   google_assistant: false
-  emulated_hue_hidden: true
+  haaska_hidden: true
 light.guestbathright:
   friendly_name: Guest Bath Right Bulb
   google_assistant: false
-  emulated_hue_hidden: true
+  haaska_hidden: true
 light.stairwellbulbs:
   friendly_name: Stairwell Bulbs
 light.stairwelldownlf:
   friendly_name: Stairwell Lower Left
   google_assistant: false
-  emulated_hue_hidden: true
+  haaska_hidden: true
 light.stairwelldownrt:
   friendly_name: Stairwell Lower Right
   google_assistant: false
-  emulated_hue_hidden: true
+  haaska_hidden: true
 light.stairwelluprt:
   friendly_name: Stairwell Upper Right
   google_assistant: false
-  emulated_hue_hidden: true
+  haaska_hidden: true
 light.master_bedroom_front_lights_level:
   friendly_name: Master Bedroom Front Lights
   icon: mdi:spotlight-beam
@@ -170,31 +166,32 @@ switch.cable:
 switch.receiver:
   icon: mdi:surround-sound
   google_assistant: false
-  emulated_hue_hidden: true
 switch.towel_rack:
   icon: mdi:radiator
 switch.washer_switch:
   icon: mdi:washing-machine
   google_assistant: false
-  emulated_hue_hidden: true
+  haaska_hidden: true
   confirm_controls_show_lock: true
   templates:
   extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
 switch.dryer_switch:
   icon: mdi:washing-machine
   google_assistant: false
-  emulated_hue_hidden: true
+  haaska_hidden: true
   confirm_controls_show_lock: true
   templates:
   extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
 switch.water_heater_switch:
   icon: mdi:water-pump
   google_assistant: false
-  emulated_hue_hidden: true
+  haaska_hidden: true
   confirm_controls_show_lock: true
   templates:
   extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
-
+switch.yard:
+  icon: mdi:water-pump
+  friendly_name: Sprinklers
 
 # Sensors
 sensor.garage_door:
@@ -238,27 +235,22 @@ binary_sensor.stairwell_motion:
 binary_sensor.rear_bedroom_window:
   icon: mdi:window-closed
   google_assistant: false
-  emulated_hue_hidden: true
   homebridge_visible: true
 binary_sensor.guest_bedroom_window:
   icon: mdi:window-closed
   google_assistant: false
-  emulated_hue_hidden: true
   homebridge_visible: true
 binary_sensor.master_left_window:
   icon: mdi:window-closed
   google_assistant: false
-  emulated_hue_hidden: true
   homebridge_visible: true
 binary_sensor.master_right_window:
   icon: mdi:window-closed
   google_assistant: false
-  emulated_hue_hidden: true
   homebridge_visible: true
 binary_sensor.master_bath_window:
   icon: mdi:window-closed
   google_assistant: false
-  emulated_hue_hidden: true
   homebridge_visible: true
 
 # ZWave PIR Motion sensors
@@ -396,6 +388,12 @@ sensor.dark_sky_temperature:
 script.onkyovolume:
   custom_ui_state_card: state-card-custom-onkyo
   hide_control: true
+script.housekeeper_code_on:
+  haaska_hidden: true
+script.housekeeper_code_off:
+  haaska_hidden: true
+script.reload_automations:
+  haaska_hidden: true
 
 # Place a few secrets as sensor values
 sensor.secrets:

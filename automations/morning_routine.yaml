@@ -77,6 +77,7 @@
           - mon
   action:
     - wait_template: "{{ states.binary_sensor.kitchen_motion_sensor == 'on' }}"
+    - timeout: 02:00:00
     - service: tts.google_say
       entity_id: media_player.kitchen
       data:

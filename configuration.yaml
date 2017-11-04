@@ -162,11 +162,11 @@ input_select: !include input_select.yaml
 input_number: !include input_number.yaml
 
 # Enable emulated Hue for Alexa
-emulated_hue:
-  expose_by_default:
-    - switch
-    - light
-    - media_player
+#emulated_hue:
+#  expose_by_default:
+#    - switch
+#    - light
+#    - media_player
 
 # Enable Z-Wave stick
 zwave:
