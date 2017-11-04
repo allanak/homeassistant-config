@@ -41,8 +41,8 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * [Logitech Harmony Hubs](https://www.logitech.com/en-us/product/harmony-hub)
 * [Broadlink RM Pro](https://www.amazon.com/Broadlink-Automation-Universal-Compatible-Smartphones/dp/B01GIXZDKO)
 * Hikvision IP Cameras and NVR
-* Google Chromecast Audio, Video and Google Homes
-* Amazon Echo and Echo Dots
+* Google Chromecast Audio, Video and Google Homes using [Google Assistant](https://home-assistant.io/components/google_assistant/) 
+* Amazon Echo and Echo Dots (using [haaska](https://github.com/auchter/haaska))
 * Android TV ([NVidia Shield](https://www.nvidia.com/en-us/shield/))
 * [Schlage Connect Z-Wave Locks](https://www.amazon.com/Schlage-Connect-Touchscreen-Deadbolt-Technology/dp/B01AGX7K12)
 * [Ecobee3 Smart Thermostats](https://www.amazon.com/ecobee3-Thermostat-Sensor-Generation-Amazon/dp/B00ZIRV39M)

@@ -161,7 +161,7 @@ input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 input_number: !include input_number.yaml
 
-# Enable emulated Hue for Alexa
+# Enable emulated Hue for Alexa - disabled in favor of haaska
 #emulated_hue:
 #  expose_by_default:
 #    - switch
