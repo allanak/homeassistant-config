@@ -9,7 +9,7 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 
 ##### Fair warning: I've been in the process of migrating from Samsung SmartThings to Home Assistant. While much of this works, it is constantly under construction :)
 
-#### Automations
+## Automations
 ### Lights
 * Turn on kitchen lights when motion detected and off when motion stops (motion_kitchen_lights.yaml)
 * Turn on garage lights when door is opened and off shortly after it closes (garage_lights.yaml)
@@ -35,7 +35,7 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * Send a notification when an update is available for Home Assistant (hass_tasks.yaml)
 * Send a notification upon failed login attempts (hass_tasks.yaml)
 
-#### Devices
+### Devices
 * GE Z-Wave Switches and Dimmers
 * [Aeon Labs DSC06106 Z-Wave Smart Energy Switch](https://www.amazon.com/Aeon-Labs-DSC06106-ZWUS-Z-Wave-Energy/dp/B007UZH7B8)
 * [Ring Pro Doorbell](https://ring.com/video-doorbell-pro)
@@ -80,4 +80,4 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 ![Outdoor](https://github.com/allanak/homeassistant-config/blob/master/images/outdoor.png?raw=true)
 ![Events](https://github.com/allanak/homeassistant-config/blob/master/images/events.png?raw=true)
 
-### Thanks to many example configs that helped immensely! Specifically [arsaboo](https://github.com/arsaboo/homeassistant-config/) and [stanvx](https://github.com/stanvx/Home-Assistant-Configuration) and [oakbrad](https://github.com/oakbrad/brad-homeassistant-config)
+#### Thanks to many example configs that helped immensely and the discord chat! Specifically [arsaboo](https://github.com/arsaboo/homeassistant-config/) and [stanvx](https://github.com/stanvx/Home-Assistant-Configuration) and [oakbrad](https://github.com/oakbrad/brad-homeassistant-config)

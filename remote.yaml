@@ -1,4 +1,4 @@
-# These get autodiscovered
+# These get autodiscovered, but just in case I need them later
 #- platform: harmony
 #  name: Theater
 #  host: harmonyhub
