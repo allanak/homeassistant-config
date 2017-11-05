@@ -1,0 +1,54 @@
+automation:
+  - alias: 'Housekeeper Mode Enabled'
+    trigger:
+      platform: state
+      entity_id: input_boolean.housekeeper_mode
+      to: 'on'
+    action:
+      service: script.turn_on
+      entity_id: script.housekeeper_code_on
+  
+  - alias: 'Housekeeper Mode Disabled'
+    trigger:
+      platform: state
+      entity_id: input_boolean.housekeeper_mode
+      to: 'off'
+    action:
+      service: script.turn_on
+      entity_id: script.housekeeper_code_off
+  
+# Use this to generate random code for locks
+sensor:
+  - platform: random
+    name: PIN Code
+    minimum: 1111
+    maximum: 9999
+  
+script:
+  housekeeper_code_on:
+    sequence:
+      - service: lock.set_usercode
+        data:
+          node_id: 42
+          code_slot: 7
+        data_template:
+          usercode: "{{states.sensor.pin_code.state}}"
+      - service: notify.twilio
+        data:
+          message: "Good Morning! You can use the code {{ states.sensor.pin_code.state }} to get into the house today"
+          target:
+            - !secret allan_mobile
+  #          - !secret housekeeper_mobile
+      - service: notify.slack
+        data:
+          message: "Housekeeper code has been enabled! Code is: {{ states.sensor.pin_code.state }}"
+  
+  housekeeper_code_off:
+    sequence:
+      - service: lock.clear_usercode
+        data:
+          node_id: 42
+          code_slot: 7
+      - service: notify.slack
+        data:
+          message: "Housekeeper code has been disabled!"

@@ -269,11 +269,6 @@ sensor.motion_summary:
   friendly_name: Motion Summary
 sensor.opening_summary:
   friendly_name: Door/Window Summary
-sensor.plex_current_media:
-  friendly_name: Plex Title
-  icon: mdi:filmstrip
-sensor.netcat:
-  friendly_name: Plex Server Activity
 sensor.next_event_location:
   icon: mdi:map-marker-radius
 sensor.next_trip_time:
@@ -308,12 +303,6 @@ script.housekeeper_code_off:
   haaska_hidden: true
 script.reload_automations:
   haaska_hidden: true
-
-# Ecobees - disable in Alexa due to native integration
-climate.downstairs:
- haaska_hidden: true 
-climate.upstairs:
- haaska_hidden: true 
 
 # Place a few secrets as sensor values
 sensor.secrets:

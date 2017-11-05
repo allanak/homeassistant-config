@@ -128,10 +128,13 @@ python_script:
 light: !include light.yaml
 switch: !include switches.yaml
 sensor: !include_dir_merge_list sensors
+# none for now, replaced with packages
 #binary_sensor: !include binary_sensors.yaml
+# none for now, replaced with packages
 #camera: !include cameras.yaml
 ffmpeg:
-ecobee: !include ecobee.yaml
+# replaced with climate.yaml
+#ecobee: !include ecobee.yaml
 device_tracker: !include device_trackers.yaml
 media_player: !include media_players.yaml
 

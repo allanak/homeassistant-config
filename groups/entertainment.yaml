@@ -10,4 +10,4 @@ entertainment:
   - group.media_office
 #  - group.media_spotify
   - group.radio
-  - group.plex_media
+  - group.media_server

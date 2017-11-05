@@ -1,9 +1,0 @@
-alarmclock:
-  name: Alarm Clock
-  control: hidden
-  entities:
-    - automation.wake_me_up
-    - sensor.alarm_time
-    - input_number.alarmhour
-    - input_number.alarmminutes
-    - input_boolean.alarmweekday

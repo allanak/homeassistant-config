@@ -1,0 +1,53 @@
+# Transition bedroom lights on for 5 minutes if alarm clock is set
+# This sends Z-Wave parameters to change the light to dim at 2.55 seconds per level at 100 increments, taking 4.2 minutes to go to full brightness
+automation:
+  - alias: 'Wake Me Up'
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.alarm_time.state }}'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: input_boolean.alarmweekday
+          state: 'on'
+        - condition: time
+          weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
+        - condition: state
+          entity_id: input_boolean.alarmweekday
+          state: 'off'
+    action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: 'Wakeup'
+    - service: zwave.set_config_parameter
+      data:
+        node_id: 6
+        parameter: 7
+        value: 1
+    - service: zwave.set_config_parameter
+      data:
+        node_id: 6
+        parameter: 8
+        value: 255
+    - service: light.turn_on
+      entity_id: light.master_bedroom_rear_lights_level
+    - service: homeassistant.turn_on
+      entity_id: automation.alarm_clock_morning_announcements
+
+group:
+  alarmclock:
+    name: Alarm Clock
+    control: hidden
+    entities:
+      - automation.wake_me_up
+      - sensor.alarm_time
+      - input_number.alarmhour
+      - input_number.alarmminutes
+      - input_boolean.alarmweekday

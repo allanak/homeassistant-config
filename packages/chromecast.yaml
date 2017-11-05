@@ -252,18 +252,7 @@ group:
     - input_select.streaming_audio
     - input_select.radio_station
     - input_number.google_volume
-  
-  plex_media:
-   name: Media Server
-   entities:
-    - sensor.plex_current_media
-    - sensor.netcat
-    - sensor.sonarr_upcoming
-    - sensor.sonarr_wanted
-    - sensor.sonarr_series
-    - sensor.radarr_upcoming
-    - sensor.nzbget_speed
-  
+
   media_players:
    name: Media Players
    icon: mdi:cast

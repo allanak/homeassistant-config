@@ -1,0 +1,33 @@
+# Ecobees - disable in Alexa due to native integration
+homeassistant:
+  customize:
+    climate.downstairs:
+      haaska_hidden: true
+    climate.upstairs:
+      haaska_hidden: true
+
+ecobee:
+  api_key: !secret ecobee_api_key
+  hold_temp: False
+
+automation:
+  - alias: Set thermostats to away
+    trigger:
+      - platform: state
+        entity_id: input_boolean.vacation_mode
+        to: 'on'
+    action:
+      - service: climate.set_away_mode
+        data:
+          away_mode: true
+      - service: climate.set_away_mode
+
+  - alias: Set thermostats to back
+    trigger:
+      - platform: state
+        entity_id: input_boolean.vacation_mode
+        to: 'off'
+    action:
+      - service: climate.set_away_mode
+        data:
+          away_mode: false

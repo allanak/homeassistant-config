@@ -1,0 +1,70 @@
+homeassistant:
+  customize:
+    sensor.plex_current_media:
+      friendly_name: Plex Title
+      icon: mdi:filmstrip
+    sensor.netcat:
+      friendly_name: Plex Server Activity
+
+sensor:
+  - platform: plex
+    host: !secret plex_host
+    name: !secret plex_name
+    username: !secret plex_username
+    password: !secret plex_password
+  
+  - platform: template
+    sensors:
+      plex_current_media:
+        value_template: >-
+          {%- if states.sensor.netcat.attributes.allanak -%}
+            '{{states.sensor.netcat.attributes.allanak}}'
+          {%- else -%}
+            N/A
+          {%- endif -%}
+
+  - platform: nzbget
+    host: !secret nzbget_host
+    username: !secret nzbget_username
+    password: !secret nzbget_password
+    ssl: true
+    port: 443
+    monitored_variables:
+      - download_rate
+      - free_disk_space
+
+  - platform: sonarr
+    api_key: !secret sonarr_api_key
+    host: !secret sonarr_host
+    port: 443
+    ssl: true
+    monitored_conditions:
+      - series
+      - upcoming
+      - wanted
+      - queue
+    days: 2
+
+  - platform: radarr
+    api_key: !secret radarr_api_key
+    host: !secret radarr_host
+    port: 443
+    ssl: true
+    monitored_conditions:
+      - movies
+      - status
+      - upcoming
+    days: 2
+
+group:
+  media_server:
+   name: Media Server
+   entities:
+    - sensor.plex_current_media
+    - sensor.netcat
+    - sensor.sonarr_upcoming
+    - sensor.sonarr_wanted
+    - sensor.sonarr_series
+    - sensor.radarr_upcoming
+    - sensor.nzbget_speed
+    - sensor.nzbget_free_space
