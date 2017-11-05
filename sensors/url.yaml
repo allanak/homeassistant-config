@@ -1,0 +1,34 @@
+- platform: template
+  sensors:
+    base_url:
+      value_template: !secret base_url
+
+- platform: template
+  sensors:
+    wunderground_api_key:
+      value_template: !secret wunderground_api_key
+
+#- platform: template
+#  sensors:
+#    camera_driveway_url:
+#      value_template: '{{ states.sensor.base_url.state }}{{ states.camera.driveway.attributes.entity_picture }}'
+
+#- platform: template
+#  sensors:
+#    camera_backyard_url:
+#      value_template: '{{ states.sensor.base_url.state }}{{ states.camera.backyard.attributes.entity_picture }}'
+
+#- platform: template
+#  sensors:
+#    camera_downstairs_url:
+#      value_template: '{{ states.sensor.base_url.state }}{{ states.camera.downstairs.attributes.entity_picture }}'
+
+#- platform: template
+#  sensors:
+#    camera_westgate_url:
+#      value_template: '{{ states.sensor.base_url.state }}{{ states.camera.westgate.attributes.entity_picture }}'
+
+#- platform: template
+#  sensors:
+#    camera_frontdoor_url:
+#      value_template: '{{ states.sensor.base_url.state }}{{ states.camera.front_door.attributes.entity_picture }}'

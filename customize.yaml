@@ -1,5 +1,5 @@
 # Device Tracker
-device_tracker.allansiphone:
+device_tracker.allan:
   entity_picture: /local/allan.jpg
   friendly_name: Allan
 #   icon: mdi:cellphone-iphone
@@ -219,43 +219,6 @@ sensor.battery_allansiphone:
   friendly_name: Allan's Battery
   icon: mdi:battery
 
-# Binary Sensors
-# Envisalink integration
-binary_sensor.back_door:
-  icon: mdi:glassdoor
-binary_sensor.garage_entry:
-  icon: mdi:glassdoor
-binary_sensor.balcony_door:
-  icon: mdi:glassdoor
-binary_sensor.front_door:
-  icon: mdi:glassdoor
-  friendly_name: Front Door
-binary_sensor.master_bedroom_motion:
-  friendly_name: Master Bedroom
-binary_sensor.stairwell_motion:
-  friendly_name: Stairwell Motion
-  icon: mdi:stairs
-binary_sensor.rear_bedroom_window:
-  icon: mdi:window-closed
-  google_assistant: false
-  homebridge_visible: true
-binary_sensor.guest_bedroom_window:
-  icon: mdi:window-closed
-  google_assistant: false
-  homebridge_visible: true
-binary_sensor.master_left_window:
-  icon: mdi:window-closed
-  google_assistant: false
-  homebridge_visible: true
-binary_sensor.master_right_window:
-  icon: mdi:window-closed
-  google_assistant: false
-  homebridge_visible: true
-binary_sensor.master_bath_window:
-  icon: mdi:window-closed
-  google_assistant: false
-  homebridge_visible: true
-
 # ZWave PIR Motion sensors
 binary_sensor.kitchen_motion_sensor:
   icon: mdi:eye
@@ -267,48 +230,6 @@ binary_sensor.master_bath_motion_sensor:
   icon: mdi:eye
   friendly_name: Master Bath Motion
  
-# Sensors from Hikvision NVR
-binary_sensor.nvr_motion_2:
-  icon: mdi:camcorder
-  friendly_name: Downstairs Camera Motion
-  templates:
-    state: if state === 'on' return 'Active'; else return state;
-binary_sensor.nvr_line_crossing_2:
-  icon: mdi:camcorder
-  friendly_name: Downstairs Camera Line Crossing
-  templates:
-    state: if state === 'on' return 'Active'; else return state;
-binary_sensor.nvr_motion_3:
-  icon: mdi:camcorder
-  friendly_name: Driveway Camera Motion
-  templates:
-    state: if state === 'on' return 'Active'; else return state;
-binary_sensor.nvr_line_crossing_3:
-  icon: mdi:camcorder
-  friendly_name: Driveway Camera Line Crossing
-  templates:
-    state: if state === 'on' return 'Active'; else return state;
-binary_sensor.nvr_motion_4:
-  icon: mdi:camcorder
-  friendly_name: West Gate Camera Motion
-  templates:
-    state: if state === 'on' return 'Active'; else return state;
-binary_sensor.nvr_line_crossing_4:
-  icon: mdi:camcorder
-  friendly_name: West Gate Camera Line Crossing
-  templates:
-    state: if state === 'on' return 'Active'; else return state;
-binary_sensor.nvr_motion_5:
-  icon: mdi:camcorder
-  friendly_name: Back Yard Camera Motion
-  templates:
-    state: if state === 'on' return 'Active'; else return state;
-binary_sensor.nvr_line_crossing_5:
-  icon: mdi:camcorder
-  friendly_name: Back Yard Line Crossing
-  templates:
-    state: if state === 'on' return 'Active'; else return state;
-
 #
 # Covers
 cover.garage_door:
@@ -328,29 +249,12 @@ lock.back_gate_locked:
   friendly_name: Back Gate
   homebridge_visible: true
 
-# Alarm
-alarm_control_panel.home:
-  friendly_name: Security System
-  homebridge_visible: true
-
 # Media Players
 media_player.onkyo_theater:
   friendly_name: Onkyo Receiver
 media_player.living_room:
   friendly_name: Apple TV
   icon: mdi:apple
-media_player.home_group:
-  homebridge_name: Whole Home Chromecast
-  homebridge_visible: true
-media_player.upstairs:
-  homebridge_name: Upstairs Chromecast
-  homebridge_visible: true
-media_player.guest_bedroom_speaker:
-  homebridge_name: Guest Bedroom Google Home Mini
-  homebridge_visible: true
-media_player.kitchen:
-  homebridge_name: Kitchen Chromecast
-  homebridge_visible: true
 
 # Customized template sensors
 sensor.hot_tub_current_temperature:

@@ -29,6 +29,7 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * Turn on/off perimeter lighting after sunset/sunrise (night_lighting.yaml)
 * Turn on/off evening lighting at night, off at midnight (night_lighting.yaml)
 ### UI Enhancements/Customizations
+* Use meta device tracker python script to use most accurate source of presence (iOS app, OwnTracks and ping)
 * Hide media players when their state is idle/off (hide_mediaplayers.yaml)
 * Set theme based on sunrise/sunset (hass_theme.yaml)
 * Use [Custom UI elements](https://github.com/andrey-git/home-assistant-custom-ui) for tweaking UI objects

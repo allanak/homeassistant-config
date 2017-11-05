@@ -21,7 +21,7 @@
       entity_id: input_boolean.washer_status
       state: 'on'
   action:
-    - service: notify.ios_allaniphone
+    - service: notify.ios_allansiphone
       data_template:
         message: >
           {{ ["The Washer is done", "Washer cycle has completed", "Come get your clothes out already!", "Your dirty clothes are dry now"] | random }}
@@ -57,7 +57,7 @@
     entity_id: input_boolean.dryer_status
     state: 'on'
   action:
-    - service: notify.ios_allaniphone
+    - service: notify.ios_allansiphone
       data_template:
         message: >
           {{ ["The dryer is done", "Dryer cycle has completed", "Come get your clothes out already!", "Your dirty clothes are clean now" ] | random }}

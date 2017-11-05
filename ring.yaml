@@ -1,2 +1,0 @@
-username: !secret ring_username
-password: !secret ring_password

@@ -31,4 +31,4 @@
 
 - platform: nfandroidtv
   name: Shield
-  host: shield
+  host: shield.home.local

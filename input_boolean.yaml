@@ -11,20 +11,6 @@ dryer_status:
   name: Dryer
   icon: mdi:washing-machine
 
-alarm_override:
-  name: Alarm Override
-  initial: off
-  icon: mdi:cancel
-
-# PRESENCE
-vacation_mode:
-  name: Vacation Mode
-  initial: off
-  icon: mdi:airplane
-guest_mode:
-  name: Guest Mode
-  initial: off
-  icon: mdi:account-multiple
 alarmweekday:
   name: Weekdays Only
   initial: on

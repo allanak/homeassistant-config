@@ -4,7 +4,7 @@
     - entity_id: updater.updater
       platform: state
   action:
-    - service: notify.ios_allan_kleins_iphone
+    - service: notify.ios_allansiphone
       data:
         message: Home Assistant {{ states.updater.updater.state }} is now available
 
@@ -14,7 +14,7 @@
   - at: '09:00'
     platform: time
   action:
-    - service: notify.ios_allan_kleins_iphone
+    - service: notify.ios_allansiphone
       data:
         message: SSL certificate expires in {{ states.sensor.ssl_certificate_expiry.state }} days
   condition:

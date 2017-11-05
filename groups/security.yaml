@@ -2,7 +2,7 @@ security:
  view: yes
  icon: mdi:security-home
  entities:
-  - device_tracker.allansiphone
+  - device_tracker.allan
   - sensor.sprout
   - group.house_settings
   - alarm_control_panel.home

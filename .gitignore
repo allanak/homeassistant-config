@@ -5,6 +5,7 @@
 !scripts
 !groups
 !custom_components
+!packages
 !*.yaml
 !scenes
 !images

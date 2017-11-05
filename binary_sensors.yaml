@@ -1,15 +1,1 @@
-- platform: ring
-  monitored_conditions:
-    - ding
-    - motion
 
-- platform: hikvision
-  host: !secret nvr_host
-  name: NVR
-  port: 80
-  ssl: false
-  username: !secret hikvision_user
-  password: !secret hikvision_password
-  customize:
-    motion_3:
-      ignored: True

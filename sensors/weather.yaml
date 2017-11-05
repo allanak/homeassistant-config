@@ -1,0 +1,15 @@
+- platform: template
+  sensors:
+    pws_alerts_message:
+      value_template: >-
+        {%- if states.sensor.pws_alerts.state -%}
+          '{{states.sensor.pws_alerts.attributes.description}}'
+        {%- else -%}
+          N/A
+        {%- endif -%}
+
+- platform: template
+  sensors:
+    destination_weather_url:
+      value_template: >-
+        'http://api.wunderground.com/api/{{states.sensor.wunderground_api_key.state}}/forecast/q/{{states.calendar.tripit.attributes.location.split(',')[1].split(' ')[1]~ "/" ~ states.calendar.tripit.attributes.location.split(',')[0] ~ ".json" }}'

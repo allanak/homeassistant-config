@@ -1,0 +1,328 @@
+homeassistant:
+  customize:
+    media_player.home_group:
+      homebridge_name: Whole Home Chromecast
+      homebridge_visible: true
+    media_player.upstairs:
+      homebridge_name: Upstairs Chromecast
+      homebridge_visible: true
+    media_player.guest_bedroom_speaker:
+      homebridge_name: Guest Bedroom Google Home
+      homebridge_visible: true
+    media_player.kitchen:
+      homebridge_name: Kitchen Chromecast
+      homebridge_visible: true
+
+# Dropdowns for streaming station selection
+input_select:
+  radio_station:
+    name: Radio Station
+    options:
+      - KROQ
+      - Jack FM
+      - Nova 100
+      - SmoothFM
+      - SBS Chill
+      - "None"
+    initial: "None"
+    icon: mdi:radio
+
+# Dropdown to select media player or chromecast group
+  streaming_audio:
+    name: Casting Group
+    options:
+      - Whole House
+      - Upstairs
+      - Downstairs
+      - Living Room Home
+      - Kitchen
+      - Fireplace
+      - Shield
+      - Receiver
+      - Office
+      - Master Bedroom Receiver
+      - Master Bedroom Xbox
+      - "None"
+    initial: "None"
+    icon: mdi:cast
+
+############################################################
+#
+# Chromecast Radio Control
+#
+############################################################
+    
+############################################################
+#
+# Stop Streaming Radio on Chromecast
+#
+############################################################
+automation:  
+  - alias: STOP Streaming Radio on CHROMECAST
+    trigger:
+      - platform: state
+        entity_id: input_select.radio_station
+        to: "None"
+    action:
+      - service: media_player.turn_off
+        data_template:
+          entity_id: >
+              {% if is_state("input_select.streaming_audio", "Living Room Home") %}
+                media_player.living_room_home
+              {%-elif is_state("input_select.streaming_audio", "Whole House") %}
+                media_player.home_group
+              {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
+                media_player.upstairs
+              {%-elif is_state("input_select.streaming_audio", "Downstairs") %}
+                media_player.downstairs
+              {%-elif is_state("input_select.streaming_audio", "Office") %}
+                media_player.office
+              {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
+                media_player.kitchen
+              {%-elif is_state("input_select.streaming_audio", "Fireplace") %}
+                media_player.master_bedroom
+              {%-elif is_state("input_select.streaming_audio", "Shield") %}
+                media_player.shield
+              {%-elif is_state("input_select.streaming_audio", "Guest Bedroom") %}
+                media_player.guest_bedroom_2
+              {%-elif is_state("input_select.streaming_audio", "Receiver") %}
+                media_player.receiver
+              {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
+                media_player.master_bedroom_receiver
+              {%-elif is_state("input_select.streaming_audio", "Master Bedroom Xbox") %}
+                media_player.master_bedroom_xbox
+              {% else %}
+                "None"
+              {% endif %}
+############################################################
+#
+# Start Streaming Radio on Chromecast
+#
+############################################################
+  
+  - alias: START Streaming Radio on CHROMECAST
+    trigger:
+      - platform: state
+        entity_id: input_select.radio_station
+    action:
+      - service: media_player.play_media
+        data_template:
+          entity_id: >
+            {% if is_state("input_select.streaming_audio", "Living Room Home") %}
+              media_player.living_room_home
+            {%-elif is_state("input_select.streaming_audio", "Whole House") %}
+              media_player.home_group
+            {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
+              media_player.upstairs
+            {%-elif is_state("input_select.streaming_audio", "Downstairs") %}
+              media_player.downstairs
+            {%-elif is_state("input_select.streaming_audio", "Office") %}
+              media_player.office
+            {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
+              media_player.kitchen
+            {%-elif is_state("input_select.streaming_audio", "Fireplace") %}
+              media_player.master_bedroom
+            {%-elif is_state("input_select.streaming_audio", "Shield") %}
+              media_player.shield
+            {%-elif is_state("input_select.streaming_audio", "Guest Bedroom") %}
+              media_player.guest_bedroom_2
+            {%-elif is_state("input_select.streaming_audio", "Receiver") %}
+              media_player.receiver
+            {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
+              media_player.master_bedroom_receiver
+            {%-elif is_state("input_select.streaming_audio", "Master Bedroom Xbox") %}
+              media_player.master_bedroom_xbox
+            {% else %}
+              "None"
+            {% endif %}
+          media_content_id: >
+            {% if is_state("input_select.radio_station", "KROQ") %}
+              http://15363.live.streamtheworld.com:80/KROQFMDIALUP_SC
+            {%-elif is_state("input_select.radio_station", "Jack FM") %}
+              http://17793.live.streamtheworld.com:80/KCBSFMDIALUP_SC
+            {%-elif is_state("input_select.radio_station", "Nova 100") %}
+              http://streaming.novaentertainment.com.au/nova100
+            {%-elif is_state("input_select.radio_station", "SmoothFM") %}
+              http://streaming.novaentertainment.com.au/smooth915 
+            {%-elif is_state("input_select.radio_station", "SBS Chill") %}
+              http://shoutcast.sbs.com.au/SBSChill
+            {% else %}
+              "None"
+            {% endif %}
+          media_content_type: 'audio/mp4'
+        
+############################################################
+#
+# Adjust Volume on Chromecast
+#
+############################################################
+  
+  - alias: change volume google
+    trigger:
+      - platform: state
+        entity_id: input_number.google_volume
+    condition:
+      - condition: template
+        value_template: "{{ states.input_select.streaming_audio.state != 'OFF' }}"
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: >
+            {% if is_state("input_select.streaming_audio", "Living Room Home") %}
+              media_player.living_room_home
+            {%-elif is_state("input_select.streaming_audio", "Whole House") %}
+              media_player.home_group
+            {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
+              media_player.upstairs
+            {%-elif is_state("input_select.streaming_audio", "Downstairs") %}
+              media_player.downstairs
+            {%-elif is_state("input_select.streaming_audio", "Office") %}
+              media_player.office
+            {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
+              media_player.kitchen
+            {%-elif is_state("input_select.streaming_audio", "Fireplace") %}
+              media_player.master_bedroom
+            {%-elif is_state("input_select.streaming_audio", "Shield") %}
+              media_player.shield
+            {%-elif is_state("input_select.streaming_audio", "Guest Bedroom") %}
+              media_player.guest_bedroom2
+            {%-elif is_state("input_select.streaming_audio", "Receiver") %}
+              media_player.receiver
+            {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
+              media_player.master_bedroom_receiver
+            {%-elif is_state("input_select.streaming_audio", "Master Bedroom Xbox") %}
+              media_player.master_bedroom_xbox
+            {% else %}
+              "None"
+            {% endif %}
+          volume_level: "{{ states.input_number.google_volume.state | float / 10 }}"
+  
+############################################################
+#
+# Turn on/off Harmony activity when Chromecast devices start/stop playing
+#
+############################################################
+  
+  - alias: Turn on receiver when casting
+    trigger:
+      - platform: state
+        entity_id: media_player.home_group
+        to: 'playing'
+      - platform: state
+        entity_id: media_player.upstairs
+        to: 'playing'
+    condition:
+      - condition: state
+        entity_id: remote.theater
+        state: 'off'
+    action:
+      - service: remote.turn_on
+        entity_id: remote.theater
+        data_template:
+          activity: >
+            {% if is_state("media_player.home_group", "playing") %}
+              23063086
+            {%-elif is_state("media_player.upstairs", "playing") %}
+              23072014
+            {% else %}
+            {% endif %}
+  
+  - alias: Shut off receiver when casting stops
+    trigger:
+      - platform: state
+        entity_id: media_player.home_group
+        from: 'playing'
+      - platform: state
+        entity_id: media_player.upstairs
+        from: 'playing'
+    condition:
+      - condition: template
+        value_template: '{{ states.remote.theater.attributes.current_activity == "Chromecast" }}'
+      - condition: template
+        value_template: '{{ states.remote.theater.attributes.current_activity == "Chromecast Upstairs" }}'
+    action:
+      - service: remote.turn_off
+        entity_id: remote.theater
+
+group:
+  radio:
+   name: Audio Streaming
+   icon: mdi:cast
+   entities:
+    - input_select.streaming_audio
+    - input_select.radio_station
+    - input_number.google_volume
+  
+  plex_media:
+   name: Media Server
+   entities:
+    - sensor.plex_current_media
+    - sensor.netcat
+    - sensor.sonarr_upcoming
+    - sensor.sonarr_wanted
+    - sensor.sonarr_series
+    - sensor.radarr_upcoming
+    - sensor.nzbget_speed
+  
+  media_players:
+   name: Media Players
+   icon: mdi:cast
+   view: no
+   entities:
+    - group.media_home_group
+    - group.media_upstairs
+    - group.media_living_room
+    - group.media_kitchen
+    - group.media_office
+#    - group.media_spotify
+  
+  
+# Split each media player into its own group so they can be hidden from view by automations when not playing
+  media_home_group:
+   name: Whole Home Audio
+   icon: mdi:cast
+   entities:
+    - media_player.home_group
+  
+  media_upstairs:
+   name: Upstairs Audio
+   icon: mdi:cast
+   entities:
+    - media_player.upstairs
+  
+  media_living_room:
+   name: Living Room Google Home
+   icon: mdi:cast
+   entities:
+    - media_player.living_room_home
+  
+  media_kitchen:
+   name: Kitchen Squeezebox
+   icon: mdi:cast
+   entities:
+    - media_player.kitchen
+  
+  media_office:
+   name: Office Google Home
+   icon: mdi:cast
+   entities:
+    - media_player.office
+  
+  media_guest_bedroom:
+   name: Chromecast Video Guest Bedroom
+   icon: mdi:cast
+   entities:
+    - media_player.guest_bedroom
+  
+  media_guest_bedroom2:
+   name: Chromecast Audio Guest Bedroom
+   icon: mdi:cast
+   entities:
+    - media_player.guest_bedroom2
+  
+  media_spotify:
+   name: Spotify
+   icon: mdi:cast
+   entities:
+    - media_player.spotify
+  

@@ -1,0 +1,44 @@
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+# Note if using ring camera, ffmpeg: is required in main configuration.yaml
+
+binary_sensor:
+  - platform: ring
+    monitored_conditions:
+      - ding
+      - motion
+
+automation:
+  - alias: Front door activity
+    id: doorbell_ring
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.ring_front_door_ding
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.ring_front_door_motion
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: group.tracked_users
+        state: 'not_home'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.alarm_override
+        state: 'off'
+    action:
+      - service: notify.ios_allansiphone
+        data:
+          message: "Front Door Activity Detected"
+          data_template:
+            push:
+              category: front_door_event
+              sound: US-EN-Alexa-Motion-At-Front-Door.wav
+            entity_id: "camera.driveway"
+            attachment:
+              url: "{{ states.camera.driveway.attributes.entity_picture }}"
+              content-type: jpg

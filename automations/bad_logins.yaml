@@ -13,4 +13,4 @@
     data:
       message: Security Alert
       title: Login failure attempt
-    service: notify.ios_allaniphone
+    service: notify.ios_allansiphone

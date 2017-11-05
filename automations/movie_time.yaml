@@ -39,10 +39,10 @@
       entity_id: sun.sun
       state: 'below_horizon'
   action:
-    service: light.turn_on
-    entity_id: light.theater_lights_level
-    data:
-      brightness: 10
+    - service: light.turn_on
+      entity_id: light.theater_lights_level
+      data:
+        brightness: 10
 
 - alias: "Movie Stopped - House Lights On"
   trigger:
@@ -73,5 +73,5 @@
       entity_id: sun.sun
       state: 'below_horizon'
   action:
-    service: light.turn_off
-    entity_id: light.theater_lights_level
+    - service: light.turn_off
+      entity_id: light.theater_lights_level

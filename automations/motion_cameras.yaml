@@ -18,7 +18,7 @@
     entity_id: input_boolean.alarm_override
     state: 'off'
   action:
-    - service: notify.ios_allaniphone
+    - service: notify.ios_allansiphone
       data:
         message: "Front Door Activity Detected"
         data_template:
@@ -47,7 +47,7 @@
     entity_id: input_boolean.alarm_override
     state: 'off'
   action:
-    - service: notify.ios_allaniphone
+    - service: notify.ios_allansiphone
       data:
         message: "Driveway Motion Detected"
         data_template:
@@ -76,7 +76,7 @@
     entity_id: input_boolean.alarm_override
     state: 'off'
   action:
-    - service: notify.ios_allaniphone
+    - service: notify.ios_allansiphone
       data:
         message: "Back Yard Motion Detected"
         data_template:
@@ -104,7 +104,7 @@
     entity_id: input_boolean.alarm_override
     state: 'off'
   action:
-    - service: notify.ios_allaniphone
+    - service: notify.ios_allansiphone
       data:
         message: West Gate Motion Detected
         data_template:
@@ -132,7 +132,7 @@
     entity_id: input_boolean.alarm_override
     state: 'off'
   action:
-    - service: notify.ios_allaniphone
+    - service: notify.ios_allansiphone
       data:
         message: "Downstairs Motion"
         data_template:

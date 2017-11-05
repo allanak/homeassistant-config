@@ -53,9 +53,9 @@
       data_template:
         message: >
           {% if is_state('calendar.tripit', 'on') %}
-          {{ [ "Enjoy your trip to {{ states.calendar.tripit.attributes.location }}!", "Have a good time in {{ states.calendar.tripit.attributes.location }}. See you soon!" ] | random }}
+          {{ [ 'Enjoy your trip to {{ states.calendar.tripit.attributes.location }}!', 'Have a good time in {{ states.calendar.tripit.attributes.location }}. See you soon!' ] | random }}
           {% else %}
-          {{ [ "Good morning!", "So fresh and so clean", "Time for some coffee" ] | random }}
+          {{ [ 'Good morning!', 'So fresh and so clean', 'Time for some coffee' ] | random }}
           {% endif %}
     - delay: 00:10
     - service: media_player.turn_off

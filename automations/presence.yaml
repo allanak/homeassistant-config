@@ -4,7 +4,7 @@
 - alias: "Update Allan's Meta Tracker Home"
   trigger:
     - platform: state
-      entity_id: device_tracker.allansiphone, device_tracker.allan_owntracks
+      entity_id: device_tracker.allansiphone, device_tracker.allan_owntracks, device_tracker.allan_ping
       to: 'home'
     - platform: homeassistant
       event: start
@@ -18,7 +18,7 @@
 - alias: "Update Allan's Meta Track Away"
   trigger:
     - platform: state
-      entity_id: device_tracker.allansiphone, device_tracker.allan_owntracks
+      entity_id: device_tracker.allansiphone, device_tracker.allan_owntracks, device_tracker.allan_ping
       to: 'not_home'
       for:
         minutes: 10

@@ -7,6 +7,7 @@ homeassistant:
   time_zone: America/Los_Angeles
   customize: !include customize.yaml
   customize_glob: !include custom-ui.yaml
+  packages: !include_dir_named packages
 
 # Custom UI from https://github.com/andrey-git/home-assistant-custom-ui
 customizer:
@@ -117,9 +118,8 @@ tts:
 #  - platform: amazon_polly
 #    aws_access_key_id: !secret aws_access_key_id
 #    aws_secret_access_key: !secret aws_access_key_id
-
 group: !include_dir_merge_named groups
-automation: !include automations.yaml
+#automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
 script: !include_dir_merge_named scripts
 python_script:
@@ -128,15 +128,12 @@ python_script:
 light: !include light.yaml
 switch: !include switches.yaml
 sensor: !include_dir_merge_list sensors
-binary_sensor: !include binary_sensors.yaml
-envisalink: !include envisalink.yaml
-camera: !include cameras.yaml
+#binary_sensor: !include binary_sensors.yaml
+#camera: !include cameras.yaml
+ffmpeg:
 ecobee: !include ecobee.yaml
 device_tracker: !include device_trackers.yaml
 media_player: !include media_players.yaml
-# Ring needs ffmpeg component
-ring: !include ring.yaml
-ffmpeg:
 
 # Virtual Devices
 google_assistant: !include google_assistant.yaml
@@ -146,7 +143,7 @@ twilio: !include twilio.yaml
 logger: !include logger.yaml
 google: !include google.yaml
 remote: !include remote.yaml
-usps: !include usps.yaml
+#usps: !include usps.yaml
 #alexa: !include alexa.yaml
 #shell_command: !include shell_commands.yaml
 #scene: !include scenes.yaml
