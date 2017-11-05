@@ -1,3 +1,22 @@
+radio:
+ name: Audio Streaming
+ icon: mdi:cast
+ entities:
+  - input_select.streaming_audio
+  - input_select.radio_station
+  - input_number.google_volume
+
+plex_media:
+ name: Media Server
+ entities:
+  - sensor.plex_current_media
+  - sensor.netcat
+  - sensor.sonarr_upcoming
+  - sensor.sonarr_wanted
+  - sensor.sonarr_series
+  - sensor.radarr_upcoming
+  - sensor.nzbget_speed
+
 media_players:
  name: Media Players
  icon: mdi:cast
@@ -10,17 +29,6 @@ media_players:
   - group.media_office
 #  - group.media_spotify
 
-
-plex_media:
- name: Media Server
- entities:
-  - sensor.plex_current_media
-  - sensor.netcat
-  - sensor.sonarr_upcoming
-  - sensor.sonarr_wanted
-  - sensor.sonarr_series
-  - sensor.radarr_upcoming
-  - sensor.nzbget_speed
 
 # Split each media player into its own group so they can be hidden from view by automations when not playing
 media_home_group:
@@ -71,10 +79,3 @@ media_spotify:
  entities:
   - media_player.spotify
 
-radio:
- name: Audio Streaming
- icon: mdi:cast
- entities:
-  - input_select.streaming_audio
-  - input_select.radio_station
-  - input_number.google_volume

@@ -1,5 +1,5 @@
 harmony_theater:
- name: Downstairs Media
+ name: Theater Activity
  entities:
   - sensor.plex_current_media
   - input_select.harmony_theater

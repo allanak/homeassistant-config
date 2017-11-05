@@ -353,6 +353,10 @@ media_player.kitchen:
   homebridge_visible: true
 
 # Customized template sensors
+sensor.hot_tub_current_temperature:
+  icon: mdi:thermometer
+sensor.hot_tub_set_temperature:
+  icon: mdi:temperature-fahrenheit
 sensor.deliveries_today:
   icon: mdi:package-variant
 sensor.packages_in_transit:
@@ -362,7 +366,10 @@ sensor.motion_summary:
 sensor.opening_summary:
   friendly_name: Door/Window Summary
 sensor.plex_current_media:
-  friendly_name: Plex Content
+  friendly_name: Plex Title
+  icon: mdi:filmstrip
+sensor.netcat:
+  friendly_name: Plex Server Activity
 sensor.next_event_location:
   icon: mdi:map-marker-radius
 sensor.next_trip_time:
@@ -407,4 +414,3 @@ climate.upstairs:
 # Place a few secrets as sensor values
 sensor.secrets:
   base_url: !secret base_url
-
