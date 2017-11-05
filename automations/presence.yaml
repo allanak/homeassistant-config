@@ -1,0 +1,68 @@
+#
+# Update Meta Device Tracker
+#
+- alias: "Update Allan's Meta Tracker Home"
+  trigger:
+    - platform: state
+      entity_id: device_tracker.allansiphone, device_tracker.allan_owntracks
+      to: 'home'
+    - platform: homeassistant
+      event: start
+  action:
+    service: python_script.meta_device_tracker
+    data_template:
+      entity_id: '{{trigger.entity_id}}'
+      meta_entity: 'Allan'
+
+# Add a delay here
+- alias: "Update Allan's Meta Track Away"
+  trigger:
+    - platform: state
+      entity_id: device_tracker.allansiphone, device_tracker.allan_owntracks
+      to: 'not_home'
+      for:
+        minutes: 10
+  action:
+    service: python_script.meta_device_tracker
+    data_template:
+      entity_id: '{{trigger.entity_id}}'
+      meta_entity: 'Allan'
+
+
+- alias: House State to Vacation
+  trigger:
+    platform: time
+    minutes: 5
+  condition:
+    - condition: state
+      entity_id: group.tracked_users
+      state: 'not_home'
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: 'on'
+    - condition: template
+      value_template: "{{ states.variable.house_state.state != 'Vacation' }}"
+  action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Vacation"
+
+- alias: House State to Guest Mode
+  trigger:
+    platform: time
+    minutes: 5
+  condition:
+    - condition: state
+      entity_id: group.tracked_users
+      state: 'not_home'
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'on'
+    - condition: template
+      value_template: "{{ states.variable.house_state.state != 'Guest Mode' }}"
+  action:
+    - service: variable.set_variable
+      data:
+        variable: house_state
+        value: "Guest Mode"

@@ -12,5 +12,5 @@
 #  interval_seconds: 1800
 #  consider_home: 180
 
-#- platform: owntracks
+- platform: owntracks_http
 

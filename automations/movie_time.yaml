@@ -1,0 +1,77 @@
+- alias: "Movie Started on projector - Turn Off Lights"
+  trigger:
+    - platform: state
+      entity_id: media_player.shield
+      to: 'playing'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: light.turn_off
+      entity_id: group.downstairs_lights
+#    - service: variable.set_variable
+#      data:
+#        variable: house_state
+#        value: "Watching Movie"
+
+- alias: "Movie Started in Guest Bedroom - Turn Off Lights"
+  trigger:
+    - platform: state
+      entity_id: media_player.guest_bedroom
+      to: 'playing'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: light.turn_off
+      entity_id: light.guest_bedroom_lights_level
+
+- alias: "Movie Paused on projector - House Lights On"
+  trigger:
+    - platform: state
+      entity_id: media_player.shield
+      from: 'playing'
+      to: 'paused'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: light.turn_on
+    entity_id: light.theater_lights_level
+    data:
+      brightness: 10
+
+- alias: "Movie Stopped - House Lights On"
+  trigger:
+    - platform: state
+      entity_id: media_player.shield
+      from: 'playing'
+      to: 'idle'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: light.turn_on
+      entity_id: light.theater_lights_level
+      data:
+        brightness: 20
+#      entity_id: scene.movie_paused
+  # Need to call update_house_state here to reset from 'watching movie'
+
+- alias: "Movie Resumed on projector - House Lights Off"
+  trigger:
+    - platform: state
+      entity_id: media_player.shield
+      from: 'paused'
+      to: 'playing'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: light.turn_off
+    entity_id: light.theater_lights_level

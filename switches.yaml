@@ -20,5 +20,5 @@
         {% else %}
         Unknown
         {% endif %}
-      command_on: 'python3 /config/scripts/balboa.py -m on >> /config/tmp/hottub.json'
-      command_off: 'python3 /config/scripts/balboa.py -m off >> /config/tmp/hottub.json'
+      command_on: 'python3 /config/python_scripts/balboa.py -m on >> /config/tmp/hottub.json'
+      command_off: 'python3 /config/python_scripts/balboa.py -m off >> /config/tmp/hottub.json'

@@ -13,6 +13,8 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 ### Lights
 * Turn on kitchen lights when motion detected and off when motion stops (motion_kitchen_lights.yaml)
 * Turn on garage lights when door is opened and off shortly after it closes (garage_lights.yaml)
+* Turn off the downstairs light when I start playing content at night on my NVidia Shield, turn them on when paused and back off when resumed
+* Same as above for guest bedroom Chromecast
 ### Convenience
 * Start casting a music stream when I walk into the bathroom in the morning (morning_routine.yaml)
 * Remind me to take out the trash if tomorrow is garbage collection day when entering the kitchen (morning_routine.yaml)
@@ -63,11 +65,13 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * Z-Wave Door Sensors
 * [FirstAlert Z-Wave Smoke Detectors](https://www.lowes.com/pd/First-Alert-Z-Wave-Battery-powered-3-Volt-Photoelectric-Sensor-Smoke-Detector/4780111)
 * Xiaomi Aqara Water Leak Sensors (Zigbee, still need to integrate)
+
+### Third-party Integrations
 * [Plex](https://www.plex.tv/) for Plex server activity
 * [NZBGet](https://nzbget.net/) for usenet download activity
 * [Sonarr](https://sonarr.tv/) for TV show activity
 * [Radarr](https://radarr.video/) for movie activity
-* [Travis-CI](https://travis-ci.org/) Sensor
+* [Travis-CI](https://travis-ci.org/) Sensor for Github commits
 * [USPS Mail Sensor](https://home-assistant.io/components/sensor.usps/)
 * [UPS Package Sensor](https://home-assistant.io/components/sensor.ups/)
 * [FedEx Package Sensor](https://home-assistant.io/components/sensor.fedex/)
