@@ -20,6 +20,7 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * Send washer/dryer finished notifications based on energy meters and announce completion via Google Home (laundry_notifications.yaml)
 * Wake me up at the specified time using transitioned lighting (alarm_clock.yaml)
 * If it's a travel day per my TripIt calendar, remind me where I'm going after I leave the bathroom in the morning
+* Hot Tub control (Balboa Wi-Fi) and temperature readings
 ### Security
 * Arm alarm when Night mode kicks in (alarm.yaml)
 * Arm alarm when house is empty for a while (alarm.yaml)
@@ -71,5 +72,12 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * [UPS Package Sensor](https://home-assistant.io/components/sensor.ups/)
 * [FedEx Package Sensor](https://home-assistant.io/components/sensor.fedex/)
 
+### Screenshots
+![Default View](https://github.com/allanak/homeassistant-config/blob/master/images/default.png?raw=true)
+![Entertainment](https://github.com/allanak/homeassistant-config/blob/master/images/entertainment.png?raw=true)
+![People](https://github.com/allanak/homeassistant-config/blob/master/images/people.png?raw=true)
+![Security](https://github.com/allanak/homeassistant-config/blob/master/images/security.png?raw=true)
+![Outdoor](https://github.com/allanak/homeassistant-config/blob/master/images/outdoor.png?raw=true)
+![Events](https://github.com/allanak/homeassistant-config/blob/master/images/events.png?raw=true)
 
 ### Thanks to many example configs that helped immensely! Specifically [arsaboo](https://github.com/arsaboo/homeassistant-config/) and [stanvx](https://github.com/stanvx/Home-Assistant-Configuration) and [oakbrad](https://github.com/oakbrad/brad-homeassistant-config)
