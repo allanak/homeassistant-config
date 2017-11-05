@@ -192,6 +192,9 @@ switch.water_heater_switch:
 switch.yard:
   icon: mdi:water-pump
   friendly_name: Sprinklers
+switch.hot_tub:
+  friendly_name: Hot Tub
+  icon: mdi:water-pump
 
 # Sensors
 sensor.garage_door:

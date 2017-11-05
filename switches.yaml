@@ -4,3 +4,21 @@
 - platform: broadlink
   host: 192.168.3.92
   mac: '34:ea:34:90:f8:29'
+
+- platform: command_line
+  switches:
+    hot_tub:
+      value_template: >-
+        {% if is_state("sensor.hot_tub_pumps", "off, off") %}
+        off
+        {% elif is_state("sensor.hot_tub_pumps", "on, off") %}
+        on
+        {% elif is_state("sensor.hot_tub_pumps", "off, on") %}
+        on
+        {% elif is_state("sensor.hot_tub_pumps", "on, on") %}
+        on
+        {% else %}
+        Unknown
+        {% endif %}
+      command_on: 'python3 /config/scripts/balboa.py -m on >> /config/tmp/hottub.json'
+      command_off: 'python3 /config/scripts/balboa.py -m off >> /config/tmp/hottub.json'

@@ -15,3 +15,15 @@ forecast:
   - sensor.dark_sky_hourly_summary
   - sensor.dark_sky_precip
   - sensor.dark_sky_precip_probability
+
+hottub:
+ name: Hot Tub
+ entities:
+  - switch.hot_tub
+  - sensor.hot_tub_current_temperature
+  - sensor.hot_tub_set_temperature
+  - sensor.hot_tub_pumps
+  - sensor.hot_tub_heat_mode
+  - sensor.hot_tub_ready_mode
+  - sensor.hot_tub_blower
+  - sensor.hot_tub_lights

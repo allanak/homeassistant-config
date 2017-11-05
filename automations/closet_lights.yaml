@@ -8,7 +8,7 @@
       data:
         entity_id: switch.master_closet_lights_switch
 
-- alias: Turn off kitchen lights when motion stops
+- alias: Turn off closet lights when motion stops
   trigger:
     - entity_id: binary_sensor.master_closet_motion_sensor
       platform: state

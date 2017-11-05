@@ -12,4 +12,5 @@
 haaska
 secrets.yaml
 google_calendars.yaml
+scripts/balboa.py
 known_devices.yaml

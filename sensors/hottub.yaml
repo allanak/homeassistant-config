@@ -1,0 +1,37 @@
+# Pull values from the balboa.py output
+- platform: file
+  name: Hot Tub Current Temperature
+  file_path: /config/tmp/hottub.json
+  value_template: '{{ value_json.CurrentTempReading }}'
+  unit_of_measurement: '°F'
+
+- platform: file
+  name: Hot Tub Set Temperature
+  file_path: /config/tmp/hottub.json
+  value_template: '{{ value_json.SetTempReading }}'
+  unit_of_measurement: '°F'
+
+- platform: file
+  name: Hot Tub Pumps
+  file_path: /config/tmp/hottub.json
+  value_template: '{{ value_json.Pump }}'
+
+- platform: file
+  name: Hot Tub Heat Mode
+  file_path: /config/tmp/hottub.json
+  value_template: '{{ value_json.HeatMode }}'
+
+- platform: file
+  name: Hot Tub Ready Mode
+  file_path: /config/tmp/hottub.json
+  value_template: '{{ value_json.ReadyRestMode }}'
+
+- platform: file
+  name: Hot Tub Blower
+  file_path: /config/tmp/hottub.json
+  value_template: '{{ value_json.BlowerMode }}'
+
+- platform: file
+  name: Hot Tub Lights
+  file_path: /config/tmp/hottub.json
+  value_template: '{{ value_json.LEDMode }}'

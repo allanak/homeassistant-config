@@ -5,7 +5,7 @@
       value_template: >
         {{ strptime(states.calendar.allan.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %B %d at %H:%M") }}:
         {{ states.calendar.allan.attributes.message }}
-        {% if states.calendar.allan.attributes.location %} at {{ states.calendar.allan.attributes.location }}
+        {%- if states.calendar.allan.attributes.location %} at {{ states.calendar.allan.attributes.location -}}
         {% endif %}
       icon_template: >-
         {% if is_state('calendar.allan', 'on') %}

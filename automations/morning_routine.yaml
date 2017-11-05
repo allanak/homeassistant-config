@@ -53,9 +53,9 @@
       data_template:
         message: >
           {% if is_state('calendar.tripit', 'on') %}
-          Enjoy your trip to {{ states.calendar.tripit.attributes.location }}!
+          {{ [ "Enjoy your trip to {{ states.calendar.tripit.attributes.location }}!", "Have a good time in {{ states.calendar.tripit.attributes.location }}. See you soon!" ] | random }}
           {% else %}
-          Good morning!
+          {{ [ "Good morning!", "So fresh and so clean", "Time for some coffee" ] | random }}
           {% endif %}
     - delay: 00:10
     - service: media_player.turn_off
@@ -80,5 +80,6 @@
       timeout: 02:00:00
     - service: tts.google_say
       entity_id: media_player.kitchen
-      data:
-        message: 'Good morning! This is a reminder that tomorrow is trash pickup day'
+      data_template:
+        message: >
+          {{ [ "Good morning! This is a reminder that tomorrow is trash pickup day", "Hey, don't forget tomorrow is garbage pickup", "Take the trash out, you lazy bastard!" ] | random }}

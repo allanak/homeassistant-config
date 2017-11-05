@@ -22,8 +22,9 @@
       state: 'on'
   action:
     - service: notify.ios_allaniphone
-      data:
-        message: 'The Washer is done'
+      data_template:
+        message: >
+          {{ ["The Washer is done", "Washer cycle has completed", "Come get your clothes out already!", "Your dirty clothes are dry now"] | random }}
     - service: input_boolean.turn_off
       entity_id: input_boolean.washer_status
     - wait_template: "{{ states.media_player.upstairs.state == 'off' }}"
@@ -57,8 +58,9 @@
     state: 'on'
   action:
     - service: notify.ios_allaniphone
-      data:
-        message: 'The Dryer is done'
+      data_template:
+        message: >
+          {{ ["The dryer is done", "Dryer cycle has completed", "Come get your clothes out already!", "Your dirty clothes are clean now" ] | random }}
     - service: input_boolean.turn_off
       entity_id: input_boolean.dryer_status
     - wait_template: "{{ states.media_player.upstairs.state == 'off' }}"
