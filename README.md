@@ -13,7 +13,7 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 ### Lights
 * Turn on kitchen lights when motion detected and off when motion stops (motion_kitchen_lights.yaml)
 * Turn on garage lights when door is opened and off shortly after it closes (garage_lights.yaml)
-* Turn off the downstairs light when I start playing content at night on my NVidia Shield, turn them on when paused and back off when resumed
+* Turn off the downstairs lights when I start playing content at night on my NVidia Shield, dim them on when paused and back off when resumed (movie_time.yaml)
 * Same as above for guest bedroom Chromecast
 ### Convenience
 * Start casting a music stream when I walk into the bathroom in the morning (morning_routine.yaml)
