@@ -83,13 +83,10 @@ light.guestbathright:
   friendly_name: Guest Bath Right Bulb
   google_assistant: false
   haaska_hidden: true
-light.staircase:
-  icon: mdi:stairs
 light.landingbulbs:
   friendly_name: Landing Bulbs
-light.staircase_lower_strip:
-  google_assistant: false
-  haaska_hidden: true
+light.staircase:
+  icon: mdi:stairs
 light.staircase_upper_strip:
   google_assistant: false
   haaska_hidden: true
