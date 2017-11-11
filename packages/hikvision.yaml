@@ -179,7 +179,8 @@ automation:
           message: "Downstairs Motion"
           data:
             push:
-            entity_id: "camera.downstairs"
-            attachment:
-              url: "{{ states.camera.downstairs.attributes.entity_picture }}"
-              content-type: jpg
+              sound: US-EN-Alexa-Motion-Detected-Generic.wav
+          entity_id: "camera.downstairs"
+          attachment:
+            url: "{{ states.camera.downstairs.attributes.entity_picture }}"
+            content-type: jpg
