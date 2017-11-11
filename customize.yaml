@@ -84,25 +84,28 @@ light.guestbathright:
   google_assistant: false
   haaska_hidden: true
 light.staircase:
-  icon: mdi:white-balance-iridescent
-light.stairwellbulbs:
-  friendly_name: Stairwell Bulbs
-light.stairwell_under_strip:
+  icon: mdi:stairs
+light.landingbulbs:
+  friendly_name: Landing Bulbs
+light.staircase_lower_strip:
   google_assistant: false
   haaska_hidden: true
-light.stairwell_over_strip:
+light.staircase_upper_strip:
   google_assistant: false
   haaska_hidden: true
-light.stairwelldownlf:
-  friendly_name: Stairwell Lower Left
+light.staircase_lower_strip:
   google_assistant: false
   haaska_hidden: true
-light.stairwelldownrt:
-  friendly_name: Stairwell Lower Right
+light.landingdownlf:
+  friendly_name: Landing Lower Left
   google_assistant: false
   haaska_hidden: true
-light.stairwelluprt:
-  friendly_name: Stairwell Upper Right
+light.landingdownrt:
+  friendly_name: Landing Lower Right
+  google_assistant: false
+  haaska_hidden: true
+light.landinguprt:
+  friendly_name: Landing Upper Right
   google_assistant: false
   haaska_hidden: true
 light.master_bedroom_front_lights_level:
@@ -152,9 +155,8 @@ switch.master_closet_lights_switch:
   icon: mdi:hanger
   friendly_name: Master Closet Lights
   homebridge_visible: true
-switch.stairwell_switch:
-  friendly_name: Stairwell
-  icon: mdi:stairs
+switch.landing_switch:
+  friendly_name: Landing
   homebridge_visible: true
 switch.guest_bedroom_fan_switch:
   icon: mdi:fan
@@ -245,6 +247,7 @@ binary_sensor.master_bath_motion_sensor:
 # Covers
 cover.garage_door:
   icon: mdi:garage
+  friendly_name: Garage
   homebridge_cover_type: garage_door
   homebridge_visible: true
 
@@ -255,6 +258,9 @@ lock.front_door_locked:
   homebridge_visible: true
 lock.back_door_locked:
   friendly_name: Back Door
+  homebridge_visible: true
+lock.garage_lock_locked:
+  friendly_name: Garage Door
   homebridge_visible: true
 lock.back_gate_locked:
   friendly_name: Back Gate

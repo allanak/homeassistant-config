@@ -1,7 +1,7 @@
 master_bedroom:
  name: Master Bedroom
  entities:
-  - switch.stairwell_switch
+  - switch.landing_switch
   - light.office_lights_level
 #  - switch.bed_switch
   - light.balcony_light_switch
@@ -9,3 +9,4 @@ master_bedroom:
   - light.master_bedroom_rear_lights_level
   - switch.fireplace_switch
   - light.stairwellbulbs
+  - light.staircase_upper_strip

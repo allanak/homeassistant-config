@@ -33,7 +33,7 @@ zones:
     name: 'Master Bath Window'
     type: 'opening'
   9:
-    name: 'Stairwell Motion'
+    name: 'Landing Motion'
     type: 'motion'
   10:
     name: 'Master Left Window'

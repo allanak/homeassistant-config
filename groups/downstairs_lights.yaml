@@ -1,12 +1,13 @@
 downstairs_lights:
  name: Downstairs Lights
  entities:
-  - switch.stairwell_switch
+  - switch.landing_switch
   - light.staircase
+  - light.staircase_lower_strip
   - light.theater_lights_level
   - light.dining_room_level
   - light.bar_lights_level
   - light.hall_light_level
   - switch.theater_switch_switch
-  - light.stairwellbulbs
+  - light.landingbulbs
   - switch.garage_light_switch

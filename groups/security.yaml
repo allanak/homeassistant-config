@@ -9,7 +9,7 @@ security:
   - lock.front_door_locked
   - lock.back_door_locked
   - lock.back_gate_locked
-  - group.all_locks
+  - lock.garage_lock_locked
 
 house_settings:
   name: House Settings
