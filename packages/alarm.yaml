@@ -186,14 +186,12 @@ automation:
         to: triggered
     action:
       - service: notify.ios_allansiphone
-        data:
-          message: Security Alert
-          title: Alarm Triggered!
-          data_template:
+        data_template:
+          message: "Alarm Triggered"
+          data:
             push:
               category: concerning_event
-              sound: US-EN-Morgan-Freeman-Motion-Detected.wav
-            entity_id: camera.downstairs
+            entity_id: "camera.downstairs"
             attachment:
-              url: "{{ state.sensor.camera_downstairs_url.state }}"
+              url: "{{ states.camera.downstairs.attributes.entity_picture }}"
               content-type: jpg
