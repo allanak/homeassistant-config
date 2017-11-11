@@ -40,6 +40,25 @@ sensor:
         value_template: '{{ states.remote.master_bedroom.attributes.current_activity }}'
         friendly_name: 'Master Bedroom Input'
 
+# Create switches for voice control of Harmony activities via Echo/Google Home
+switch:
+  - platform: template
+    switches:
+      tv_upstairs:
+        value_template: "{{ is_state('remote.master_bedroom', 'on') }}"
+        turn_on:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.harmony_theater
+            option: Watch TV
+        turn_off:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.harmony_theater
+            option: Power Off
+
+      
+
 input_select:
   harmony_theater:
     name: Activity Selection

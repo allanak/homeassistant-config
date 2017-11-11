@@ -3,10 +3,10 @@ master_bedroom:
  entities:
   - switch.landing_switch
   - light.office_lights_level
+  - light.staircase
 #  - switch.bed_switch
   - light.balcony_light_switch
   - light.master_bedroom_front_lights_level
   - light.master_bedroom_rear_lights_level
   - switch.fireplace_switch
-  - light.stairwellbulbs
-  - light.staircase_upper_strip
+  - light.landingbulbs

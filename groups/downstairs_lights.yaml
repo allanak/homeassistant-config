@@ -3,7 +3,6 @@ downstairs_lights:
  entities:
   - switch.landing_switch
   - light.staircase
-  - light.staircase_lower_strip
   - light.theater_lights_level
   - light.dining_room_level
   - light.bar_lights_level

@@ -178,6 +178,8 @@ switch.receiver:
   google_assistant: false
 switch.towel_rack:
   icon: mdi:radiator
+switch.tv_upstairs:
+  icon: mdi:filmstrip
 switch.washer_switch:
   icon: mdi:washing-machine
   google_assistant: false
