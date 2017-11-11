@@ -1,8 +1,0 @@
-# These get autodiscovered, but just in case I need them later
-#- platform: harmony
-#  name: Theater
-#  host: harmonyhub
-
-#- platform: harmony
-#  name: Master Bedroom
-#  host: harmonyhub-masterbed

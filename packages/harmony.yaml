@@ -5,14 +5,14 @@ homeassistant:
     sensor.harmony_bedroom_activity:
       icon: mdi:theater
 
-# These get autodiscovered, but just in case I need them later
-#platform: harmony
-#  name: Theater
-#  host: harmonyhub
+remote:
+  - platform: harmony
+    name: Theater
+    host: harmonyhub
 
-#platform: harmony
-#  name: Master Bedroom
-#  host: harmonyhub-masterbed
+  - platform: harmony
+    name: Master Bedroom
+    host: harmonyhub-masterbed
 
 group:
   harmony_theater:
@@ -32,7 +32,7 @@ sensor:
   - platform: template
     sensors:
       harmony_theater_activity:
-        value_template: '{{ states.remote.harmony_theater.attributes.current_activity }}'
+        value_template: '{{ states.remote.theater.attributes.current_activity }}'
         friendly_name: 'Theater Input'
   - platform: template
     sensors:
@@ -141,9 +141,9 @@ automation:
         entity_id: remote.master_bedroom
         data_template:
           activity: >
-            {% if is_state("input_select.harmony_theater", "Watch TV") %}
-              27323264
-            {% elif is_state("input_select.harmony_theater", "Apple TV") %}
+            {% if is_state("input_select.harmony_bedroom", "Watch TV") %}
+              29298411
+            {% elif is_state("input_select.harmony_bedroom", "Apple TV") %}
               23252979
             {% else %}
             {% endif %}

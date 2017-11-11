@@ -1,0 +1,108 @@
+#
+#   Laundry Templates
+#
+input_boolean:
+  washer_status:
+    name: Washer
+    icon: mdi:washing-machine
+
+  dryer_status:
+    name: Dryer
+    icon: mdi:washing-machine
+
+#    True when washer power level is below 3.4 watts, high threshold of resting state
+#    Default state is true
+
+# Sensor template creation
+sensor:
+  - platform: template
+    sensors:
+      washer_running:
+        value_template: "{{ states('sensor.washer_power_2') | int > 3.4 }}"
+  
+  #    True when Dryer power level is above 8.4 watts, showing dryer is in operation (as opposed to just having the door open)
+  #    Default state is false
+  - platform: template
+    sensors:
+      dryer_running:
+        value_template: "{{ states('sensor.dryer_power_2') | int > 8.4 }}"
+  
+  # True when water heater power level is above 2 watts
+  - platform: template
+    sensors:
+      water_heater_running:
+        value_template: "{{ states('sensor.water_heater_2') | int > 2 }}"
+  # Washer Notification Sequence
+ 
+automation: 
+  - alias: 'Washer Start'
+    trigger:
+      platform: state
+      entity_id: sensor.washer_running
+      to: 'True'
+    action:
+      service: input_boolean.turn_on
+      entity_id: input_boolean.washer_status
+  
+  - alias: 'Washer Done'
+    trigger:
+      platform: state
+      entity_id: sensor.washer_running
+      to: 'False'
+      for:
+        minutes: 3
+    condition:
+        condition: state
+        entity_id: input_boolean.washer_status
+        state: 'on'
+    action:
+      - service: notify.ios_allansiphone
+        data_template:
+          message: >
+            {{ ["The Washer is done", "Washer cycle has completed", "Come get your clothes out already!", "Your dirty clothes are dry now"] | random }}
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.washer_status
+      - wait_template: "{{ states.media_player.upstairs.state == 'off' }}"
+        timeout: 00:30
+      - wait_template: "{{ states.media_player.home_group.state == 'off' }}"
+        timeout: 00:30
+      - service: tts.google_say
+        entity_id: media_player.home_group
+        data:
+          message: 'Washer is done'
+  
+  # Dryer Notification Sequence
+  
+  - alias: 'Dryer Start'
+    trigger:
+      platform: state
+      entity_id: sensor.dryer_running
+      to: 'True'
+    action:
+      service: input_boolean.turn_on
+      entity_id: input_boolean.dryer_status
+  
+  - alias: 'Dryer Done'
+    trigger:
+      platform: state
+      entity_id: sensor.dryer_running
+      to: 'False'
+    condition:
+      condition: state
+      entity_id: input_boolean.dryer_status
+      state: 'on'
+    action:
+      - service: notify.ios_allansiphone
+        data_template:
+          message: >
+            {{ ["The dryer is done", "Dryer cycle has completed", "Come get your clothes out already!", "Your dirty clothes are clean now" ] | random }}
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.dryer_status
+      - wait_template: "{{ states.media_player.upstairs.state == 'off' }}"
+        timeout: 00:30
+      - wait_template: "{{ states.media_player.home_group.state == 'off' }}"
+        timeout: 00:30
+      - service: tts.google_say
+        entity_id: media_player.home_group
+        data:
+          message: 'Dryer is done'

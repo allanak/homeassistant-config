@@ -46,6 +46,9 @@ light.masterbathleft:
 light.masterbathright:
   google_assistant: false
   friendly_name: Left Vanity
+light.masterbath:
+  google_assistant: false
+  friendly_name: Vanity
 light.kitchenrgb:
   friendly_name: Kitchen RGB
   icon: mdi:white-balance-iridescent
@@ -80,8 +83,16 @@ light.guestbathright:
   friendly_name: Guest Bath Right Bulb
   google_assistant: false
   haaska_hidden: true
+light.staircase:
+  icon: mdi:white-balance-iridescent
 light.stairwellbulbs:
   friendly_name: Stairwell Bulbs
+light.stairwell_under_strip:
+  google_assistant: false
+  haaska_hidden: true
+light.stairwell_over_strip:
+  google_assistant: false
+  haaska_hidden: true
 light.stairwelldownlf:
   friendly_name: Stairwell Lower Left
   google_assistant: false

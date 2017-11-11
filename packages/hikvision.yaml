@@ -14,31 +14,31 @@ binary_sensor:
 # Hikvision Cameras
 camera:
   - platform: mjpeg
-    mjpeg_url: http://192.168.254.3/streaming/channels/102/httppreview
+    mjpeg_url: http://192.168.254.3/ISAPI/streaming/channels/102/httppreview
     username: !secret hikvision_user
     password: !secret hikvision_password
     name: Downstairs
   
   - platform: mjpeg
-    mjpeg_url: http://192.168.254.11/streaming/channels/102/httppreview
+    mjpeg_url: http://192.168.254.11/ISAPI/streaming/channels/102/httppreview
     username: !secret hikvision_user
     password: !secret hikvision_password
     name: Backyard
   
 #  - platform: mjpeg
-#    mjpeg_url: http://192.168.254.5/streaming/channels/102/httppreview
+#    mjpeg_url: http://192.168.254.5/ISAPI/streaming/channels/102/httppreview
 #    username: !secret hikvision_user
 #    password: !secret hikvision_password
 #    name: Extra
   
   - platform: mjpeg
-    mjpeg_url: http://192.168.254.13/streaming/channels/102/httppreview
+    mjpeg_url: http://192.168.254.13/ISAPI/streaming/channels/102/httppreview
     username: !secret hikvision_user
     password: !secret hikvision_password
     name: WestGate
   
   - platform: mjpeg
-    mjpeg_url: http://192.168.254.12/streaming/channels/102/httppreview
+    mjpeg_url: http://192.168.254.12/ISAPI/streaming/channels/102/httppreview
     username: !secret hikvision_user
     password: !secret hikvision_password
     name: Driveway
@@ -49,43 +49,27 @@ homeassistant:
     binary_sensor.nvr_motion_2:
       icon: mdi:camcorder
       friendly_name: Downstairs Camera Motion
-      templates:
-        state: if state === 'on' return 'Active'; else return state;
     binary_sensor.nvr_line_crossing_2:
       icon: mdi:camcorder
       friendly_name: Downstairs Camera Line Crossing
-      templates:
-        state: if state === 'on' return 'Active'; else return state;
     binary_sensor.nvr_motion_3:
       icon: mdi:camcorder
       friendly_name: Driveway Camera Motion
-      templates:
-        state: if state === 'on' return 'Active'; else return state;
     binary_sensor.nvr_line_crossing_3:
       icon: mdi:camcorder
       friendly_name: Driveway Camera Line Crossing
-      templates:
-        state: if state === 'on' return 'Active'; else return state;
     binary_sensor.nvr_motion_4:
       icon: mdi:camcorder
       friendly_name: West Gate Camera Motion
-      templates:
-        state: if state === 'on' return 'Active'; else return state;
     binary_sensor.nvr_line_crossing_4:
       icon: mdi:camcorder
       friendly_name: West Gate Camera Line Crossing
-      templates:
-        state: if state === 'on' return 'Active'; else return state;
     binary_sensor.nvr_motion_5:
       icon: mdi:camcorder
       friendly_name: Back Yard Camera Motion
-      templates:
-        state: if state === 'on' return 'Active'; else return state;
     binary_sensor.nvr_line_crossing_5:
       icon: mdi:camcorder
       friendly_name: Back Yard Line Crossing
-      templates:
-        state: if state === 'on' return 'Active'; else return state;
 
 automation:
   - alias: Driveway activity
@@ -106,9 +90,9 @@ automation:
         state: 'off'
     action:
       - service: notify.ios_allansiphone
-        data:
+        data_template:
           message: "Driveway Motion Detected"
-          data_template:
+          data:
             push:
               category: garage_event
               sound: US-EN-Alexa-Motion-At-Front-Yard.wav
@@ -135,9 +119,9 @@ automation:
         state: 'off'
     action:
       - service: notify.ios_allansiphone
-        data:
+        data_template:
           message: "Back Yard Motion Detected"
-          data_template:
+          data:
             push:
               sound: US-EN-Alexa-Motion-At-Back-Door.wav
             entity_id: "camera.backyard"
@@ -163,9 +147,9 @@ automation:
         state: 'off'
     action:
       - service: notify.ios_allansiphone
-        data:
+        data_template:
           message: West Gate Motion Detected
-          data_template:
+          data:
             push:
               sound: US-EN-Alexa-Motion-At-Back-Door.wav
             entity_id: "camera.westgate"
@@ -191,9 +175,9 @@ automation:
         state: 'off'
     action:
       - service: notify.ios_allansiphone
-        data:
+        data_template:
           message: "Downstairs Motion"
-          data_template:
+          data:
             push:
             entity_id: "camera.downstairs"
             attachment:

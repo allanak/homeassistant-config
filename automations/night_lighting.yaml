@@ -33,6 +33,10 @@
         entity_id: group.evening_lights
     - service: homeassistant.turn_on
       data:
+        entity_id: light.staircase
+        color: red
+    - service: homeassistant.turn_on
+      data:
         entity_id: light.hall_light_level
         brightness: '20'
 

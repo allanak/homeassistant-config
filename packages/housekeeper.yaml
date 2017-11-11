@@ -16,14 +16,22 @@ automation:
     action:
       service: script.turn_on
       entity_id: script.housekeeper_code_off
-  
+
+# Create input for enabling housekeeper mode
+input_boolean:
+  housekeeper_mode:
+    name: Housekeeper Mode
+    initial: off
+    icon: mdi:account
+
 # Use this to generate random code for locks
 sensor:
   - platform: random
     name: PIN Code
     minimum: 1111
     maximum: 9999
-  
+
+# Script to push the random code to the lock and remove it when housekeeper mode is disabled  
 script:
   housekeeper_code_on:
     sequence:

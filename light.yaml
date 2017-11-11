@@ -1,4 +1,5 @@
 # Zigbee bulbs that are still using the Osram Lightify gateway or SmartThings
 - platform: osramlightify
   host: !secret lightify_host
-
+- platform: hue
+  host: !secret hue_host

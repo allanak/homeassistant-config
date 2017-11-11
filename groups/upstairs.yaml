@@ -11,4 +11,5 @@ upstairs:
   - group.media_upstairs
   - group.media_bathroom
   - group.media_fireplace
+  - group.media_master_bedroom_roku
   - group.harmony_bedroom

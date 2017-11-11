@@ -5,3 +5,4 @@ evening_lights:
 #  - switch.bed_switch
 #  - switch.neon_lights_switch
   - light.hall_light_level
+  - light.staircase

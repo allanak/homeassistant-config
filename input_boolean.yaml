@@ -2,20 +2,3 @@ speech_notifications:
   name: Speech Notifications
   icon: mdi:speaker-wireless
   initial: on
-
-washer_status:
-  name: Washer
-  icon: mdi:washing-machine
-
-dryer_status:
-  name: Dryer
-  icon: mdi:washing-machine
-
-alarmweekday:
-  name: Weekdays Only
-  initial: on
-  icon: mdi:calendar-check
-housekeeper_mode:
-  name: Housekeeper Mode
-  initial: off
-  icon: mdi:account

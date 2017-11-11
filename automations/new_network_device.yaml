@@ -14,6 +14,6 @@
     - service: tts.google_say
       entity_id: media_player.home_group
       data_template:
-#        message: "There has been a new device detected on the network.  Be sure to appropriately categorize {{trigger.event.data.host_name}}"
-        message: "There has been a new device detected on the network."
+        message: "There has been a new device detected on the network.  Be sure to appropriately categorize {{ trigger.event.data.host_name }}"
+#        message: "There has been a new device detected on the network."
 ##############################################################################

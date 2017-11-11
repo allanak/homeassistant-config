@@ -124,6 +124,9 @@ automation:
     - entity_id: group.tracked_users
       platform: state
       to: not_home
+    - entity_id: input_boolean.vacation_mode
+      platform: state
+      to: 'on'
     condition:
     - condition: state
       entity_id: input_boolean.guest_mode

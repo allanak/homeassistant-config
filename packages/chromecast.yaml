@@ -13,6 +13,15 @@ homeassistant:
       homebridge_name: Kitchen Chromecast
       homebridge_visible: true
 
+input_number:
+  google_volume:
+    name: Volume
+    initial: 3
+    min: 0
+    max: 10
+    step: 0.5
+    icon: mdi:volume-medium
+
 # Dropdowns for streaming station selection
 input_select:
   radio_station:
@@ -94,6 +103,7 @@ automation:
               {% else %}
                 "None"
               {% endif %}
+
 ############################################################
 #
 # Start Streaming Radio on Chromecast
@@ -244,6 +254,307 @@ automation:
       - service: remote.turn_off
         entity_id: remote.theater
 
+############################################################
+#
+# Automations to hide Media Players when idle or off
+# Currently one entry per group, can possible shrink this with a template later
+############################################################
+  
+############################################################
+#
+# Media Player Home Group
+#
+############################################################
+  - alias: 'Hide media_player.home_group while not playing'
+    hide_entity: true
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: media_player.home_group
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.home_group
+      to: 'off'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_home_group
+      data:
+        visible: False
+  
+  - alias: 'Show media_player.home_group while playing'
+    hide_entity: true
+    trigger:
+    - platform: state
+      entity_id: media_player.home_group
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.home_group
+      to: 'paused'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_home_group
+      data:
+        visible: True
+  
+############################################################
+#
+# Media Player Upstairs Group
+#
+############################################################
+    
+  - alias: 'Hide media_player.upstairs while not playing'
+    hide_entity: true
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: media_player.upstairs
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.upstairs
+      to: 'off'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_upstairs
+      data:
+        visible: False
+  
+  - alias: 'Show media_player.upstairs while playing'
+    hide_entity: true
+    trigger:
+    - platform: state
+      entity_id: media_player.upstairs
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.upstairs
+      to: 'paused'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_upstairs
+      data:
+        visible: True
+  
+############################################################
+#
+# Media Player Living Room
+#
+############################################################
+    
+  - alias: 'Hide media_player.living_room_home while not playing'
+    hide_entity: true
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: media_player.living_room_home
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.living_room_home
+      to: 'off'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_living_room
+      data:
+        visible: False
+  - alias: 'Show media_player.living_room while playing'
+    hide_entity: true
+    trigger:
+    - platform: state
+      entity_id: media_player.living_room_home
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.living_room_home
+      to: 'paused'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_living_room
+      data:
+        visible: True
+############################################################
+#
+# Media Player Kitchen
+#
+############################################################
+    
+  - alias: 'Hide media_player.kitchen while not playing'
+    hide_entity: true
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: media_player.kitchen
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.kitchen
+      to: 'off'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_kitchen
+      data:
+        visible: False
+  - alias: 'Show media_player.kitchen while playing'
+    hide_entity: true
+    trigger:
+    - platform: state
+      entity_id: media_player.kitchen
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.kitchen
+      to: 'paused'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_kitchen
+      data:
+        visible: True
+############################################################
+#
+# Media Player Office
+#
+############################################################
+    
+  - alias: 'Hide media_player.office while not playing'
+    hide_entity: true
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: media_player.office
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.office
+      to: 'off'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_office
+      data:
+        visible: False
+  - alias: 'Show media_player.office while playing'
+    hide_entity: true
+    trigger:
+    - platform: state
+      entity_id: media_player.office
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.office
+      to: 'paused'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_office
+      data:
+        visible: True
+############################################################
+#
+# Media Player Spotify
+#
+############################################################
+    
+  - alias: 'Hide media_player.spotify while not playing'
+    hide_entity: true
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: media_player.spotify
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.spotify
+      to: 'off'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_spotify
+      data:
+        visible: False
+  - alias: 'Show media_player.spotify while playing'
+    hide_entity: true
+    trigger:
+    - platform: state
+      entity_id: media_player.spotify
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.spotify
+      to: 'paused'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_spotify
+      data:
+        visible: True
+############################################################
+#
+# Media Player Guest Bedroom Home
+#
+############################################################
+  
+  - alias: 'Hide media_player.guest_bedroom while not playing'
+    hide_entity: true
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: media_player.guest_bedroom
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.guest_bedroom
+      to: 'off'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_guest_bedroom
+      data:
+        visible: False
+  
+  - alias: 'Show media_player.guest_bedroom while playing'
+    hide_entity: true
+    trigger:
+    - platform: state
+      entity_id: media_player.guest_bedroom
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.guest_bedroom
+      to: 'paused'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_guest_bedroom
+      data:
+        visible: True
+  
+############################################################
+#
+# Media Player Guest Bedroom Home
+#
+############################################################
+  
+  - alias: 'Hide media_player.guest_bedroom2 while not playing'
+    hide_entity: true
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: media_player.guest_bedroom2
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.guest_bedroom2
+      to: 'off'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_guest_bedroom
+      data:
+        visible: False
+  
+  - alias: 'Show media_player.guest_bedroom2 while playing'
+    hide_entity: true
+    trigger:
+    - platform: state
+      entity_id: media_player.guest_bedroom2
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.guest_bedroom2
+      to: 'paused'
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_guest_bedroom2
+      data:
+        visible: True
+  
 group:
   radio:
    name: Audio Streaming
