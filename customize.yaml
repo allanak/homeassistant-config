@@ -1,5 +1,5 @@
 # Device Tracker
-device_tracker.allan:
+device_tracker.allansiphone:
   entity_picture: /local/allan.jpg
   friendly_name: Allan
 #   icon: mdi:cellphone-iphone
@@ -40,12 +40,12 @@ light.bed:
   icon: mdi:hotel
   homebridge_visible: true
 # Lightify Lights
-light.masterbathleft:
-  google_assistant: false
-  friendly_name: Right Vanity
-light.masterbathright:
+light.masterbathlf:
   google_assistant: false
   friendly_name: Left Vanity
+light.masterbathrt:
+  google_assistant: false
+  friendly_name: Right Vanity
 light.masterbath:
   google_assistant: false
   friendly_name: Vanity
@@ -53,12 +53,12 @@ light.kitchenrgb:
   friendly_name: Kitchen RGB
   icon: mdi:white-balance-iridescent
   homebridge_visible: true
-light.kitchenrgbleft:
+light.kitchenrgblf:
   friendly_name: Kitchen Left RGB
   icon: mdi:white-balance-iridescent
   google_assistant: false
   haaska_hidden: true
-light.kitchenrgbright:
+light.kitchenrgbrt:
   friendly_name: Kitchen Right RGB
   icon: mdi:white-balance-iridescent
   google_assistant: false
@@ -100,11 +100,11 @@ light.staircase_upper_strip:
 light.staircase_lower_strip:
   google_assistant: false
   haaska_hidden: true
-light.landingdownlf:
+light.landingdnlf:
   friendly_name: Landing Lower Left
   google_assistant: false
   haaska_hidden: true
-light.landingdownrt:
+light.landingdnrt:
   friendly_name: Landing Lower Right
   google_assistant: false
   haaska_hidden: true
@@ -186,9 +186,6 @@ switch.receiver:
   google_assistant: false
 switch.towel_rack:
   icon: mdi:radiator
-switch.tv_upstairs:
-  icon: mdi:filmstrip
-  friendly_name: TV Upstairs
 switch.washer_switch:
   icon: mdi:washing-machine
   google_assistant: false

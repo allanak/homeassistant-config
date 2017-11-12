@@ -18,7 +18,7 @@
       data:
         entity_id: group.outdoor_lights
 
-- alias: Turn on evening lights at sunset
+- alias: Turn on inside lights at sunset
   trigger:
   - platform: state
     entity_id: variable.house_state

@@ -3,7 +3,7 @@ guest_bedrooms:
  view: yes
  icon: mdi:account-multiple
  entities:
-  - device_tracker.allan
+  - device_tracker.allansiphone
   - sensor.sprout
   - group.guest_bedroom
   - group.media_guest_bedroom

@@ -148,7 +148,7 @@ google: !include google.yaml
 #remote: !include remote.yaml
 #usps: !include usps.yaml
 #alexa: !include alexa.yaml
-#shell_command: !include shell_commands.yaml
+shell_command: !include shell_commands.yaml
 #scene: !include scenes.yaml
 #image_processing: !include image_processing.yaml
 #logentries: !include logentries.yaml

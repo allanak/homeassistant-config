@@ -109,6 +109,9 @@ automation:
         to: 'Night'
     condition:
       - condition: state
+        entity_id: group.tracked_users
+        state: 'home'
+      - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
       - condition: state
@@ -116,17 +119,12 @@ automation:
         state: 'off'
     action:
       - service: alarm_control_panel.alarm_arm_home
-        data:
-          entity_id: alarm_control_panel.home
 
   - alias: Arm alarm when house vacated
     trigger:
     - entity_id: group.tracked_users
       platform: state
       to: not_home
-    - entity_id: input_boolean.vacation_mode
-      platform: state
-      to: 'on'
     condition:
     - condition: state
       entity_id: input_boolean.guest_mode
@@ -146,6 +144,31 @@ automation:
             push:
               category: departure_event
 
+# If vacation mode is enabled, wait up to two hours for everyone to leave and then arm away. Let me know when armed
+  - alias: Arm alarm when on vacation
+    trigger:
+    - entity_id: input_boolean.vacation_mode
+      platform: state
+      to: 'on'
+    condition:
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.alarm_override
+      state: 'off'
+    action:
+      - wait_template: "{{ states.group.tracked_users.state == 'not_home' }}"
+        timeout: 02:00:00
+      - service: alarm_control_panel.alarm_arm_away
+      - service: notify.ios_allansiphone
+        data_template:
+          message: "Vacation mode engaged. Enjoy {{ states.calendar.tripit.attributes.location }}!"
+          data:
+            push:
+              category: departure_event
+
+# Disarm alarm when someone gets home or when a valid code is entered in the exterior locks
   - alias: Disarm alarm upon presence or code unlock
     trigger:
       - entity_id: group.tracked_users
@@ -156,6 +179,12 @@ automation:
         platform: state
         to: '19'
       - entity_id: sensor.back_door_alarm_type
+        platform: state
+        to: '19'
+      - entity_id: sensor.back_gate_alarm_type
+        platform: state
+        to: '19'
+      - entity_id: sensor.garage_door_alarm_type
         platform: state
         to: '19'
     condition:
@@ -169,16 +198,14 @@ automation:
           state: 'armed_away'
     action:
       - service: alarm_control_panel.alarm_disarm
-        data:
-          entity_id: alarm_control_panel.home
       - service: notify.ios_allansiphone
         data:
           message: Alarm has been disarmed
-          title: Welcome Home
           data:
             push:
               sound: US-EN-Morgan-Freeman-Welcome-Home.wav
 
+# Send me a notification and a camera picture when the alarm triggers
   - alias: Push alarm trigger notification
     trigger:
       - entity_id: alarm_control_panel.home
@@ -187,7 +214,7 @@ automation:
     action:
       - service: notify.ios_allansiphone
         data_template:
-          message: "Alarm Triggered"
+          message: "Alarm Triggered!"
           data:
             push:
               category: concerning_event

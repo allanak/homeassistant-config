@@ -1,0 +1,2 @@
+start_sstv_epg: 'python3 /config/python_scripts/tvepg.py'
+stop_sstv_epg: 'kill `pidof python3 -o 1`'

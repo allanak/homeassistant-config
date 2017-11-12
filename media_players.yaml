@@ -1,22 +1,23 @@
 - platform: plex
   entity_namespace: 'plex'
 
-- platform: cast
-  host: cca-bedroom
-- platform: cast
-  host: cca-kitchen
-- platform: cast
-  host: cca-masterbedreceiver
-- platform: cast
-  host: cca-receiver
-- platform: cast
-  host: cc-guestbedroom
-- platform: cast
-  host: ghome-office
-- platform: cast
-  host: ghome-theater
-- platform: cast
-  host: shield
+# These should get autodiscovered
+#- platform: cast
+#  host: cca-bedroom
+#- platform: cast
+#  host: cca-kitchen
+#- platform: cast
+#  host: cca-masterbedreceiver
+#- platform: cast
+#  host: cca-receiver
+#- platform: cast
+#  host: cc-guestbedroom
+#- platform: cast
+#  host: ghome-office
+#- platform: cast
+#  host: ghome-theater
+#- platform: cast
+#  host: shield
 
 - platform: onkyo
   host: onkyo

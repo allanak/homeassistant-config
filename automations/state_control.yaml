@@ -9,7 +9,7 @@
         variable: house_state
         value: "Early Morning"
 
-# Wakeup and Morning routine are set in morning_routine.yaml
+# Wakeup and Morning state definitions are set in morning_routine.yaml
 
 - alias: Afternoon mode
   id: afternoon_mode

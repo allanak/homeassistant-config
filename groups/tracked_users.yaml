@@ -3,11 +3,9 @@ tracked_users:
  icon: mdi:home-modern
  name: "Who's home?"
  entities:
-  - device_tracker.allan
-# Replaced with meta device tracker
-#  - device_tracker.allansiphone
-#  - device_tracker.allan_ping
-#  - device_tracker.allan_owntracks
+  - device_tracker.allansiphone
+  - device_tracker.allan_ping
+  - device_tracker.allan_owntracks
   - sensor.sprout
   - group.guestdevices
 
