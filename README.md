@@ -19,8 +19,8 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * Start casting a music stream when I walk into the bathroom in the morning (morning_routine.yaml)
 * Remind me to take out the trash if tomorrow is garbage collection day when entering the kitchen (morning_routine.yaml)
 * Set my AV receiver to the proper input if its in my Google Cast group if I'm not already watching TV (chromecast.yaml)
-* Send washer/dryer finished notifications based on energy meters and announce completion via Google Home (laundry_notifications.yaml)
-* Wake me up at the specified time using transitioned lighting (alarm_clock.yaml)
+* Send washer/dryer finished notifications based on energy meters and announce completion via Google Home (laundry.yaml)
+* Wake me up at the specified time using transitioned lighting (alarmclock.yaml)
 * If it's a travel day per my TripIt calendar, remind me where I'm going after I leave the bathroom in the morning
 * Hot Tub control (Balboa Wi-Fi) and temperature readings
 ### Security
@@ -51,17 +51,23 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * [Schlage Connect Z-Wave Locks](https://www.amazon.com/Schlage-Connect-Touchscreen-Deadbolt-Technology/dp/B01AGX7K12)
 * [Ecobee3 Smart Thermostats](https://www.amazon.com/ecobee3-Thermostat-Sensor-Generation-Amazon/dp/B00ZIRV39M)
 * [Linear GD00Z-4 Garage Door Controller](https://www.amazon.com/GoControl-Linear-GD00Z-4-Z-Wave-Controller/dp/B00M75TEIU) (Not working with OpenZWave 1.4)
+
+### Lighting
+* Philips Hue 2.1 Hub
+* Philips Hue Lightstrip Plus
 * Osram Lightify Zigbee Gateway
 * [Osram Lightify Gardenspot RGB](https://www.amazon.com/SYLVANIA-Smart-Landscape-Lighting-Gardenspots/dp/B00R1PB2ZY)
 * [Osram Lightify Flex RGBW](https://www.amazon.com/SYLVANIA-Smart-Connected-Tunable-Daylight/dp/B00R1PB80I)
 * Osram Lightify RGBW A19 Bulbs
+
+### Network Gear
+* [Envisalink EVL-4](https://www.amazon.com/Envisalink-EVL-4EZR-Security-Interface-Honeywell/dp/B016WQTJ4S) connected to DSC PC-1832 Alarm
 * [Ubiquiti UAP-AC-LR Wireless Access Point](https://www.amazon.com/Ubiquiti-UAP-AC-LR-Networks-Enterprise-System/dp/B015PRCBBI)
 * [Aeon Z Stick Gen 5](https://www.amazon.com/Aeotec-Z-Stick-Z-Wave-create-gateway/dp/B00X0AWA6E)
 * Raspberry Pi 3 running hass.io
 * SanDisk 64GB MicroSD Card
 
 ### Sensors
-* [Envisalink EVL-4](https://www.amazon.com/Envisalink-EVL-4EZR-Security-Interface-Honeywell/dp/B016WQTJ4S) connected to DSC PC-1832 Alarm
 * [Monoprice Z-Wave PIR Motion Sensors](https://www.monoprice.com/product?p_id=15271)
 * Z-Wave Door Sensors
 * [FirstAlert Z-Wave Smoke Detectors](https://www.lowes.com/pd/First-Alert-Z-Wave-Battery-powered-3-Volt-Photoelectric-Sensor-Smoke-Detector/4780111)

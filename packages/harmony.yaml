@@ -1,3 +1,5 @@
+# Config for two Harmony hubs
+
 homeassistant:
   customize:
     sensor.harmony_theater_activity:
@@ -47,18 +49,16 @@ switch:
       tv_upstairs:
         value_template: "{{ is_state('remote.master_bedroom', 'on') }}"
         turn_on:
-          service: input_select.select_option
+          service: remote.turn_on
           data:
-            entity_id: input_select.harmony_theater
-            option: Watch TV
+            entity_id: remote.master_bedroom
+            activity: Watch Roku
         turn_off:
-          service: input_select.select_option
+          service: remote.turn_off
           data:
-            entity_id: input_select.harmony_theater
-            option: Power Off
+            entity_id: remote.master_bedroom
 
-      
-
+# Create dropdowns for activity selection
 input_select:
   harmony_theater:
     name: Activity Selection
@@ -160,7 +160,7 @@ automation:
         entity_id: remote.master_bedroom
         data_template:
           activity: >
-            {% if is_state("input_select.harmony_bedroom", "Watch TV") %}
+            {% if is_state("input_select.harmony_bedroom", "Watch Roku") %}
               29298411
             {% elif is_state("input_select.harmony_bedroom", "Apple TV") %}
               23252979

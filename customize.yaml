@@ -57,13 +57,20 @@ light.kitchenrgbleft:
   friendly_name: Kitchen Left RGB
   icon: mdi:white-balance-iridescent
   google_assistant: false
+  haaska_hidden: true
 light.kitchenrgbright:
   friendly_name: Kitchen Right RGB
   icon: mdi:white-balance-iridescent
   google_assistant: false
+  haaska_hidden: true
 light.backyardgarden:
-  friendly_name: Gardenspot RGB
+  friendly_name: Rear Garden
   homebridge_visible: true
+  icon: mdi:flower
+light.frontyardgarden:
+  friendly_name: Front Garden
+  homebridge_visible: true
+  icon: mdi:flower
 light.hall_light_level:
   friendly_name: Hallway
   homebridge_visible: true
@@ -154,6 +161,7 @@ switch.master_closet_lights_switch:
   homebridge_visible: true
 switch.landing_switch:
   friendly_name: Landing
+  icon: mdi:lightbulb
   homebridge_visible: true
 switch.guest_bedroom_fan_switch:
   icon: mdi:fan
@@ -180,6 +188,7 @@ switch.towel_rack:
   icon: mdi:radiator
 switch.tv_upstairs:
   icon: mdi:filmstrip
+  friendly_name: TV Upstairs
 switch.washer_switch:
   icon: mdi:washing-machine
   google_assistant: false
@@ -314,8 +323,10 @@ script.onkyovolume:
   custom_ui_state_card: state-card-custom-onkyo
   hide_control: true
 script.housekeeper_code_on:
+  google_assistant: false
   haaska_hidden: true
 script.housekeeper_code_off:
+  google_assistant: false
   haaska_hidden: true
 script.reload_automations:
   haaska_hidden: true
