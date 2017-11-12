@@ -15,8 +15,8 @@ outdoor_lights:
   - switch.backyard_floodlights_switch
   - switch.backyard_light_switch
   - switch.driveway_light_switch
-  - light.backyardgarden
   - light.frontyardgarden
+  - light.backyardgarden
 
 forecast:
  name: Forecast

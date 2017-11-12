@@ -14,12 +14,27 @@
       - condition: state
         entity_id: media_player.upstairs
         state: 'off'
+# Commented out static KROQ stream in favor of various Pandora streams depending on the day of the week
+# This was the only way I could figure out how to play Pandora...using TTS on one Google Home to tell one within earshot what to do
+#    action:
+#    - service: media_player.play_media
+#      entity_id: media_player.upstairs
+#      data:
+#        media_content_id: http://15363.live.streamtheworld.com:80/KROQFMDIALUP_SC
+#        media_content_type: 'audio/mp4'
   action:
-    - service: media_player.play_media
-      entity_id: media_player.upstairs
-      data:
-        media_content_id: http://15363.live.streamtheworld.com:80/KROQFMDIALUP_SC
-        media_content_type: 'audio/mp4'
+    - service: tts.google_say
+      data_template:
+        message: Hey Google Play >
+          {%- if now().strftime("%a") == 'Sun' %} Sublime
+          {%- elif now().strftime("%a") == 'Mon' %} Metallica
+          {%- elif now().strftime("%a") == 'Tue' %} Stone Temple Pilots
+          {%- elif now().strftime("%a") == 'Wed' %} Pearl Jam
+          {%- elif now().strftime("%a") == 'Thu' %} My Thumbprint
+          {%- elif now().strftime("%a") == 'Fri' %} Tupac
+          {%- elif now().strftime("%a") == 'Sat' %} My Thumbprint
+          {% endif %}
+
     - service: variable.set_variable
       data:
         variable: house_state
@@ -27,7 +42,7 @@
     - service: light.turn_off
       entity_id: light.master_bedroom_rear_lights_level
 
-# Turn off shower music after shower, disarm alarm and tell me where I'm going based on TripIt calendar
+# Turn off shower music after shower, disarm alarm
 - alias: Bathroom Music Off
   id: shower_mode_off
   trigger:
@@ -48,33 +63,14 @@
       data:
         variable: house_state
         value: 'Morning'
-    - service: tts.google_say
-      entity_id: media_player.upstairs
-      data_template:
-        message: >
-          {% if is_state('calendar.tripit', 'on') %}
-          {{ [ 'Enjoy your trip to {{ states.calendar.tripit.attributes.location }}!', 'Have a good time in {{ states.calendar.tripit.attributes.location }}. See you soon!' ] | random }}
-          {% else %}
-          {{ [ 'Good morning!', 'So fresh and so clean', 'Time for some coffee' ] | random }}
-          {% endif %}
-    - delay: 00:10
-    - service: media_player.turn_off
-      data:
-        entity_id: media_player.upstairs
 
-# Remind everyone that garbage pickup is tomorrow when walking into the kitchen
+# If it's a travel day, announce where I'm going once I get into the kitchen for coffee. Also remind me if tomorrow is garbage pickup
 - alias: Garbage day reminder
   id: garbage_day_reminder
   trigger:
     - platform: state
       entity_id: variable.house_state
       to: 'Morning'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        weekday:
-          - mon
   action:
     - wait_template: "{{ states.binary_sensor.kitchen_motion_sensor == 'on' }}"
       timeout: 02:00:00
@@ -82,4 +78,18 @@
       entity_id: media_player.kitchen
       data_template:
         message: >
-          {{ [ "Good morning! This is a reminder that tomorrow is trash pickup day", "Hey, don't forget tomorrow is garbage pickup", "Take the trash out, you lazy bastard!" ] | random }}
+          {% if is_state('calendar.tripit', 'on') %}
+          {{ [ 'Enjoy your trip to {{ states.calendar.tripit.attributes.location }}!', 'Have a good time in {{ states.calendar.tripit.attributes.location }}. See you soon!' ] | random }}
+          {% endif %}
+    - condition: time
+      weekday:
+        - mon 
+    - delay: 00:07
+    - service: tts.google_say
+      entity_id: media_player.kitchen
+      data_template:
+        message: >
+          {{ [ "Today is Monday. That means tomorrow is trash pickup day", "Hey, don't forget tomorrow is garbage pickup", "Take the trash out, you lazy bastard!" ] | random }}
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.kitchen
