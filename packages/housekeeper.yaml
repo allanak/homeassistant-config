@@ -38,7 +38,7 @@ script:
       - service: lock.set_usercode
         data:
           node_id: 42
-          code_slot: 7
+          code_slot: 5
         data_template:
           usercode: "{{states.sensor.pin_code.state}}"
       - service: notify.twilio
@@ -56,7 +56,7 @@ script:
       - service: lock.clear_usercode
         data:
           node_id: 42
-          code_slot: 7
+          code_slot: 5
       - service: notify.slack
         data:
           message: "Housekeeper code has been disabled!"

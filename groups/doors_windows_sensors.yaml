@@ -2,17 +2,19 @@ door_sensors:
  name: Doors
  entities:
   - cover.garage_door
-  - binary_sensor.front_door
-  - binary_sensor.back_door
-  - binary_sensor.garage_entry
-  - binary_sensor.balcony_door
-  - binary_sensor.back_door
+  - sensor.front_door
+  - sensor.back_door
+  - sensor.garage_entry
+  - sensor.balcony_door
+  - sensor.back_door
 
 window_sensors:
  name: Windows
  entities:
-  - binary_sensor.master_bath_window
-  - binary_sensor.master_left_window
-  - binary_sensor.master_right_window
-  - binary_sensor.guest_bedroom_window
-  - binary_sensor.rear_bedroom_window
+  - cover.rear_lower_shade_switch
+  - cover.rear_upper_shade_switch
+  - sensor.master_bath_window
+  - sensor.master_left_window
+  - sensor.master_right_window
+  - sensor.guest_bedroom_window
+  - sensor.rear_bedroom_window

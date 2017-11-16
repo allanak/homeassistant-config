@@ -3,37 +3,26 @@ homeassistant:
     alarm_control_panel.home:
       friendly_name: Security System
       homebridge_visible: true
-    binary_sensor.back_door:
-      icon: mdi:glassdoor
-    binary_sensor.garage_entry:
-      icon: mdi:glassdoor
-    binary_sensor.balcony_door:
-      icon: mdi:glassdoor
-    binary_sensor.front_door:
-      icon: mdi:glassdoor
-      friendly_name: Front Door
-    binary_sensor.master_bedroom_motion:
-      friendly_name: Master Bedroom
-    binary_sensor.stairwell_motion:
-      friendly_name: Stairwell Motion
-      icon: mdi:stairs
-    binary_sensor.rear_bedroom_window:
+    binary_sensor.rear_bedroom_window_contact:
+      device_class: occupancy
+      google_assistant: false
+      homebridge_visible: true
+    binary_sensor.guest_bedroom_window_contact:
+      device_class: window
+      google_assistant: false
+      homebridge_visible: true
+    binary_sensor.master_left_window_contact:
+      device_class: window
       icon: mdi:window-closed
       google_assistant: false
       homebridge_visible: true
-    binary_sensor.guest_bedroom_window:
+    binary_sensor.master_right_window_contact:
+      device_class: window
       icon: mdi:window-closed
       google_assistant: false
       homebridge_visible: true
-    binary_sensor.master_left_window:
-      icon: mdi:window-closed
-      google_assistant: false
-      homebridge_visible: true
-    binary_sensor.master_right_window:
-      icon: mdi:window-closed
-      google_assistant: false
-      homebridge_visible: true
-    binary_sensor.master_bath_window:
+    binary_sensor.master_bath_window_contact:
+      device_class: window
       icon: mdi:window-closed
       google_assistant: false
       homebridge_visible: true
@@ -50,42 +39,171 @@ envisalink:
   zonedump_interval: 30
   zones:
     1:
-      name: 'Front Door'
+      name: 'Front Door Contact'
       type: 'opening'
     2:
-      name: 'Garage Entry'
+      name: 'Garage Entry Contact'
       type: 'opening'
     3:
-      name: 'Back Door'
+      name: 'Back Door Contact'
       type: 'opening'
     4:
-      name: 'Guest Bedroom Window'
+      name: 'Guest Bedroom Window Contact'
       type: 'opening'
     5:
-      name: 'Rear Bedroom Window'
+      name: 'Rear Bedroom Window Contact'
       type: 'opening'
     6:
-      name: 'Balcony Door'
+      name: 'Balcony Door Contact'
       type: 'opening'
     7:
       name: 'Master Bedroom Motion'
       type: 'motion'
     8:
-      name: 'Master Bath Window'
+      name: 'Master Bath Window Contact'
       type: 'opening'
     9:
       name: 'Stairwell Motion'
       type: 'motion'
     10:
-      name: 'Master Left Window'
+      name: 'Master Left Window Contact'
       type: 'opening'
     11:
-      name: 'Master Right Window'
+      name: 'Master Right Window Contact'
       type: 'opening'
 
   partitions:
     1:
       name: 'Home'
+
+# Build template for binary sensors to display proper icons and replacing on/off with open/closed for doors/windows
+sensor:
+  - platform: template
+    sensors:
+      front_door:
+        friendly_name: Front Door
+        entity_id: binary_sensor.front_door_contact
+        value_template: >
+          {% if is_state("binary_sensor.front_door_contact", "off") %} Closed
+          {% else %} Open
+          {% endif %}
+        icon_template: >
+          {% if is_state("binary_sensor.front_door_contact", "off") %} mdi:door-closed
+          {% else %} mdi:door-open
+          {% endif %}
+
+  - platform: template
+    sensors:
+      back_door:
+        friendly_name: Back Door
+        entity_id: binary_sensor.back_door_contact
+        value_template: >
+          {% if is_state("binary_sensor.back_door_contact", "off") %} Closed
+          {% else %} Open
+          {% endif %}
+        icon_template: >
+          {% if is_state("binary_sensor.back_door_contact", "off") %} mdi:door-closed
+          {% else %} mdi:door-open
+          {% endif %}
+
+  - platform: template
+    sensors:
+      garage_entry:
+        friendly_name: Garage Entry
+        entity_id: binary_sensor.garage_entry_contact
+        value_template: >
+          {% if is_state("binary_sensor.garage_entry_contact", "off") %} Closed
+          {% else %} Open
+          {% endif %}
+        icon_template: >
+          {% if is_state("binary_sensor.garage_entry_contact", "off") %} mdi:door-closed
+          {% else %} mdi:door-open
+          {% endif %}
+
+  - platform: template
+    sensors:
+      balcony_door:
+        friendly_name: Balcony Door
+        entity_id: binary_sensor.balcony_door_contact
+        value_template: >
+          {% if is_state("binary_sensor.balcony_door_contact", "off") %} Closed
+          {% else %} Open
+          {% endif %}
+        icon_template: >
+          {% if is_state("binary_sensor.balcony_door_contact", "off") %} mdi:door-closed
+          {% else %} mdi:door-open
+          {% endif %}
+
+  - platform: template
+    sensors:
+      master_bath_window:
+        friendly_name: Master Bath Window
+        entity_id: binary_sensor.master_bath_window_contact
+        value_template: >
+          {% if is_state("binary_sensor.master_bath_window_contact", "off") %} Closed
+          {% else %} Open
+          {% endif %}
+        icon_template: >
+          {% if is_state("binary_sensor.master_bath_window_contact", "off") %} mdi:window-closed
+          {% else %} mdi:window-open
+          {% endif %}
+
+  - platform: template
+    sensors:
+      master_left_window:
+        friendly_name: Master Left Window
+        entity_id: binary_sensor.master_left_window_contact
+        value_template: >
+          {% if is_state("binary_sensor.master_left_window_contact", "off") %} Closed
+          {% else %} Open
+          {% endif %}
+        icon_template: >
+          {% if is_state("binary_sensor.master_left_window_contact", "off") %} mdi:window-closed
+          {% else %} mdi:window-open
+          {% endif %}
+
+  - platform: template
+    sensors:
+      master_right_window:
+        friendly_name: Master Right Window
+        entity_id: binary_sensor.master_right_window_contact
+        value_template: >
+          {% if is_state("binary_sensor.master_right_window_contact", "off") %} Closed
+          {% else %} Open
+          {% endif %}
+        icon_template: >
+          {% if is_state("binary_sensor.master_right_window_contact", "off") %} mdi:window-closed
+          {% else %} mdi:window-open
+          {% endif %}
+
+  - platform: template
+    sensors:
+      guest_bedroom_window:
+        friendly_name: Guest Bedroom Window
+        entity_id: binary_sensor.guest_bedroom_window_contact
+        value_template: >
+          {% if is_state("binary_sensor.guest_bedroom_window_contact", "off") %} Closed
+          {% else %} Open
+          {% endif %}
+        icon_template: >
+          {% if is_state("binary_sensor.guest_bedroom_window_contact", "off") %} mdi:window-closed
+          {% else %} mdi:window-open
+          {% endif %}
+
+  - platform: template
+    sensors:
+      rear_bedroom_window:
+        friendly_name: Rear Bedroom Window
+        entity_id: binary_sensor.rear_bedroom_window_contact
+        value_template: >
+          {% if is_state("binary_sensor.rear_bedroom_window_contact", "off") %} Closed
+          {% else %} Open
+          {% endif %}
+        icon_template: >
+          {% if is_state("binary_sensor.rear_bedroom_window_contact", "off") %} mdi:window-closed
+          {% else %} mdi:window-open
+          {% endif %}
+
 
 input_boolean:
   alarm_override:

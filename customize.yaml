@@ -241,13 +241,16 @@ sensor.battery_allansiphone:
 binary_sensor.kitchen_motion_sensor:
   icon: mdi:eye
   friendly_name: Kitchen Motion
+  device_class: occupancy
 binary_sensor.master_closet_motion_sensor:
   icon: mdi:eye
   friendly_name: Closet Motion
+  device_class: occupancy
 binary_sensor.master_bath_motion_sensor:
   icon: mdi:eye
   friendly_name: Master Bath Motion
- 
+  device_class: occupancy
+
 #
 # Covers
 cover.garage_door:
@@ -255,6 +258,17 @@ cover.garage_door:
   friendly_name: Garage
   homebridge_cover_type: garage_door
   homebridge_visible: true
+cover.rear_lower_shade_switch:
+  device_class: window
+  friendly_name: Rear Lower Shade
+  homebridge_cover_type: rollershutter
+  homebridge_visible: true
+cover.rear_upper_shade_switch:
+  device_class: window
+  friendly_name: Rear Upper Shade
+  homebridge_cover_type: rollershutter
+  homebridge_visible: true
+
 
 #
 # Locks

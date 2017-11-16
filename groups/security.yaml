@@ -11,6 +11,8 @@ security:
   - lock.back_door_locked
   - lock.back_gate_locked
   - lock.garage_lock_locked
+  - group.window_sensors
+  - group.door_sensors
 
 house_settings:
   name: House Settings
