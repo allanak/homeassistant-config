@@ -129,7 +129,7 @@ light: !include light.yaml
 switch: !include switches.yaml
 sensor: !include_dir_merge_list sensors
 # none for now, replaced with packages
-#binary_sensor: !include binary_sensors.yaml
+binary_sensor: !include binary_sensors.yaml
 # none for now, replaced with packages
 #camera: !include cameras.yaml
 ffmpeg:

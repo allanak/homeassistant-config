@@ -163,6 +163,8 @@ switch.landing_switch:
   friendly_name: Landing
   icon: mdi:lightbulb
   homebridge_visible: true
+  aliases:
+    - Stairwell
 switch.guest_bedroom_fan_switch:
   icon: mdi:fan
   friendly_name: Guest Bedroom Fan
@@ -175,15 +177,6 @@ switch.fireplace_switch:
   icon: mdi:fire
   friendly_name: Fireplace
   homebridge_visible: true
-switch.stream_music:
-  icon: mdi:radio
-switch.shield:
-  icon: mdi:shield
-switch.cable:
-  icon: mdi:television-guide
-switch.receiver:
-  icon: mdi:surround-sound
-  google_assistant: false
 switch.towel_rack:
   icon: mdi:radiator
 switch.washer_switch:
@@ -213,6 +206,9 @@ switch.yard:
 switch.hot_tub:
   friendly_name: Hot Tub
   icon: mdi:water-pump
+  aliases:
+    - Jacuzzi
+    - Spa
 
 # Sensors
 sensor.garage_door:
@@ -263,11 +259,19 @@ cover.rear_lower_shade_switch:
   friendly_name: Rear Lower Shade
   homebridge_cover_type: rollershutter
   homebridge_visible: true
+  aliases:
+    - Back Bottom Shade
+    - Back Lower Shade
+    - Rear Bottom Shade
 cover.rear_upper_shade_switch:
   device_class: window
   friendly_name: Rear Upper Shade
   homebridge_cover_type: rollershutter
   homebridge_visible: true
+  aliases:
+    - Back Top Shade
+    - Back Upper Shade
+    - Rear Top Shade
 
 
 #
@@ -331,7 +335,9 @@ sensor.dark_sky_temperature:
   
 # Scripts
 script.onkyovolume:
+  google_assistant: false
   custom_ui_state_card: state-card-custom-onkyo
+  haaska_hidden: true
   hide_control: true
 script.housekeeper_code_on:
   google_assistant: false
@@ -340,6 +346,7 @@ script.housekeeper_code_off:
   google_assistant: false
   haaska_hidden: true
 script.reload_automations:
+  google_assistant: false
   haaska_hidden: true
 
 # Place a few secrets as sensor values

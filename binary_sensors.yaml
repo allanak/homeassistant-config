@@ -1,1 +1,25 @@
-
+- platform: bayesian
+  prior: 0.6
+  name: 'Bayesian Presence'
+  probability_threshold: 0.82
+  observations:
+    - entity_id: 'device_tracker.allan_ping'
+      prob_given_true: 0.9
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.allansiphone'
+      prob_given_true: 0.9
+      prob_given_false: 0.2
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.allan_owntracks'
+      prob_given_true: 0.9
+      prob_given_false: 0.4
+      platform: 'state'
+      to_state: 'home'
+#    - entity_id: 'device_tracker.allan_nodered'
+#      prob_given_true: 0.8
+#      prob_given_false: 0.2
+#      platform: 'state'
+#      to_state: 'home'
