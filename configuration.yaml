@@ -137,7 +137,6 @@ ffmpeg:
 #ecobee: !include ecobee.yaml
 device_tracker: !include device_trackers.yaml
 media_player: !include media_players.yaml
-vacuum: !include vacuum.yaml
 
 # Virtual Devices
 google_assistant: !include google_assistant.yaml

@@ -44,6 +44,7 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * [Ring Pro Doorbell](https://ring.com/video-doorbell-pro)
 * [Logitech Harmony Hubs](https://www.logitech.com/en-us/product/harmony-hub)
 * [Broadlink RM Pro](https://www.amazon.com/Broadlink-Automation-Universal-Compatible-Smartphones/dp/B01GIXZDKO)
+* Xiaomi Roborock Smart Robot Vacuum Cleaner
 * Hikvision IP Cameras and NVR
 * Google Chromecast Audio, Video and Google Homes using [Google Assistant](https://home-assistant.io/components/google_assistant/) 
 * Amazon Echo and Echo Dots (using [haaska](https://github.com/auchter/haaska))
