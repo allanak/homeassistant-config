@@ -6,12 +6,12 @@ homeassistant:
   unit_system: imperial
   time_zone: America/Los_Angeles
   customize: !include customize.yaml
-  customize_glob: !include custom-ui.yaml
+#  customize_glob: !include custom-ui.yaml
   packages: !include_dir_named packages
 
 # Custom UI from https://github.com/andrey-git/home-assistant-custom-ui
-customizer:
-  custom_ui: local
+#customizer:
+#  custom_ui: local
 
 # Enables the frontend
 frontend:
@@ -137,6 +137,7 @@ ffmpeg:
 #ecobee: !include ecobee.yaml
 device_tracker: !include device_trackers.yaml
 media_player: !include media_players.yaml
+vacuum: !include vacuum.yaml
 
 # Virtual Devices
 google_assistant: !include google_assistant.yaml
@@ -149,7 +150,7 @@ google: !include google.yaml
 #usps: !include usps.yaml
 #alexa: !include alexa.yaml
 shell_command: !include shell_commands.yaml
-#scene: !include scenes.yaml
+scene: !include_dir_list scene
 #image_processing: !include image_processing.yaml
 #logentries: !include logentries.yaml
 #bloomsky: !include bloomsky.yaml
@@ -185,6 +186,10 @@ panel_iframe:
     title: Configurator
     icon: mdi:wrench
     url: !secret configurator_url
+  ide:
+    title: IDE
+    icon: mdi:file-document
+    url: !secret editor_url
   terminal:
     title: Terminal
     icon: mdi:console-line

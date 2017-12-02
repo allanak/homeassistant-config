@@ -227,6 +227,9 @@ automation:
         to: 'Night'
     condition:
       - condition: state
+        entity_id: alarm_control_panel.home
+        state: 'disarmed'
+      - condition: state
         entity_id: group.tracked_users
         state: 'home'
       - condition: state
@@ -245,6 +248,9 @@ automation:
       to: not_home
     condition:
     - condition: state
+      entity_id: alarm_control_panel.home
+      state: 'disarmed'
+    - condition: state
       entity_id: input_boolean.guest_mode
       state: 'off'
     - condition: state
@@ -262,13 +268,16 @@ automation:
             push:
               category: departure_event
 
-# If vacation mode is enabled, wait up to two hours for everyone to leave and then arm away. Let me know when armed
+# If vacation mode is enabled, wait up to one day for everyone to leave and then arm away. Let me know when armed
   - alias: Arm alarm when on vacation
     trigger:
     - entity_id: input_boolean.vacation_mode
       platform: state
       to: 'on'
     condition:
+    - condition: state
+      entity_id: alarm_control_panel.home
+      state: 'disarmed'
     - condition: state
       entity_id: input_boolean.guest_mode
       state: 'off'
@@ -277,7 +286,7 @@ automation:
       state: 'off'
     action:
       - wait_template: "{{ states.group.tracked_users.state == 'not_home' }}"
-        timeout: 02:00:00
+        timeout: 24:00:00
       - service: alarm_control_panel.alarm_arm_away
       - service: notify.ios_allansiphone
         data_template:

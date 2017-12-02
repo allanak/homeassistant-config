@@ -22,6 +22,10 @@ windows:
 shades:
  name: Shades
  entities:
+  - group.rear_shades
+
+rear_shades:
+ name: Rear Shades
+ entities:
   - cover.rear_upper_shade_switch
   - cover.rear_lower_shade_switch
-

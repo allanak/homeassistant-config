@@ -1,0 +1,5 @@
+- platform: mqtt
+  name: "miscale"
+  state_topic: "miscale/weight/kg"
+  value_template: "{{ value }}"
+  unit_of_measurement: kg
