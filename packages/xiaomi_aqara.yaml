@@ -1,0 +1,55 @@
+xiaomi_aqara:
+  gateways:
+    - mac: !secret xiaomi_gw_mac
+      key: !secret xiaomi_gw_key
+      host: !secret xiaomi_gw_host
+homeassistant:
+ customize:
+   binary_sensor.water_leak_sensor_158d0001de3550:
+     friendly_name: Master Bath Leak Sensor
+   binary_sensor.water_leak_sensor_158d0001d5352b:
+     friendly_name: Water Heater Leak Sensor
+   binary_sensor.water_leak_sensor_158d0001d534f3:
+     friendly_name: Refrigerator Leak Sensor
+   binary_sensor.water_leak_sensor_158d0001d52049:
+     friendly_name: Guest Bathroom Leak Sensor
+   binary_sensor.water_leak_sensor_158d0001df1cab:
+     friendly_name: Kitchen Sink Leak Sensor
+
+group:
+  leak_sensors:
+   name: Leak Sensors
+   entities:
+    - binary_sensor.water_leak_sensor_158d0001de3550
+    - binary_sensor.water_leak_sensor_158d0001d5352b
+    - binary_sensor.water_leak_sensor_158d0001d534f3
+    - binary_sensor.water_leak_sensor_158d0001d52049
+    - binary_sensor.water_leak_sensor_158d0001df1cab
+
+automation:
+  - alias: Leak activity
+    id: leak_activity
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.water_leak_sensor_158d0001de3550
+      - platform: state
+        entity_id: binary_sensor.water_leak_sensor_158d0001d5352b
+      - platform: state
+        entity_id: binary_sensor.water_leak_sensor_158d0001d534f3
+      - platform: state
+        entity_id: binary_sensor.water_leak_sensor_158d0001d52049
+      - platform: state
+        entity_id: binary_sensor.water_leak_sensor_158d0001df1cab
+    condition:
+      - condition: state
+        entity_id: input_boolean.alarm_override
+        state: 'off'
+    action:
+      - service: notify.ios_allansiphone
+        data_template:
+          title: "Leak Event"
+          message: >
+            {{ trigger.to_state.attributes.friendly_name }} is {{ trigger.to_state.state }}
+          data:
+            push:
+              sound: US-EN-Alexa-Water-Detected-Generic.wav

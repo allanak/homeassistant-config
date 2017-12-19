@@ -1,4 +1,4 @@
-- alias: Turn on my towel warmer when I'm home in the morning
+- alias: towel warmer on
   trigger:
   - at: '06:00'
     platform: time
@@ -9,4 +9,13 @@
   action:
     - service: switch.turn_on
       data:
-        entity_id: switch.towel_warmer_switch
+        entity_id: switch.towel_rack
+
+- alias: towel warmer off
+  trigger:
+  - at: '11:00'
+    platform: time
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.towel_rack

@@ -36,7 +36,7 @@ light.rear_bedroom_lights_level:
   icon: mdi:spotlight-beam
   friendly_name: Rear Bedroom Lights
   homebridge_visible: true
-light.bed:
+switch.bed:
   icon: mdi:hotel
   homebridge_visible: true
 # Lightify Lights
@@ -179,6 +179,7 @@ switch.fireplace_switch:
   homebridge_visible: true
 switch.towel_rack:
   icon: mdi:radiator
+  homebridge_visible: true
 switch.washer_switch:
   icon: mdi:washing-machine
   google_assistant: false

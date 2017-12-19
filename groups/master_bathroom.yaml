@@ -2,5 +2,5 @@ master_bathroom:
  name: Master Bathroom
  entities:
   - switch.master_closet_lights_switch
-  - switch.towel_warmer_switch
+  - switch.towel_rack
   - light.masterbath

@@ -4,11 +4,11 @@ ring:
 
 # Note if using ring camera, ffmpeg: is required in main configuration.yaml
 
-binary_sensor:
-  - platform: ring
-    monitored_conditions:
-      - ding
-      - motion
+#binary_sensor:
+#  - platform: ring
+#    monitored_conditions:
+#      - ding
+#      - motion
 
 # Disabled since I don't need these
 #sensor:

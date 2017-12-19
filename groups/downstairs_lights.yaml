@@ -6,6 +6,7 @@ downstairs_lights:
   - light.theater_lights_level
   - light.dining_room_level
   - light.bar_lights_level
+  - switch.neon_lights
   - light.hall_light_level
   - switch.theater_switch_switch
   - light.landingbulbs

@@ -13,7 +13,7 @@ security:
   - lock.garage_lock_locked
   - group.windows
   - group.door_sensors
-
+  - group.leak_sensors
 house_settings:
   name: House Settings
   control: hidden

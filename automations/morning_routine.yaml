@@ -27,13 +27,20 @@
       entity_id: media_player.master_bathroom
       data_template:
         message: >
-          {%- if now().strftime("%a") == 'Sun' %} Hey Google Play Sublime
-          {%- elif now().strftime("%a") == 'Mon' %} Hey Google Play Metallica
-          {%- elif now().strftime("%a") == 'Tue' %} Hey Google Play Stone Temple Pilots
-          {%- elif now().strftime("%a") == 'Wed' %} Hey Google Play Pearl Jam
-          {%- elif now().strftime("%a") == 'Thu' %} Hey Google Play My Shuffle
-          {%- elif now().strftime("%a") == 'Fri' %} Hey Google Play Tupac
-          {%- elif now().strftime("%a") == 'Sat' %} Hey Google Play My Thumbprint
+          {%- if now().strftime("%a") == 'Sun' %}
+          Hey Google Play Sublime
+          {%- elif now().strftime("%a") == 'Mon' %}
+          Hey Google Play Metallica
+          {%- elif now().strftime("%a") == 'Tue' %}
+          Hey Google Play Stone Temple Pilots
+          {%- elif now().strftime("%a") == 'Wed' %}
+          Hey Google Play Pearl Jam
+          {%- elif now().strftime("%a") == 'Thu' %}
+          Hey Google Play My Shuffle
+          {%- elif now().strftime("%a") == 'Fri' %}
+          Hey Google Play Tupac
+          {%- elif now().strftime("%a") == 'Sat' %}
+          Hey Google Play My Thumbprint
           {% endif %}
 
     - service: variable.set_variable

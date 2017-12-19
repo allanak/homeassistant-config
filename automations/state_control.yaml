@@ -36,7 +36,7 @@
 - alias: Evening mode
   trigger:
   - event: sunset
-    offset: 00:45:00
+    offset: 00:30:00
     platform: sun
   action:
     - service: variable.set_variable

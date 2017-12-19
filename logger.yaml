@@ -27,7 +27,6 @@ logs:
   pywemo.ouimeaux_device: critical
   pywemo.ssdp: critical
   homeassistant.helpers.entity: critical
-  custom_components.sensor.life360: critical
   homeassistant.components.http.ban: warning
   homeassistant.components.automation: warn
   homeassistant.components.climate.nest: warn
@@ -38,3 +37,6 @@ logs:
   homeassistant.helpers.script: info
   homeassistant.exceptions: info
   homeassistant.components.ring: debug
+  homeassistant.components.xiaomi_aqara: debug
+  homeassistant.components.binary_sensor.xiaomi_aqara: debug
+  homeassistant.components.sensor.xiaomi_aqara: debug

@@ -94,11 +94,12 @@ conversation:
 history:
   include:
     domains:
-      - sensor
+      - alarm_control_panel
+      - lock
       - binary_sensor
       - device_tracker
       - switch
-      - media_player
+      - vacuum
   exclude:
     domains:
       - light
@@ -115,10 +116,11 @@ ios: !include ios.yaml
 # Text to speech
 tts:
   - platform: google
-#  - platform: amazon_polly
-#    aws_access_key_id: !secret aws_access_key_id
-#    aws_secret_access_key: !secret aws_access_key_id
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key_id
+    aws_secret_access_key: !secret aws_secret_access_key
 group: !include_dir_merge_named groups
+
 #automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
 script: !include_dir_merge_named scripts
@@ -173,6 +175,13 @@ input_number: !include input_number.yaml
 zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
+  device_config:
+    cover.rear_lower_shade_level:
+      invert_openclose_buttons: true
+    cover.rear_upper_shade_level:
+      invert_openclose_buttons: true
+    cover.rear_shades_level:
+      invert_openclose_buttons: true
 
 # Enable Zigbee stick
 #zha:
