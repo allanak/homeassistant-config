@@ -37,6 +37,3 @@ logs:
   homeassistant.helpers.script: info
   homeassistant.exceptions: info
   homeassistant.components.ring: debug
-  homeassistant.components.xiaomi_aqara: debug
-  homeassistant.components.binary_sensor.xiaomi_aqara: debug
-  homeassistant.components.sensor.xiaomi_aqara: debug

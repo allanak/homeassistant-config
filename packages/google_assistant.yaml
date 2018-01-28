@@ -1,0 +1,55 @@
+notify:
+  - name: Google Assistant Command
+    platform: rest
+    resource: http://172.30.32.1:5000/command
+  - name: Google Assistant
+    platform: rest
+    resource: http://172.30.32.1:5000/broadcast_message
+
+input_text:
+  broadcast_message:
+    name: Broadcast Message
+    initial: ''
+  google_command:
+    name: Google command
+    initial: ''
+
+script:
+  send_broadcast:
+    sequence:
+      - service: notify.google_assistant
+        data_template:
+          message: '{{ states.input_text.broadcast_message.state }}'
+      - service: input_text.set_value
+        data:
+          entity_id: input_text.broadcast_message
+          value: ''
+  send_google_command:
+    sequence:
+      - service: notify.google_assistant_command
+        data_template:
+          message: '{{ states.input_text.google_command.state }}'
+      - service: input_text.set_value
+        data:
+          entity_id: input_text.google_command
+          value: ''
+
+automation:
+  - alias: Broadcast message
+    trigger:
+      platform: state
+      entity_id: input_text.broadcast_message
+    condition:
+      condition: template
+      value_template: '{{ (states.input_text.broadcast_message.state | length) > 0 }}'
+    action:
+      - service: script.send_broadcast
+  - alias: Send Google command
+    trigger:
+      platform: state
+      entity_id: input_text.google_command
+    condition:
+      condition: template
+      value_template: '{{ (states.input_text.google_command.state | length) > 0 }}'
+    action:
+      - service: script.send_google_command

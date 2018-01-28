@@ -9,5 +9,4 @@ downstairs_lights:
   - switch.neon_lights
   - light.hall_light_level
   - switch.theater_switch_switch
-  - light.landingbulbs
   - switch.garage_light_switch

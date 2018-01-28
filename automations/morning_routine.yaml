@@ -15,7 +15,6 @@
         entity_id: media_player.upstairs
         state: 'off'
 # Commented out static KROQ stream in favor of various Pandora streams depending on the day of the week
-# This was the only way I could figure out how to play Pandora...using TTS on one Google Home to tell one within earshot what to do
 #    action:
 #    - service: media_player.play_media
 #      entity_id: media_player.upstairs
@@ -77,13 +76,10 @@
   id: garbage_day_reminder
   trigger:
     - platform: state
-      entity_id: variable.house_state
-      to: 'Morning'
+      entity_id: binary_sensor.kitchen_motion_sensor
+      to: 'on'
   action:
-    - wait_template: "{{ states.binary_sensor.kitchen_motion_sensor == 'on' }}"
-      timeout: 02:00:00
-    - service: tts.google_say
-      entity_id: media_player.kitchen
+    - service: notify.google_assistant
       data_template:
         message: >
           {% if is_state('calendar.tripit', 'on') %}
@@ -93,11 +89,7 @@
       weekday:
         - mon 
     - delay: 00:07
-    - service: tts.google_say
-      entity_id: media_player.kitchen
+    - service: notify.google_assistant
       data_template:
         message: >
           {{ [ "Today is Monday. That means tomorrow is trash pickup day", "Hey, don't forget tomorrow is garbage pickup", "Take the trash out, you lazy bastard!" ] | random }}
-    - service: media_player.turn_off
-      data:
-        entity_id: media_player.kitchen

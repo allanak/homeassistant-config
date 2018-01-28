@@ -1,4 +1,5 @@
 xiaomi_aqara:
+  interface: !secret wifi_ip
   gateways:
     - mac: !secret xiaomi_gw_mac
       key: !secret xiaomi_gw_key
@@ -31,15 +32,8 @@ automation:
     id: leak_activity
     trigger:
       - platform: state
-        entity_id: binary_sensor.water_leak_sensor_158d0001de3550
-      - platform: state
-        entity_id: binary_sensor.water_leak_sensor_158d0001d5352b
-      - platform: state
-        entity_id: binary_sensor.water_leak_sensor_158d0001d534f3
-      - platform: state
-        entity_id: binary_sensor.water_leak_sensor_158d0001d52049
-      - platform: state
-        entity_id: binary_sensor.water_leak_sensor_158d0001df1cab
+        entity_id: group.leak_sensors
+        to: 'on'
     condition:
       - condition: state
         entity_id: input_boolean.alarm_override

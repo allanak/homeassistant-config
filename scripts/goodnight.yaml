@@ -1,0 +1,15 @@
+goodnight:
+  sequence:
+    - service: alarm_control_panel.alarm_arm_home
+    - service: switch.turn_off
+      data:
+        entity_id: group.downstairs_lights
+    - service: switch.turn_off
+      data:
+        entity_id: group.master_bedroom
+    - service: cover.close_cover
+      data:
+        entity_id: group.all_covers
+    - service: lock.lock
+      data:
+        entity_id: group.all_locks

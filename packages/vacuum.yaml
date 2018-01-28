@@ -10,7 +10,7 @@ homeassistant:
 # Token obtained from mobile app sqlite database
 vacuum:
   - platform: xiaomi_miio
-    host: vacuum
+    host: vacuum.home.local
     token: !secret xiaomi_vacuum_token
 
 # Create virtual switch so I can turn the vacuum on from Google Home / Amazon Echo

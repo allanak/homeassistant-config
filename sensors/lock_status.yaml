@@ -3,9 +3,6 @@
   sensors:
     front_door_code:
       friendly_name: "Front Door Last Code"
-      entity_id:
-        - sensor.front_door_alarm_type
-        - sensor.front_door_alarm_level
       value_template: >-
         {% if is_state('sensor.front_door_alarm_type', '18') or
               is_state('sensor.front_door_alarm_type', '19') %}
@@ -25,9 +22,6 @@
   sensors:
     front_door_last_action:
       friendly_name: "Front Door Last Action"
-      entity_id:
-        - sensor.front_door_alarm_type
-        - sensor.front_door_alarm_level
       value_template: >-
         {% if is_state('sensor.front_door_alarm_type', '18') %}
           {% if is_state('sensor.front_door_alarm_level', '0') %}
