@@ -36,8 +36,10 @@ group:
   harmony_bedroom:
     name: Upstairs Media
     entities:
-      - input_select.harmony_bedroom
-      - sensor.harmony_bedroom_activity
+      - input_select.lgtv
+      - sensor.lgtv_activity
+#      - input_select.harmony_bedroom
+#      - sensor.harmony_bedroom_activity
 
 sensor:
   - platform: template
@@ -50,6 +52,12 @@ sensor:
       harmony_bedroom_activity:
         value_template: '{{ states.remote.master_bedroom.attributes.current_activity }}'
         friendly_name: 'Master Bedroom Input'
+  - platform: template
+    sensors:
+      lgtv_activity:
+        value_template: '{{ states.media_player.lgtv.attributes.source }}'
+        friendly_name: 'TV Activity'
+
 
 # Create switches for voice control of Harmony and Roku activities via Echo/Google Home
 switch:
@@ -137,6 +145,22 @@ input_select:
       - Power Off
     icon: mdi:remote
 
+  lgtv:
+    name: Activity Selection
+    options:
+      - Select Input
+      - Power Off
+      - Netflix
+      - Plex
+      - Live TV
+      - Photo & Video
+      - Smart IPTV
+      - Amazon Prime Video
+      - Emby
+      - HDMI1
+      - HDMI2
+      - YouTube
+    icon: mdi:remote
 ############################################################
 #
 # Harmony Remote Control
@@ -204,6 +228,43 @@ automation:
 # Start Activity
 #
 ############################################################
+  - alias: LG Activity
+    hide_entity: True
+    trigger:
+      - platform: state
+        entity_id: input_select.lgtv
+        from: 'Select Input'
+    action:
+      - service: media_player.select_source
+        entity_id: media_player.lgtv
+        data_template:
+          source: >
+            {% if is_state("input_select.lgtv", "Plex") %}
+              Plex
+            {% elif is_state("input_select.lgtv", "Amazon Prime Video") %}
+              Amazon Prime Video
+            {% elif is_state("input_select.lgtv", "Emby") %}
+              Emby
+            {% elif is_state("input_select.lgtv", "HDMI1") %}
+              HDMI1
+            {% elif is_state("input_select.lgtv", "HDMI2") %}
+              HDMI2
+            {% elif is_state("input_select.lgtv", "Live TV") %}
+              Live TV
+            {% elif is_state("input_select.lgtv", "Photo & Video") %}
+              Photo & Video
+            {% elif is_state("input_select.lgtv", "Netflix") %}
+              Netflix
+            {% elif is_state("input_select.lgtv", "Smart IPTV") %}
+              Smart IPTV
+            {% elif is_state("input_select.lgtv", "YouTube") %}
+              YouTube
+            {% else %}
+            {% endif %}
+      - service: input_select.select_option
+        entity_id: input_select.lgtv
+        data_template:
+          option: "Select Input"
 
   - alias: Harmony Bedroom
     hide_entity: True
@@ -233,6 +294,20 @@ automation:
 #
 ############################################################
 
+  - alias: LG TV Off
+    hide_entity: True
+    trigger:
+      - platform: state
+        entity_id: input_select.lgtv
+        to: 'Power Off'
+    action:
+      - service: media_player.turn_off
+        entity_id: media_player.lgtv
+      - service: input_select.select_option
+        entity_id: input_select.lgtv
+        data_template:
+          option: "Select Input"
+
   - alias: Harmony Bedroom Off
     hide_entity: True
     trigger:
@@ -246,3 +321,5 @@ automation:
         entity_id: input_select.harmony_bedroom
         data_template:
           option: "Select Input"
+
+

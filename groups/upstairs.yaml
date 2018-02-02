@@ -3,12 +3,12 @@ upstairs:
  view: yes
  icon: mdi:hotel
  entities:
+  - media_player.lgtv
   - group.master_bedroom
   - group.alarmclock
   - group.master_bathroom
   - group.media_upstairs
   - climate.upstairs
-  - group.media_upstairs
   - group.media_bathroom
   - group.media_fireplace
   - group.media_master_bedroom_roku

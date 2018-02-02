@@ -183,6 +183,9 @@ zwave:
     cover.rear_shades_level:
       invert_openclose_buttons: true
 
+# Enable WOL domain
+wake_on_lan:
+
 # Enable Zigbee stick
 #zha:
 #  usb_path: /dev/ttyACM1
@@ -190,6 +193,10 @@ zwave:
 
 # Menu Customization
 panel_iframe:
+  node_red:
+    title: Node-Red
+    icon: 'mdi:shuffle-variant'
+    url: !secret nodered_url
   configurator:
     title: Configurator
     icon: mdi:wrench
