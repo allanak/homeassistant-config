@@ -8,4 +8,5 @@ default_view:
   - climate.downstairs
   - group.kitchen
   - group.downstairs_lights
+  - group.rear_shades
   - vacuum.xiaomi_vacuum_cleaner

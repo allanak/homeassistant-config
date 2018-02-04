@@ -11,21 +11,9 @@ door_sensors:
 windows:
  name: Windows
  entities:
-  - cover.rear_upper_shade_level
-  - cover.rear_lower_shade_level
   - sensor.master_bath_window
   - sensor.master_left_window
   - sensor.master_right_window
   - sensor.guest_bedroom_window
   - sensor.rear_bedroom_window
 
-shades:
- name: Shades
- entities:
-  - group.rear_shades
-
-rear_shades:
- name: Rear Shades
- entities:
-  - cover.rear_upper_shade_level
-  - cover.rear_lower_shade_level

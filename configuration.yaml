@@ -175,13 +175,6 @@ input_number: !include input_number.yaml
 zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
-  device_config:
-    cover.rear_lower_shade_level:
-      invert_openclose_buttons: true
-    cover.rear_upper_shade_level:
-      invert_openclose_buttons: true
-    cover.rear_shades_level:
-      invert_openclose_buttons: true
 
 # Enable WOL domain
 wake_on_lan:
@@ -197,18 +190,18 @@ panel_iframe:
     title: Node-Red
     icon: 'mdi:shuffle-variant'
     url: !secret nodered_url
-  configurator:
-    title: Configurator
-    icon: mdi:wrench
-    url: !secret configurator_url
-  ide:
-    title: IDE
-    icon: mdi:file-document
-    url: !secret editor_url
-  terminal:
-    title: Terminal
-    icon: mdi:console-line
-    url: !secret terminal_url
+#  configurator:
+#    title: Configurator
+#    icon: mdi:wrench
+#    url: !secret configurator_url
+#  ide:
+#    title: IDE
+#    icon: mdi:file-document
+#    url: !secret editor_url
+#  terminal:
+#    title: Terminal
+#    icon: mdi:console-line
+#    url: !secret terminal_url
   mdiindex:
     title: MD Icon Index
     icon: mdi:vector-square

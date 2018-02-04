@@ -255,25 +255,6 @@ cover.garage_door:
   friendly_name: Garage
   homebridge_cover_type: garage_door
   homebridge_visible: true
-cover.rear_lower_shade_level:
-  device_class: window
-  friendly_name: Rear Lower Shade
-  homebridge_cover_type: rollershutter
-  homebridge_visible: true
-  aliases:
-    - Back Bottom Shade
-    - Back Lower Shade
-    - Rear Bottom Shade
-cover.rear_upper_shade_level:
-  device_class: window
-  friendly_name: Rear Upper Shade
-  homebridge_cover_type: rollershutter
-  homebridge_visible: true
-  aliases:
-    - Back Top Shade
-    - Back Upper Shade
-    - Rear Top Shade
-
 
 #
 # Locks

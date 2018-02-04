@@ -3,9 +3,9 @@ upstairs:
  view: yes
  icon: mdi:hotel
  entities:
-  - media_player.lgtv
   - group.master_bedroom
   - group.alarmclock
+  - group.front_shades
   - group.master_bathroom
   - group.media_upstairs
   - climate.upstairs
@@ -13,3 +13,6 @@ upstairs:
   - group.media_fireplace
   - group.media_master_bedroom_roku
   - group.harmony_bedroom
+  - media_player.master_bedroom_receiver
+  - input_number.onkyo_masterbedroom_vol
+  - group.lgtv

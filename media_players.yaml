@@ -20,7 +20,7 @@
 #  host: shield
 
 - platform: onkyo
-  host: onkyo
+  host: onkyo-theater
   name: onkyo_theater
   sources:
     bd-dvd: 'Shield'
@@ -29,16 +29,6 @@
     video4: 'Apple TV'
     video5: 'Raspberry Pi'
     video7: 'Security Cameras'
-
-- platform: webostv
-  host: lgtv.home.local
-  name: lgtv
-  timeout: 5
-  filename: webostv.conf
-  turn_on_action:
-  service: wake_on_lan.send_magic_packet
-  data:
-    mac: !secret lg_tv_mac
 
 #- platform: kodi
 #  host: shield

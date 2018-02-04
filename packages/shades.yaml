@@ -1,0 +1,82 @@
+zwave:
+  device_config:
+    cover.rear_lower_shade_level:
+      invert_openclose_buttons: true
+    cover.rear_upper_shade_level:
+      invert_openclose_buttons: true
+    cover.rear_shades_level:
+      invert_openclose_buttons: true
+    cover.master_bedroom_left_window_shade_level:
+      invert_openclose_buttons: true
+    cover.master_bedroom_left_balcony_shade_level:
+      invert_openclose_buttons: true
+    cover.master_bedroom_right_balcony_shade_level:
+      invert_openclose_buttons: true
+    cover.master_bedroom_right_window_shade_level:
+      invert_openclose_buttons: true
+    cover.master_bedroom_shades_level:
+      invert_openclose_buttons: true
+
+group:
+  shades:
+   name: Shades
+   entities:
+    - cover.master_bedroom_shades_level
+    - cover.rear_shades_level
+
+  rear_shades:
+   name: Rear Shades
+   entities:
+    - cover.rear_upper_shade_level
+    - cover.rear_lower_shade_level
+
+  front_shades:
+   name: Rear Shades
+   entities:
+    - cover.master_bedroom_left_window_shade_level
+    - cover.master_bedroom_left_balcony_shade_level
+    - cover.master_bedroom_right_balcony_shade_level
+    - cover.master_bedroom_right_window_shade_level
+
+homeassistant:
+  customize:
+    cover.rear_lower_shade_level:
+      device_class: window
+      friendly_name: Rear Lower Shade
+      homebridge_cover_type: rollershutter
+      homebridge_visible: true
+    cover.rear_upper_shade_level:
+      device_class: window
+      friendly_name: Rear Upper Shade
+      homebridge_cover_type: rollershutter
+      homebridge_visible: true
+    cover.rear_shades_level:
+      device_class: window
+      friendly_name: Rear Shades
+      homebridge_cover_type: rollershutter
+      homebridge_visible: true
+    cover.master_bedroom_left_window_shade_level:
+      device_class: window
+      friendly_name: Left Window Shade
+      homebridge_cover_type: rollershutter
+      homebridge_visible: true
+    cover.master_bedroom_left_balcony_shade_level:
+      device_class: window
+      friendly_name: Left Balcony Window Shade
+      homebridge_cover_type: rollershutter
+      homebridge_visible: true
+    cover.master_bedroom_right_balcony_shade_level:
+      device_class: window
+      friendly_name: Right Balcony Window Shade
+      homebridge_cover_type: rollershutter
+      homebridge_visible: true
+    cover.master_bedroom_right_window_shade_level:
+      device_class: window
+      friendly_name: Right Window Shade
+      homebridge_cover_type: rollershutter
+      homebridge_visible: true
+    cover.master_bedroom_shades_level:
+      device_class: window
+      friendly_name: Rear Shades
+      homebridge_cover_type: rollershutter
+      homebridge_visible: true

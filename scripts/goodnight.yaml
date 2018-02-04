@@ -1,15 +1,18 @@
 goodnight:
   sequence:
     - service: alarm_control_panel.alarm_arm_home
+    - service: cover.close_cover
+      data:
+        entity_id: group.shades
     - service: switch.turn_off
       data:
         entity_id: group.downstairs_lights
     - service: switch.turn_off
       data:
         entity_id: group.master_bedroom
-    - service: cover.close_cover
+    - service: light.turn_off
       data:
-        entity_id: group.all_covers
+        entity_id: light.office_lights_level
     - service: lock.lock
       data:
         entity_id: group.all_locks

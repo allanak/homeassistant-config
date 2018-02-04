@@ -1,0 +1,140 @@
+homeassistant:
+  customize:
+    media_player.home_group:
+      homebridge_name: Whole Home Chromecast
+      homebridge_visible: true
+
+media_player:
+  - platform: webostv
+    host: lgtv.home.local
+    name: lgtv
+    timeout: 5
+    filename: webostv.conf
+    turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: !secret lg_tv_mac
+
+  - platform: onkyo
+    host: onkyo-masterbedroom
+    name: onkyo_masterbedroom
+
+input_number:
+  onkyo_masterbedroom_vol:
+    name: Receiver Volume
+    initial: 15
+    min: 0
+    max: 64
+    step: 1
+
+group:
+  lgtv:
+   name: LGTV
+   icon: mdi:tv
+   entities:
+    - media_player.lgtv
+
+  masterbedroom_receiver:
+   name: Master Bedroom Receiver
+   icon: mdi:speaker
+   entities:
+    - media_player.master_bedroom_receiver
+
+
+automation:
+# Volume Slider for Onkyo
+  - alias: Onkyo Volume Number Set
+    trigger:
+      - platform: state
+        entity_id: input_number.onkyo_masterbedroom_vol
+# Disabled this condition because it appears "off" when using chromecast
+#    condition:
+#      - condition: state
+#        entity_id: media_player.master_bedroom_receiver
+#        state: 'on'
+    action:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.master_bedroom_receiver
+          volume_level: '{{ states.input_number.onkyo_masterbedroom_vol.state | float / 80 }}'
+
+  - alias: Onkyo Volume Number Get
+    trigger:
+      platform: state
+      entity_id: media_player.master_bedroom_receiver
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.onkyo_masterbedroom_vol
+        volume_level: '{{ states.input_number.onkyo_masterbedroom_vol.state | float / 80 }}'
+
+############################################################
+#
+# Media Player Upstairs Group
+#
+############################################################
+
+  - alias: 'Hide media_player.upstairs while not playing'
+    hide_entity: true
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: media_player.lgtv
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.lgtv
+      to: 'off'
+    action:
+    - service: group.set_visibility
+      entity_id: group.lgtv
+      data:
+        visible: False
+
+  - alias: 'Show media_player.upstairs while playing'
+    hide_entity: true
+    trigger:
+    - platform: state
+      entity_id: media_player.lgtv
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.lgtv
+      to: 'paused'
+    action:
+    - service: group.set_visibility
+      entity_id: group.lgtv
+      data:
+        visible: True
+
+# Hide Receiver when not playing
+  - alias: 'Hide master bedroom receiver while not playing'
+    hide_entity: true
+    trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: media_player.master_bedroom_receiver
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.master_bedroom_receiver
+      to: 'off'
+    action:
+    - service: group.set_visibility
+      entity_id: group.master_bedroom_receiver
+      data:
+        visible: False
+
+  - alias: 'Show master bedroom receiver while playing'
+    hide_entity: true
+    trigger:
+    - platform: state
+      entity_id: media_player.master_bedroom_receiver
+      to: 'playing'
+    - platform: state
+      entity_id: media_player.master_bedroom_receiver
+      to: 'paused'
+    action:
+    - service: group.set_visibility
+      entity_id: group.master_bedroom_receiver
+      data:
+        visible: True
