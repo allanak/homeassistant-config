@@ -11,6 +11,7 @@
 !images
 !.gitignore
 !.travis.yml
+*pycache*
 haaska
 secrets.yaml
 google_calendars.yaml
