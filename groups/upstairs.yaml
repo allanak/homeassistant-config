@@ -11,8 +11,8 @@ upstairs:
   - climate.upstairs
   - group.media_bathroom
   - group.media_fireplace
-  - group.media_master_bedroom_roku
+  - group.media_roku_ultra
   - group.harmony_bedroom
-  - media_player.master_bedroom_receiver
+  - group.masterbedroom_receiver
   - input_number.onkyo_masterbedroom_vol
   - group.lgtv

@@ -1,27 +1,54 @@
 homeassistant:
   customize:
-    sensor.plex_current_media:
-      friendly_name: Plex Title
+    sensor.current_media:
+      friendly_name: Title
       icon: mdi:filmstrip
-    sensor.netcat:
-      friendly_name: Plex Server Activity
+    sensor.tautulli_total:
+      friendly_name: Total
+    sensor.tautulli_transcode:
+      friendly_name: Transcoding
+    sensor.tautulli_direct_play:
+      friendly_name: Direct Play
+    sensor.tautulli_direct_stream:
+      friendly_name: Direct Play
+    sensor.tautulli_total_bandwidth:
+      friendly_name: Total Bandwidth
+
+#    sensor.netcat:
+#      friendly_name: Plex Server Activity
 
 sensor:
-  - platform: plex
-    host: !secret plex_host
-    name: !secret plex_name
-    username: !secret plex_username
-    password: !secret plex_password
-  
+# Replaced with Tautulli
+#  - platform: plex
+#    host: !secret plex_host
+#    name: !secret plex_name
+#    username: !secret plex_username
+#    password: !secret plex_password
+
+# Create a sensor to show what I'm playing  
   - platform: template
     sensors:
-      plex_current_media:
+      current_media:
         value_template: >-
-          {%- if states.sensor.netcat.attributes.allanak -%}
-            '{{states.sensor.netcat.attributes.allanak}}'
+          {%- if states.sensor.tautulli_total.attributes.allanak -%}
+            '{{states.sensor.tautulli_total.attributes.allanak}}'
           {%- else -%}
             N/A
           {%- endif -%}
+
+
+# Relies on tautulli custom component
+  - platform: tautulli
+    host: !secret tautulli_host
+    ssl: true
+    verify_ssl: true
+    token: !secret tautulli_api_key
+    monitored_conditions:
+        - stream_count
+        - stream_count_transcode
+        - stream_count_direct_play
+        - stream_count_direct_stream
+        - total_bandwidth
 
   - platform: nzbget
     host: !secret nzbget_host
@@ -60,11 +87,20 @@ group:
   media_server:
    name: Media Server
    entities:
-    - sensor.plex_current_media
-    - sensor.netcat
+#    - sensor.netcat
     - sensor.sonarr_upcoming
     - sensor.sonarr_wanted
     - sensor.sonarr_series
     - sensor.radarr_upcoming
     - sensor.nzbget_speed
     - sensor.nzbget_free_space
+
+  plex:
+   name: Plex
+   entities:
+    - sensor.current_media
+    - sensor.tautulli_total
+    - sensor.tautulli_transcode
+    - sensor.tautulli_direct_play
+    - sensor.tautulli_direct_stream
+    - sensor.tautulli_total_bandwidth

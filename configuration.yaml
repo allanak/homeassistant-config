@@ -154,7 +154,6 @@ shell_command: !include shell_commands.yaml
 scene: !include_dir_list scene
 #image_processing: !include image_processing.yaml
 #logentries: !include logentries.yaml
-#bloomsky: !include bloomsky.yaml
 #tesla: !include tesla.yaml
 zone: !include zone.yaml
 variable: !include variable.yaml

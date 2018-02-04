@@ -63,10 +63,10 @@ automation:
       platform: state
       entity_id: media_player.master_bedroom_receiver
     action:
-      service: input_number.set_value
-      data_template:
-        entity_id: input_number.onkyo_masterbedroom_vol
-        volume_level: '{{ states.input_number.onkyo_masterbedroom_vol.state | float / 80 }}'
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.onkyo_masterbedroom_vol
+          volume_level: '{{ states.input_number.onkyo_masterbedroom_vol.state | float / 80 }}'
 
 ############################################################
 #

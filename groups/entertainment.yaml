@@ -11,3 +11,4 @@ entertainment:
 #  - group.media_spotify
   - group.radio
   - group.media_server
+  - group.plex

@@ -1,47 +1,47 @@
 homeassistant:
   customize:
-    media_player.master_bedroom_2:
+    media_player.master_bedroom_roku:
       friendly_name: Roku Ultra
 
 group:
-  media_master_bedroom_roku:
+  media_roku_ultra:
    name: Master Bedroom Roku
    icon: mdi:cast
    entities:
-     - media_player.master_bedroom_2
+     - media_player.master_bedroom_roku
 
 automation:
-  - alias: 'Hide media_player.master_bedroom_2 while not playing'
+  - alias: 'Hide media_player.master_bedroom_roku while not playing'
     hide_entity: true
     trigger:
     - platform: homeassistant
       event: start
     - platform: state
-      entity_id: media_player.master_bedroom_2
+      entity_id: media_player.master_bedroom_roku
       to: 'idle'
     - platform: state
-      entity_id: media_player.master_bedroom_2
+      entity_id: media_player.master_bedroom_roku
       to: 'off'
     - platform: state
-      entity_id: media_player.master_bedroom_2
+      entity_id: media_player.master_bedroom_roku
       to: 'home'
     action:
     - service: group.set_visibility
-      entity_id: group.media_master_bedroom_roku
+      entity_id: group.media_roku_ultra
       data:
         visible: False
 
-  - alias: 'Show media_player.master_bedroom_2 while playing'
+  - alias: 'Show media_player.master_bedroom_roku while playing'
     hide_entity: true
     trigger:
     - platform: state
-      entity_id: media_player.master_bedroom_2
+      entity_id: media_player.master_bedroom_roku
       to: 'playing'
     - platform: state
-      entity_id: media_player.master_bedroom_2
+      entity_id: media_player.master_bedroom_roku
       to: 'paused'
     action:
     - service: group.set_visibility
-      entity_id: group.media_master_bedroom_roku
+      entity_id: group.media_roku_ultra
       data:
         visible: True
