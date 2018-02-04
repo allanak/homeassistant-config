@@ -42,6 +42,9 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * GE Z-Wave Switches and Dimmers
 * [Aeon Labs DSC06106 Z-Wave Smart Energy Switch](https://www.amazon.com/Aeon-Labs-DSC06106-ZWUS-Z-Wave-Energy/dp/B007UZH7B8)
 * [Ring Pro Doorbell](https://ring.com/video-doorbell-pro)
+* LG OLED65C7P Smart TV
+* Onkyo TX-NR636 Receiver
+* Onkyo TX-NR676 Receiver
 * [Logitech Harmony Hubs](https://www.logitech.com/en-us/product/harmony-hub)
 * [Broadlink RM Pro](https://www.amazon.com/Broadlink-Automation-Universal-Compatible-Smartphones/dp/B01GIXZDKO)
 * Xiaomi Roborock Smart Robot Vacuum Cleaner
