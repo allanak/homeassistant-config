@@ -78,7 +78,8 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * Xiaomi Aqara Water Leak Sensors (Zigbee, still need to integrate)
 
 ### Third-party Integrations
-* [Plex](https://www.plex.tv/) for Plex server activity
+~~* [Plex](https://www.plex.tv/) for Plex server activity~~
+* [Tautulli](http://tautulli.com/) for Plex server activity
 * [NZBGet](https://nzbget.net/) for usenet download activity
 * [Sonarr](https://sonarr.tv/) for TV show activity
 * [Radarr](https://radarr.video/) for movie activity
