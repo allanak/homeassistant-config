@@ -10,25 +10,28 @@ exposed_domains:
   - scene
 expose_by_default: false
 entity_config:
-  light.kitchen_lights_level:
+  light.kitchen_lights:
     name: Kitchen Lights
     expose: true
-  light.breakfast_bar_level:
+  light.breakfast_bar:
     name: Breakfast Bar
     expose: true
-  light.dining_room_level:
+  light.dining_room:
     name: Dining Room
     expose: true
-  light.bar_lights_level:
+  light.bar_lights:
     name: Bar Lights
     expose: true
-  light.theater_lights_level:
+  switch.neon_lights:
+    name: Neon Lights
+    expose: true
+  light.theater_lights:
     name: Theater Lights
     expose: true
-  light.guest_bedroom_lights_level:
+  light.guest_bedroom_lights:
     name: Guest Bedroom Lights
     expose: true
-  light.rear_bedroom_lights_level:
+  light.rear_bedroom_lights:
     name: Rear Bedroom Lights
     expose: true
   light.backyardgarden:
@@ -41,64 +44,66 @@ entity_config:
     aliases:
       - front garden
     expose: true
-  light.hall_light_level:
+  light.hall_light:
     name: Hallway
     expose: true
-  light.office_lights_level:
+  light.office_lights:
     name: Office Lights
     expose: true
-  light.master_bedroom_front_lights_level:
+  light.master_bedroom_front_lights:
     name: Master Bedroom Front Lights
     expose: true
-  light.master_bedroom_rear_lights_level:
+  light.master_bedroom_rear_lights:
     name: Master Bedroom Rear Lights
     expose: true
-  switch.backyard_floodlights_switch:
+  switch.backyard_floodlights:
     name: Backyard Floodlights
     type: light
     aliases:
       - rear floodlights
     expose: true
-  switch.theater_switch:
+  switch.theater:
     name: Theater Switch
     expose: true
-  switch.backyard_light_switch:
+  switch.backyard_light:
     name: Backyard light
     type: light
     expose: true
-  switch.garage_light_switch:
+  switch.garage_light:
     name: Garage Lights
     type: light
     expose: true
-  switch.driveway_light_switch:
+  switch.driveway_light:
     name: Driveway
     type: light
     expose: true
-  switch.porch_light_switch:
+  switch.porch_light:
     name: Porch
     type: light
     expose: true
-  switch.balcony_light_switch:
+  switch.balcony_light:
     name: Balcony
     type: light
     expose: true
-  switch.master_closet_lights_switch:
+  switch.master_closet_lights:
     name: Closet
     type: light
     expose: true
-  switch.landing_switch:
+  switch.landing:
     name: Stairwell
     aliases:
       - landing
     type: light
     expose: true
-  switch.guest_bedroom_fan_switch:
+  switch.guest_bedroom_fan:
     name: Guest Bedroom Fan
+    type: fan
     expose: true
-  switch.rear_bedroom_fan_switch:
+  switch.rear_bedroom_fan:
     name: Rear Bedroom Fan
+    type: fan
     expose: true
-  switch.fireplace_switch:
+  switch.fireplace:
     name: Fireplace
     expose: true
   switch.towel_rack:

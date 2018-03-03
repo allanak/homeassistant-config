@@ -4,5 +4,5 @@ evening_lights:
  entities:
   - switch.bed
   - switch.neon_lights
-  - light.hall_light_level
+  - light.hall_light
   - light.staircase

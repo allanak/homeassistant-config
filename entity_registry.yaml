@@ -25,7 +25,7 @@ binary_sensor.nvr_line_crossing_4:
 switch.yard:
   platform: rachio
   unique_id: c92d5c78-53b5-4b2b-bd57-fd5999109b87-a223cdda-fb6b-450c-8126-a91e54ec28bd
-sensor.allan_kleins_iphone_battery_level:
+sensor.allan_kleins_iphone_battery:
   platform: ios
   unique_id: level_allaniphone
 sensor.allans_iphone_battery_state:
@@ -37,7 +37,7 @@ sensor.allan_kleins_iphone_battery_state:
 sensor.allans_iphone_battery_state_2:
   platform: ios
   unique_id: state_allans_iphone
-sensor.allans_iphone_battery_level:
+sensor.allans_iphone_battery:
   platform: ios
   unique_id: level_allans_iphone
 sensor.allans_iphone_battery_level_2:
@@ -52,70 +52,70 @@ light.staircase_lower_strip:
 light.bedroom_2:
   platform: hue
   unique_id: 00:17:88:01:03:e0:52:2b-0b
-light.office_lights_level:
+light.office_lights:
   platform: zwave
   unique_id: 2-72057594076299265
-switch.landing_switch:
+switch.landing:
   platform: zwave
   unique_id: 3-72057594093060096
-switch.balcony_light_switch:
+switch.balcony_light:
   platform: zwave
   unique_id: 4-72057594109837312
-light.master_bedroom_front_lights_level:
+light.master_bedroom_front_lights:
   platform: zwave
   unique_id: 5-72057594126630913
-light.master_bedroom_rear_lights_level:
+light.master_bedroom_rear_lights:
   platform: zwave
   unique_id: 6-72057594143408129
-switch.master_closet_lights_switch:
+switch.master_closet_lights:
   platform: zwave
   unique_id: 7-72057594160168960
-switch.downstairs_fan_switch:
+switch.downstairs_fan:
   platform: zwave
   unique_id: 8-72057594176946176
-switch.backyard_light_switch:
+switch.backyard_light:
   platform: zwave
   unique_id: 9-72057594193723392
-switch.backyard_floodlights_switch:
+switch.backyard_floodlights:
   platform: zwave
   unique_id: 10-72057594210500608
-switch.theater_switch_switch:
+switch.theater:
   platform: zwave
   unique_id: 11-72057594227277824
-light.theater_lights_level:
+light.theater_lights:
   platform: zwave
   unique_id: 12-72057594244071425
-light.bar_lights_level:
+light.bar_lights:
   platform: zwave
   unique_id: 13-72057594260848641
-light.dining_room_level:
+light.dining_room:
   platform: zwave
   unique_id: 14-72057594277625857
-light.breakfast_bar_level:
+light.breakfast_bar:
   platform: zwave
   unique_id: 15-72057594294403073
-light.kitchen_lights_level:
+light.kitchen_lights:
   platform: zwave
   unique_id: 16-72057594311180289
-switch.garage_light_switch:
+switch.garage_light:
   platform: zwave
   unique_id: 17-72057594327941120
-switch.driveway_light_switch:
+switch.driveway_light:
   platform: zwave
   unique_id: 18-72057594344718336
-light.rear_bedroom_lights_level:
+light.rear_bedroom_lights:
   platform: zwave
   unique_id: 21-72057594395066369
-switch.rear_bedroom_fan_switch:
+switch.rear_bedroom_fan:
   platform: zwave
   unique_id: 22-72057594411827200
-switch.porch_light_switch:
+switch.porch_light:
   platform: zwave
   unique_id: 23-72057594428604416
 sensor.garage_door_alarm_type:
   platform: zwave
   unique_id: 24-72057594446626817
-sensor.garage_door_alarm_level:
+sensor.garage_door_alarm:
   platform: zwave
   unique_id: 24-72057594446626833
 sensor.garage_door_sourcenodeid:
@@ -127,10 +127,10 @@ sensor.garage_door_access_control:
 sensor.garage_door_burglar:
   platform: zwave
   unique_id: 24-72057594446626977
-light.hall_light_level:
+light.hall_light:
   platform: zwave
   unique_id: 29-72057594529284097
-binary_sensor.master_bath_motion_sensor:
+binary_sensor.master_bath_motion:
   platform: zwave
   unique_id: 33-72057594596556800
 sensor.master_bath_motion_temperature:
@@ -139,7 +139,7 @@ sensor.master_bath_motion_temperature:
 sensor.master_bath_motion_alarm_type:
   platform: zwave
   unique_id: 33-72057594597621761
-sensor.master_bath_motion_alarm_level:
+sensor.master_bath_motion_alarm:
   platform: zwave
   unique_id: 33-72057594597621777
 sensor.master_bath_motion_sourcenodeid:
@@ -148,7 +148,7 @@ sensor.master_bath_motion_sourcenodeid:
 sensor.master_bath_motion_burglar:
   platform: zwave
   unique_id: 33-72057594597621921
-binary_sensor.kitchen_motion_sensor:
+binary_sensor.kitchen_motion:
   platform: zwave
   unique_id: 35-72057594630111232
 sensor.kitchen_motion_temperature:
@@ -157,7 +157,7 @@ sensor.kitchen_motion_temperature:
 sensor.kitchen_motion_alarm_type:
   platform: zwave
   unique_id: 35-72057594631176193
-sensor.kitchen_motion_alarm_level:
+sensor.kitchen_motion_alarm:
   platform: zwave
   unique_id: 35-72057594631176209
 sensor.kitchen_motion_sourcenodeid:
@@ -166,7 +166,7 @@ sensor.kitchen_motion_sourcenodeid:
 sensor.kitchen_motion_burglar:
   platform: zwave
   unique_id: 35-72057594631176353
-binary_sensor.master_closet_motion_sensor:
+binary_sensor.master_closet_motion:
   platform: zwave
   unique_id: 36-72057594646888448
 sensor.master_closet_motion_temperature:
@@ -175,7 +175,7 @@ sensor.master_closet_motion_temperature:
 sensor.master_closet_motion_alarm_type:
   platform: zwave
   unique_id: 36-72057594647953409
-sensor.master_closet_motion_alarm_level:
+sensor.master_closet_motion_alarm:
   platform: zwave
   unique_id: 36-72057594647953425
 sensor.master_closet_motion_sourcenodeid:
@@ -184,13 +184,13 @@ sensor.master_closet_motion_sourcenodeid:
 sensor.master_closet_motion_burglar:
   platform: zwave
   unique_id: 36-72057594647953569
-lock.back_gate_locked:
+lock.back_gate:
   platform: zwave
   unique_id: 38-72057594681262080
 sensor.back_gate_alarm_type:
   platform: zwave
   unique_id: 38-72057594681507841
-sensor.back_gate_alarm_level:
+sensor.back_gate_alarm:
   platform: zwave
   unique_id: 38-72057594681507857
 sensor.back_gate_sourcenodeid:
@@ -208,13 +208,13 @@ sensor.back_gate_power_management:
 sensor.back_gate_system:
   platform: zwave
   unique_id: 38-72057594681508033
-lock.back_door_locked:
+lock.back_door:
   platform: zwave
   unique_id: 39-72057594698039296
 sensor.back_door_alarm_type:
   platform: zwave
   unique_id: 39-72057594698285057
-sensor.back_door_alarm_level:
+sensor.back_door_alarm:
   platform: zwave
   unique_id: 39-72057594698285073
 sensor.back_door_sourcenodeid:
@@ -232,7 +232,7 @@ sensor.back_door_power_management:
 sensor.back_door_system:
   platform: zwave
   unique_id: 39-72057594698285249
-switch.water_heater_switch:
+switch.water_heater:
   platform: zwave
   unique_id: 40-72057594713817088
 sensor.water_heater_power:
@@ -259,7 +259,7 @@ sensor.water_heater_interval_2:
 sensor.water_heater_exporting:
   platform: zwave
   unique_id: 40-72057594714030592
-switch.washer_switch:
+switch.washer:
   platform: zwave
   unique_id: 41-72057594730594304
 sensor.washer_power:
@@ -286,13 +286,13 @@ sensor.washer_interval_2:
 sensor.washer_exporting:
   platform: zwave
   unique_id: 41-72057594730807808
-lock.front_door_locked:
+lock.front_door:
   platform: zwave
   unique_id: 42-72057594748370944
 sensor.front_door_alarm_type:
   platform: zwave
   unique_id: 42-72057594748616705
-sensor.front_door_alarm_level:
+sensor.front_door_alarm:
   platform: zwave
   unique_id: 42-72057594748616721
 sensor.front_door_sourcenodeid:
@@ -313,37 +313,37 @@ sensor.front_door_system:
 sensor.hallway_smoke_alarm_type:
   platform: zwave
   unique_id: 43-72057594765393921
-sensor.hallway_smoke_alarm_level:
+sensor.hallway_smoke_alarm:
   platform: zwave
   unique_id: 43-72057594765393937
 sensor.rear_bedroom_smoke_alarm_type:
   platform: zwave
   unique_id: 44-72057594782171137
-sensor.rear_bedroom_smoke_alarm_level:
+sensor.rear_bedroom_smoke_alarm:
   platform: zwave
   unique_id: 44-72057594782171153
 sensor.guest_bedroom_smoke_alarm_type:
   platform: zwave
   unique_id: 45-72057594798948353
-sensor.guest_bedroom_smoke_alarm_level:
+sensor.guest_bedroom_smoke_alarm:
   platform: zwave
   unique_id: 45-72057594798948369
-light.guest_bedroom_lights_level:
+light.guest_bedroom_lights:
   platform: zwave
   unique_id: 46-72057594814496769
 sensor.master_bedroom_smoke_alarm_type:
   platform: zwave
   unique_id: 47-72057594832502785
-sensor.master_bedroom_smoke_alarm_level:
+sensor.master_bedroom_smoke_alarm:
   platform: zwave
   unique_id: 47-72057594832502801
-switch.fireplace_switch:
+switch.fireplace:
   platform: zwave
   unique_id: 52-72057594915143680
-switch.guest_bedroom_fan_switch:
+switch.guest_bedroom_fan:
   platform: zwave
   unique_id: 54-72057594948698112
-switch.dryer_switch:
+switch.dryer:
   platform: zwave
   unique_id: 55-72057594965475328
 sensor.dryer_power:
@@ -376,85 +376,85 @@ media_player.living_room:
 remote.living_room:
   platform: apple_tv
   unique_id: 89bb3c92ff6c28b449098635fe62e1f74af1f3cd40e940a8d108b2505a44aa0e
-lock.garage_lock_locked:
+lock.garage:
   platform: zwave
   unique_id: 57-72057595000029184
 sensor.garage_lock_alarm_type:
   platform: zwave
   unique_id: 57-72057595000274945
-sensor.garage_lock_alarm_level:
+sensor.garage_lock_alarm:
   platform: zwave
   unique_id: 57-72057595000274961
-cover.rear_upper_shade_switch:
+cover.rear_upper_shade:
   platform: zwave
   unique_id: 59-72057595032584192
-switch.rear_upper_shade_switch:
+switch.rear_upper_shade:
   platform: zwave
   unique_id: 59-72057595032584192
-cover.rear_upper_shade_level:
+cover.rear_upper_shade:
   platform: zwave
   unique_id: 59-72057595032600577
-cover.rear_lower_shade_switch:
+cover.rear_lower_shade:
   platform: zwave
   unique_id: 60-72057595049361408
-switch.rear_lower_shade_switch:
+switch.rear_lower_shade:
   platform: zwave
   unique_id: 60-72057595049361408
-cover.rear_lower_shade_level:
+cover.rear_lower_shade:
   platform: zwave
   unique_id: 60-72057595049377793
-cover.rear_shades_switch:
+cover.rear_shades:
   platform: zwave
   unique_id: 61-72057595066138624
-switch.rear_shades_switch:
+switch.rear_shades:
   platform: zwave
   unique_id: 61-72057595066138624
-cover.rear_shades_level:
+cover.rear_shades:
   platform: zwave
   unique_id: 61-72057595066155009
-cover.master_bedroom_left_window_shade_switch:
+cover.master_bedroom_left_window_shade:
   platform: zwave
   unique_id: 62-72057595082915840
-switch.master_bedroom_left_window_shade_switch:
+switch.master_bedroom_left_window_shade:
   platform: zwave
   unique_id: 62-72057595082915840
-cover.master_bedroom_left_window_shade_level:
+cover.master_bedroom_left_window_shade:
   platform: zwave
   unique_id: 62-72057595082932225
-cover.master_bedroom_left_balcony_shade_switch:
+cover.master_bedroom_left_balcony_shade:
   platform: zwave
   unique_id: 63-72057595099693056
-switch.master_bedroom_left_balcony_shade_switch:
+switch.master_bedroom_left_balcony_shade:
   platform: zwave
   unique_id: 63-72057595099693056
-cover.master_bedroom_left_balcony_shade_level:
+cover.master_bedroom_left_balcony_shade:
   platform: zwave
   unique_id: 63-72057595099709441
-cover.master_bedroom_right_balcony_shade_switch:
+cover.master_bedroom_right_balcony_shade:
   platform: zwave
   unique_id: 64-72057595116470272
-switch.master_bedroom_right_balcony_shade_switch:
+switch.master_bedroom_right_balcony_shade:
   platform: zwave
   unique_id: 64-72057595116470272
-cover.master_bedroom_right_balcony_shade_level:
+cover.master_bedroom_right_balcony_shade:
   platform: zwave
   unique_id: 64-72057595116486657
-cover.master_bedroom_right_window_shade_switch:
+cover.master_bedroom_right_window_shade:
   platform: zwave
   unique_id: 65-72057595133247488
-switch.master_bedroom_right_window_shade_switch:
+switch.master_bedroom_right_window_shade:
   platform: zwave
   unique_id: 65-72057595133247488
-cover.master_bedroom_right_window_shade_level:
+cover.master_bedroom_right_window_shade:
   platform: zwave
   unique_id: 65-72057595133263873
-cover.master_bedroom_shades_switch:
+cover.master_bedroom_shades:
   platform: zwave
   unique_id: 66-72057595150024704
-switch.master_bedroom_shades_switch:
+switch.master_bedroom_shades:
   platform: zwave
   unique_id: 66-72057595150024704
-cover.master_bedroom_shades_level:
+cover.master_bedroom_shades:
   platform: zwave
   unique_id: 66-72057595150041089
 binary_sensor.water_leak_sensor_158d0001d52049:
@@ -520,3 +520,6 @@ media_player.kitchen:
 media_player.office:
   platform: cast
   unique_id: ac2b789a-261c-9822-ebb4-a406a3714f10
+media_player.shield:
+  platform: cast
+  unique_id: 8ae3ceed-f33a-ac2d-d32f-94555175b6c2

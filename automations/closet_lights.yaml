@@ -1,16 +1,16 @@
 - alias: Turn on closet lights when motion detected
   trigger:
-    - entity_id: binary_sensor.master_closet_motion_sensor
+    - entity_id: binary_sensor.master_closet_motion
       platform: state
       to: 'on'
   action:
     - service: switch.turn_on
       data:
-        entity_id: switch.master_closet_lights_switch
+        entity_id: switch.master_closet_lights
 
 - alias: Turn off closet lights when motion stops
   trigger:
-    - entity_id: binary_sensor.master_closet_motion_sensor
+    - entity_id: binary_sensor.master_closet_motion
       platform: state
       to: 'off'
       for:
@@ -18,4 +18,4 @@
   action:
     - service: switch.turn_off
       data:
-        entity_id: switch.master_closet_lights_switch
+        entity_id: switch.master_closet_lights

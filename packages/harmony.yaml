@@ -19,11 +19,11 @@ homeassistant:
 remote:
   - platform: harmony
     name: Theater
-    host: harmonyhub
+    host: harmonyhub.home.local
 
   - platform: harmony
     name: Master Bedroom
-    host: harmonyhub-masterbed
+    host: harmonyhub-masterbed.home.local
 
 group:
   harmony_theater:

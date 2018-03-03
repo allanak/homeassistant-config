@@ -14,14 +14,14 @@ guest_bedroom:
  name: Guest Bedroom
  view: no
  entities:
-  - light.guest_bedroom_lights_level
-  - switch.guest_bedroom_fan_switch
+  - light.guest_bedroom_lights
+  - switch.guest_bedroom_fan
   - sensor.guest_bedroom_smoke
 
 rear_bedroom:
  name: Rear Bedroom
  view: no
  entities:
-  - light.rear_bedroom_lights_level
-  - switch.rear_bedroom_fan_switch
+  - light.rear_bedroom_lights
+  - switch.rear_bedroom_fan
   - sensor.rear_bedroom_smoke

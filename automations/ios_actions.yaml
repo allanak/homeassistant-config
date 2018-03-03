@@ -34,7 +34,7 @@
       actionName: UNLOCK_FRONT_DOOR
   action:
   - service: lock.unlock
-    entity_id: lock.front_door_lock
+    entity_id: lock.front_door
 
 - alias: Lock front door
   id: lock_front_door
@@ -45,7 +45,7 @@
       actionName: LOCK_FRONT_DOOR
   action:
   - service: lock.lock
-    entity_id: lock.front_door_lock
+    entity_id: lock.front_door
 
 - alias: Unlock back door
   id: unlock_back_door
@@ -56,7 +56,7 @@
       actionName: UNLOCK_BACK_DOOR
   action:
   - service: lock.unlock
-    entity_id: lock.back_door_lock
+    entity_id: lock.back_door
 
 - alias: Lock back door
   id: lock_back_door
@@ -67,7 +67,7 @@
       actionName: LOCK_BACK_DOOR
   action:
   - service: lock.lock
-    entity_id: lock.back_door_lock
+    entity_id: lock.back_door
 
 - alias: Unlock back gate
   id: unlock_back_gate
@@ -78,7 +78,7 @@
       actionName: UNLOCK_BACK_GATE
   action:
   - service: lock.unlock
-    entity_id: lock.back_gate_lock
+    entity_id: lock.back_gate
 
 - alias: Lock back gate
   id: lock_back_gate
@@ -89,7 +89,7 @@
       actionName: LOCK_BACK_GATE
   action:
   - service: lock.lock
-    entity_id: lock.back_gate_lock
+    entity_id: lock.back_gate
 
 - alias: Open Garage
   id: open_garage_door

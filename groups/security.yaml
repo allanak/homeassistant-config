@@ -7,10 +7,10 @@ security:
   - sensor.sprout
   - group.house_settings
   - alarm_control_panel.home
-  - lock.front_door_locked
-  - lock.back_door_locked
-  - lock.back_gate_locked
-  - lock.garage_lock_locked
+  - lock.front_door
+  - lock.back_door
+  - lock.back_gate
+  - lock.garage
   - group.windows
   - group.door_sensors
   - group.leak_sensors

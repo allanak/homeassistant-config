@@ -77,17 +77,17 @@
 
 # Adjust relative names inside their groups
 
-    light.master_bedroom_front_lights_level:
+    light.master_bedroom_front_lights:
       group:
         group.master_bedroom:
           friendly_name: Front Lights
 
-    light.master_bedroom_rear_lights_level:
+    light.master_bedroom_rear_lights:
       group:
         group.master_bedroom:
           friendly_name: Rear Lights
 
-    light.kitchen_lights_level:
+    light.kitchen_lights:
       group:
         group.kitchen:
           friendly_name: Track Lights
@@ -97,22 +97,22 @@
         group.kitchen:
           friendly_name: RGB Accents
 
-    light.guest_bedroom_lights_level:
+    light.guest_bedroom_lights:
       group:
         group.guest_bedroom:
           friendly_name: Lights
 
-    switch.guest_bedroom_fan_switch:
+    switch.guest_bedroom_fan:
       group:
         group.guest_bedroom:
           friendly_name: Fan
 
-    light.rear_bedroom_lights_level:
+    light.rear_bedroom_lights:
       group:
         group.rear_bedroom:
           friendly_name: Lights
 
-    switch.rear_bedroom_fan_switch:
+    switch.rear_bedroom_fan:
       group:
         group.rear_bedroom:
           friendly_name: Fan

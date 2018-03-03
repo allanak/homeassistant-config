@@ -26,7 +26,7 @@
       state: 'below_horizon'
   action:
     - service: light.turn_off
-      entity_id: light.guest_bedroom_lights_level
+      entity_id: light.guest_bedroom_lights
 
 - alias: "Movie Paused on projector - House Lights On"
   trigger:
@@ -40,7 +40,7 @@
       state: 'below_horizon'
   action:
     - service: light.turn_on
-      entity_id: light.theater_lights_level
+      entity_id: light.theater_lights
       data:
         brightness: 10
 
@@ -56,7 +56,7 @@
       state: 'below_horizon'
   action:
     - service: light.turn_on
-      entity_id: light.theater_lights_level
+      entity_id: light.theater_lights
       data:
         brightness: 20
 #      entity_id: scene.movie_paused
@@ -74,4 +74,4 @@
       state: 'below_horizon'
   action:
     - service: light.turn_off
-      entity_id: light.theater_lights_level
+      entity_id: light.theater_lights

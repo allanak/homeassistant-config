@@ -2,7 +2,7 @@
 - alias: Morning shower music
   id: shower_mode
   trigger:
-    - entity_id: binary_sensor.master_bath_motion_sensor
+    - entity_id: binary_sensor.master_bath_motion
       platform: state
       to: 'on'
   condition:
@@ -53,7 +53,7 @@
 - alias: Bathroom Music Off
   id: shower_mode_off
   trigger:
-    - entity_id: binary_sensor.master_bath_motion_sensor
+    - entity_id: binary_sensor.master_bath_motion
       platform: state
       to: 'off'
       for:
@@ -76,7 +76,7 @@
   id: garbage_day_reminder
   trigger:
     - platform: state
-      entity_id: binary_sensor.kitchen_motion_sensor
+      entity_id: binary_sensor.kitchen_motion
       to: 'on'
   action:
     - service: notify.google_assistant

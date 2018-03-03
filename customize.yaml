@@ -8,31 +8,31 @@ sensor.sprout:
   friendly_name: Sprout
 
 # Lights
-light.kitchen_lights_level:
+light.kitchen_lights:
   icon: mdi:spotlight-beam
   friendly_name: Kitchen Track Lights
   homebridge_visible: true
-light.breakfast_bar_level:
+light.breakfast_bar:
   icon: mdi:food-apple
   friendly_name: Breakfast Bar
   homebridge_visible: true
-light.dining_room_level:
+light.dining_room:
   icon: mdi:food
   friendly_name: Dining Room
   homebridge_visible: true
-light.bar_lights_level:
+light.bar_lights:
   icon: mdi:glass-cocktail
   friendly_name: Bar
   homebridge_visible: true
-light.theater_lights_level:
+light.theater_lights:
   icon: mdi:spotlight-beam
   friendly_name: Theater
   homebridge_visible: true
-light.guest_bedroom_lights_level:
+light.guest_bedroom_lights:
   icon: mdi:spotlight-beam
   friendly_name: Guest Bedroom Lights
   homebridge_visible: true
-light.rear_bedroom_lights_level:
+light.rear_bedroom_lights:
   icon: mdi:spotlight-beam
   friendly_name: Rear Bedroom Lights
   homebridge_visible: true
@@ -66,7 +66,7 @@ light.frontyardgarden:
   friendly_name: Front Garden
   homebridge_visible: true
   icon: mdi:flower
-light.hall_light_level:
+light.hall_light:
   friendly_name: Hallway
   homebridge_visible: true
 light.hallwaybulb:
@@ -98,87 +98,87 @@ light.landingdnrt:
 light.landinguprt:
   friendly_name: Landing Upper Right
   haaska_hidden: true
-light.master_bedroom_front_lights_level:
+light.master_bedroom_front_lights:
   friendly_name: Master Bedroom Front Lights
   icon: mdi:spotlight-beam
   homebridge_visible: true
-light.master_bedroom_rear_lights_level:
+light.master_bedroom_rear_lights:
   friendly_name: Master Bedroom Rear Lights
   icon: mdi:spotlight-beam
   homebridge_visible: true
 
 # Switches
-switch.backyard_floodlights_switch:
+switch.backyard_floodlights:
   icon: mdi:spotlight-beam
   friendly_name: Backyard Floodlights
   homebridge_visible: true
-switch.theater_switch_switch:
+switch.theater:
   friendly_name: Theater Switch
   icon: mdi:power-socket-us
   homebridge_visible: true
   homebridge_switch_type: outlet
-switch.backyard_light_switch:
+switch.backyard_light:
   friendly_name: Backyard Light
   icon: mdi:lightbulb
   homebridge_visible: true
-switch.garage_light_switch:
+switch.garage_light:
   icon: mdi:car
   friendly_name: Garage Lights
   homebridge_visible: true
-switch.driveway_light_switch:
+switch.driveway_light:
   icon: mdi:car
   friendly_name: Driveway
   homebridge_visible: true
-switch.porch_light_switch:
+switch.porch_light:
   icon: mdi:lightbulb
   friendly_name: Porch
   homebridge_visible: true
-switch.balcony_light_switch:
+switch.balcony_light:
   icon: mdi:lightbulb
   friendly_name: Balcony
   homebridge_visible: true
-light.office_lights_level:
+light.office_lights:
   icon: mdi:spotlight-beam
   friendly_name: Office Lights
   homebridge_visible: true
-switch.master_closet_lights_switch:
+switch.master_closet_lights:
   icon: mdi:hanger
   friendly_name: Master Closet Lights
   homebridge_visible: true
-switch.landing_switch:
+switch.landing:
   friendly_name: Landing
   icon: mdi:lightbulb
   homebridge_visible: true
   aliases:
     - Stairwell
-switch.guest_bedroom_fan_switch:
+switch.guest_bedroom_fan:
   icon: mdi:fan
   friendly_name: Guest Bedroom Fan
   homebridge_visible: true
-switch.rear_bedroom_fan_switch:
+switch.rear_bedroom_fan:
   icon: mdi:fan
   friendly_name: Rear Bedroom Fan
   homebridge_visible: true
-switch.fireplace_switch:
+switch.fireplace:
   icon: mdi:fire
   friendly_name: Fireplace
   homebridge_visible: true
 switch.towel_rack:
   icon: mdi:radiator
   homebridge_visible: true
-switch.washer_switch:
+switch.washer:
   icon: mdi:washing-machine
   haaska_hidden: true
   confirm_controls_show_lock: true
   templates:
   extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
-switch.dryer_switch:
+switch.dryer:
   icon: mdi:washing-machine
   haaska_hidden: true
   confirm_controls_show_lock: true
   templates:
   extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
-switch.water_heater_switch:
+switch.water_heater:
   icon: mdi:water-pump
   haaska_hidden: true
   confirm_controls_show_lock: true
@@ -218,15 +218,15 @@ sensor.battery_allansiphone:
   icon: mdi:battery
 
 # ZWave PIR Motion sensors
-binary_sensor.kitchen_motion_sensor:
+binary_sensor.kitchen_motion:
   icon: mdi:eye
   friendly_name: Kitchen Motion
   device_class: occupancy
-binary_sensor.master_closet_motion_sensor:
+binary_sensor.master_closet_motion:
   icon: mdi:eye
   friendly_name: Closet Motion
   device_class: occupancy
-binary_sensor.master_bath_motion_sensor:
+binary_sensor.master_bath_motion:
   icon: mdi:eye
   friendly_name: Master Bath Motion
   device_class: occupancy
@@ -241,16 +241,16 @@ cover.garage_door:
 
 #
 # Locks
-lock.front_door_locked:
+lock.front_door:
   friendly_name: Front Door
   homebridge_visible: true
-lock.back_door_locked:
+lock.back_door:
   friendly_name: Back Door
   homebridge_visible: true
-lock.garage_lock_locked:
+lock.garage:
   friendly_name: Garage Door
   homebridge_visible: true
-lock.back_gate_locked:
+lock.back_gate:
   friendly_name: Back Gate
   homebridge_visible: true
 

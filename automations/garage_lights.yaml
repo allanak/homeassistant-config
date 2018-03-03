@@ -9,7 +9,7 @@
   action:
     - service: switch.turn_on
       data:
-        entity_id: switch.garage_light_switch
+        entity_id: switch.garage_light
 
 - alias: Turn off garage lights after 10 minutes
   trigger:
@@ -26,4 +26,4 @@
   action:
     - service: switch.turn_off
       data:
-        entity_id: switch.garage_light_switch
+        entity_id: switch.garage_light
