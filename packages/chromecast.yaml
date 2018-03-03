@@ -517,44 +517,6 @@ automation:
       data:
         visible: True
   
-############################################################
-#
-# Media Player Guest Bedroom Home
-#
-############################################################
-  
-  - alias: 'Hide media_player.guest_bedroom2 while not playing'
-    hide_entity: true
-    trigger:
-    - platform: homeassistant
-      event: start
-    - platform: state
-      entity_id: media_player.guest_bedroom2
-      to: 'idle'
-    - platform: state
-      entity_id: media_player.guest_bedroom2
-      to: 'off'
-    action:
-    - service: group.set_visibility
-      entity_id: group.media_guest_bedroom
-      data:
-        visible: False
-  
-  - alias: 'Show media_player.guest_bedroom2 while playing'
-    hide_entity: true
-    trigger:
-    - platform: state
-      entity_id: media_player.guest_bedroom2
-      to: 'playing'
-    - platform: state
-      entity_id: media_player.guest_bedroom2
-      to: 'paused'
-    action:
-    - service: group.set_visibility
-      entity_id: group.media_guest_bedroom2
-      data:
-        visible: True
-  
 group:
   radio:
    name: Audio Streaming
@@ -607,18 +569,6 @@ group:
    icon: mdi:cast
    entities:
     - media_player.office
-  
-  media_guest_bedroom:
-   name: Chromecast Video Guest Bedroom
-   icon: mdi:cast
-   entities:
-    - media_player.guest_bedroom
-  
-  media_guest_bedroom2:
-   name: Chromecast Audio Guest Bedroom
-   icon: mdi:cast
-   entities:
-    - media_player.guest_bedroom2
   
   media_spotify:
    name: Spotify

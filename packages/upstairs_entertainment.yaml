@@ -34,7 +34,7 @@ group:
    entities:
     - media_player.lgtv
 
-  masterbedroom_receiver:
+  master_bedroom_receiver:
    name: Master Bedroom Receiver
    icon: mdi:speaker
    entities:
@@ -74,7 +74,7 @@ automation:
 #
 ############################################################
 
-  - alias: 'Hide media_player.upstairs while not playing'
+  - alias: 'Hide media_player.lgtv while not playing'
     hide_entity: true
     trigger:
     - platform: homeassistant
@@ -91,7 +91,7 @@ automation:
       data:
         visible: False
 
-  - alias: 'Show media_player.upstairs while playing'
+  - alias: 'Show media_player.lgtv while playing'
     hide_entity: true
     trigger:
     - platform: state

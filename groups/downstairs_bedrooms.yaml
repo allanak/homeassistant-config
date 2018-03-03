@@ -5,9 +5,9 @@ guest_bedrooms:
  entities:
   - device_tracker.allansiphone
   - sensor.sprout
+  - media_player.guest_bedroom
+  - media_player.guest_bedroom2
   - group.guest_bedroom
-  - group.media_guest_bedroom
-  - group.media_guest_bedroom2
   - group.rear_bedroom
 
 guest_bedroom:

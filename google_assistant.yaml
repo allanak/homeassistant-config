@@ -8,3 +8,118 @@ exposed_domains:
   - cover
   - group
   - scene
+expose_by_default: false
+entity_config:
+  light.kitchen_lights_level:
+    name: Kitchen Lights
+    expose: true
+  light.breakfast_bar_level:
+    name: Breakfast Bar
+    expose: true
+  light.dining_room_level:
+    name: Dining Room
+    expose: true
+  light.bar_lights_level:
+    name: Bar Lights
+    expose: true
+  light.theater_lights_level:
+    name: Theater Lights
+    expose: true
+  light.guest_bedroom_lights_level:
+    name: Guest Bedroom Lights
+    expose: true
+  light.rear_bedroom_lights_level:
+    name: Rear Bedroom Lights
+    expose: true
+  light.backyardgarden:
+    name: Backyard Garden
+    aliases:
+      - rear garden
+    expose: true
+  light.frontyardgarden:
+    name: Front Yard Garden
+    aliases:
+      - front garden
+    expose: true
+  light.hall_light_level:
+    name: Hallway
+    expose: true
+  light.office_lights_level:
+    name: Office Lights
+    expose: true
+  light.master_bedroom_front_lights_level:
+    name: Master Bedroom Front Lights
+    expose: true
+  light.master_bedroom_rear_lights_level:
+    name: Master Bedroom Rear Lights
+    expose: true
+  switch.backyard_floodlights_switch:
+    name: Backyard Floodlights
+    type: light
+    aliases:
+      - rear floodlights
+    expose: true
+  switch.theater_switch:
+    name: Theater Switch
+    expose: true
+  switch.backyard_light_switch:
+    name: Backyard light
+    type: light
+    expose: true
+  switch.garage_light_switch:
+    name: Garage Lights
+    type: light
+    expose: true
+  switch.driveway_light_switch:
+    name: Driveway
+    type: light
+    expose: true
+  switch.porch_light_switch:
+    name: Porch
+    type: light
+    expose: true
+  switch.balcony_light_switch:
+    name: Balcony
+    type: light
+    expose: true
+  switch.master_closet_lights_switch:
+    name: Closet
+    type: light
+    expose: true
+  switch.landing_switch:
+    name: Stairwell
+    aliases:
+      - landing
+    type: light
+    expose: true
+  switch.guest_bedroom_fan_switch:
+    name: Guest Bedroom Fan
+    expose: true
+  switch.rear_bedroom_fan_switch:
+    name: Rear Bedroom Fan
+    expose: true
+  switch.fireplace_switch:
+    name: Fireplace
+    expose: true
+  switch.towel_rack:
+    name: Towel Rack
+    aliases:
+      - towel heater
+      - towel warmer
+    expose: true
+  switch.yard:
+    name: Sprinklers
+    expose: true
+  switch.bed:
+    name: Bed
+    type: light
+    expose: true
+  switch.hot_tub:
+    name: Hot Tub
+    aliases:
+      - jacuzzi
+      - spa
+    expose: true
+  cover.garage_door:
+    name: Garage Door
+    expose: true

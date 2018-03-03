@@ -59,67 +59,52 @@ sensor:
         friendly_name: 'TV Activity'
 
 
-# Create switches for voice control of Harmony and Roku activities via Echo/Google Home
+# Create switches for voice control of Smart TV activities via Echo/Google Home
 switch:
   - platform: template
     switches:
       plex_upstairs:
-        value_template: "{{ is_state('remote.master_bedroom', 'on') }}"
+        value_template: "{{ is_state('media_player.lgtv', 'on') }}"
         turn_on:
-          - service: remote.turn_on
+          - service: media_player.turn_on
             data:
-              entity_id: remote.master_bedroom
-              activity: Watch Roku
+              entity_id: media_player.lgtv
           - service: media_player.select_source
             data:
-              entity_id: media_player.master_bedroom_2
+              entity_id: media_player.lgtv
               source: Plex
         turn_off:
           - service: remote.turn_off
             data:
               entity_id: remote.master_bedroom
-          - service: media_player.select_source
-            data:
-              entity_id: media_player.master_bedroom_2
-              source: Home
       netflix_upstairs:
-        value_template: "{{ is_state('remote.master_bedroom', 'on') }}"
+        value_template: "{{ is_state('media_player.lgtv', 'on') }}"
         turn_on:
-          - service: remote.turn_on
+          - service: media_player.turn_on
             data:
-              entity_id: remote.master_bedroom
-              activity: Watch Roku
+              entity_id: media_player.lgtv
           - service: media_player.select_source
             data:
-              entity_id: media_player.master_bedroom_2
+              entity_id: media_player.lgtv
               source: Netflix
         turn_off:
           - service: remote.turn_off
             data:
-              entity_id: remote.master_bedroom
-          - service: media_player.select_source
-            data:
-              entity_id: media_player.master_bedroom_2
-              source: Home
+              entity_id: media_player.lgtv
       tv_upstairs:
-        value_template: "{{ is_state('remote.master_bedroom', 'on') }}"
+        value_template: "{{ is_state('media_player.lgtv', 'on') }}"
         turn_on:
-          - service: remote.turn_on
+          - service: media_player.turn_on
             data:
-              entity_id: remote.master_bedroom
-              activity: Watch Roku
+              entity_id: media_player.lgtv
           - service: media_player.select_source
             data:
-              entity_id: media_player.master_bedroom_2
-              source: smoothStreams
+              entity_id: media_player.lgtv
+              source: Smart IPTV
         turn_off:
-          - service: remote.turn_off
+          - service: media_player.turn_off
             data:
-              entity_id: remote.master_bedroom
-          - service: media_player.select_source
-            data:
-              entity_id: media_player.master_bedroom_2
-              source: Home
+              entity_id: media_player.lgtv
 
 
 # Create dropdowns for activity selection

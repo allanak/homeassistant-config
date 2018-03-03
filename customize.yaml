@@ -21,7 +21,7 @@ light.dining_room_level:
   friendly_name: Dining Room
   homebridge_visible: true
 light.bar_lights_level:
-  icon: mdi:martini
+  icon: mdi:glass-cocktail
   friendly_name: Bar
   homebridge_visible: true
 light.theater_lights_level:
@@ -41,13 +41,10 @@ switch.bed:
   homebridge_visible: true
 # Lightify Lights
 light.masterbathlf:
-  google_assistant: false
   friendly_name: Left Vanity
 light.masterbathrt:
-  google_assistant: false
   friendly_name: Right Vanity
 light.masterbath:
-  google_assistant: false
   friendly_name: Vanity
 light.kitchenrgb:
   friendly_name: Kitchen RGB
@@ -56,12 +53,10 @@ light.kitchenrgb:
 light.kitchenrgblf:
   friendly_name: Kitchen Left RGB
   icon: mdi:white-balance-iridescent
-  google_assistant: false
   haaska_hidden: true
 light.kitchenrgbrt:
   friendly_name: Kitchen Right RGB
   icon: mdi:white-balance-iridescent
-  google_assistant: false
   haaska_hidden: true
 light.backyardgarden:
   friendly_name: Rear Garden
@@ -77,40 +72,31 @@ light.hall_light_level:
 light.hallwaybulb:
   friendly_name: Hallway Bulb
   haaska_hidden: true
-  google_assistant: false
 light.backyardbulb:
   friendly_name: Backyard Bulb
-  google_assistant: false
   haaska_hidden: true
 light.guestbathcenter:
   friendly_name: Guest Bath Center Bulb
-  google_assistant: false
   haaska_hidden: true
 light.guestbathright:
   friendly_name: Guest Bath Right Bulb
-  google_assistant: false
   haaska_hidden: true
 light.landingbulbs:
   friendly_name: Landing Bulbs
 light.staircase:
   icon: mdi:stairs
 light.staircase_upper_strip:
-  google_assistant: false
   haaska_hidden: true
 light.staircase_lower_strip:
-  google_assistant: false
   haaska_hidden: true
 light.landingdnlf:
   friendly_name: Landing Lower Left
-  google_assistant: false
   haaska_hidden: true
 light.landingdnrt:
   friendly_name: Landing Lower Right
-  google_assistant: false
   haaska_hidden: true
 light.landinguprt:
   friendly_name: Landing Upper Right
-  google_assistant: false
   haaska_hidden: true
 light.master_bedroom_front_lights_level:
   friendly_name: Master Bedroom Front Lights
@@ -182,21 +168,18 @@ switch.towel_rack:
   homebridge_visible: true
 switch.washer_switch:
   icon: mdi:washing-machine
-  google_assistant: false
   haaska_hidden: true
   confirm_controls_show_lock: true
   templates:
   extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
 switch.dryer_switch:
   icon: mdi:washing-machine
-  google_assistant: false
   haaska_hidden: true
   confirm_controls_show_lock: true
   templates:
   extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
 switch.water_heater_switch:
   icon: mdi:water-pump
-  google_assistant: false
   haaska_hidden: true
   confirm_controls_show_lock: true
   templates:
@@ -317,18 +300,14 @@ sensor.dark_sky_temperature:
   
 # Scripts
 script.onkyovolume:
-  google_assistant: false
   custom_ui_state_card: state-card-custom-onkyo
   haaska_hidden: true
   hide_control: true
 script.housekeeper_code_on:
-  google_assistant: false
   haaska_hidden: true
 script.housekeeper_code_off:
-  google_assistant: false
   haaska_hidden: true
 script.reload_automations:
-  google_assistant: false
   haaska_hidden: true
 
 # Place a few secrets as sensor values
