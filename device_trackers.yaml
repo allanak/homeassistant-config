@@ -4,6 +4,10 @@
   username: !secret unifi_username
   password: !secret unifi_password
   verify_ssl: false
+  ssid_filter:
+    - 'Thunder'
+    - 'Home-IoT'
+    - 'Home-IoT5'
 
 #- platform: icloud
 #  username: !secret icloud_username
@@ -14,6 +18,6 @@
 
 - platform: owntracks_http
 
-- platform: ping
-  hosts:
-    allan_ping: iphone.home.local
+#- platform: ping
+#  hosts:
+#    allan_ping: iphone.home.local

@@ -6,8 +6,8 @@
       value_template: >-
         {% if is_state('sensor.front_door_alarm_type', '18') or
               is_state('sensor.front_door_alarm_type', '19') %}
-          {% if not is_state('sensor.front_door_alarm_level', '0') %}
-            {{states('sensor.front_door_alarm_level')}}
+          {% if not is_state('sensor.front_door_alarm', '0') %}
+            {{states('sensor.front_door_alarm')}}
           {% else %}
             {# just provide previous value if no user code entered #}
             {{states('sensor.front_door_code')}}
@@ -24,17 +24,17 @@
       friendly_name: "Front Door Last Action"
       value_template: >-
         {% if is_state('sensor.front_door_alarm_type', '18') %}
-          {% if is_state('sensor.front_door_alarm_level', '0') %}
+          {% if is_state('sensor.front_door_alarm', '0') %}
         Locked: Outside Keypad
           {% else %}
-        Locked: User {{states('sensor.front_door_alarm_level')}}
+        Locked: User {{states('sensor.front_door_alarm')}}
           {% endif %}
         {% elif is_state('sensor.front_door_alarm_type', '19') %}
-          Unlocked: User Code {{states('sensor.front_door_alarm_level')}}
+          Unlocked: User Code {{states('sensor.front_door_alarm')}}
         {% elif is_state('sensor.front_door_alarm_type', '21') %}
-          Locked: {{[ 'Outside Lock', 'Inside Deadbolt', 'Outside Keypad' ][states('sensor.front_door_alarm_level')|int]}}
+          Locked: {{[ 'Outside Lock', 'Inside Deadbolt', 'Outside Keypad' ][states('sensor.front_door_alarm')|int]}}
         {% elif is_state('sensor.front_door_alarm_type', '22') %}
           Unlocked: Inside Deadbolt
         {% else %}
-          Unknown: {{states('sensor.front_door_alarm_type')}}/{{states('sensor.front_door_alarm_level')}}
+          Unknown: {{states('sensor.front_door_alarm_type')}}/{{states('sensor.front_door_alarm')}}
         {% endif %}

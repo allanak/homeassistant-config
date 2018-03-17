@@ -58,7 +58,6 @@ entity_config:
     expose: true
   switch.backyard_floodlights:
     name: Backyard Floodlights
-    type: light
     aliases:
       - rear floodlights
     expose: true
@@ -67,41 +66,32 @@ entity_config:
     expose: true
   switch.backyard_light:
     name: Backyard light
-    type: light
     expose: true
   switch.garage_light:
     name: Garage Lights
-    type: light
     expose: true
   switch.driveway_light:
     name: Driveway
-    type: light
     expose: true
   switch.porch_light:
     name: Porch
-    type: light
     expose: true
   switch.balcony_light:
     name: Balcony
-    type: light
     expose: true
   switch.master_closet_lights:
     name: Closet
-    type: light
     expose: true
   switch.landing:
     name: Stairwell
     aliases:
       - landing
-    type: light
     expose: true
   switch.guest_bedroom_fan:
     name: Guest Bedroom Fan
-    type: fan
     expose: true
   switch.rear_bedroom_fan:
     name: Rear Bedroom Fan
-    type: fan
     expose: true
   switch.fireplace:
     name: Fireplace
@@ -117,7 +107,6 @@ entity_config:
     expose: true
   switch.bed:
     name: Bed
-    type: light
     expose: true
   switch.hot_tub:
     name: Hot Tub

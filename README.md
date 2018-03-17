@@ -7,8 +7,6 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 ## Current Configuration
 * Raspberry Pi 3 Model B using [Hass.io](https://home-assistant.io/hassio/)
 
-##### Fair warning: I've been in the process of migrating from Samsung SmartThings to Home Assistant. While much of this works, it is constantly under construction :)
-
 ## Automations
 ### Lights
 * Turn on kitchen lights when motion detected and off when motion stops (motion_kitchen_lights.yaml)
@@ -24,13 +22,13 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * If it's a travel day per my TripIt calendar, remind me where I'm going after I leave the bathroom in the morning
 * Hot Tub control (Balboa Wi-Fi) and temperature readings
 ### Security
-* Arm alarm when Night mode kicks in (alarm.yaml)
+* Arm alarm when Night mode kicks in, lock the doors and close the shades (alarm.yaml)
 * Arm alarm when house is empty for a while (alarm.yaml)
 * Turn on/off perimeter lighting after sunset/sunrise (night_lighting.yaml)
 * Turn on/off evening lighting at night, off at midnight (night_lighting.yaml)
 ### UI Enhancements/Customizations
 * Use meta device tracker python script to use most accurate source of presence (iOS app, OwnTracks and ping)
-* Hide media players when their state is idle/off (hide_mediaplayers.yaml)
+* Hide media players from the UI when their state is idle/off (hide_mediaplayers.yaml)
 * Set theme based on sunrise/sunset (hass_theme.yaml)
 * Use [Custom UI elements](https://github.com/andrey-git/home-assistant-custom-ui) for tweaking UI objects
 ### Housekeeping
@@ -47,7 +45,9 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * Onkyo TX-NR676 Receiver
 * [Logitech Harmony Hubs](https://www.logitech.com/en-us/product/harmony-hub)
 * [Broadlink RM Pro](https://www.amazon.com/Broadlink-Automation-Universal-Compatible-Smartphones/dp/B01GIXZDKO)
+* Xiaomi Gateway v2
 * Xiaomi Roborock Smart Robot Vacuum Cleaner
+* Somfy ZRTSI II
 * Hikvision IP Cameras and NVR
 * Google Chromecast Audio, Video and Google Homes using [Google Assistant](https://home-assistant.io/components/google_assistant/) 
 * Amazon Echo and Echo Dots (using [haaska](https://github.com/auchter/haaska))
@@ -75,10 +75,9 @@ These are [my](https://twitter.com/allanak) personal [Home Assistant](https://ho
 * [Monoprice Z-Wave PIR Motion Sensors](https://www.monoprice.com/product?p_id=15271)
 * Z-Wave Door Sensors
 * [FirstAlert Z-Wave Smoke Detectors](https://www.lowes.com/pd/First-Alert-Z-Wave-Battery-powered-3-Volt-Photoelectric-Sensor-Smoke-Detector/4780111)
-* Xiaomi Aqara Water Leak Sensors (Zigbee, still need to integrate)
+* Xiaomi Aqara Water Leak Sensors
 
 ### Third-party Integrations
-~~* [Plex](https://www.plex.tv/) for Plex server activity~~
 * [Tautulli](http://tautulli.com/) for Plex server activity
 * [NZBGet](https://nzbget.net/) for usenet download activity
 * [Sonarr](https://sonarr.tv/) for TV show activity

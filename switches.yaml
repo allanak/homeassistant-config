@@ -1,9 +1,9 @@
-- platform: rachio
-  access_token: !secret rachio_api_key
+#- platform: rachio
+#  access_token: !secret rachio_api_key
 
-- platform: broadlink
-  host: 192.168.3.92
-  mac: '34:ea:34:90:f8:29'
+#- platform: broadlink
+#  host: 192.168.3.92
+#  mac: '34:ea:34:90:f8:29'
 
 - platform: command_line
   switches:

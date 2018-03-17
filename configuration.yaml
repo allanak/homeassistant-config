@@ -183,6 +183,9 @@ wake_on_lan:
 #  usb_path: /dev/ttyACM1
 #  database_path: /config/zigbee.db
 
+# Enable homekit
+homekit:
+  pincode: !secret homekit_pin
 # Menu Customization
 panel_iframe:
   node_red:

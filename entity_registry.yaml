@@ -387,76 +387,52 @@ sensor.garage_lock_alarm:
   unique_id: 57-72057595000274961
 cover.rear_upper_shade:
   platform: zwave
-  unique_id: 59-72057595032584192
+  unique_id: 59-72057595032600577
 switch.rear_upper_shade:
   platform: zwave
   unique_id: 59-72057595032584192
-cover.rear_upper_shade:
-  platform: zwave
-  unique_id: 59-72057595032600577
-cover.rear_lower_shade:
-  platform: zwave
-  unique_id: 60-72057595049361408
-switch.rear_lower_shade:
-  platform: zwave
-  unique_id: 60-72057595049361408
 cover.rear_lower_shade:
   platform: zwave
   unique_id: 60-72057595049377793
-cover.rear_shades:
+switch.rear_lower_shade:
   platform: zwave
-  unique_id: 61-72057595066138624
-switch.rear_shades:
-  platform: zwave
-  unique_id: 61-72057595066138624
+  unique_id: 60-72057595049361408
 cover.rear_shades:
   platform: zwave
   unique_id: 61-72057595066155009
-cover.master_bedroom_left_window_shade:
+switch.rear_shades:
   platform: zwave
-  unique_id: 62-72057595082915840
-switch.master_bedroom_left_window_shade:
-  platform: zwave
-  unique_id: 62-72057595082915840
+  unique_id: 61-72057595066138624
 cover.master_bedroom_left_window_shade:
   platform: zwave
   unique_id: 62-72057595082932225
-cover.master_bedroom_left_balcony_shade:
+switch.master_bedroom_left_window_shade:
   platform: zwave
-  unique_id: 63-72057595099693056
-switch.master_bedroom_left_balcony_shade:
-  platform: zwave
-  unique_id: 63-72057595099693056
+  unique_id: 62-72057595082915840
 cover.master_bedroom_left_balcony_shade:
   platform: zwave
   unique_id: 63-72057595099709441
-cover.master_bedroom_right_balcony_shade:
+switch.master_bedroom_left_balcony_shade:
   platform: zwave
-  unique_id: 64-72057595116470272
-switch.master_bedroom_right_balcony_shade:
-  platform: zwave
-  unique_id: 64-72057595116470272
+  unique_id: 63-72057595099693056
 cover.master_bedroom_right_balcony_shade:
   platform: zwave
   unique_id: 64-72057595116486657
-cover.master_bedroom_right_window_shade:
+switch.master_bedroom_right_balcony_shade:
   platform: zwave
-  unique_id: 65-72057595133247488
-switch.master_bedroom_right_window_shade:
-  platform: zwave
-  unique_id: 65-72057595133247488
+  unique_id: 64-72057595116470272
 cover.master_bedroom_right_window_shade:
   platform: zwave
   unique_id: 65-72057595133263873
-cover.master_bedroom_shades:
+switch.master_bedroom_right_window_shade:
   platform: zwave
-  unique_id: 66-72057595150024704
-switch.master_bedroom_shades:
-  platform: zwave
-  unique_id: 66-72057595150024704
+  unique_id: 65-72057595133247488
 cover.master_bedroom_shades:
   platform: zwave
   unique_id: 66-72057595150041089
+switch.master_bedroom_shades:
+  platform: zwave
+  unique_id: 66-72057595150024704
 binary_sensor.water_leak_sensor_158d0001d52049:
   platform: xiaomi_aqara
   unique_id: status158d0001d52049
@@ -523,3 +499,27 @@ media_player.office:
 media_player.shield:
   platform: cast
   unique_id: 8ae3ceed-f33a-ac2d-d32f-94555175b6c2
+cover.rear_upper_shade_switch:
+  platform: zwave
+  unique_id: 59-72057595032584192
+cover.rear_lower_shade_switch:
+  platform: zwave
+  unique_id: 60-72057595049361408
+cover.rear_shades_switch:
+  platform: zwave
+  unique_id: 61-72057595066138624
+cover.master_bedroom_left_window_shade_switch:
+  platform: zwave
+  unique_id: 62-72057595082915840
+cover.master_bedroom_left_balcony_shade_switch:
+  platform: zwave
+  unique_id: 63-72057595099693056
+cover.master_bedroom_right_balcony_shade_switch:
+  platform: zwave
+  unique_id: 64-72057595116470272
+cover.master_bedroom_right_window_shade_switch:
+  platform: zwave
+  unique_id: 65-72057595133247488
+cover.master_bedroom_shades_switch:
+  platform: zwave
+  unique_id: 66-72057595150024704

@@ -4,7 +4,7 @@ automation:
   - alias: 'Wake Me Up'
     trigger:
       platform: template
-      value_template: '{{ states.sensor.time.state == states.sensor.alarm_time.state }}'
+      value_template: "{{ states('sensor.time') == (states.input_datetime.bedroom_alarm_clock_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
     condition:
       condition: or
       conditions:
@@ -37,7 +37,7 @@ automation:
         parameter: 8
         value: 255
     - service: light.turn_on
-      entity_id: light.master_bedroom_rear_lights_level
+      entity_id: light.master_bedroom_rear_lights
     - service: homeassistant.turn_on
       entity_id: automation.alarm_clock_morning_announcements
 
@@ -47,10 +47,15 @@ group:
     control: hidden
     entities:
       - automation.wake_me_up
-      - sensor.alarm_time
-      - input_number.alarmhour
-      - input_number.alarmminutes
+      - input_datetime.bedroom_alarm_clock_time
       - input_boolean.alarmweekday
+
+input_datetime:
+  bedroom_alarm_clock_time:
+    name: Time
+    has_date: false
+    has_time: true
+    initial: 08:30
 
 # Only wake me up on weekdays?
 input_boolean:
@@ -58,29 +63,3 @@ input_boolean:
     name: Weekdays Only
     initial: on
     icon: mdi:calendar-check
-
-# Set alarm hour
-input_number:
-  alarmhour:
-    name: Hour
-    icon: mdi:timer
-    initial: 9
-    min: 0
-    max: 23
-    step: 1
-# Set alarm minutes in 5 min increments
-  alarmminutes:
-    name: Minutes
-    icon: mdi:timer
-    initial: 0
-    min: 0
-    max: 59
-    step: 5
-
-# Put it all together now for display
-sensor:
-  - platform: template
-    sensors:
-      alarm_time:
-        friendly_name: 'Time'
-        value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.alarmhour") | int, states("input_number.alarmminutes") | int) }}'
