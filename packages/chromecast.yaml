@@ -37,10 +37,10 @@ input_select:
     icon: mdi:radio
 
 # Dropdown to select media player or chromecast group
-  streaming_audio:
-    name: Casting Group
+  speaker_selection:
+    name: Speaker Selection
     options:
-      - Whole House
+      - Everywhere
       - Upstairs
       - Downstairs
       - Living Room Home
@@ -54,6 +54,43 @@ input_select:
       - "None"
     initial: "None"
     icon: mdi:cast
+
+# Media extractor for custom URL streaming
+media_extractor:
+  default_query: best
+
+# Custom URL input
+input_text:
+  stream_url:
+    name: Streaming URL
+    initial: Enter URL
+
+# Tell the casting device to play the requested stream_url via media_extractor component
+automation:
+  - alias: Stream URL Text Changed Event
+    initial_state: true
+    hide_entity: true
+    trigger:
+      - platform: state
+        entity_id: input_text.stream_url
+    action:
+      - service: media_extractor.play_media
+        data_template:
+          entity_id: >
+            {% if is_state("input_select.speaker_selection", "Everywhere") %} media_player.home_group
+            {% elif is_state("input_select.speaker_selection", "Upstairs") %} media_player.upstairs
+            {% elif is_state("input_select.speaker_selection", "Office") %} media_player.office
+            {% elif is_state("input_select.speaker_selection", "Shield") %} media_player.shield
+            {% elif is_state("input_select.speaker_selection", "Kitchen") %} media_player.kitchen
+            {% elif is_state("input_select.speaker_selection", "Fireplace") %} media_player.master_bedroom
+            {% elif is_state("input_select.speaker_selection", "Guest Bedroom") %} media_player.guest_bedroom_2
+            {% elif is_state("input_select.speaker_selection", "Guest Bedroom Surround Sound") %} media_player.guest_bedroom_surround
+            {% elif is_state("input_select.speaker_selection", "Shield") %} media_player.shield
+            {% elif is_state("input_select.speaker_selection", "Receiver") %} media_player.receiver
+            {% elif is_state("input_select.speaker_selection", "Master Bedroom Receiver") %} media_player.master_bedroom_receiver
+            {% endif %}
+          media_content_id: "{{states.input_text.stream_url.state}}"
+          media_content_type: 'video/mp4'
 
 ############################################################
 #
@@ -76,29 +113,29 @@ automation:
       - service: media_player.turn_off
         data_template:
           entity_id: >
-              {% if is_state("input_select.streaming_audio", "Living Room Home") %}
+              {% if is_state("input_select.speaker_selection", "Living Room Home") %}
                 media_player.living_room_home
-              {%-elif is_state("input_select.streaming_audio", "Whole House") %}
+              {%-elif is_state("input_select.speaker_selection", "Everywhere") %}
                 media_player.home_group
-              {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
+              {%-elif is_state("input_select.speaker_selection", "Upstairs") %}
                 media_player.upstairs
-              {%-elif is_state("input_select.streaming_audio", "Downstairs") %}
+              {%-elif is_state("input_select.speaker_selection", "Downstairs") %}
                 media_player.downstairs
-              {%-elif is_state("input_select.streaming_audio", "Office") %}
+              {%-elif is_state("input_select.speaker_selection", "Office") %}
                 media_player.office
-              {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
+              {%-elif is_state("input_select.speaker_selection", "Kitchen") %}
                 media_player.kitchen
-              {%-elif is_state("input_select.streaming_audio", "Fireplace") %}
+              {%-elif is_state("input_select.speaker_selection", "Fireplace") %}
                 media_player.master_bedroom
-              {%-elif is_state("input_select.streaming_audio", "Shield") %}
+              {%-elif is_state("input_select.speaker_selection", "Shield") %}
                 media_player.shield
-              {%-elif is_state("input_select.streaming_audio", "Guest Bedroom") %}
+              {%-elif is_state("input_select.speaker_selection", "Guest Bedroom") %}
                 media_player.guest_bedroom_2
-              {%-elif is_state("input_select.streaming_audio", "Receiver") %}
+              {%-elif is_state("input_select.speaker_selection", "Receiver") %}
                 media_player.receiver
-              {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
+              {%-elif is_state("input_select.speaker_selection", "Master Bedroom Receiver") %}
                 media_player.master_bedroom_receiver
-              {%-elif is_state("input_select.streaming_audio", "Guest Bedroom Surround Sound") %}
+              {%-elif is_state("input_select.speaker_selection", "Guest Bedroom Surround Sound") %}
                 media_player.guest_bedroom_surround
               {% else %}
                 "None"
@@ -118,29 +155,29 @@ automation:
       - service: media_player.play_media
         data_template:
           entity_id: >
-            {% if is_state("input_select.streaming_audio", "Living Room Home") %}
+            {% if is_state("input_select.speaker_selection", "Living Room Home") %}
               media_player.living_room_home
-            {%-elif is_state("input_select.streaming_audio", "Whole House") %}
+            {%-elif is_state("input_select.speaker_selection", "Everywhere") %}
               media_player.home_group
-            {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
+            {%-elif is_state("input_select.speaker_selection", "Upstairs") %}
               media_player.upstairs
-            {%-elif is_state("input_select.streaming_audio", "Downstairs") %}
+            {%-elif is_state("input_select.speaker_selection", "Downstairs") %}
               media_player.downstairs
-            {%-elif is_state("input_select.streaming_audio", "Office") %}
+            {%-elif is_state("input_select.speaker_selection", "Office") %}
               media_player.office
-            {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
+            {%-elif is_state("input_select.speaker_selection", "Kitchen") %}
               media_player.kitchen
-            {%-elif is_state("input_select.streaming_audio", "Fireplace") %}
+            {%-elif is_state("input_select.speaker_selection", "Fireplace") %}
               media_player.master_bedroom
-            {%-elif is_state("input_select.streaming_audio", "Shield") %}
+            {%-elif is_state("input_select.speaker_selection", "Shield") %}
               media_player.shield
-            {%-elif is_state("input_select.streaming_audio", "Guest Bedroom") %}
+            {%-elif is_state("input_select.speaker_selection", "Guest Bedroom") %}
               media_player.guest_bedroom_2
-            {%-elif is_state("input_select.streaming_audio", "Receiver") %}
+            {%-elif is_state("input_select.speaker_selection", "Receiver") %}
               media_player.receiver
-            {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
+            {%-elif is_state("input_select.speaker_selection", "Master Bedroom Receiver") %}
               media_player.master_bedroom_receiver
-            {%-elif is_state("input_select.streaming_audio", "Guest Bedroom Surround Sound") %}
+            {%-elif is_state("input_select.speaker_selection", "Guest Bedroom Surround Sound") %}
               media_player.guest_bedroom_surround
             {% else %}
               "None"
@@ -173,34 +210,34 @@ automation:
         entity_id: input_number.google_volume
     condition:
       - condition: template
-        value_template: "{{ states.input_select.streaming_audio.state != 'OFF' }}"
+        value_template: "{{ states.input_select.speaker_selection.state != 'OFF' }}"
     action:
       - service: media_player.volume_set
         data_template:
           entity_id: >
-            {% if is_state("input_select.streaming_audio", "Living Room Home") %}
+            {% if is_state("input_select.speaker_selection", "Living Room Home") %}
               media_player.living_room_home
-            {%-elif is_state("input_select.streaming_audio", "Whole House") %}
+            {%-elif is_state("input_select.speaker_selection", "Everywhere") %}
               media_player.home_group
-            {%-elif is_state("input_select.streaming_audio", "Upstairs") %}
+            {%-elif is_state("input_select.speaker_selection", "Upstairs") %}
               media_player.upstairs
-            {%-elif is_state("input_select.streaming_audio", "Downstairs") %}
+            {%-elif is_state("input_select.speaker_selection", "Downstairs") %}
               media_player.downstairs
-            {%-elif is_state("input_select.streaming_audio", "Office") %}
+            {%-elif is_state("input_select.speaker_selection", "Office") %}
               media_player.office
-            {%-elif is_state("input_select.streaming_audio", "Kitchen") %}
+            {%-elif is_state("input_select.speaker_selection", "Kitchen") %}
               media_player.kitchen
-            {%-elif is_state("input_select.streaming_audio", "Fireplace") %}
+            {%-elif is_state("input_select.speaker_selection", "Fireplace") %}
               media_player.master_bedroom
-            {%-elif is_state("input_select.streaming_audio", "Shield") %}
+            {%-elif is_state("input_select.speaker_selection", "Shield") %}
               media_player.shield
-            {%-elif is_state("input_select.streaming_audio", "Guest Bedroom") %}
+            {%-elif is_state("input_select.speaker_selection", "Guest Bedroom") %}
               media_player.guest_bedroom2
-            {%-elif is_state("input_select.streaming_audio", "Receiver") %}
+            {%-elif is_state("input_select.speaker_selection", "Receiver") %}
               media_player.receiver
-            {%-elif is_state("input_select.streaming_audio", "Master Bedroom Receiver") %}
+            {%-elif is_state("input_select.speaker_selection", "Master Bedroom Receiver") %}
               media_player.master_bedroom_receiver
-            {%-elif is_state("input_select.streaming_audio", "Guest Bedroom Surround Sound") %}
+            {%-elif is_state("input_select.speaker_selection", "Guest Bedroom Surround Sound") %}
               media_player.guest_bedroom_surround
             {% else %}
               "None"
@@ -522,8 +559,9 @@ group:
    name: Audio Streaming
    icon: mdi:cast
    entities:
-    - input_select.streaming_audio
+    - input_select.speaker_selection
     - input_select.radio_station
+    - input_text.stream_url
     - input_number.google_volume
 
   media_players:
