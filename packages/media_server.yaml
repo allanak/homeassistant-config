@@ -10,7 +10,7 @@ homeassistant:
     sensor.tautulli_direct_play:
       friendly_name: Direct Play
     sensor.tautulli_direct_stream:
-      friendly_name: Direct Play
+      friendly_name: Direct Stream
     sensor.tautulli_total_bandwidth:
       friendly_name: Total Bandwidth
 

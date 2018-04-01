@@ -1,0 +1,32 @@
+# Enable homekit
+# 
+homekit:
+  auto_start: False
+  filter:
+    include_domains:
+      - alarm
+      - binary_sensor
+      - climate
+      - cover
+      - light
+      - lock
+      - media_player
+      - script
+      - switch
+#    include_entities:
+#    exclude_domains:
+#      - sensor
+#      - automation
+    exclude_entities:
+      - switch.dryer
+      - switch.washer
+      - switch.water_heater
+
+# Don't start homekit until zwave network is ready
+automation:
+  - alias: 'Start HomeKit'
+    trigger:
+      - platform: event
+        event_type: zwave.network_ready
+    action:
+      - service: homekit.start

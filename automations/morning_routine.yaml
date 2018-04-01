@@ -47,7 +47,7 @@
         variable: house_state
         value: 'Shower'
     - service: light.turn_off
-      entity_id: light.master_bedroom_rear_lights_level
+      entity_id: light.master_bedroom_rear_lights
 
 # Turn off shower music after shower, disarm alarm
 - alias: Bathroom Music Off
@@ -79,17 +79,18 @@
       entity_id: binary_sensor.kitchen_motion
       to: 'on'
   action:
+    - condition: state
+      entity_id: calendar.tripit
+      state: 'on'
     - service: notify.google_assistant
       data_template:
         message: >
-          {% if is_state('calendar.tripit', 'on') %}
           {{ [ 'Enjoy your trip to {{ states.calendar.tripit.attributes.location }}!', 'Have a good time in {{ states.calendar.tripit.attributes.location }}. See you soon!' ] | random }}
-          {% endif %}
     - condition: time
       weekday:
         - mon 
-    - delay: 00:07
+    - delay: 00:01
     - service: notify.google_assistant
       data_template:
         message: >
-          {{ [ "Today is Monday. That means tomorrow is trash pickup day", "Hey, don't forget tomorrow is garbage pickup", "Take the trash out, you lazy bastard!" ] | random }}
+          {{ [ "Today is Monday. That means tomorrow is trash pickup day", "Hey, don't forget tomorrow is garbage pickup" ] | random }}

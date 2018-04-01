@@ -1,5 +1,5 @@
 xiaomi_aqara:
-  interface: !secret wifi_ip
+#  interface: !secret wifi_ip
   gateways:
     - mac: !secret xiaomi_gw_mac
       key: !secret xiaomi_gw_key

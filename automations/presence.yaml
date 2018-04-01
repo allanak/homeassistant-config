@@ -1,27 +1,27 @@
 #
 # Update Meta Device Tracker
 #
-- alias: "Update Meta Tracker Home"
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.bayesian_presence
-      to: 'on'
-  action:
-    service: device_tracker.see
-    data:
-      dev_id: device_tracker.metatracker
-      location_name: home
+#- alias: "Update Meta Tracker Home"
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.bayesian_presence
+#      to: 'on'
+#  action:
+#    service: device_tracker.see
+#    data:
+#      dev_id: device_tracker.metatracker
+#      location_name: home
 
-- alias: "Update Meta Tracker Away"
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.bayesian_presence
-      to: 'off'
-  action:
-    service: device_tracker.see
-    data:
-      dev_id: device_tracker.metatracker
-      location_name: not_home
+#- alias: "Update Meta Tracker Away"
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.bayesian_presence
+#      to: 'off'
+#  action:
+#    service: device_tracker.see
+#    data:
+#      dev_id: device_tracker.metatracker
+#      location_name: not_home
 
 - alias: House State to Vacation
   trigger:

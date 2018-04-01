@@ -18,7 +18,7 @@
             {% endif %}
     - service: light.turn_on
       data_template:
-          entity_id: light.kitchen_lights_level
+          entity_id: light.kitchen_lights
           brightness: >
             {%- if is_state("variable.house_state", "Evening") %}
             15

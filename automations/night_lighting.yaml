@@ -37,7 +37,7 @@
         color: red
     - service: homeassistant.turn_on
       data:
-        entity_id: light.hall_light_level
+        entity_id: light.hall_light
         brightness: '20'
 
 - alias: Turn off evening lighting at midnight

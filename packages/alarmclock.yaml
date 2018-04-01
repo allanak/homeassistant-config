@@ -1,7 +1,7 @@
 # Transition bedroom lights on for 5 minutes if alarm clock is set
 # This sends Z-Wave parameters to change the light to dim at 2.55 seconds per level at 100 increments, taking 4.2 minutes to go to full brightness
 automation:
-  - alias: 'Wake Me Up'
+  - alias: Wake Me Up
     trigger:
       platform: template
       value_template: "{{ states('sensor.time') == (states.input_datetime.bedroom_alarm_clock_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
