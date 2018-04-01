@@ -65,8 +65,14 @@ input_text:
     name: Streaming URL
     initial: Enter URL
 
-# Tell the casting device to play the requested stream_url via media_extractor component
+############################################################
+#
+# Chromecast Radio Control
+#
+############################################################
+    
 automation:
+# Tell the casting device to play the requested stream_url via media_extractor component
   - alias: Stream URL Text Changed Event
     initial_state: true
     hide_entity: true
@@ -94,16 +100,10 @@ automation:
 
 ############################################################
 #
-# Chromecast Radio Control
-#
-############################################################
-    
-############################################################
-#
 # Stop Streaming Radio on Chromecast
 #
 ############################################################
-automation:  
+
   - alias: STOP Streaming Radio on CHROMECAST
     trigger:
       - platform: state
